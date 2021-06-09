@@ -1,0 +1,42 @@
+[
+  {
+    "path": "posts/welcome/",
+    "title": "Welcome to Statistical Computing!",
+    "description": "Introductory course information for students enrolled in JHSPH Biostatistics 140.776 in Fall 2021",
+    "author": [
+      {
+        "name": "Stephanie Hicks",
+        "url": "https://stephaniehicks.com/"
+      }
+    ],
+    "date": "2021-08-31",
+    "categories": [
+      "course-admin"
+    ],
+    "contents": "\nFirst, I just want to welcome each of you to the 2021-2022 academic year at JHSPH. The last year has been difficult in so many ways.\n\n\n\n",
+    "preview": {},
+    "last_modified": "2021-05-12T14:42:31-04:00",
+    "input_file": {}
+  },
+  {
+    "path": "posts/2021-05-12-introduction-to-r-and-rstudio/",
+    "title": "Introduction to R and RStudio",
+    "description": "A short description of the post.",
+    "author": [
+      {
+        "name": "Stephanie Hicks",
+        "url": "https://stephaniehicks.com/"
+      }
+    ],
+    "date": "2021-05-12",
+    "categories": [
+      "R",
+      "programming",
+      "RStudio"
+    ],
+    "contents": "\nMaterial for this lecture was borrowed from\nIntroduction to Statistical Computing by Naim Rashid\nAdd here\nLearning objectives\nAt the end of this lesson you will\nBe able to define XXX\nBe able to define what is readable and efficient code?\nBe able to follow XXX\n\n\n\n",
+    "preview": {},
+    "last_modified": "2021-06-09T13:44:10-04:00",
+    "input_file": {}
+  }
+]

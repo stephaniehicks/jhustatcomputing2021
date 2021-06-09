@@ -1,0 +1,41 @@
+---
+title: "Introduction to R and RStudio"
+description: |
+  A short description of the post.
+author:
+  - name: Stephanie Hicks
+    url: https://stephaniehicks.com/
+date: 05-12-2021
+output:
+  distill::distill_article:
+    self_contained: false
+categories:
+  - R
+  - programming
+  - RStudio
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+Material for this lecture was borrowed from 
+
+* [Introduction to Statistical Computing by Naim Rashid](https://biodatascience.github.io/statcomp/)
+* Add here
+
+
+# Learning objectives
+
+:::keyidea
+
+## At the end of this lesson you will
+
+* Be able to define XXX
+* Be able to define what is readable and efficient code?
+* Be able to follow XXX
+
+:::
+
+

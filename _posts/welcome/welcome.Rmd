@@ -1,0 +1,29 @@
+---
+title: "Welcome to Statistical Computing!"
+description: |
+  Introductory course information for students enrolled in JHSPH Biostatistics 140.776 in Fall 2021
+preview: images/ads2020-small.png
+author:
+  - name: Stephanie Hicks
+    url: https://stephaniehicks.com/
+    affiliation: JHSPH
+    affiliation_url: https://www.jhsph.edu
+date: 08-31-2021
+output:
+  distill::distill_article:
+    self_contained: false
+categories:
+  - course-admin
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+
+# Learn more about creating blogs with Distill at:
+# https://rstudio.github.io/distill/blog.html
+
+```
+
+First, I just want to welcome each of you to the 2021-2022 academic year at JHSPH. The last year has been difficult in so many ways. 
+
+

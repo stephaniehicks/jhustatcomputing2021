@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+  <channel>
+    <title>Statistical Computing</title>
+    <link>https://stephaniehicks.com/jhustatcomputing2021</link>
+    <atom:link href="https://stephaniehicks.com/jhustatcomputing2021/lectures.xml" rel="self" type="application/rss+xml"/>
+    <description>Course website for Statistical Computing (JHSPH Biostatistics 140.776 Fall 2021)
+</description>
+    <generator>Distill</generator>
+    <lastBuildDate>Tue, 31 Aug 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Welcome to Statistical Computing!</title>
+      <dc:creator>Stephanie Hicks</dc:creator>
+      <link>https://stephaniehicks.com/jhustatcomputing2021/posts/welcome</link>
+      <description>Introductory course information for students enrolled in JHSPH Biostatistics 140.776 in Fall 2021</description>
+      <category>course-admin</category>
+      <guid>https://stephaniehicks.com/jhustatcomputing2021/posts/welcome</guid>
+      <pubDate>Tue, 31 Aug 2021 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Introduction to R and RStudio</title>
+      <dc:creator>Stephanie Hicks</dc:creator>
+      <link>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-05-12-introduction-to-r-and-rstudio</link>
+      <description>A short description of the post.</description>
+      <category>R</category>
+      <category>programming</category>
+      <category>RStudio</category>
+      <guid>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-05-12-introduction-to-r-and-rstudio</guid>
+      <pubDate>Wed, 12 May 2021 00:00:00 +0000</pubDate>
+    </item>
+  </channel>
+</rss>

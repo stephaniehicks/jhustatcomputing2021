@@ -1,0 +1,13 @@
+---
+title: "Statistical Computing"
+description: |
+  Course website for Statistical Computing (JHSPH Biostatistics 140.776 Fall 2021)
+author:
+  - name: Stephanie Hicks
+    url: https://stephaniehicks.com/
+    affiliation: Johns Hopkins Bloomberg School of Public Health
+site: distill::distill_website
+---
+
+Welcome to Statistical Computing at Johns Hopkins Bloomberg School of Public Health! This course covers practical issues in programming and other computer skills required for the research and application of statistical methods. Includes programming in R and the tidyverse, version control, coding best practices, introduction to data visualizations, leveraging Python from R, introduction to basic statistical computing algorithms, creating R packages with documentation, debugging, organizing and commenting code. Topics in statistical data analysis provide working examples.
+

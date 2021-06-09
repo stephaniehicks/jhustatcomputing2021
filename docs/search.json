@@ -1,0 +1,42 @@
+{
+  "articles": [
+    {
+      "path": "index.html",
+      "title": "Statistical Computing",
+      "description": "Course website for Statistical Computing (JHSPH Biostatistics 140.776 Fall 2021)\n",
+      "author": [
+        {
+          "name": "Stephanie Hicks",
+          "url": "https://stephaniehicks.com/"
+        }
+      ],
+      "contents": "\nWelcome to Statistical Computing at Johns Hopkins Bloomberg School of Public Health! This course covers practical issues in programming and other computer skills required for the research and application of statistical methods. Includes programming in R and the tidyverse, version control, coding best practices, introduction to data visualizations, leveraging Python from R, introduction to basic statistical computing algorithms, creating R packages with documentation, debugging, organizing and commenting code. Topics in statistical data analysis provide working examples.\n\n\n\n",
+      "last_modified": "2021-06-09T13:47:28-04:00"
+    },
+    {
+      "path": "lectures.html",
+      "title": "Lectures",
+      "description": "A new article created using the Distill format.\n",
+      "author": [],
+      "contents": "\n\n\n\n",
+      "last_modified": "2021-06-09T13:47:29-04:00"
+    },
+    {
+      "path": "projects.html",
+      "title": "Projects",
+      "description": "Some additional details about the projects for this course.",
+      "author": [],
+      "contents": "\n\n\n\n",
+      "last_modified": "2021-06-09T13:47:30-04:00"
+    },
+    {
+      "path": "syllabus.html",
+      "title": "Syllabus",
+      "description": "Syllabus for Statistical Computing (JHSPH Biostatistics 140.776 Fall 2021).",
+      "author": [],
+      "contents": "\nLearning Objectives:\nUpon successfully completing this course, students will be able to:\nInstall and configure software necessary for a statistical programming environment and with version control\nDiscuss generic programming language concepts as they are implemented in a high-level statistical language\nWrite and debug code in base R and the tidyverse (and integrate code from Python modules)\nBuild basic data visualizations using R and the tidyverse\nBuild and organize a software package with documentation for publishing on the internet\nDiscuss and implement basic statistical computing algorithms for optimization, linear regression, and Monte Carlo\nCourse Information\nLocation: Synchronous Online for Fall 2021\nTime: Tuesdays and Thursdays from 1:30-2:50pm\nAssignments: Three projects\nImportant Links\nCourse website: https://stephaniehicks.com/jhustatcomputing2021\nGitHub repository with all course material: https://github.com/stephaniehicks/jhustatcomputing2021\nTentative outline of topics\nHere is a tentative outline of topics by week for the Fall 2021 course:\n\nWeek\nDates\nDescription\nWeek 1\nAug 30-Sept 3\nIntroduction to R, RStudio, Github, Reproducible Research, Literate programming, and Tidyverse\nWeek 2\nSept 6-10\nData Visualizations in the Tidyverse (colors)\nWeek 3\nSept 13-17\nWriting and debugging code in base R, Tidyverse, and Python (control structures, functions, regex, etc)\nWeek 4\nSept 20-24\nR package software development (build, document, test, debug); building personal or project websites\nWeek 5\nSept 27-Oct 1\nDealing with large data; parallel computing\nWeek 6\nOct 4-8\nBasic statistical computing algorithms for linear regression, optimization, EM algorithm, and Monte Carlo\nWeek 7\nOct 11-15\nMachine learning essentials\nWeek 8\nOct 18-22\nBootstrap, smoothing splines,\n\n\n\n\n",
+      "last_modified": "2021-06-09T13:47:30-04:00"
+    }
+  ],
+  "collections": ["posts/posts.json"]
+}

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" version="1.0">
+  <url>
+    <loc>https://stephaniehicks.com/jhustatcomputing2021/</loc>
+    <lastmod>2021-05-12T14:51:57-04:00</lastmod>
+  </url>
+  <url>
+    <loc>https://stephaniehicks.com/jhustatcomputing2021/lectures.html</loc>
+    <lastmod>2021-05-11T16:22:18-04:00</lastmod>
+  </url>
+  <url>
+    <loc>https://stephaniehicks.com/jhustatcomputing2021/projects.html</loc>
+    <lastmod>2021-05-11T16:34:09-04:00</lastmod>
+  </url>
+  <url>
+    <loc>https://stephaniehicks.com/jhustatcomputing2021/syllabus.html</loc>
+    <lastmod>2021-05-12T16:26:48-04:00</lastmod>
+  </url>
+  <url>
+    <loc>https://stephaniehicks.com/jhustatcomputing2021/posts/welcome/</loc>
+    <lastmod>2021-05-12T14:42:31-04:00</lastmod>
+  </url>
+  <url>
+    <loc>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-05-12-introduction-to-r-and-rstudio/</loc>
+    <lastmod>2021-06-09T13:44:10-04:00</lastmod>
+  </url>
+</urlset>

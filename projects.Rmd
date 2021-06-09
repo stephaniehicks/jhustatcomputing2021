@@ -1,0 +1,9 @@
+---
+title: "Projects"
+description: |
+  Some additional details about the projects for this course.
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
