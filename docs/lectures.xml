@@ -9,24 +9,28 @@
     <generator>Distill</generator>
     <lastBuildDate>Tue, 31 Aug 2021 00:00:00 +0000</lastBuildDate>
     <item>
-      <title>Welcome to Statistical Computing!</title>
-      <dc:creator>Stephanie Hicks</dc:creator>
-      <link>https://stephaniehicks.com/jhustatcomputing2021/posts/welcome</link>
-      <description>Introductory course information for students enrolled in JHSPH Biostatistics 140.776 in Fall 2021</description>
-      <category>course-admin</category>
-      <guid>https://stephaniehicks.com/jhustatcomputing2021/posts/welcome</guid>
-      <pubDate>Tue, 31 Aug 2021 00:00:00 +0000</pubDate>
-    </item>
-    <item>
       <title>Introduction to R and RStudio</title>
       <dc:creator>Stephanie Hicks</dc:creator>
-      <link>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-05-12-introduction-to-r-and-rstudio</link>
+      <link>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-08-31-introduction-to-r-and-rstudio</link>
       <description>A short description of the post.</description>
+      <category>module 1</category>
+      <category>week 1</category>
       <category>R</category>
       <category>programming</category>
       <category>RStudio</category>
-      <guid>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-05-12-introduction-to-r-and-rstudio</guid>
-      <pubDate>Wed, 12 May 2021 00:00:00 +0000</pubDate>
+      <guid>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-08-31-introduction-to-r-and-rstudio</guid>
+      <pubDate>Tue, 31 Aug 2021 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Welcome!</title>
+      <dc:creator>Stephanie Hicks</dc:creator>
+      <link>https://stephaniehicks.com/jhustatcomputing2021/posts/welcome</link>
+      <description>Overview course information for students enrolled in JHSPH Biostatistics 140.776 in Fall 2021</description>
+      <category>course-admin</category>
+      <category>module 1</category>
+      <category>week 1</category>
+      <guid>https://stephaniehicks.com/jhustatcomputing2021/posts/welcome</guid>
+      <pubDate>Tue, 31 Aug 2021 00:00:00 +0000</pubDate>
     </item>
   </channel>
 </rss>

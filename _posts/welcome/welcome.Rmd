@@ -1,12 +1,12 @@
 ---
-title: "Welcome to Statistical Computing!"
+title: "Welcome!"
 description: |
-  Introductory course information for students enrolled in JHSPH Biostatistics 140.776 in Fall 2021
+  Overview course information for students enrolled in JHSPH Biostatistics 140.776 in Fall 2021
 preview: images/ads2020-small.png
 author:
   - name: Stephanie Hicks
     url: https://stephaniehicks.com/
-    affiliation: JHSPH
+    affiliation: Department of Biostatistics, Johns Hopkins
     affiliation_url: https://www.jhsph.edu
 date: 08-31-2021
 output:
@@ -14,6 +14,8 @@ output:
     self_contained: false
 categories:
   - course-admin
+  - module 1
+  - week 1
 ---
 
 ```{r setup, include=FALSE}
@@ -24,6 +26,13 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ```
 
-First, I just want to welcome each of you to the 2021-2022 academic year at JHSPH. The last year has been difficult in so many ways. 
+Welcome! I am very excited to have you in our one-term (half a semester) course on Statistical Computing course number (140.776) offered by the [Department of Biostatistics](https://www.jhsph.edu/departments/biostatistics/) at the [Johns Hopkins Bloomberg School of Public Health](https://www.jhsph.edu/). 
+
+This course is designed for ScM and PhD students at Johns Hopkins Bloomberg School of Public Health. We are usually pretty flexible about permitting outside students but we want everyone to be aware of the goals and assumptions so no one feels like they are surprised by how the class works.
+
+:::keyidea
+The primary goal of the course is to teach you practical programming and computational skills required for the research and application of statistical methods.
+:::
+
 
 

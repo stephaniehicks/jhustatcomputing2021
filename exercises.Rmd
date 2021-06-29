@@ -1,0 +1,14 @@
+---
+title: "Practice exercises"
+description: |
+  These are optional weekly exercises that you can use to practice the skills learned in class. 
+listing: assignments
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+
+

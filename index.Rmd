@@ -5,7 +5,8 @@ description: |
 author:
   - name: Stephanie Hicks
     url: https://stephaniehicks.com/
-    affiliation: Johns Hopkins Bloomberg School of Public Health
+    affiliation: Department of Biostatistics, Johns Hopkins
+    affiliation_url: https://www.jhsph.edu
 site: distill::distill_website
 ---
 

@@ -1,0 +1,42 @@
+---
+title: "Schedule"
+description: |
+ Schedule and course materials for Statistical Computing (JHSPH Biostatistics 140.776 Fall 2021).
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+## Schedule and course materials
+
+For Rmd files, go to the course repo and navigate the directories, or best of all to clone the repo and navigate within RStudio.
+
+::: l-body-outset
+| Week   | Dates           | Topics                             |
+|------- | ----------- | ----------------------------------- |
+| **Module 1** |    | **Statistical and Computational Tools for Scientific Research** | 
+| Week 1      | Aug 31  | Course introduction [[html](posts/welcome/index.html)] | 
+| | | Introduction to R and RStudio [[html](posts/2021-08-31-introduction-to-r-and-rstudio/index.html)]|
+| | | Github [[html]()] | 
+| | Sept 2 | Reproducible Research [[html]()] | 
+| | | Literate programming [[html]()] | 
+| | | Reference management [[html]()] | 
+| | | Building personal or project websites [[html]()] | 
+| | | Optional assignment: TBA |
+| Week 2      | Sept 7       | Introduction to Tidyverse |
+| | Sept 9 | Data Visualizations in the Tidyverse |
+| | | Best Practices with colors | 
+| | | Optional assignment: TBA |
+| **Module 2** |    | **Statistical data analysis with R and Python** | 
+| Week 3      | Sept 13-17      | Writing and debugging code in base R, Tidyverse, and Python (control structures, functions, regex, etc) |
+| Week 4      | Sept 20-24      | R package software development (build, document, test, debug) |
+| Week 5      | Sept 27-Oct 1   | Dealing with large data; parallel computing |
+| **Module 3** |    | **Basic Algorithms for Optimization and Estimation ** | 
+| Week 6      | Oct 4-8         | Basic statistical computing algorithms for linear regression, optimization, EM algorithm, and Monte Carlo |
+| **Module 4** |    | **Machine Learning Essentials** |
+| Week 7      | Oct 11-15       | Machine learning essentials (SVM, RF, NN) |
+| Week 8      | Oct 18-22       | Bootstrap, smoothing splines, TBA, etc         |
+:::
+

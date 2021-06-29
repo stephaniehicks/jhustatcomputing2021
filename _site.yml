@@ -14,12 +14,20 @@ navbar:
   right:
     - text: "Home"
       href: index.html
-    - text: "Syllabus"
-      href: syllabus.html
-    - text: "Lectures"
-      href: lectures.html
-    - text: "Projects"
-      href: projects.html
+    - text: "General Information"
+      menu:
+        - text: "Syllabus"
+          href: syllabus.html
+        - text: "Schedule"
+          href: schedule.html
+    - text: "Course Materials"
+      menu: 
+      - text: "Lectures"
+        href: lectures.html
+      - text: "Practice exercises (optional)"
+        href: exercises.html
+      - text: "Projects"
+        href: projects.html
     - icon: fa fa-rss
       href: index.xml
 collections:
