@@ -2,7 +2,7 @@
 title: "Practice exercises"
 description: |
   These are optional weekly exercises that you can use to practice the skills learned in class. 
-listing: assignments
+listing: exercises
 ---
 
 ```{r setup, include=FALSE}

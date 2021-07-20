@@ -90,7 +90,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
   <meta property="description" itemprop="description" content="Schedule and course materials for Statistical Computing (JHSPH Biostatistics 140.776 Fall 2021)."/>
 
-  <link rel="license" href="https://creativecommons.org/licenses/by/4.0/"/>
+  <link rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"/>
 
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
@@ -1936,7 +1936,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   /* -----------div tips------------- */
 
 
-    .homework {
+    div.puzzle, div.fyi, div.demo, div.note {
       padding: 1em;
       margin: 1em 0;
       padding-left: 100px;
@@ -1944,10 +1944,39 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
       background-repeat: no-repeat;
       background-position: 15px center;
       min-height: 120px;
+      color: #1f5386;
+      background-color: #bed3ec;
+      border: solid 5px #dfedff;
+    }
+    
+  div.puzzle {
+    background-image: url("Your-turn.png");
+  }
+
+  div.fyi {
+   background-image: url("images/fyi.png");
+  }
+
+  div.demo {
+    background-image: url("images/Live-code.png");
+  }
+
+  div.note {
+    background-image: url("images/lightbulb.png");
+  }
+
+    .questions {
+      padding: 1em;
+      margin: 1em 0;
+      padding-left: 100px;
+      background-size: 70px;
+      background-repeat: no-repeat;
+      background-position: 15px center;
+      min-height: 50px;
       color: #000000 ;
       background-color: #9BB1BBFF;
-      border: solid 1px #000000;
-      background-image: url("study.png")
+      border: solid 5px #000000;
+      background-image: url("images/study.png");
     }
     
     
@@ -1958,16 +1987,14 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
       background-size: 70px;
       background-repeat: no-repeat;
       background-position: 15px center;
-      min-height: 120px;
+      min-height: 50px;
       color: #000000;
-      background-color: #E4DECEFF; /* #e5d468; */
-      border: solid 1px #000000;
-      background-image: url("list.png")
+      background-color: #ECBD95FF; /* #e5d468; */
+      border: solid 5px #000000;
+      background-image: url("images/list.png");
     }
 
-
-
-  .keyidea{
+  .keyideas{
       padding: 1em;
       margin: 1em 0;
       padding-left: 100px;
@@ -1975,10 +2002,10 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
       background-repeat: no-repeat;
       background-position: 15px center;
       min-height: 120px;
-      color: #000000;
-      background-color: #ECBD95FF;
-      border: solid 1px #000000;
-      background-image: url("important.png") 
+      color: #441F29;
+      background-color: #E56889;
+      border: solid 5px #441F29;
+      background-image: url('images/important.png') ;
   }
 
   .center {
@@ -2224,7 +2251,7 @@ Course Materials
 
 <div class="d-article">
 <h2 id="schedule-and-course-materials">Schedule and course materials</h2>
-<p>For Rmd files, go to the course repo and navigate the directories, or best of all to clone the repo and navigate within RStudio.</p>
+<p>For Rmd files, go to the <a href="https://github.com/stephaniehicks/jhustatcomputing2021">course GitHub repository</a> and navigate the directories, or best of all to clone the repo and navigate within RStudio.</p>
 <div class="l-body-outset">
 <table>
 <colgroup>
@@ -2248,37 +2275,37 @@ Course Materials
 <tr class="even">
 <td>Week 1</td>
 <td>Aug 31</td>
-<td>Course introduction [<a href="posts/welcome/index.html">html</a>]</td>
+<td>Course introduction [<a href="posts/welcome/index.html">html</a>] [<a href="">Rmd</a>]</td>
 </tr>
 <tr class="odd">
 <td></td>
 <td></td>
-<td>Introduction to R and RStudio [<a href="posts/2021-08-31-introduction-to-r-and-rstudio/index.html">html</a>]</td>
+<td>Introduction to R and RStudio [<a href="posts/2021-08-31-introduction-to-r-and-rstudio/index.html">html</a>] [<a href="https://github.com/stephaniehicks/jhustatcomputing2021/blob/main/_posts/2021-08-31-introduction-to-r-and-rstudio/introduction-to-r-and-rstudio.Rmd">Rmd</a>]</td>
 </tr>
 <tr class="even">
 <td></td>
 <td></td>
-<td>Github [<a href="">html</a>]</td>
+<td>Introduction to git/GitHub [<a href="posts/2021-08-31-introduction-to-gitgithub/index.html">html</a>] [<a href="https://github.com/stephaniehicks/jhustatcomputing2021/blob/main/_posts/2021-08-31-introduction-to-gitgithub/introduction-to-gitgithub.Rmd">Rmd</a>]</td>
 </tr>
 <tr class="odd">
 <td></td>
 <td>Sept 2</td>
-<td>Reproducible Research [<a href="">html</a>]</td>
+<td>Reproducible Research [<a href="">html</a>] [<a href="">Rmd</a>]</td>
 </tr>
 <tr class="even">
 <td></td>
 <td></td>
-<td>Literate programming [<a href="">html</a>]</td>
+<td>Literate programming [<a href="">html</a>] [<a href="">Rmd</a>]</td>
 </tr>
 <tr class="odd">
 <td></td>
 <td></td>
-<td>Reference management [<a href="">html</a>]</td>
+<td>Reference management [<a href="">html</a>] [<a href="">Rmd</a>]</td>
 </tr>
 <tr class="even">
 <td></td>
 <td></td>
-<td>Building personal or project websites [<a href="">html</a>]</td>
+<td>Building personal or project websites [<a href="">html</a>] [<a href="">Rmd</a>]</td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -2288,17 +2315,17 @@ Course Materials
 <tr class="even">
 <td>Week 2</td>
 <td>Sept 7</td>
-<td>Introduction to Tidyverse</td>
+<td>Introduction to Tidyverse [<a href="">html</a>] [<a href="">Rmd</a>]</td>
 </tr>
 <tr class="odd">
 <td></td>
 <td>Sept 9</td>
-<td>Data Visualizations in the Tidyverse</td>
+<td>Data Visualizations in the Tidyverse [<a href="">html</a>] [<a href="">Rmd</a>]</td>
 </tr>
 <tr class="even">
 <td></td>
 <td></td>
-<td>Best Practices with colors</td>
+<td>Best Practices with colors [<a href="">html</a>] [<a href="">Rmd</a>]</td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -2367,7 +2394,7 @@ Course Materials
 <!--radix_placeholder_appendices-->
 <div class="appendix-bottom">
 <h3 id="reuse">Reuse</h3>
-<p>Text and figures are licensed under Creative Commons Attribution <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. The figures that have been reused from other sources don't fall under this license and can be recognized by a note in their caption: "Figure from ...".</p>
+<p>Text and figures are licensed under Creative Commons Attribution <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>. The figures that have been reused from other sources don't fall under this license and can be recognized by a note in their caption: "Figure from ...".</p>
 </div>
 <!--/radix_placeholder_appendices-->
 <!--radix_placeholder_navigation_after_body-->

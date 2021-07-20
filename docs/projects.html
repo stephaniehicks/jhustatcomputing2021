@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
   <meta name="generator" content="distill" />
+  <link rel="alternate" type="application/rss+xml" href="https://stephaniehicks.com/jhustatcomputing2021/projects.xml" />
 
   <style type="text/css">
   /* Hide doc at startup (prevent jankiness while JS renders/transforms) */
@@ -88,28 +89,28 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_meta_tags-->
   <title>Statistical Computing: Projects</title>
 
-  <meta property="description" itemprop="description" content="Some additional details about the projects for this course."/>
+  <meta property="description" itemprop="description" content="A new article created using the Distill format."/>
 
-  <link rel="license" href="https://creativecommons.org/licenses/by/4.0/"/>
+  <link rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"/>
 
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
   <meta property="og:title" content="Statistical Computing: Projects"/>
   <meta property="og:type" content="article"/>
-  <meta property="og:description" content="Some additional details about the projects for this course."/>
+  <meta property="og:description" content="A new article created using the Distill format."/>
   <meta property="og:locale" content="en_US"/>
   <meta property="og:site_name" content="Statistical Computing"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
   <meta property="twitter:title" content="Statistical Computing: Projects"/>
-  <meta property="twitter:description" content="Some additional details about the projects for this course."/>
+  <meta property="twitter:description" content="A new article created using the Distill format."/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description"]}},"value":[{"type":"character","attributes":{},"value":["Projects"]},{"type":"character","attributes":{},"value":["Some additional details about the projects for this course."]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","listing"]}},"value":[{"type":"character","attributes":{},"value":["Projects"]},{"type":"character","attributes":{},"value":["A new article created using the Distill format.\n"]},{"type":"character","attributes":{},"value":["projects"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -1936,7 +1937,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   /* -----------div tips------------- */
 
 
-    .homework {
+    div.puzzle, div.fyi, div.demo, div.note {
       padding: 1em;
       margin: 1em 0;
       padding-left: 100px;
@@ -1944,10 +1945,39 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
       background-repeat: no-repeat;
       background-position: 15px center;
       min-height: 120px;
+      color: #1f5386;
+      background-color: #bed3ec;
+      border: solid 5px #dfedff;
+    }
+    
+  div.puzzle {
+    background-image: url("Your-turn.png");
+  }
+
+  div.fyi {
+   background-image: url("images/fyi.png");
+  }
+
+  div.demo {
+    background-image: url("images/Live-code.png");
+  }
+
+  div.note {
+    background-image: url("images/lightbulb.png");
+  }
+
+    .questions {
+      padding: 1em;
+      margin: 1em 0;
+      padding-left: 100px;
+      background-size: 70px;
+      background-repeat: no-repeat;
+      background-position: 15px center;
+      min-height: 50px;
       color: #000000 ;
       background-color: #9BB1BBFF;
-      border: solid 1px #000000;
-      background-image: url("study.png")
+      border: solid 5px #000000;
+      background-image: url("images/study.png");
     }
     
     
@@ -1958,16 +1988,14 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
       background-size: 70px;
       background-repeat: no-repeat;
       background-position: 15px center;
-      min-height: 120px;
+      min-height: 50px;
       color: #000000;
-      background-color: #E4DECEFF; /* #e5d468; */
-      border: solid 1px #000000;
-      background-image: url("list.png")
+      background-color: #ECBD95FF; /* #e5d468; */
+      border: solid 5px #000000;
+      background-image: url("images/list.png");
     }
 
-
-
-  .keyidea{
+  .keyideas{
       padding: 1em;
       margin: 1em 0;
       padding-left: 100px;
@@ -1975,10 +2003,10 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
       background-repeat: no-repeat;
       background-position: 15px center;
       min-height: 120px;
-      color: #000000;
-      background-color: #ECBD95FF;
-      border: solid 1px #000000;
-      background-image: url("important.png") 
+      color: #441F29;
+      background-color: #E56889;
+      border: solid 5px #441F29;
+      background-image: url('images/important.png') ;
   }
 
   .center {
@@ -2157,12 +2185,12 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 </head>
 
-<body>
+<body class="layout-listing">
 
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Projects","description":"Some additional details about the projects for this course.","authors":[]}
+{"title":"Projects","description":"A new article created using the Distill format.","authors":[]}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2213,12 +2241,268 @@ Course Materials
 <!--/radix_placeholder_navigation_before_body-->
 <!--radix_placeholder_site_before_body-->
 <!--/radix_placeholder_site_before_body-->
+<!--radix_placeholder_article_listing-->
+
+
+<script type="application/javascript">
+
+function init_posts_list() {
+
+  function load_image(img) {
+    var src = $(img).attr('data-src');
+    if (src) {
+      $(img).attr('src', src);
+      $(img).load(function() {
+        img.removeAttribute('data-src');
+      });
+    }
+  }
+
+  function set_posts_visible(posts, visible) {
+    if (visible) {
+
+      // show bottom border by default
+      $(posts).removeClass('post-preview-last');
+
+      // apply limits if need be
+      var max_posts = 25;
+      var apply_limits = $('.posts-container').hasClass('posts-apply-limit');
+      if (apply_limits && posts.length > max_posts) {
+        posts = $(posts).slice(0, max_posts);
+      } else {
+        $('.posts-more a').addClass('hidden');
+      }
+
+      // apply last style
+      $(posts.slice(-1)[0]).addClass('post-preview-last');
+
+      $(posts).removeClass('hidden');
+      $(posts).find('img[data-src]').each(function(i, img) {
+        load_image(img);
+      });
+    } else {
+      $(posts).addClass('hidden');
+    }
+  }
+
+  function apply_hash_filter() {
+
+    // clear active state
+    $('.categories .active').removeClass('active');
+
+    // mark all posts invisible to start
+    set_posts_visible($('.posts-list').children('a'), false);
+
+    // if we have a hash filter
+    if (window.location.hash && window.location.hash.startsWith("#category:")) {
+
+      // mark posts that match the category visible
+      var page_category = window.location.hash.replace(/^#category:/, "");
+      var posts = $('.post-metadata').map(function(idx, script) {
+        var metadata = $.parseJSON($(script).html());
+        var post = null;
+        $.each(metadata.categories, function(idx, category) {
+          category = category.replace(/ /g,"_");
+          if ((page_category || '').toLowerCase() === "articles" || category === page_category) {
+            post = $(script).parent().get();
+            return false;
+          }
+        });
+        return post;
+      });
+      set_posts_visible(posts, true);
+
+      // mark the hash active
+      $('.categories li>a[href="' + window.location.hash + '"]').addClass('active');
+
+      // update the list_caption
+      var list_caption = $('.posts-list-caption');
+      var caption = (page_category || '').toLowerCase() === "articles"
+        ? list_caption.attr('data-caption')
+        : ('Category: ' + page_category.replace(/_/g," "));
+      list_caption.text(caption);
+
+    } else {
+
+      // no hash filter, make all posts visible (subject to max display)
+      set_posts_visible($('.posts-list').children(), true);
+
+      // reset list caption
+      var list_caption = $('.posts-list-caption');
+      list_caption.text(list_caption.attr('data-caption'));
+
+
+    }
+  }
+
+  // more articles
+  function apply_post_limits(apply) {
+    if (apply) {
+      $('.posts-container').addClass('posts-apply-limit');
+      $('.posts-more a').removeClass('hidden');
+    } else {
+      $('.posts-container').removeClass('posts-apply-limit');
+      $('.posts-more a').addClass('hidden');
+    }
+  }
+
+  // click handling for tags
+  $('.dt-tag').click(function(ev) {
+    window.location.hash = '#category:' + $(this).text().replace(/ /g, "_");
+    return false;
+  })
+
+  // hash filter handling
+  apply_hash_filter();
+  $(window).on('hashchange',function() {
+    apply_post_limits(true);
+    apply_hash_filter();
+  });
+
+  // more articles link
+  $('.posts-more a').click(function(e) {
+    e.preventDefault();
+    apply_post_limits(false);
+    apply_hash_filter();
+    return false;
+  });
+
+}
+
+</script>
+
+
+
+<div class="posts-container posts-with-sidebar posts-apply-limit l-screen-inset">
+<div class="posts-list">
+<h1 class="posts-list-caption" data-caption="Projects">Projects</h1>
+<a href="projects/2021-09-28-project-3/" class="post-preview">
+<script class="post-metadata" type="text/json">{"categories":["project 3","projects"]}</script>
+<div class="metadata">
+<div class="publishedDate">Sept. 28, 2021</div>
+<div class="dt-authors">
+<div class="dt-author">Stephanie Hicks</div>
+</div>
+</div>
+<div class="thumbnail">
+<img/>
+</div>
+<div class="description">
+<h2>Project 3</h2>
+<div class="dt-tags">
+<div class="dt-tag">project 3</div>
+<div class="dt-tag">projects</div>
+</div>
+<p>Information for Project 3</p>
+</div>
+</a>
+<a href="projects/2021-09-14-project-2/" class="post-preview">
+<script class="post-metadata" type="text/json">{"categories":["project 2","projects"]}</script>
+<div class="metadata">
+<div class="publishedDate">Sept. 14, 2021</div>
+<div class="dt-authors">
+<div class="dt-author">Stephanie Hicks</div>
+</div>
+</div>
+<div class="thumbnail">
+<img/>
+</div>
+<div class="description">
+<h2>Project 2</h2>
+<div class="dt-tags">
+<div class="dt-tag">project 2</div>
+<div class="dt-tag">projects</div>
+</div>
+<p>Information for Project 2</p>
+</div>
+</a>
+<a href="projects/2021-09-07-project-1/" class="post-preview">
+<script class="post-metadata" type="text/json">{"categories":["project 1","projects"]}</script>
+<div class="metadata">
+<div class="publishedDate">Sept. 7, 2021</div>
+<div class="dt-authors">
+<div class="dt-author">Stephanie Hicks</div>
+</div>
+</div>
+<div class="thumbnail">
+<img/>
+</div>
+<div class="description">
+<h2>Project 1</h2>
+<div class="dt-tags">
+<div class="dt-tag">project 1</div>
+<div class="dt-tag">projects</div>
+</div>
+<p>Information for Project 1</p>
+</div>
+</a>
+<a href="projects/2021-08-31-project-0/" class="post-preview">
+<script class="post-metadata" type="text/json">{"categories":["project 0","projects"]}</script>
+<div class="metadata">
+<div class="publishedDate">Aug. 31, 2021</div>
+<div class="dt-authors">
+<div class="dt-author">Stephanie Hicks</div>
+</div>
+</div>
+<div class="thumbnail">
+<img/>
+</div>
+<div class="description">
+<h2>Project 0 (optional)</h2>
+<div class="dt-tags">
+<div class="dt-tag">project 0</div>
+<div class="dt-tag">projects</div>
+</div>
+<p>Information for Project 0 (entirely optional, but hopefully useful and fun)</p>
+</div>
+</a>
+</div>
+<div class="posts-sidebar">
+<div><div class="sidebar-section custom">
+  <h3>About</h3>
+  Information about the graded assignments (Projects) for the Statistical Computing course (<a href="https://www.jhsph.edu/courses/course/33154/2021/140.776.71/statistical-computing">JHSPH Biostatistics 140.776</a>) taught in Fall 2021.
+</div></div>
+<div class="sidebar-section categories">
+<h3>Categories</h3>
+<ul>
+<li>
+<a href="#category:articles">articles</a>
+<span class="category-count">(4)</span>
+</li>
+<li>
+<a href="#category:project_0">project 0</a>
+<span class="category-count">(1)</span>
+</li>
+<li>
+<a href="#category:project_1">project 1</a>
+<span class="category-count">(1)</span>
+</li>
+<li>
+<a href="#category:project_2">project 2</a>
+<span class="category-count">(1)</span>
+</li>
+<li>
+<a href="#category:project_3">project 3</a>
+<span class="category-count">(1)</span>
+</li>
+<li>
+<a href="#category:projects">projects</a>
+<span class="category-count">(4)</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="posts-more">
+<a href="#">More articles &raquo;</a>
+</div>
+</div>
+<!--/radix_placeholder_article_listing-->
 
 <div class="d-title">
 <h1>Projects</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
-<p><p>Some additional details about the projects for this course.</p></p>
+<p><p>A new article created using the Distill format.</p></p>
 </div>
 
 
@@ -2237,7 +2521,7 @@ Course Materials
 <!--radix_placeholder_appendices-->
 <div class="appendix-bottom">
 <h3 id="reuse">Reuse</h3>
-<p>Text and figures are licensed under Creative Commons Attribution <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. The figures that have been reused from other sources don't fall under this license and can be recognized by a note in their caption: "Figure from ...".</p>
+<p>Text and figures are licensed under Creative Commons Attribution <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>. The figures that have been reused from other sources don't fall under this license and can be recognized by a note in their caption: "Figure from ...".</p>
 </div>
 <!--/radix_placeholder_appendices-->
 <!--radix_placeholder_navigation_after_body-->

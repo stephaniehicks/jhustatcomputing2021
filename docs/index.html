@@ -90,7 +90,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
   <meta property="description" itemprop="description" content="Course website for Statistical Computing (JHSPH Biostatistics 140.776 Fall 2021)"/>
 
-  <link rel="license" href="https://creativecommons.org/licenses/by/4.0/"/>
+  <link rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"/>
 
   <meta name="article:author" content="Stephanie Hicks"/>
 
@@ -1937,7 +1937,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   /* -----------div tips------------- */
 
 
-    .homework {
+    div.puzzle, div.fyi, div.demo, div.note {
       padding: 1em;
       margin: 1em 0;
       padding-left: 100px;
@@ -1945,10 +1945,39 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
       background-repeat: no-repeat;
       background-position: 15px center;
       min-height: 120px;
+      color: #1f5386;
+      background-color: #bed3ec;
+      border: solid 5px #dfedff;
+    }
+    
+  div.puzzle {
+    background-image: url("Your-turn.png");
+  }
+
+  div.fyi {
+   background-image: url("images/fyi.png");
+  }
+
+  div.demo {
+    background-image: url("images/Live-code.png");
+  }
+
+  div.note {
+    background-image: url("images/lightbulb.png");
+  }
+
+    .questions {
+      padding: 1em;
+      margin: 1em 0;
+      padding-left: 100px;
+      background-size: 70px;
+      background-repeat: no-repeat;
+      background-position: 15px center;
+      min-height: 50px;
       color: #000000 ;
       background-color: #9BB1BBFF;
-      border: solid 1px #000000;
-      background-image: url("study.png")
+      border: solid 5px #000000;
+      background-image: url("images/study.png");
     }
     
     
@@ -1959,16 +1988,14 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
       background-size: 70px;
       background-repeat: no-repeat;
       background-position: 15px center;
-      min-height: 120px;
+      min-height: 50px;
       color: #000000;
-      background-color: #E4DECEFF; /* #e5d468; */
-      border: solid 1px #000000;
-      background-image: url("list.png")
+      background-color: #ECBD95FF; /* #e5d468; */
+      border: solid 5px #000000;
+      background-image: url("images/list.png");
     }
 
-
-
-  .keyidea{
+  .keyideas{
       padding: 1em;
       margin: 1em 0;
       padding-left: 100px;
@@ -1976,10 +2003,10 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
       background-repeat: no-repeat;
       background-position: 15px center;
       min-height: 120px;
-      color: #000000;
-      background-color: #ECBD95FF;
-      border: solid 1px #000000;
-      background-image: url("important.png") 
+      color: #441F29;
+      background-color: #E56889;
+      border: solid 5px #441F29;
+      background-image: url('images/important.png') ;
   }
 
   .center {
@@ -2229,7 +2256,15 @@ Course Materials
 </div>
 
 <div class="d-article">
-<p>Welcome to Statistical Computing at Johns Hopkins Bloomberg School of Public Health! This course covers practical issues in programming and other computer skills required for the research and application of statistical methods. Includes programming in R and the tidyverse, version control, coding best practices, introduction to data visualizations, leveraging Python from R, introduction to basic statistical computing algorithms, creating R packages with documentation, debugging, organizing and commenting code. Topics in statistical data analysis provide working examples.</p>
+<p>Welcome to Statistical Computing at Johns Hopkins Bloomberg School of Public Health!</p>
+<h2 id="what-is-this-course">What is this course?</h2>
+<p>This course covers practical issues in programming and other computer skills required for the research and application of statistical methods. Includes programming in R and the tidyverse, version control, coding best practices, introduction to data visualizations, leveraging Python from R, introduction to basic statistical computing algorithms, creating R packages with documentation, debugging, organizing and commenting code. Topics in statistical data analysis provide working examples.</p>
+<h2 id="getting-started">Getting started</h2>
+<p>I suggest you start by looking over the <a href="syllabus.html">Syllabus</a> and <a href="schedule.html">Schedule</a> under <strong>General Information</strong>. After that, start with the Lectures content in the given order.</p>
+<h2 id="acknowledgements">Acknowledgements</h2>
+<p>This course was developed and is maintained by <a href="https://www.stephaniehicks.com">Stephanie Hicks</a>.</p>
+<p>The following individuals have contributed to improving the course: <a href="https://github.com/rdpeng">Roger D. Peng</a>, <a href="https://www.andreashandel.com">Andreas Handel</a>, <a href="https://naimurashid.github.io">Naim Rashid</a>], <a href="https://github.com/mikelove">Michael Love</a>].</p>
+<p>The course materials are licensed under the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>. Linked and embedded materials are governed by their own licenses. I assume that all external materials used or embedded here are covered under the educational fair use policy. If this is not the case and any material displayed here violates copyright, please let me know and I will remove it.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
@@ -2244,7 +2279,7 @@ Course Materials
 <!--radix_placeholder_appendices-->
 <div class="appendix-bottom">
 <h3 id="reuse">Reuse</h3>
-<p>Text and figures are licensed under Creative Commons Attribution <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. The figures that have been reused from other sources don't fall under this license and can be recognized by a note in their caption: "Figure from ...".</p>
+<p>Text and figures are licensed under Creative Commons Attribution <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>. The figures that have been reused from other sources don't fall under this license and can be recognized by a note in their caption: "Figure from ...".</p>
 </div>
 <!--/radix_placeholder_appendices-->
 <!--radix_placeholder_navigation_after_body-->

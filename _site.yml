@@ -35,5 +35,9 @@ collections:
     disqus: jhustatcomputing2021
     share: [twitter, linkedin]
     custom: _custom.html
-creative_commons: CC BY
+    categories: true
+  projects:
+    categories: true
+    custom: _projects_custom.html
+creative_commons: CC BY-NC-SA 
 output: distill::distill_article

@@ -1,7 +1,8 @@
 ---
 title: "Projects"
 description: |
-  Some additional details about the projects for this course.
+  A new article created using the Distill format.
+listing: projects
 ---
 
 ```{r setup, include=FALSE}

@@ -90,7 +90,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
   <meta property="description" itemprop="description" content="Syllabus for Statistical Computing (JHSPH Biostatistics 140.776 Fall 2021)."/>
 
-  <link rel="license" href="https://creativecommons.org/licenses/by/4.0/"/>
+  <link rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"/>
 
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
@@ -1936,7 +1936,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   /* -----------div tips------------- */
 
 
-    .homework {
+    div.puzzle, div.fyi, div.demo, div.note {
       padding: 1em;
       margin: 1em 0;
       padding-left: 100px;
@@ -1944,10 +1944,39 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
       background-repeat: no-repeat;
       background-position: 15px center;
       min-height: 120px;
+      color: #1f5386;
+      background-color: #bed3ec;
+      border: solid 5px #dfedff;
+    }
+    
+  div.puzzle {
+    background-image: url("Your-turn.png");
+  }
+
+  div.fyi {
+   background-image: url("images/fyi.png");
+  }
+
+  div.demo {
+    background-image: url("images/Live-code.png");
+  }
+
+  div.note {
+    background-image: url("images/lightbulb.png");
+  }
+
+    .questions {
+      padding: 1em;
+      margin: 1em 0;
+      padding-left: 100px;
+      background-size: 70px;
+      background-repeat: no-repeat;
+      background-position: 15px center;
+      min-height: 50px;
       color: #000000 ;
       background-color: #9BB1BBFF;
-      border: solid 1px #000000;
-      background-image: url("study.png")
+      border: solid 5px #000000;
+      background-image: url("images/study.png");
     }
     
     
@@ -1958,16 +1987,14 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
       background-size: 70px;
       background-repeat: no-repeat;
       background-position: 15px center;
-      min-height: 120px;
+      min-height: 50px;
       color: #000000;
-      background-color: #E4DECEFF; /* #e5d468; */
-      border: solid 1px #000000;
-      background-image: url("list.png")
+      background-color: #ECBD95FF; /* #e5d468; */
+      border: solid 5px #000000;
+      background-image: url("images/list.png");
     }
 
-
-
-  .keyidea{
+  .keyideas{
       padding: 1em;
       margin: 1em 0;
       padding-left: 100px;
@@ -1975,10 +2002,10 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
       background-repeat: no-repeat;
       background-position: 15px center;
       min-height: 120px;
-      color: #000000;
-      background-color: #ECBD95FF;
-      border: solid 1px #000000;
-      background-image: url("important.png") 
+      color: #441F29;
+      background-color: #E56889;
+      border: solid 5px #441F29;
+      background-image: url('images/important.png') ;
   }
 
   .center {
@@ -2223,6 +2250,36 @@ Course Materials
 
 
 <div class="d-article">
+<h2 id="course-information">Course Information</h2>
+<ul>
+<li>Location: Synchronous (online) for Fall 2021</li>
+<li>Course time: Tuesdays and Thursdays from 1:30-2:50pm (<strong>Eastern Daylight Time</strong> time zone)</li>
+<li>Assignments: Three projects</li>
+</ul>
+<h3 id="instructor">Instructor</h3>
+<ul>
+<li>Stephanie C. Hicks (<a href="https://www.stephaniehicks.com" class="uri">https://www.stephaniehicks.com</a>)
+<ul>
+<li>Office Location: E3545, Wolfe Street building</li>
+<li>Email: <a href="mailto:shicks19@jhu.edu" class="email">shicks19@jhu.edu</a></li>
+</ul></li>
+</ul>
+<p>Dr. Hicks will hold office hours via Zoom at the following days/times:</p>
+<ul>
+<li>TBA</li>
+<li>TBA</li>
+</ul>
+<p>Appointments can also be made via email.</p>
+<h3 id="teaching-assistants">Teaching Assistants</h3>
+<ul>
+<li>TBA</li>
+<li>TBA</li>
+</ul>
+<h2 id="important-links">Important Links</h2>
+<ul>
+<li>Course website: <a href="https://stephaniehicks.com/jhustatcomputing2021" class="uri">https://stephaniehicks.com/jhustatcomputing2021</a></li>
+<li>GitHub repository with all course material: <a href="https://github.com/stephaniehicks/jhustatcomputing2021" class="uri">https://github.com/stephaniehicks/jhustatcomputing2021</a></li>
+</ul>
 <h2 id="learning-objectives">Learning Objectives:</h2>
 <p>Upon successfully completing this course, students will be able to:</p>
 <ul>
@@ -2233,18 +2290,90 @@ Course Materials
 <li>Build and organize a software package with documentation for publishing on the internet</li>
 <li>Discuss and implement basic statistical computing algorithms for optimization, linear regression, and Monte Carlo</li>
 </ul>
-<h2 id="course-information">Course Information</h2>
+<h2 id="lectures">Lectures</h2>
+<p>In Fall 2021, we will have synchronous (online) lectures, but these will be recorded and posted online shortly afterwards.</p>
+<h2 id="textbook-and-other-course-material">Textbook and Other Course Material</h2>
+<p>There is no required textbook. We will make use of several freely available textbooks and other materials. All course materials will be provided. We will use the R software for data analysis, which is freely available for download.</p>
+<h2 id="software">Software</h2>
+<p>We will make heavy use of R in this course, so you should have R installed. You can obtain R from the <a href="https://cran.r-project.org">Comprehensive R Archive Network</a>. There are versions available for Mac, Windows, and Unix/Linux. This software is <strong>required</strong> for this course.</p>
+<p>It is important that you have the latest version of R installed. For this course we will be using <strong>R version 4.0.5</strong>. You can determine what version of R you have by starting up R and typing into the console <code>R.version.string</code> and hitting the <code>return</code>/<code>enter</code> key. If you do not have the proper version of R installed, go to <a href="https://cran.r-project.org">CRAN</a> and download and install the latest version.</p>
+<p>We will also make use of the RStudio interactive development environment (IDE). RStudio requires that R be installed, and so is an “add-on” to R. You can obtain the RStudio Desktop for free from the <a href="https://www.rstudio.com/">RStudio web site</a>. In particular, we will make heavy use of it when developing R packages. It is also essential that you have the latest release of RStudio. You can determine the version of RStudio by looking at menu item <code>Help &gt; About RStudio</code>. You should be using <strong>RStudio version 1.4.1106 or higher</strong>.</p>
+<h2 id="projects">Projects</h2>
+<p>There will be 4 assignments, due every 2–3 weeks. Projects will be submitted electronically via the Drop Box on the CoursePlus web site (unless otherwise specified).</p>
+<p>The project assignments will be due on</p>
 <ul>
-<li>Location: Synchronous Online for Fall 2021</li>
-<li>Time: Tuesdays and Thursdays from 1:30-2:50pm</li>
-<li>Assignments: Three projects</li>
+<li>Project 0: September 2, 1:29pm</li>
+<li>Project 1: September 17, 11:59pm</li>
+<li>Project 2: October 1, 11:59pm</li>
+<li>Project 3: October 22, 11:59pm</li>
 </ul>
-<h2 id="important-links">Important Links</h2>
+<h3 id="project-collaboration">Project collaboration</h3>
+<p>Please feel free to study together and talk to one another about project assignments. The mutual instruction that students give each other is among the most valuable that can be achieved. However, it is expected that project assignments will be implemented and written up independently unless otherwise specified. Specifically, please do not share analytic code or output. Please do not collaborate on write-up and interpretation. Please do not access or use solutions from any source before your project assignment is submitted for grading.</p>
+<h2 id="discussion-forum">Discussion Forum</h2>
+<p>The course will make use of the CoursePlus Discussion Forum in order to ask and answer questions regarding any of the course materials. The Instructor and the Teaching Assistants will monitor the discussion boards and answer questions when appropriate.</p>
+<h2 id="exams">Exams</h2>
+<p>There are <strong>no exams</strong> in this course.</p>
+<h2 id="grading">Grading</h2>
+<p>Grades in the course will be based on Projects 0–3 with a percentage of the final grade being apportioned to each assignment. Each of Projects 1–3 counts approximately equally in the final grade. Grades for the projects and the final grade will be issued via the CoursePlus grade book.</p>
+<h2 id="academic-ethics-and-student-conduct-code">Academic Ethics and Student Conduct Code</h2>
+<p>Students enrolled in the Bloomberg School of Public Health of The Johns Hopkins University assume an obligation to conduct themselves in a manner appropriate to the University’s mission as an institution of higher education. A student is obligated to refrain from acts which he or she knows, or under the circumstances has reason to know, impair the academic integrity of the University. Violations of academic integrity include, but are not limited to: cheating; plagiarism; knowingly furnishing false information to any agent of the University for inclusion in the academic record; violation of the rights and welfare of animal or human subjects in research; and misconduct as a member of either School or University committees or recognized groups or organizations.</p>
+<p>Students should be familiar with the policies and procedures specified under Policy and Procedure Manual Student-01 (Academic Ethics), available on the school’s <a href="http://my.jhsph.edu">portal</a>.</p>
+<p>The faculty, staff and students of the Bloomberg School of Public Health and the Johns Hopkins University have the shared responsibility to conduct themselves in a manner that upholds the law and respects the rights of others. Students enrolled in the School are subject to the Student Conduct Code (detailed in Policy and Procedure Manual Student-06) and assume an obligation to conduct themselves in a manner which upholds the law and respects the rights of others. They are responsible for maintaining the academic integrity of the institution and for preserving an environment conducive to the safe pursuit of the School’s educational, research, and professional practice missions.</p>
+<h2 id="disability-support-service">Disability Support Service</h2>
+<p>If you are a student with a documented disability who requires an academic accommodation, please contact the Office of Disability Support Services at 410-502-6602 or via email at <code>JHSPH.dss@jhu.edu</code>. Accommodations take effect upon approval and apply to the remainder of the time for which a student is registered and enrolled at the Bloomberg School of Public Health.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>This is a quantitative course. We will not discuss the mathematical details of specific data analysis approaches, however some statistical background and being comfortable with quantitative thinking are useful. Previous experience with writing computer programs in general and R in particular is also helpful, but not necessary. If you have no programming experience, expect to spend extra time getting yourself familiar with R. As long as you are willing to invest the time to learn the programming and you do not mind thinking quantitatively, you should be able to take the course, independent of your background.</p>
+<p><em>Formal requirement for the course is <a href="https://www.jhsph.edu/courses/list/?keyword=140.621">Biostatistics 140.621</a>. Knowledge of material from 140.621 is assumed. If you didn’t take this course, please contact me to get permission to enroll.</em></p>
+<h3 id="getting-set-up">Getting set up</h3>
+<p>You must install <a href="https://cran.r-project.org">R</a> and <a href="https://rstudio.com">RStudio</a> on your computer in order to complete this course. These are two <strong>different</strong> applications that must be installed separately before they can be used together:</p>
 <ul>
-<li>Course website: <a href="https://stephaniehicks.com/jhustatcomputing2021" class="uri">https://stephaniehicks.com/jhustatcomputing2021</a></li>
-<li>GitHub repository with all course material: <a href="https://github.com/stephaniehicks/jhustatcomputing2021" class="uri">https://github.com/stephaniehicks/jhustatcomputing2021</a></li>
+<li><p>R is the core underlying programming language and computing engine that we will be learning in this course</p></li>
+<li><p>RStudio is an interface into R that makes many aspects of using and programming R simpler</p></li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<p>Both R and RStudio are available for Windows, macOS, and most flavors of Unix and Linux. Please download the version that is suitable for your computing setup.</p>
+<p>Throughout the course, we will make use of numerous R add-on packages that must be installed over the Internet. Packages can be installed using the <code>install.packages()</code> function in R. For example, to install the <code>tidyverse</code> package, you can run</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>)</span></code></pre></div>
+<p>in the R console.</p>
+<h4 id="how-to-download-r-for-windows">How to Download R for Windows</h4>
+<p>Go to <a href="">https://cran.r-project.org</a> and</p>
+<ol type="1">
+<li><p>Click the link to “Download R for Windows”</p></li>
+<li><p>Click on “base”</p></li>
+<li><p>Click on “Download R 4.1.0 for Windows”</p></li>
+</ol>
+<figure>
+<img src="videos/downloadRWindows.gif" alt="Video Demo for Downloading R for Windows" /><figcaption aria-hidden="true">Video Demo for Downloading R for Windows</figcaption>
+</figure>
+<h4 id="how-to-download-r-for-the-mac">How to Download R for the Mac</h4>
+<p>Goto <a href="">https://cran.r-project.org</a> and</p>
+<ol type="1">
+<li><p>Click the link to “Download R for (Mac) OS X”.</p></li>
+<li><p>Click on “R-4.1.0.pkg”</p></li>
+</ol>
+<figure>
+<img src="videos/downloadRMac.gif" alt="Video Demo for Downloading R for the Mac" /><figcaption aria-hidden="true">Video Demo for Downloading R for the Mac</figcaption>
+</figure>
+<h4 id="how-to-download-rstudio">How to Download RStudio</h4>
+<p>Goto <a href="">https://rstudio.com</a> and</p>
+<ol type="1">
+<li><p>Click on “Products” in the top menu</p></li>
+<li><p>Then click on “RStudio” in the drop down menu</p></li>
+<li><p>Click on “RStudio Desktop”</p></li>
+<li><p>Click the button that says “DOWNLOAD RSTUDIO DESKTOP”</p></li>
+<li><p>Click the button under “RStudio Desktop” Free</p></li>
+<li><p>Under the section “All Installers” choose the file that is appropriate for your operating system.</p></li>
+</ol>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<figure>
+<img src="videos/downloadRStudio.gif" alt="Video Demo for Downloading RStudio" /><figcaption aria-hidden="true">Video Demo for Downloading RStudio</figcaption>
+</figure>
+<h2 id="general-disclaimers">General Disclaimers</h2>
+<ul>
+<li>This syllabus is a general plan, deviations announced to the class by the instructor may be necessary.</li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
@@ -2258,7 +2387,7 @@ Course Materials
 <!--radix_placeholder_appendices-->
 <div class="appendix-bottom">
 <h3 id="reuse">Reuse</h3>
-<p>Text and figures are licensed under Creative Commons Attribution <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. The figures that have been reused from other sources don't fall under this license and can be recognized by a note in their caption: "Figure from ...".</p>
+<p>Text and figures are licensed under Creative Commons Attribution <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>. The figures that have been reused from other sources don't fall under this license and can be recognized by a note in their caption: "Figure from ...".</p>
 </div>
 <!--/radix_placeholder_appendices-->
 <!--radix_placeholder_navigation_after_body-->

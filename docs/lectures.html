@@ -91,7 +91,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
   <meta property="description" itemprop="description" content="A new article created using the Distill format."/>
 
-  <link rel="license" href="https://creativecommons.org/licenses/by/4.0/"/>
+  <link rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"/>
 
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
@@ -1937,7 +1937,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   /* -----------div tips------------- */
 
 
-    .homework {
+    div.puzzle, div.fyi, div.demo, div.note {
       padding: 1em;
       margin: 1em 0;
       padding-left: 100px;
@@ -1945,10 +1945,39 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
       background-repeat: no-repeat;
       background-position: 15px center;
       min-height: 120px;
+      color: #1f5386;
+      background-color: #bed3ec;
+      border: solid 5px #dfedff;
+    }
+    
+  div.puzzle {
+    background-image: url("Your-turn.png");
+  }
+
+  div.fyi {
+   background-image: url("images/fyi.png");
+  }
+
+  div.demo {
+    background-image: url("images/Live-code.png");
+  }
+
+  div.note {
+    background-image: url("images/lightbulb.png");
+  }
+
+    .questions {
+      padding: 1em;
+      margin: 1em 0;
+      padding-left: 100px;
+      background-size: 70px;
+      background-repeat: no-repeat;
+      background-position: 15px center;
+      min-height: 50px;
       color: #000000 ;
       background-color: #9BB1BBFF;
-      border: solid 1px #000000;
-      background-image: url("study.png")
+      border: solid 5px #000000;
+      background-image: url("images/study.png");
     }
     
     
@@ -1959,16 +1988,14 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
       background-size: 70px;
       background-repeat: no-repeat;
       background-position: 15px center;
-      min-height: 120px;
+      min-height: 50px;
       color: #000000;
-      background-color: #E4DECEFF; /* #e5d468; */
-      border: solid 1px #000000;
-      background-image: url("list.png")
+      background-color: #ECBD95FF; /* #e5d468; */
+      border: solid 5px #000000;
+      background-image: url("images/list.png");
     }
 
-
-
-  .keyidea{
+  .keyideas{
       padding: 1em;
       margin: 1em 0;
       padding-left: 100px;
@@ -1976,10 +2003,10 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
       background-repeat: no-repeat;
       background-position: 15px center;
       min-height: 120px;
-      color: #000000;
-      background-color: #ECBD95FF;
-      border: solid 1px #000000;
-      background-image: url("important.png") 
+      color: #441F29;
+      background-color: #E56889;
+      border: solid 5px #441F29;
+      background-image: url('images/important.png') ;
   }
 
   .center {
@@ -2349,6 +2376,30 @@ function init_posts_list() {
 <div class="posts-container posts-with-sidebar posts-apply-limit l-screen-inset">
 <div class="posts-list">
 <h1 class="posts-list-caption" data-caption="Lectures">Lectures</h1>
+<a href="posts/2021-08-31-introduction-to-gitgithub/" class="post-preview">
+<script class="post-metadata" type="text/json">{"categories":["module 1","week 1","programming","version control","git","GitHub"]}</script>
+<div class="metadata">
+<div class="publishedDate">Aug. 31, 2021</div>
+<div class="dt-authors">
+<div class="dt-author">Stephanie Hicks</div>
+</div>
+</div>
+<div class="thumbnail">
+<img src="posts/2021-08-31-introduction-to-gitgithub/../../images/phdversioncontrol.gif"/>
+</div>
+<div class="description">
+<h2>Introduction to git/GitHub</h2>
+<div class="dt-tags">
+<div class="dt-tag">module 1</div>
+<div class="dt-tag">week 1</div>
+<div class="dt-tag">programming</div>
+<div class="dt-tag">version control</div>
+<div class="dt-tag">git</div>
+<div class="dt-tag">GitHub</div>
+</div>
+<p>Version control is a game changer; or how I learned to love git/GitHub</p>
+</div>
+</a>
 <a href="posts/2021-08-31-introduction-to-r-and-rstudio/" class="post-preview">
 <script class="post-metadata" type="text/json">{"categories":["module 1","week 1","R","programming","RStudio"]}</script>
 <div class="metadata">
@@ -2369,7 +2420,7 @@ function init_posts_list() {
 <div class="dt-tag">programming</div>
 <div class="dt-tag">RStudio</div>
 </div>
-<p>A short description of the post.</p>
+<p>Let's dig into the R programming language and the RStudio integrated developer environment</p>
 </div>
 </a>
 <a href="posts/welcome/" class="post-preview">
@@ -2415,19 +2466,27 @@ function init_posts_list() {
 <ul>
 <li>
 <a href="#category:Articles">Articles</a>
-<span class="category-count">(2)</span>
+<span class="category-count">(3)</span>
 </li>
 <li>
 <a href="#category:course-admin">course-admin</a>
 <span class="category-count">(1)</span>
 </li>
 <li>
+<a href="#category:git">git</a>
+<span class="category-count">(1)</span>
+</li>
+<li>
+<a href="#category:GitHub">GitHub</a>
+<span class="category-count">(1)</span>
+</li>
+<li>
 <a href="#category:module_1">module 1</a>
-<span class="category-count">(2)</span>
+<span class="category-count">(3)</span>
 </li>
 <li>
 <a href="#category:programming">programming</a>
-<span class="category-count">(1)</span>
+<span class="category-count">(2)</span>
 </li>
 <li>
 <a href="#category:R">R</a>
@@ -2438,8 +2497,12 @@ function init_posts_list() {
 <span class="category-count">(1)</span>
 </li>
 <li>
+<a href="#category:version_control">version control</a>
+<span class="category-count">(1)</span>
+</li>
+<li>
 <a href="#category:week_1">week 1</a>
-<span class="category-count">(2)</span>
+<span class="category-count">(3)</span>
 </li>
 </ul>
 </div>
@@ -2473,7 +2536,7 @@ function init_posts_list() {
 <!--radix_placeholder_appendices-->
 <div class="appendix-bottom">
 <h3 id="reuse">Reuse</h3>
-<p>Text and figures are licensed under Creative Commons Attribution <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. The figures that have been reused from other sources don't fall under this license and can be recognized by a note in their caption: "Figure from ...".</p>
+<p>Text and figures are licensed under Creative Commons Attribution <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>. The figures that have been reused from other sources don't fall under this license and can be recognized by a note in their caption: "Figure from ...".</p>
 </div>
 <!--/radix_placeholder_appendices-->
 <!--radix_placeholder_navigation_after_body-->

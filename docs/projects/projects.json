@@ -1,0 +1,82 @@
+[
+  {
+    "path": "projects/2021-09-28-project-3/",
+    "title": "Project 3",
+    "description": "Information for Project 3",
+    "author": [
+      {
+        "name": "Stephanie Hicks",
+        "url": "https://stephaniehicks.com/"
+      }
+    ],
+    "date": "2021-09-28",
+    "categories": [
+      "project 3",
+      "projects"
+    ],
+    "contents": "\n\nContents\nBackground\n\nBackground\nDue date: Oct 22 at 11:59pm\nInformation coming soon.\n\n\n\n",
+    "preview": {},
+    "last_modified": "2021-07-20T14:13:38-04:00",
+    "input_file": {}
+  },
+  {
+    "path": "projects/2021-09-14-project-2/",
+    "title": "Project 2",
+    "description": "Information for Project 2",
+    "author": [
+      {
+        "name": "Stephanie Hicks",
+        "url": "https://stephaniehicks.com/"
+      }
+    ],
+    "date": "2021-09-14",
+    "categories": [
+      "project 2",
+      "projects"
+    ],
+    "contents": "\n\nContents\nBackground\n\nBackground\nDue date: Oct 1 at 11:59pm\nInformation coming soon.\n\n\n\n",
+    "preview": {},
+    "last_modified": "2021-07-20T14:13:30-04:00",
+    "input_file": {}
+  },
+  {
+    "path": "projects/2021-09-07-project-1/",
+    "title": "Project 1",
+    "description": "Information for Project 1",
+    "author": [
+      {
+        "name": "Stephanie Hicks",
+        "url": "https://stephaniehicks.com/"
+      }
+    ],
+    "date": "2021-09-07",
+    "categories": [
+      "project 1",
+      "projects"
+    ],
+    "contents": "\n\nContents\nBackground\n\nBackground\nDue date: Sept 17 at 11:59pm\nInformation coming soon.\n\n\n\n",
+    "preview": {},
+    "last_modified": "2021-07-20T14:13:19-04:00",
+    "input_file": {}
+  },
+  {
+    "path": "projects/2021-08-31-project-0/",
+    "title": "Project 0 (optional)",
+    "description": "Information for Project 0 (entirely optional, but hopefully useful and fun)",
+    "author": [
+      {
+        "name": "Stephanie Hicks",
+        "url": "https://stephaniehicks.com/"
+      }
+    ],
+    "date": "2021-08-31",
+    "categories": [
+      "project 0",
+      "projects"
+    ],
+    "contents": "\n\nContents\nBackground\nPart 1\nSetting up your computing environment\n\nPart 2\n1. Create a GitHub repo for your website\n2. Build a website using R Markdown\n3. Include a README.md file\n4. Deploy your website\n5. Share your website\n\n\nBackground\nDue date: Sept 9 at 1:29pm\nUsing the tools we learned in the first week (e.g. R, RStudio and Github). Let’s apply them in a small (but also comprehensive) exercise.\nPlease note this project is entirely optional (i.e. it will not be graded), but hopefully it will be helpful to you getting set up for the rest of the course (i.e. set up these tools on your computing environment) and give you an opportunity to introduce yourself to your classmates.\nFor those of you who are new to GitHub/R/Rmarkdown: this project makes you do a lot of things that you might not be familiar with. I know that this might be time-consuming and also might feel a bit intimidating. It’s partly unavoidable and partly on purpose. You need to learn how to quickly get up to speed with all kinds of new tools that come your way. So practicing it is a good idea. You are welcome to draw on any sources for help that you want (online, classmates, instructor, etc.). I’m confident with a bit of trial and error you’ll get it to work.\nPart 1\nThis part of the project is to ensure that you have successfully set up your computing environment. Please email (use the Subject line: 140.776 Setup) the Course Instructor (Dr. Stephanie Hicks) at shicks19@jhu.edu the following information:\nSetting up your computing environment\nYour name, JHED ID (if applicable).\nThe type of computer/operating system you are using (Windows, Mac, Unix/Linux, other)\nThe version of R that you have installed on your computer. To do this, start up R and run the following in the R console and include the output in your email.\n\n\nprint(R.version.string)\n\n\n\nPrinting the R version stringThe version of RStudio that you have installed on your computer. To do this start up RStudio and in the R console window, run the following and again include the output in your email:\n\n\nprint(RStudio.Version()$version)\n\n\n\nIf you have a GitHub username, please include this in your email. If you do not have a GitHub username, read https://happygitwithr.com, sign up for GitHub, and include your new username in your email to me.\nTo make sure git is installed on your system, use the ‘Terminal’ (e.g. it’s next to the R Console within RStudio) (or whatever you use), run the following and include the output in your email:\nFor example, this is mine:\n\ngit --version\ngit version 2.24.3 (Apple Git-128)\n\nIf you have any trouble with any of the steps above, try to first post on the discussion board on CoursePlus. The TAs and I will be checking it frequently, but other students may also be helpful in their replies. You can also use other resources to get help (Google, R4DS, colleagues/friends/relatives with R/Markdown experience, etc.). Still, try to do as much as possible yourself. We will use all the bits you are learning here repeatedly during this course.\nPart 2\nThis part of the project is to help you introduce yourself (and your interests!) to others in this course. You will create new a GitHub repository and build a small website about yourself.\n1. Create a GitHub repo for your website\nCreate a new GitHub repository titled biostat776-intro-<firstname>-<lastname> (where you replace <firstname> with your first name and <lastname> with your last name) in your own personal GitHub account (e.g. https://github.com/<yourgithubusername>/biostat776-intro-<firstname>-<lastname>).\nFor example, you can find an example that I created for myself at\nhttps://github.com/stephaniehicks/biostat776-intro-stephanie-hicks\n2. Build a website using R Markdown\nUsing one of the many ways we discussed in class (e.g. a simple R Markdown website, blogdown, distill, etc), create a new project in RStudio with the appropriate files. There should be at minimum three pages (but more are welcomed!) in your website with the following information:\nA homepage (i.e. index.Rmd which will be rendered into index.html). Note this must be in the top-level repository folder and it must have this name (i.e. index). This page should include a picture of yourself (or if you prefer otherwise then a picture of your favorite animal). Write a short post using R Markdown in which you introduce yourself. Structure the webpage with headings, subheadings, etc. Talk a bit about yourself, your background, training, research interests. Let me/us know what kind of statistics, programming, data analysis experience you already have. I am also curious to know what you most hope to learn in this course.\nA web page with 5 fun facts about yourself (i.e. fivefacts.Rmd and fivefacts.html).\nA web page linking to something you think is really cool/interesting/inspiring/etc (i.e. favthings.Rmd and favthings.html). This page should include a brief summary (<200 words) of what it is and why you like it.\nIf you want, feel free to get creative and include other things. You can play with RMarkdown if you wish to, e.g., you can try to include some table or a video, etc.\n3. Include a README.md file\nYour project repository should include a README.md file (if it was not included already).\nEdit the repository README.md file. Typically it will only contain the name of your repository with a # sign in front. The # represents a level 1 heading in Markdown. Change the headline and call it “Introducing myself” (or something like that). Underneath write something like “This website contains a short introduction of Your Name.”\nMake sure the 2 files (README.md and especially index.Rmd / index.html) look the way you want. Make changes until everything works.\n4. Deploy your website\nDepending on how you want to deploy your website, the following may or may not be relevant to you. In general, you want to make sure you have initialized your project to use git (i.e. you can type git init to initialize the repository to use git. Add and commit your changes. Push your changes and deploy your website.\n5. Share your website\nGo to the Discussion Board in CoursePlus and write a short post with a link (URL) to your website (and URL to the corresponding GitHub repository) that you created.\nAs you read the introductions from other folks in the class, feel free to comment/reply using Discussion board.\nIn class on Sept 9, the course instructor will randomly select websites on CoursePlus to highlight a few websites!\n\n\n\n",
+    "preview": {},
+    "last_modified": "2021-07-20T15:21:02-04:00",
+    "input_file": {}
+  }
+]

@@ -82,7 +82,7 @@ d-appendix {
 /* -----------div tips------------- */
 
 
-  .homework {
+  div.puzzle, div.fyi, div.demo, div.note {
     padding: 1em;
     margin: 1em 0;
     padding-left: 100px;
@@ -90,10 +90,39 @@ d-appendix {
     background-repeat: no-repeat;
     background-position: 15px center;
     min-height: 120px;
+    color: #1f5386;
+    background-color: #bed3ec;
+    border: solid 5px #dfedff;
+  }
+  
+div.puzzle {
+  background-image: url("Your-turn.png");
+}
+
+div.fyi {
+ background-image: url("images/fyi.png");
+}
+
+div.demo {
+  background-image: url("images/Live-code.png");
+}
+
+div.note {
+  background-image: url("images/lightbulb.png");
+}
+
+  .questions {
+    padding: 1em;
+    margin: 1em 0;
+    padding-left: 100px;
+    background-size: 70px;
+    background-repeat: no-repeat;
+    background-position: 15px center;
+    min-height: 50px;
     color: #000000 ;
     background-color: #9BB1BBFF;
-    border: solid 1px #000000;
-    background-image: url("study.png")
+    border: solid 5px #000000;
+    background-image: url("images/study.png");
   }
   
   
@@ -104,16 +133,14 @@ d-appendix {
     background-size: 70px;
     background-repeat: no-repeat;
     background-position: 15px center;
-    min-height: 120px;
+    min-height: 50px;
     color: #000000;
-    background-color: #E4DECEFF; /* #e5d468; */
-    border: solid 1px #000000;
-    background-image: url("list.png")
+    background-color: #ECBD95FF; /* #e5d468; */
+    border: solid 5px #000000;
+    background-image: url("images/list.png");
   }
 
-
-
-.keyidea{
+.keyideas{
     padding: 1em;
     margin: 1em 0;
     padding-left: 100px;
@@ -121,10 +148,10 @@ d-appendix {
     background-repeat: no-repeat;
     background-position: 15px center;
     min-height: 120px;
-    color: #000000;
-    background-color: #ECBD95FF;
-    border: solid 1px #000000;
-    background-image: url("important.png") 
+    color: #441F29;
+    background-color: #E56889;
+    border: solid 5px #441F29;
+    background-image: url('images/important.png') ;
 }
 
 .center {

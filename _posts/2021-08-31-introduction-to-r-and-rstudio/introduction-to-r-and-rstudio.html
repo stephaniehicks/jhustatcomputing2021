@@ -88,7 +88,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_meta_tags-->
   <title>Introduction to R and RStudio</title>
 
-  <meta property="description" itemprop="description" content="A short description of the post."/>
+  <meta property="description" itemprop="description" content="Let&#39;s dig into the R programming language and the RStudio integrated developer environment"/>
 
 
   <!--  https://schema.org/Article -->
@@ -99,19 +99,19 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
   <meta property="og:title" content="Introduction to R and RStudio"/>
   <meta property="og:type" content="article"/>
-  <meta property="og:description" content="A short description of the post."/>
+  <meta property="og:description" content="Let&#39;s dig into the R programming language and the RStudio integrated developer environment"/>
   <meta property="og:locale" content="en_US"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
   <meta property="twitter:title" content="Introduction to R and RStudio"/>
-  <meta property="twitter:description" content="A short description of the post."/>
+  <meta property="twitter:description" content="Let&#39;s dig into the R programming language and the RStudio integrated developer environment"/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","categories"]}},"value":[{"type":"character","attributes":{},"value":["Introduction to R and RStudio"]},{"type":"character","attributes":{},"value":["A short description of the post.\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url","affiliation","affiliation_url"]}},"value":[{"type":"character","attributes":{},"value":["Stephanie Hicks"]},{"type":"character","attributes":{},"value":["https://stephaniehicks.com/"]},{"type":"character","attributes":{},"value":["Department of Biostatistics, Johns Hopkins"]},{"type":"character","attributes":{},"value":["https://www.jhsph.edu"]}]}]},{"type":"character","attributes":{},"value":["08-31-2021"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["module 1","week 1","R","programming","RStudio"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","categories"]}},"value":[{"type":"character","attributes":{},"value":["Introduction to R and RStudio"]},{"type":"character","attributes":{},"value":["Let's dig into the R programming language and the RStudio integrated developer environment \n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url","affiliation","affiliation_url"]}},"value":[{"type":"character","attributes":{},"value":["Stephanie Hicks"]},{"type":"character","attributes":{},"value":["https://stephaniehicks.com/"]},{"type":"character","attributes":{},"value":["Department of Biostatistics, Johns Hopkins"]},{"type":"character","attributes":{},"value":["https://www.jhsph.edu"]}]}]},{"type":"character","attributes":{},"value":["08-31-2021"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["number_sections","self_contained","toc","toc_depth"]}},"value":[{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[3]}]}]},{"type":"character","attributes":{},"value":["module 1","week 1","R","programming","RStudio"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   
@@ -1455,7 +1455,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Introduction to R and RStudio","description":"A short description of the post.","authors":[{"author":"Stephanie Hicks","authorURL":"https://stephaniehicks.com/","affiliation":"Department of Biostatistics, Johns Hopkins","affiliationURL":"https://www.jhsph.edu","orcidID":""}],"publishedDate":"2021-08-31T00:00:00.000+00:00","citationText":"Hicks, 2021"}
+{"title":"Introduction to R and RStudio","description":"Let's dig into the R programming language and the RStudio integrated developer environment","authors":[{"author":"Stephanie Hicks","authorURL":"https://stephaniehicks.com/","affiliation":"Department of Biostatistics, Johns Hopkins","affiliationURL":"https://www.jhsph.edu","orcidID":""}],"publishedDate":"2021-08-31T00:00:00.000+00:00","citationText":"Hicks, 2021"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -1475,7 +1475,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <div class="dt=tag">RStudio</div>
 </div>
 <!--/radix_placeholder_categories-->
-<p><p>A short description of the post.</p></p>
+<p><p>Let’s dig into the R programming language and the RStudio integrated developer environment</p></p>
 </div>
 
 <div class="d-byline">
@@ -1485,20 +1485,286 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </div>
 
 <div class="d-article">
-<p>Material for this lecture was borrowed from</p>
+<div class="d-contents d-contents-float">
+<nav class="l-text toc figcaption" id="TOC">
+<h3>Contents</h3>
 <ul>
-<li><a href="https://biodatascience.github.io/statcomp/">Introduction to Statistical Computing by Naim Rashid</a></li>
-<li>Add here</li>
+<li><a href="#pre-lecture-materials">Pre-lecture materials</a>
+<ul>
+<li><a href="#read-ahead">Read ahead</a></li>
+<li><a href="#acknowledgements">Acknowledgements</a></li>
+</ul></li>
+<li><a href="#learning-objectives">Learning objectives</a></li>
+<li><a href="#overview-and-history-of-r">Overview and history of R</a>
+<ul>
+<li><a href="#tldr-r-in-a-nutshell">tl;dr (R in a nutshell)</a></li>
+<li><a href="#basic-features-of-r">Basic Features of R</a></li>
+<li><a href="#free-software">Free Software</a></li>
+<li><a href="#design-of-the-r-system">Design of the R System</a></li>
+<li><a href="#limitations-of-r">Limitations of R</a></li>
+</ul></li>
+<li><a href="#using-r-and-rstudio">Using R and RStudio</a>
+<ul>
+<li><a href="#installing-r-and-rstudio">Installing R and RStudio</a></li>
+<li><a href="#rstudio-default-options">RStudio default options</a></li>
+<li><a href="#installing-and-loading-r-packages">Installing and loading R packages</a></li>
+<li><a href="#getting-started-in-rstudio">Getting started in RStudio</a></li>
+</ul></li>
+<li><a href="#post-lecture-materials">Post-lecture materials</a>
+<ul>
+<li><a href="#final-questions">Final Questions</a></li>
+<li><a href="#additional-resources">Additional Resources</a></li>
+</ul></li>
+</ul>
+</nav>
+</div>
+<blockquote>
+<p>There are only two kinds of languages: the ones people complain about and the ones nobody uses. —<em>Bjarne Stroustrup</em></p>
+</blockquote>
+<h1 id="pre-lecture-materials">Pre-lecture materials</h1>
+<h3 id="read-ahead">Read ahead</h3>
+<div class="resources">
+<p><strong>Before class, you can prepare by reading the following materials:</strong></p>
+<ol type="1">
+<li><a href="https://rdpeng.github.io/Biostat776/lecture-introduction-and-overview.html">An overview and history of R</a> from Roger Peng</li>
+<li><a href="https://rafalab.github.io/dsbook/installing-r-rstudio.html">Installing R and RStudio</a> from Rafael Irizarry</li>
+<li><a href="https://rafalab.github.io/dsbook/getting-started.html">Getting Started in R and RStudio</a> from Rafael Irizarry</li>
+</ol>
+</div>
+<h3 id="acknowledgements">Acknowledgements</h3>
+<p>Material for this lecture was borrowed and adopted from</p>
+<ul>
+<li><a href="https://rdpeng.github.io/Biostat776/lecture-introduction-and-overview.html" class="uri">https://rdpeng.github.io/Biostat776/lecture-introduction-and-overview.html</a></li>
+<li><a href="https://rafalab.github.io/dsbook" class="uri">https://rafalab.github.io/dsbook</a></li>
+<li><a href="https://rmd4sci.njtierney.com" class="uri">https://rmd4sci.njtierney.com</a></li>
+<li><a href="https://andreashandel.github.io/MADAcourse" class="uri">https://andreashandel.github.io/MADAcourse</a></li>
 </ul>
 <h1 id="learning-objectives">Learning objectives</h1>
-<section id="at-the-end-of-this-lesson-you-will" class="keyidea">
-<h2>At the end of this lesson you will</h2>
+<div class="keyideas">
+<p><strong>At the end of this lesson you will:</strong></p>
 <ul>
-<li>Be able to define XXX</li>
-<li>Be able to define what is readable and efficient code?</li>
-<li>Be able to follow XXX</li>
+<li>Learn about (some of) the history of R.</li>
+<li>Identify some of the strengths and weaknesses of R.</li>
+<li>Install R and Rstudio on your computer.</li>
+<li>Know how to install and load R packages.</li>
 </ul>
-</section>
+</div>
+<h1 id="overview-and-history-of-r">Overview and history of R</h1>
+<p>Below is a very quick introduction to R, to get you set up and running. We’ll go deeper into R and coding later.</p>
+<h3 id="tldr-r-in-a-nutshell">tl;dr (R in a nutshell)</h3>
+<p>Like every programming language, R has its advantages and disadvantages. If you search the internet, you will quickly discover lots of folks with opinions about R. Some of the features that are useful to know are:</p>
+<ul>
+<li>R is open-source, freely accessible, and cross-platform (multiple OS).</li>
+<li>R is a <a href="https://en.wikipedia.org/wiki/High-level_programming_language">“high-level” programming language</a>, relatively easy to learn.
+<ul>
+<li>While “Low-level” programming languages (e.g. Fortran, C, etc) often have more efficient code, they can also be harder to learn because it is designed to be close to a machine language.</li>
+<li>In contrast, high-level languages deal more with variables, objects, functions, loops, and other abstract CS concepts with a focus on usability over optimal program efficiency.</li>
+</ul></li>
+<li>R is great for statistics, data analysis, websites, web apps, data visualizations, and so much more!</li>
+<li>R integrates easily with document preparation systems like <span class="math inline">\(\LaTeX\)</span>, but R files can also be used to create <code>.docx</code>, <code>.pdf</code>, <code>.html</code>, <code>.ppt</code> files with integrated R code output and graphics.</li>
+<li>The R Community is very dynamic, helpful and welcoming.
+<ul>
+<li>Check out the <a href="https://twitter.com/search?q=%23rstats">#rstats</a> on Twitter, <a href="https://www.tidytuesday.com">TidyTuesday</a> podcast and community activity in the <a href="https://www.rfordatasci.com">R4DS Online Learning Community</a>, and <a href="https://www.reddit.com/r/rstats/">r/rstats</a> subreddit.</li>
+<li>If you are looking for more local resources, check out <a href="https://www.meetup.com/rladies-baltimore/">R-Ladies Baltimore</a>.</li>
+</ul></li>
+<li>Through R packages, it is easy to get lots of state-of-the-art algorithms.</li>
+<li>Documentation and help files for R are generally good.</li>
+</ul>
+<p>While we use R in this course, it is not the only option to analyze data. Maybe the most similar to R, and widely used, is Python, which is also free. There is also commercial software that can be used to analyze data (e.g., Matlab, Mathematica, Tableau, SAS, SPSS). Other more general programming languages are suitable for certain types of analyses as well (e.g., C, Fortran, Perl, Java, Julia).</p>
+<p>Depending on your future needs or jobs, you might have to learn one or several of those additional languages. The good news is that even though those languages are all different, they all share general ways of thinking and structuring code. So once you understand a specific concept (e.g., variables, loops, branching statements or functions), it applies to all those languages. Thus, learning a new programming language is much easier once you already know one. And R is a good one to get started with.</p>
+<p>With the skills gained in this course, hopefully you will find R a fun and useful programming langauge for your future projects.</p>
+<p><img src="https://github.com/allisonhorst/stats-illustrations/raw/master/rstats-artwork/r_first_then.png" /></p>
+<p>[<strong>Source</strong>: <a href="https://github.com/allisonhorst/stats-illustrations">Artwork by Allison Horst</a>]</p>
+<h3 id="basic-features-of-r">Basic Features of R</h3>
+<p>Today R runs on almost any standard computing platform and operating system. Its open source nature means that anyone is free to adapt the software to whatever platform they choose. Indeed, R has been reported to be running on modern tablets, phones, PDAs, and game consoles.</p>
+<p>One nice feature that R shares with many popular open source projects is frequent releases. These days there is a major annual release, typically in October, where major new features are incorporated and released to the public. Throughout the year, smaller-scale bugfix releases will be made as needed. The frequent releases and regular release cycle indicates active development of the software and ensures that bugs will be addressed in a timely manner. Of course, while the core developers control the primary source tree for R, many people around the world make contributions in the form of new feature, bug fixes, or both.</p>
+<p>Another key advantage that R has over many other statistical packages (even today) is its sophisticated graphics capabilities. R’s ability to create “publication quality” graphics has existed since the very beginning and has generally been better than competing packages. Today, with many more visualization packages available than before, that trend continues. R’s base graphics system allows for very fine control over essentially every aspect of a plot or graph. Other newer graphics systems, like lattice and ggplot2 allow for complex and sophisticated visualizations of high-dimensional data.</p>
+<p>R has maintained the original S philosophy (see box below), which is that <strong>it provides a language that is both useful for interactive work, but contains a powerful programming language for developing new tools</strong>. This allows the user, who takes existing tools and applies them to data, to slowly but surely become a developer who is creating new tools.</p>
+<div class="resources">
+<p>For a great discussion on an overview and history of R and the S programming language, read through <a href="https://rdpeng.github.io/Biostat776/lecture-introduction-and-overview.html">this chapter</a> from Roger D. Peng.</p>
+</div>
+<p>Finally, one of the joys of using R has nothing to do with the language itself, but rather with the active and vibrant user community. In many ways, a language is successful inasmuch as it creates a platform with which many people can create new things. R is that platform and thousands of people around the world have come together to make contributions to R, to develop packages, and help each other use R for all kinds of applications. The R-help and R-devel mailing lists have been highly active for over a decade now and there is considerable activity on web sites like Stack Overflow, Twitter <a href="https://twitter.com/search?q=%23rstats">#rstats</a> and <a href="https://www.reddit.com/r/rstats/">Reddit</a>.</p>
+<h3 id="free-software">Free Software</h3>
+<p>A major advantage that R has over many other statistical packages and is that it’s free in the sense of free software (it’s also free in the sense of free beer). The copyright for the primary source code for R is held by the <a href="http://www.r-project.org/foundation/">R Foundation</a> and is published under the <a href="http://www.gnu.org/licenses/gpl-2.0.html">GNU General Public License version 2.0</a>.</p>
+<p>According to the Free Software Foundation, with <em>free software</em>, you are granted the following <a href="http://www.gnu.org/philosophy/free-sw.html">four freedoms</a></p>
+<ul>
+<li><p>The freedom to run the program, for any purpose (freedom 0).</p></li>
+<li><p>The freedom to study how the program works, and adapt it to your needs (freedom 1). Access to the source code is a precondition for this.</p></li>
+<li><p>The freedom to redistribute copies so you can help your neighbor (freedom 2).</p></li>
+<li><p>The freedom to improve the program, and release your improvements to the public, so that the whole community benefits (freedom 3). Access to the source code is a precondition for this.</p></li>
+</ul>
+<div class="resources">
+<p>You can visit the <a href="http://www.fsf.org">Free Software Foundation’s web site</a> to learn a lot more about free software. The Free Software Foundation was founded by Richard Stallman in 1985 and <a href="https://stallman.org">Stallman’s personal web site</a> is an interesting read if you happen to have some spare time.</p>
+</div>
+<h3 id="design-of-the-r-system">Design of the R System</h3>
+<p>The primary R system is available from the <a href="http://cran.r-project.org">Comprehensive R Archive Network</a>, also known as CRAN. CRAN also hosts many add-on packages that can be used to extend the functionality of R.</p>
+<p>The R system is divided into 2 conceptual parts:</p>
+<ol type="1">
+<li>The “base” R system that you download from CRAN:</li>
+</ol>
+<ul>
+<li><a href="http://cran.r-project.org/bin/linux/">Linux</a></li>
+<li><a href="http://cran.r-project.org/bin/windows/">Windows</a></li>
+<li><a href="http://cran.r-project.org/bin/macosx/">Mac</a></li>
+</ul>
+<ol start="2" type="1">
+<li>Everything else.</li>
+</ol>
+<p>R functionality is divided into a number of <em>packages</em>.</p>
+<ul>
+<li><p>The “base” R system contains, among other things, the <code>base</code> package which is required to run R and contains the most fundamental functions.</p></li>
+<li><p>The other packages contained in the “base” system include <code>utils</code>, <code>stats</code>, <code>datasets</code>, <code>graphics</code>, <code>grDevices</code>, <code>grid</code>, <code>methods</code>, <code>tools</code>, <code>parallel</code>, <code>compiler</code>, <code>splines</code>, <code>tcltk</code>, <code>stats4</code>.</p></li>
+<li><p>There are also “Recommended” packages: <code>boot</code>, <code>class</code>, <code>cluster</code>, <code>codetools</code>, <code>foreign</code>, <code>KernSmooth</code>, <code>lattice</code>, <code>mgcv</code>, <code>nlme</code>, <code>rpart</code>, <code>survival</code>, <code>MASS</code>, <code>spatial</code>, <code>nnet</code>, <code>Matrix</code>.</p></li>
+</ul>
+<p>When you download a fresh installation of R from CRAN, you get all of the above, which represents a substantial amount of functionality. However, there are many other packages available:</p>
+<ul>
+<li><p>There are over 10,000 packages on CRAN that have been developed by users and programmers around the world.</p></li>
+<li><p>There are also many packages associated with the <a href="http://bioconductor.org">Bioconductor project</a>.</p></li>
+<li><p>People often make packages available on their personal websites; there is no reliable way to keep track of how many packages are available in this fashion.</p></li>
+</ul>
+<div class="questions">
+<p><strong>Questions:</strong></p>
+<ol type="1">
+<li>How many R packages are on CRAN today?</li>
+<li>How many R packages are on Bioconductor today?</li>
+<li>How many R packages are on GitHub today?</li>
+</ol>
+</div>
+<h3 id="limitations-of-r">Limitations of R</h3>
+<p>No programming language or statistical analysis system is perfect. R certainly has a number of drawbacks. For starters, R is essentially based on almost 50 year old technology, going back to the original S system developed at Bell Labs. There was originally little built in support for dynamic or 3-D graphics (but things have improved greatly since the “old days”).</p>
+<p>Another commonly cited limitation of R is that objects must generally be stored in physical memory (though this is increasingly not true anymore). This is in part due to the scoping rules of the language, but R generally is more of a memory hog than other statistical packages. However, there have been a number of advancements to deal with this, both in the R core and also in a number of packages developed by contributors. Also, computing power and capacity has continued to grow over time and amount of physical memory that can be installed on even a consumer-level laptop is substantial. While we will likely never have enough physical memory on a computer to handle the increasingly large datasets that are being generated, the situation has gotten quite a bit easier over time.</p>
+<p>At a higher level one “limitation” of R is that its functionality is based on consumer demand and (voluntary) user contributions. If no one feels like implementing your favorite method, then it’s <em>your</em> job to implement it (or you need to pay someone to do it). The capabilities of the R system generally reflect the interests of the R user community. As the community has ballooned in size over the past 10 years, the capabilities have similarly increased. When I first started using R, there was very little in the way of functionality for the physical sciences (physics, astronomy, etc.). However, now some of those communities have adopted R and we are seeing more code being written for those kinds of applications.</p>
+<h1 id="using-r-and-rstudio">Using R and RStudio</h1>
+<blockquote>
+<p>If R is the engine and bare bones of your car, then RStudio is like the rest of the car. The engine is super critical part of your car. But in order to make things properly functional, you need to have a steering wheel, comfy seats, a radio, rear and side view mirrors, storage, and seatbelts. — <em>Nicholas Tierney</em></p>
+</blockquote>
+<p>[<a href="https://rmd4sci.njtierney.com">Source</a>]</p>
+<p>The RStudio layout has the following features:</p>
+<ul>
+<li>On the upper left, something called a Rmarkdown script</li>
+<li>On the lower left, the R console</li>
+<li>On the lower right, the view for files, plots, packages, help, and viewer.</li>
+<li>On the upper right, the environment / history pane</li>
+</ul>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure"><span id="fig:rstudio-screenshot"></span>
+<img src="https://github.com/njtierney/rmd4sci/raw/master/figs/rstudio-screenshot.png" alt="A screenshot of the RStudio integrated developer environment (IDE) -- aka the working environment."  />
+<p class="caption">
+Figure 1: A screenshot of the RStudio integrated developer environment (IDE) – aka the working environment.
+</p>
+</div>
+</div>
+<p>The R console is the bit where you can run your code. This is where the R code in your Rmarkdown document gets sent to run (we’ll learn about these files later).</p>
+<p>The file/plot/pkg viewer is a handy browser for your current files, like Finder, or File Explorer, plots are where your plots appear, you can view packages, see the help files. And the environment / history pane contains the list of things you have created, and the past commands that you have run.</p>
+<h3 id="installing-r-and-rstudio">Installing R and RStudio</h3>
+<ul>
+<li>If you have not already, <a href="http://cran.r-project.org">install R first</a>. If you already have R installed, make sure it is a fairly recent version, version 4.0 or newer. If yours is older, I suggest you update (install a new R version).</li>
+<li>Once you have R installed, install the free version of <a href="https://www.rstudio.com/products/rstudio/download/">RStudio Desktop</a>. Again, make sure it’s a recent version, it should be of the 1.4.X series.</li>
+</ul>
+<div class="resources">
+<p>Installing R and RStudio should be fairly straightforward. However, a great set of detailed instructions is in Rafael Irizarry’s <code>dsbook</code></p>
+<ul>
+<li><a href="https://rafalab.github.io/dsbook/installing-r-rstudio.html" class="uri">https://rafalab.github.io/dsbook/installing-r-rstudio.html</a></li>
+</ul>
+</div>
+<p>If things don’t work, ask for help in the courseplus discussion board.</p>
+<p>I personally only have experience with Mac, but everything should work on all the standard operating systems (Windows, Mac, and even Linux).</p>
+<h3 id="rstudio-default-options">RStudio default options</h3>
+<p>To first get set up, I highly recommend changing the following setting</p>
+<p>Tools &gt; Global Options (or <code>Cmd + ,</code> on macOS)</p>
+<p>Under the <strong>General</strong> tab:</p>
+<ul>
+<li>For <strong>workspace</strong>
+<ul>
+<li>Uncheck restore .RData into workspace at startup</li>
+<li>Save workspace to .RData on exit : “Never”</li>
+</ul></li>
+<li>For <strong>History</strong>
+<ul>
+<li>Uncheck "Always save history (even when not saving .RData)</li>
+<li>Uncheck “Remove duplicate entries in history”</li>
+</ul></li>
+</ul>
+<p>This means that you won’t save the objects and other things that you create in your R session and reload them. This is important for two reasons</p>
+<ol type="1">
+<li><strong>Reproducibility</strong>: you don’t want to have objects from last week cluttering your session</li>
+<li><strong>Privacy</strong>: you don’t want to save private data or other things to your session. You only want to read these in.</li>
+</ol>
+<p>Your “history” is the commands that you have entered into R.</p>
+<p>Additionally, not saving your history means that you won’t be relying on things that you typed in the last session, which is a good habit to get into!</p>
+<h3 id="installing-and-loading-r-packages">Installing and loading R packages</h3>
+<p>As we discussed, most of the functionality and features in R come in the form of add-on packages. There are tens of thousands of packages available, some big, some small, some well documented, some not. We will be using many different packages in this course. Of course, you are free to install and use any package you come across for any of the assignments.</p>
+<p>The “official” place for packages is the <a href="https://cran.r-project.org/web/packages/available_packages_by_name.html">CRAN website</a>. If you are interested in packages on a specific topic, the <a href="http://cran.r-project.org/web/views/">CRAN task views</a> provide curated descriptions of packages sorted by topic.</p>
+<p>To install an R package from CRAN, one can simply call the <code>install.packages()</code> function and pass the name of the package as an argument. For example, to install the <code>ggplot2</code> package from CRAN: open RStudio,go to the R prompt (the <code>&gt;</code> symbol) in the lower-left corner and type</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/utils/install.packages.html'>install.packages</a></span><span class='op'>(</span><span class='st'>"ggplot2"</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<p>and the appropriate version of the package will be installed.</p>
+<p>Often, a package needs other packages to work (called dependencies), and they are installed automatically. It usually does not matter if you use a single or double quotation mark around the name of the package.</p>
+<div class="questions">
+<p><strong>Questions:</strong></p>
+<ol type="1">
+<li>As you installed the <code>ggplot2</code> package, what other packages were installed?</li>
+<li>What happens if you tried to install <code>GGplot2</code>?</li>
+</ol>
+</div>
+<p>It could be that you already have all packages required by <code>ggplot2</code> installed. In that case, you will not see any other packages installed. To see which of the packages above <code>ggplot2</code> needs (and thus installs if it is not present), type into the R console:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>tools</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/r/tools/package_dependencies.html'>package_dependencies</a></span><span class='op'>(</span><span class='st'>"ggplot2"</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<p>In RStudio, you can also install (and update/remove) packages by clicking on the ‘Packages’ tab in the bottom right window.</p>
+<p>It is very common these days for packages to be developed on GitHub. It is possible to install packages from GitHub directly. Those usually contain the latest version of the package, with features that might not be available yet on the CRAN website. Sometimes, in early development stages, a package is only on GitHub until the developer(s) feel it is good enough for CRAN submission. So installing from GitHub gives you the latest. The downside is that packages under development can often be buggy and not working right. To install packages from GitHub, you need to install the <code>remotes</code> package and then use the following function</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>remotes</span><span class='fu'>::</span><span class='fu'><a href='https://remotes.r-lib.org/reference/install_github.html'>install_github</a></span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<p>We will not do that now, but it is quite likely that at one point later in this course we will.</p>
+<p>You only need to install a package once, unless you upgrade/re-install R. Once installed, you still need to load the package before you can use it. That has to happen every time you start a new R session. You do that using the <code>library()</code> command. For instance to load the <code>ggplot2</code> package, type</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='st'><a href='http://ggplot2.tidyverse.org'>'ggplot2'</a></span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<p>You may or may not see a short message on the screen. Some packages show messages when you load them, and others do not.</p>
+<p>This was a quick overview of R packages. We will use a lot of them, so you will get used to them rather quickly.</p>
+<h3 id="getting-started-in-rstudio">Getting started in RStudio</h3>
+<p>While one can use R and do pretty much every task, including all the ones we cover in this class, without using RStudio, RStudio is very useful, has lots of features that make your R coding life easier and has become pretty much the default integrated development environment (IDE) for R. Since RStudio has lots of features, it takes time to learn them. A good resource to learn more about RStudio are the <a href="https://resources.rstudio.com/">R Studio Essentials</a> collection of videos.</p>
+<div class="resources">
+<p>For more information on setting up and getting started with R, RStudio, and R packages, read the Getting Started chapter in the <code>dsbook</code>:</p>
+<ul>
+<li><a href="https://rafalab.github.io/dsbook/getting-started.html" class="uri">https://rafalab.github.io/dsbook/getting-started.html</a></li>
+</ul>
+<p>This chapter gives some tips, shortcuts, and ideas that might be of interest even to those of you who already have R and/or RStudio experience.</p>
+</div>
+<h1 id="post-lecture-materials">Post-lecture materials</h1>
+<h3 id="final-questions">Final Questions</h3>
+<p>Here are some post-lecture questions to help you think about the material discussed.</p>
+<div class="questions">
+<p><strong>Questions:</strong></p>
+<ol type="1">
+<li><p>If a software company asks you, as a requirement for using their software, to sign a license that restricts you from using their software to commit illegal activities, is this consistent with the “Four Freedoms” of Free Software?</p></li>
+<li><p>What is an R package and what is it used for?</p></li>
+<li><p>What function in R can be used to install packages from CRAN?</p></li>
+<li><p>What is a limitation of the current R system?</p></li>
+</ol>
+</div>
+<h3 id="additional-resources">Additional Resources</h3>
+<div class="resources">
+<ul>
+<li><p><a href="https://r4ds.had.co.nz">R for Data Science</a> by Wickham &amp; Grolemund (2017). Covers most of the basics of using R for data analysis.</p></li>
+<li><p><a href="https://adv-r.hadley.nz">Advanced R</a> by Wickham (2014). Covers a number of areas including object-oriented, programming, functional programming, profiling and other advanced topics.</p></li>
+<li><p><a href="https://github.com/rstudio/cheatsheets/raw/master/rstudio-ide.pdf">RStudio IDE cheatsheet</a></p></li>
+</ul>
+</div>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
@@ -1507,6 +1773,15 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <div class="d-appendix">
 </div>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 
 <!--radix_placeholder_site_after_body-->
 <!--/radix_placeholder_site_after_body-->

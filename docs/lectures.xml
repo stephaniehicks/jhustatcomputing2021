@@ -9,10 +9,25 @@
     <generator>Distill</generator>
     <lastBuildDate>Tue, 31 Aug 2021 00:00:00 +0000</lastBuildDate>
     <item>
+      <title>Introduction to git/GitHub</title>
+      <dc:creator>Stephanie Hicks</dc:creator>
+      <link>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-08-31-introduction-to-gitgithub</link>
+      <description>Version control is a game changer; or how I learned to love git/GitHub</description>
+      <category>module 1</category>
+      <category>week 1</category>
+      <category>programming</category>
+      <category>version control</category>
+      <category>git</category>
+      <category>GitHub</category>
+      <guid>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-08-31-introduction-to-gitgithub</guid>
+      <pubDate>Tue, 31 Aug 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://stephaniehicks.com/jhustatcomputing2021/posts/2021-08-31-introduction-to-gitgithub/../../images/phdversioncontrol.gif" medium="image" type="image/gif"/>
+    </item>
+    <item>
       <title>Introduction to R and RStudio</title>
       <dc:creator>Stephanie Hicks</dc:creator>
       <link>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-08-31-introduction-to-r-and-rstudio</link>
-      <description>A short description of the post.</description>
+      <description>Let's dig into the R programming language and the RStudio integrated developer environment</description>
       <category>module 1</category>
       <category>week 1</category>
       <category>R</category>
