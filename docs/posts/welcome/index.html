@@ -103,14 +103,16 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <meta property="og:type" content="article"/>
 <meta property="og:description" content="Overview course information for students enrolled in JHSPH Biostatistics 140.776 in Fall 2021"/>
 <meta property="og:url" content="https://stephaniehicks.com/jhustatcomputing2021/posts/welcome/"/>
+<meta property="og:image" content="https://stephaniehicks.com/jhustatcomputing2021/posts/welcome/https://media.giphy.com/media/XdIOEZTt6dL7zTYWIo/giphy.gif"/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:site_name" content="Statistical Computing"/>
 
 <!--  https://dev.twitter.com/cards/types/summary -->
-<meta property="twitter:card" content="summary"/>
+<meta property="twitter:card" content="summary_large_image"/>
 <meta property="twitter:title" content="Statistical Computing: Welcome!"/>
 <meta property="twitter:description" content="Overview course information for students enrolled in JHSPH Biostatistics 140.776 in Fall 2021"/>
 <meta property="twitter:url" content="https://stephaniehicks.com/jhustatcomputing2021/posts/welcome/"/>
+<meta property="twitter:image" content="https://stephaniehicks.com/jhustatcomputing2021/posts/welcome/https://media.giphy.com/media/XdIOEZTt6dL7zTYWIo/giphy.gif"/>
 
 <!--  https://scholar.google.com/intl/en/scholar/inclusion.html#indexing -->
 <meta name="citation_title" content="Statistical Computing: Welcome!"/>
@@ -2280,12 +2282,219 @@ Course Materials
 </div>
 
 <div class="d-article">
-<p>Welcome! I am very excited to have you in our one-term (half a semester) course on Statistical Computing course number (140.776) offered by the <a href="https://www.jhsph.edu/departments/biostatistics/">Department of Biostatistics</a> at the <a href="https://www.jhsph.edu/">Johns Hopkins Bloomberg School of Public Health</a>.</p>
-<p>This course is designed for ScM and PhD students at Johns Hopkins Bloomberg School of Public Health. We are usually pretty flexible about permitting outside students but we want everyone to be aware of the goals and assumptions so no one feels like they are surprised by how the class works.</p>
+<p>Welcome! I am very excited to have you in our one-term (i.e. half a semester) course on Statistical Computing course number (140.776) offered by the <a href="https://www.jhsph.edu/departments/biostatistics/">Department of Biostatistics</a> at the <a href="https://www.jhsph.edu/">Johns Hopkins Bloomberg School of Public Health</a>.</p>
+<p>This course is designed for ScM and PhD students at Johns Hopkins Bloomberg School of Public Health. I am pretty flexible about permitting outside students, but I want everyone to be aware of the goals and assumptions so no one feels like they are surprised by how the class works.</p>
 <div class="keyidea">
 <p>The primary goal of the course is to teach you practical programming and computational skills required for the research and application of statistical methods.</p>
 </div>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<p>This class is not designed to teach the theoretical aspects of statistical or computational methods, but rather the goal is to help with the <strong>practical issues</strong> related to setting up a statistical computing environment for data analyses, developing high-quality R packages, conducting reproducible data analyses, best practices for data visualization and writing code, and creating websites for personal or project use.</p>
+<h3 id="assumptions-and-pre-requisites">Assumptions and pre-requisites</h3>
+<p>The course is designed for students in the Johns Hopkins Biostatistics Masters and PhD programs. However, we do not assume a significant background in statistics. Specifically we assume:</p>
+<h4 id="you-know-the-basics-of-at-least-one-programming-language-e.g.-r-or-python">1. You know the basics of at least one programming language (e.g. R or Python)</h4>
+<ul>
+<li>If it’s not R, we assume that you are willing to spend the time to learn R</li>
+<li>You have heard of things such as control structures, functions, loops, etc</li>
+<li>Know the difference between different data types (e.g. character, numeric, etc)</li>
+<li>Know the basics of plotting (e.g. what is a scatterplot, histogram, etc)</li>
+</ul>
+<h4 id="you-know-the-basics-of-computing-environments">2. You know the <strong>basics</strong> of computing environments</h4>
+<ul>
+<li>You have access to a computing environment (i.e. locally on a laptop or working in the cloud)</li>
+<li>You generally feel comfortable with installing and working with software</li>
+</ul>
+<h4 id="you-know-the-basics-of-statistics">3. You know the <strong>basics</strong> of statistics</h4>
+<ul>
+<li>The central dogma (estimates, standard errors, basic distributions, etc.)</li>
+<li>Key statistical terms and methods</li>
+<li>Differences between estimation vs testing vs prediction</li>
+<li>Know how to fit and interpret <strong>basic</strong> statistical models (e.g. linear models)</li>
+</ul>
+<h4 id="you-know-the-basics-of-reproducible-research">4. You know the <strong>basics</strong> of reproducible research</h4>
+<ul>
+<li>Difference between replication and reproducible</li>
+<li>Somewhat familiar with tools that enable reproducible research (In complete transparency, we will briefly cover these topics in the first week, but depending on your comfort level with them, this may impact whether you choose to continue with the course).</li>
+</ul>
+<p>Since the target audience for this course is advanced students in statistics we will not be able to spend significant time covering these concepts and technologies. To give you some idea about how these prerequisites will impact your experience in the course, we will be turning in all assignments via R Markdown documents and you will be encouraged (not required) to use git/GitHub to track changes to your code over time. The majority of the assignments will involve learning the practical issues around performing data analyses, building software packages, building websites, etc all using the R programming language. Data analyses you will perform will also often involve significant data extraction, cleaning, and transformation. We will learn about tools to do all of this, but hopefully most of this sounds familiar to you so you can focus on the concepts we will be teaching around best practices for statistical computing.</p>
+<div class="resources">
+<p>Some resources that may be useful if you feel you may be missing pieces of this background:</p>
+<ul>
+<li><strong>Statistics</strong> - <a href="https://www.coursera.org/learn/biostatistics">Mathematical Biostatistics Bootcamp I (Coursera)</a>; <a href="https://www.coursera.org/learn/biostatistics-2">Mathematical Biostatistics Bootcamp II (Coursera)</a></li>
+<li><strong>Basic Data Science</strong> - <a href="https://leanpub.com/universities/set/jhu/cloud-based-data-science">Cloud Data Science (Leanpub)</a>; <a href="https://www.coursera.org/specializations/jhu-data-science">Data Science Specialization (Coursera)</a></li>
+<li><strong>Version Control</strong> - <a href="https://lab.github.com/">Github Learning Lab</a>; <a href="https://happygitwithr.com/">Happy Git and Github for the useR</a></li>
+<li><strong>Rmarkdown</strong> - <a href="https://rmarkdown.rstudio.com/lesson-1.html">Rmarkdown introduction</a></li>
+</ul>
+</div>
+<h3 id="getting-set-up">Getting set up</h3>
+<p>You must install <a href="https://cran.r-project.org">R</a> and <a href="https://rstudio.com">RStudio</a> on your computing environment in order to complete this course. These are two <strong>different</strong> applications that must be installed separately before they can be used together:</p>
+<ul>
+<li><p>R is the core underlying programming language and computing engine that we will be learning in this course</p></li>
+<li><p>RStudio is an interface into R that makes many aspects of using and programming R simpler</p></li>
+</ul>
+<p>Both R and RStudio are available for Windows, macOS, and most flavors of Unix and Linux. Please download the version that is suitable for your computing setup.</p>
+<p>Throughout the course, we will make use of numerous R add-on packages that must be installed over the Internet. Packages can be installed using the <code>install.packages()</code> function in R. For example, to install the <code>tidyverse</code> package, you can run</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>)</span></code></pre></div>
+<p>in the R console.</p>
+<h4 id="how-to-download-r-for-windows">How to Download R for Windows</h4>
+<p>Go to <a href="">https://cran.r-project.org</a> and</p>
+<ol type="1">
+<li><p>Click the link to “Download R for Windows”</p></li>
+<li><p>Click on “base”</p></li>
+<li><p>Click on “Download R 4.1.0 for Windows”</p></li>
+</ol>
+<figure>
+<img src="../../videos/downloadRWindows.gif" alt="Video Demo for Downloading R for Windows" /><figcaption aria-hidden="true">Video Demo for Downloading R for Windows</figcaption>
+</figure>
+<h4 id="how-to-download-r-for-the-mac">How to Download R for the Mac</h4>
+<p>Goto <a href="">https://cran.r-project.org</a> and</p>
+<ol type="1">
+<li><p>Click the link to “Download R for (Mac) OS X”.</p></li>
+<li><p>Click on “R-4.1.0.pkg”</p></li>
+</ol>
+<figure>
+<img src="../../videos/downloadRMac.gif" alt="Video Demo for Downloading R for the Mac" /><figcaption aria-hidden="true">Video Demo for Downloading R for the Mac</figcaption>
+</figure>
+<h4 id="how-to-download-rstudio">How to Download RStudio</h4>
+<p>Goto <a href="">https://rstudio.com</a> and</p>
+<ol type="1">
+<li><p>Click on “Products” in the top menu</p></li>
+<li><p>Then click on “RStudio” in the drop down menu</p></li>
+<li><p>Click on “RStudio Desktop”</p></li>
+<li><p>Click the button that says “DOWNLOAD RSTUDIO DESKTOP”</p></li>
+<li><p>Click the button under “RStudio Desktop” Free</p></li>
+<li><p>Under the section “All Installers” choose the file that is appropriate for your operating system.</p></li>
+</ol>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<figure>
+<img src="../../videos/downloadRStudio.gif" alt="Video Demo for Downloading RStudio" /><figcaption aria-hidden="true">Video Demo for Downloading RStudio</figcaption>
+</figure>
+<h1 id="learning-objectives">Learning Objectives</h1>
+<p>The goal is by the end of the class, students will be able to:</p>
+<ul>
+<li>Install and configure software necessary for a statistical programming environment and with version control</li>
+<li>Discuss generic programming language concepts as they are implemented in a high-level statistical language</li>
+<li>Write and debug code in base R and the tidyverse (and integrate code from Python modules)</li>
+<li>Build basic data visualizations using R and the tidyverse</li>
+<li>Build and organize a software package with documentation for publishing on the internet</li>
+<li>Discuss and implement basic statistical computing algorithms for optimization, linear regression, and Monte Carlo</li>
+</ul>
+<h2 id="course-staff">Course Staff</h2>
+<p>The course instructor this year is <a href="https://www.stephaniehicks.com">Stephanie Hicks</a>, but this course has been previously taught for a number of years by <a href="http://www.biostat.jhsph.edu/~rpeng/">Roger Peng</a>. We are both faculty in the Biostatistics Department at Johns Hopkins and Directors of the <a href="https://jhudatascience.org/">Johns Hopkins Data Science Lab</a>.</p>
+<p>My research focuses on developing fast, scalable, statistical methodology and open-source software for genomics and biomedical data analysis for human health and disease. My research is <a href="http://simplystatistics.org/2013/05/29/what-statistics-should-do-about-big-data-problem-forward-not-solution-backward/"><strong>problem-forward</strong></a>: I develop statistical methods and software that are motivated by concrete problems, often with real-world, noisy, messy data. I’m also interested in developing theory for how to incorporate <em>design thinking</em> (alongside <em>statistical thinking</em>) in practice of data analysis.</p>
+<p>If you want, you can find me on <a href="https://twitter.com/stephaniehicks">Twitter</a>. I’m also a co-host of the <a href="https://twitter.com/CorrespondAuth">The Corresponding Author</a> podcast, member of the <a href="https://genomebiology.biomedcentral.com/about/editorial-board">Editorial Board for <em>Genome Biology</em></a>, an Associate Editor for <a href="https://jasa-acs.github.io/repro-guide/">Reproducibility</a> at the <a href="https://www.tandfonline.com/toc/uasa20/current">Journal of the American Statistical Association</a>, and co-founder of <a href="https://www.meetup.com/rladies-baltimore/">R-Ladies Baltimore</a>.</p>
+<p>Roger’s research focuses on air pollution, spatial statistics, and reproducibility. We have been colleagues and friends for over 3 years and I am really excited to have the opportunity to teach this course.</p>
+<p>We also have a couple of amazing TA’s this year:</p>
+<h1 id="course-logistics">Course logistics</h1>
+<p>As with all things in a pandemic, this year we are continuing to teach this course virtually (similar to last year) to be able to have a large group of students benefit from it. The course webpage will be here at:</p>
+<ul>
+<li><a href="https://www.stephaniehicks.com/jhustatcomputing2021" class="uri">https://www.stephaniehicks.com/jhustatcomputing2021</a></li>
+</ul>
+<p>All communication for the course is going to take place on one of three platforms:</p>
+<ul>
+<li><p><strong>Courseplus</strong>: for discussion, sharing resources, collaborating, and announcements</p></li>
+<li><p><strong>Github</strong>: for getting access to course materials (e.g. lectures, project assignments)</p>
+<ul>
+<li>Course Github: <a href="https://github.com/stephaniehicks/jhustatcomputing2021" class="uri">https://github.com/stephaniehicks/jhustatcomputing2021</a></li>
+</ul></li>
+<li><p><strong>Zoom</strong>: for live class lectures</p>
+<ul>
+<li>Course Zoom: <em>Link available on Courseplus</em></li>
+<li>Recorded lectures will be posted online after class ends</li>
+</ul></li>
+</ul>
+<p>The primary communication for the class will go through Courseplus That is where we will post course announcements, host most of our asynchronous course discussion, and as the primary means of communication between course participants and course instructors.</p>
+<div class="keyideas">
+<p>If you are registered for the course, you should have access to Courseplus now. Once you have access you will also be able to find the course Zoom and Zoom password for lectures.</p>
+</div>
+<h3 id="assignment-due-dates">Assignment Due Dates</h3>
+<p>All course assignment due dates appear on the <strong>Schedule</strong> and <strong>Syllabus</strong>.</p>
+<h3 id="the-pandemic">The Pandemic</h3>
+<p>This is how 2020 felt:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:pandemic2020"></span>
+<img src="https://media.giphy.com/media/XdIOEZTt6dL7zTYWIo/giphy.gif" alt="How 2020 felt" width="60%" />
+<p class="caption">
+Figure 1: How 2020 felt
+</p>
+</div>
+</div>
+<p>While there are many positive things that have happened in 2021, for many folks, 2021 has not been much of an improvement</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:pandemic2021"></span>
+<img src="https://media.giphy.com/media/jrVmnE9rGLNsf3n3nj/giphy.gif" alt="How 2021 feels" width="60%" />
+<p class="caption">
+Figure 2: How 2021 feels
+</p>
+</div>
+</div>
+<p>It is super tough to be dealing with the pandemic, an economic crisis, challenges with visas and travel and coordinating school online. As your instructor, I understand that this is not an ordinary year. I am <em>ultra</em> sympathetic to family challenges and life challenges. I have three small children (who may make cameos in lectures frome time to time).</p>
+<p>My goal is to make as much of the class asynchronous as possible so you can work whenever you have time. My plan is to be as understanding as possible when it comes to grading, and any issues that come up with the course. Please don’t hesitate to reach out to me (or the TAs) if you are having issues and we will do our best to direct you to whatever resources we have/accommodate you however we can.</p>
+<p>I think the material in this course is important, fun, and this is an opportunity to learn a lot. But life is more important than a course and if there was ever a time that life might get in the way of learning, it’s likely now.</p>
+<h3 id="grading">Grading</h3>
+<h4 id="philosophy">Philosophy</h4>
+<p>We believe the purpose of graduate education is to train you to be able to think for yourself and initiate and complete your own projects. We are super excited to talk to you about ideas, work out solutions with you, and help you to figure out how to produce professional data analyses. We do not think that graduate school grades are important for this purpose. This means that we do not care very much about graduate student grades.</p>
+<p>That being said, we have to give you a grade so they will be:</p>
+<ul>
+<li>A - Excellent - 90%+</li>
+<li>B - Passing - 80%+</li>
+<li>C - Needs improvement - 70%+</li>
+</ul>
+<p>We rarely give out grades below a C and if you consistently submit work, participate in discussions, and do your best you are very likely to get an A or a B in the course.</p>
+<h4 id="relative-weights">Relative weights</h4>
+<p>The grades are based on three projects (plus one entirely optional project to help you get set up). The breakdown of grading will be</p>
+<ul>
+<li>33% for Project 1</li>
+<li>33% for Project 2</li>
+<li>34% for Project 3</li>
+</ul>
+<p>If you submit an project solution, it is your own work, and it meets a basic level of completeness and effort you will get 100% for that project. If you submit a project solution, but it doesn’t meet basic completeness and effort you will receive 50%. If you do not submit an solution you will receive 0%.</p>
+<h3 id="submitting-assignments">Submitting assignments</h3>
+<p>Please write up your project solutions using R Markdown. In some cases, you will compile a R Markdown file into an HTML file and submit your HTML file to the dropbox on Courseplus. In other cases, you may create an R package or website. In all of the above, when applicable, show all your code and provide as much explanation / documentation as you can.</p>
+<p>For each project, we will provide a time when we download the materials. We will assume whatever version we download at that time is what you are turning in.</p>
+<h3 id="reproducibility">Reproducibility</h3>
+<p>We will talk about reproducibility a bit during class, and it will be a part of the homework assignments as well. Reproducibility of scientific code is very challenging, so the faculty and TAs completely understand difficulties that arise. But we think that it is important that you practice reproducible research. In particular, your project assignments should perform the tasks that you are asked to do and create the figures and tables you are asked to make as a part of the compilation of your document. We will have some pointers for some issues that have come up as we announce the projects.</p>
+<h3 id="code-of-conduct">Code of Conduct</h3>
+<p>We are committed to providing a welcoming, inclusive, and harassment-free experience for everyone, regardless of gender, gender identity and expression, age, sexual orientation, disability, physical appearance, body size, race, ethnicity, religion (or lack thereof), political beliefs/leanings, or technology choices. We do not tolerate harassment of course participants in any form. Sexual language and imagery is not appropriate for any work event, including group meetings, conferences, talks, parties, Twitter and other online media. This code of conduct applies to all course participants, including instructors and TAs, and applies to all modes of interaction, both in-person and online, including GitHub project repos, Slack channels, and Twitter.</p>
+<p>Course participants violating these rules will be referred to leadership of the Department of Biostatistics and the Title IX coordinator at JHU and may face expulsion from the class.</p>
+<p>All class participants agree to:</p>
+<ul>
+<li><strong>Be considerate</strong> in speech and actions, and actively seek to acknowledge and respect the boundaries of other members.</li>
+<li><strong>Be respectful</strong>. Disagreements happen, but do not require poor behavior or poor manners. Frustration is inevitable, but it should never turn into a personal attack. A community where people feel uncomfortable or threatened is not a productive one. Course participants should be respectful both of the other course participants and those outside the course.</li>
+<li><strong>Refrain from demeaning, discriminatory, or harassing behavior and speech</strong>. Harassment includes, but is not limited to: deliberate intimidation; stalking; unwanted photography or recording; sustained or willful disruption of talks or other events; inappropriate physical contact; use of sexual or discriminatory imagery, comments, or jokes; and unwelcome sexual attention. If you feel that someone has harassed you or otherwise treated you inappropriately, please alert Stephanie Hicks.</li>
+<li><strong>Take care of each other</strong>. Refrain from advocating for, or encouraging, any of the above behavior. And, if someone asks you to stop, then stop. Alert Stephanie Hicks if you notice a dangerous situation, someone in distress, or violations of this code of conduct, even if they seem inconsequential.</li>
+</ul>
+<h3 id="need-help">Need Help?</h3>
+<p>Please speak with Stephanie Hicks or one of the TAs. You can also reach out to Karen Bandeen-Roche, chair of the department of Biostatistics or Margaret Taub, Ombudsman for the Department of Biostatistics.</p>
+<p>You may also reach out to any Hopkins resource for sexual harassment, discrimination, or misconduct:</p>
+<ul>
+<li>JHU Sexual Assault Helpline, 410-516-7333 (confidential)<br />
+</li>
+<li><a href="http://sexualassault.jhu.edu/?utm_source=JHU+Broadcast+Messages+-+Synced+List&amp;utm_campaign=c9030551f7-EMAIL_CAMPAIGN_2017_12_11&amp;utm_medium=email&amp;utm_term=0_af6859b027-c9030551f7-69248741">University Sexual Assault Response and Prevention website</a></li>
+<li><a href="https://johnshopkinsspeak2us.tnwreports.com/?utm_source=JHU+Broadcast+Messages+-+Synced+List&amp;utm_campaign=c9030551f7-EMAIL_CAMPAIGN_2017_12_11&amp;utm_medium=email&amp;utm_term=0_af6859b027-c9030551f7-69248741">Johns Hopkins Compliance Hotline</a>, 844-SPEAK2US (844-733-2528)</li>
+<li><a href="https://jhu.us5.list-manage.com/track/click?u=bd75ef1a5cad0cbfd522412c4&amp;id=8a667a12dd&amp;e=b1124f7c17">Hopkins Policies Online</a></li>
+<li><a href="https://jhu.us5.list-manage.com/track/click?u=bd75ef1a5cad0cbfd522412c4&amp;id=928bcfb8a9&amp;e=b1124f7c17">JHU Office of Institutional Equity</a> 410-516-8075 (nonconfidential)</li>
+<li><a href="https://jhu.us5.list-manage.com/track/click?u=bd75ef1a5cad0cbfd522412c4&amp;id=98f4091f97&amp;e=b1124f7c17">Johns Hopkins Student Assistance Program</a> (JHSAP), 443-287-7000</li>
+<li><a href="https://jhu.us5.list-manage.com/track/click?u=bd75ef1a5cad0cbfd522412c4&amp;id=d51077694c&amp;e=b1124f7c17">University Health Services</a>, 410-955-1892</li>
+<li><a href="https://jhu.us5.list-manage.com/track/click?u=bd75ef1a5cad0cbfd522412c4&amp;id=af1f20bd97&amp;e=b1124f7c17">The Faculty and Staff Assistance Program</a> (FASAP), 443-997-7000</li>
+</ul>
+<h3 id="feedback">Feedback</h3>
+<p>We welcome feedback on this Code of Conduct.</p>
+<h3 id="license-and-attribution">License and attribution</h3>
+<p>This Code of Conduct is distributed under a Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) license. Portions of above text comprised of language from the Codes of Conduct adopted by rOpenSci and Django, which are licensed by CC BY-SA 4.0 and CC BY 3.0. This work was further inspired by Ada Initiative’s ‘’how to design a code of conduct for your community’’ and Geek Feminism’s Code of conduct evaluations and expanded by Ashley Johnson and Shannon Ellis in the Jeff Leek group.</p>
+<h3 id="academic-ethics">Academic Ethics</h3>
+<p>Students enrolled in the Bloomberg School of Public Health of The Johns Hopkins University assume an obligation to conduct themselves in a manner appropriate to the University’s mission as an institution of higher education. A student is obligated to refrain from acts which he or she knows, or under the circumstances has reason to know, impair the academic integrity of the University. Violations of academic integrity include, but are not limited to: cheating; plagiarism; knowingly furnishing false information to any agent of the University for inclusion in the academic record; violation of the rights and welfare of animal or human subjects in research; and misconduct as a member of either School or University committees or recognized groups or organizations.</p>
+<p>Students should be familiar with the policies and procedures specified under Policy and Procedure Manual Student-01 (Academic Ethics), available on the school’s <a href="https://my.jhsph.edu/Pages/Faculty.aspx">portal</a>.</p>
+<p>The faculty, staff and students of the Bloomberg School of Public Health and the Johns Hopkins University have the shared responsibility to conduct themselves in a manner that upholds the law and respects the rights of others. Students enrolled in the School are subject to the Student Conduct Code (detailed in Policy and Procedure Manual Student-06) and assume an obligation to conduct themselves in a manner which upholds the law and respects the rights of others. They are responsible for maintaining the academic integrity of the institution and for preserving an environment conducive to the safe pursuit of the School’s educational, research, and professional practice missions.</p>
+<h3 id="disability-support-services">Disability support services</h3>
+<p>If you are a student with a documented disability who requires an academic accommodation, please contact the Office of Disability Support Services at 410-502-6602 or via email at <a href="mailto:JHSPH.dss@jhu.edu" class="email">JHSPH.dss@jhu.edu</a>. Accommodations take effect upon approval and apply to the remainder of the time for which a student is registered and enrolled at the Bloomberg School of Public Health.</p>
+<h2 id="previous-versions-of-the-class">Previous versions of the class</h2>
+<ul>
+<li><a href="https://rdpeng.github.io/Biostat776" class="uri">https://rdpeng.github.io/Biostat776</a></li>
+</ul>
+<h2 id="typos-and-corrections">Typos and corrections</h2>
+<p>Feel free to submit typos/errors/etc via the github repository associated with the class: <a href="https://github.com/stephaniehicks/jhustatcomputing2021" class="uri">https://github.com/stephaniehicks/jhustatcomputing2021</a>. You will have the thanks of your grateful instructor!</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <div class="article-footer">
   <p class="social_footer">
