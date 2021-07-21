@@ -14,29 +14,31 @@ knitr::opts_chunk$set(echo = FALSE)
 For Rmd files, go to the [course GitHub repository](https://github.com/stephaniehicks/jhustatcomputing2021) and navigate the directories, or best of all to clone the repo and navigate within RStudio.
 
 ::: l-body-outset
-| Week   | Dates           | Topics                             |
-|------- | ----------- | ----------------------------------- |
-| **Module 1** |    | **Statistical and Computational Tools for Scientific Research** | 
-| Week 1      | Aug 31  | Course introduction [[html](posts/welcome/index.html)] [[Rmd]()] | 
-| | | Introduction to R and RStudio [[html](posts/2021-08-31-introduction-to-r-and-rstudio/index.html)] [[Rmd](https://github.com/stephaniehicks/jhustatcomputing2021/blob/main/_posts/2021-08-31-introduction-to-r-and-rstudio/introduction-to-r-and-rstudio.Rmd)] |
-| | | Introduction to git/GitHub [[html](posts/2021-08-31-introduction-to-gitgithub/index.html)] [[Rmd](https://github.com/stephaniehicks/jhustatcomputing2021/blob/main/_posts/2021-08-31-introduction-to-gitgithub/introduction-to-gitgithub.Rmd)] | 
-| | Sept 2 | Reproducible Research [[html]()] [[Rmd]()] | 
-| | | Literate programming [[html]()] [[Rmd]()] | 
-| | | Reference management [[html]()] [[Rmd]()] | 
-| | | Building personal or project websites [[html]()] [[Rmd]()] | 
-| | | Optional assignment: TBA |
-| Week 2      | Sept 7       | Introduction to Tidyverse [[html]()] [[Rmd]()] |
-| | Sept 9 | Data Visualizations in the Tidyverse [[html]()] [[Rmd]()] |
-| | | Best Practices with colors [[html]()] [[Rmd]()] | 
-| | | Optional assignment: TBA |
-| **Module 2** |    | **Statistical data analysis with R and Python** | 
-| Week 3      | Sept 13-17      | Writing and debugging code in base R, Tidyverse, and Python (control structures, functions, regex, etc) |
-| Week 4      | Sept 20-24      | R package software development (build, document, test, debug) |
-| Week 5      | Sept 27-Oct 1   | Dealing with large data; parallel computing |
-| **Module 3** |    | **Basic Algorithms for Optimization and Estimation ** | 
-| Week 6      | Oct 4-8         | Basic statistical computing algorithms for linear regression, optimization, EM algorithm, and Monte Carlo |
-| **Module 4** |    | **Machine Learning Essentials** |
-| Week 7      | Oct 11-15       | Machine learning essentials (SVM, RF, NN) |
-| Week 8      | Oct 18-22       | Bootstrap, smoothing splines, TBA, etc         |
+| Week   | Dates           | Topics                             | Projects | 
+|--------- | ----------- | ----------------------------------- | --------------- |
+| **Module 1** |    | **Statistical and Computational Tools for Scientific and Reproducible Research** | 
+| Week 1      | Aug 31  | Course introduction [[html](posts/welcome/index.html)] [[Rmd]()] |  | 
+| | | Introduction to R and RStudio [[html](posts/2021-08-31-introduction-to-r-and-rstudio/index.html)] [[Rmd](https://github.com/stephaniehicks/jhustatcomputing2021/blob/main/_posts/2021-08-31-introduction-to-r-and-rstudio/introduction-to-r-and-rstudio.Rmd)] |  |
+| | | Introduction to git/GitHub [[html](posts/2021-08-31-introduction-to-gitgithub/index.html)] [[Rmd](https://github.com/stephaniehicks/jhustatcomputing2021/blob/main/_posts/2021-08-31-introduction-to-gitgithub/introduction-to-gitgithub.Rmd)] |  |
+| | | | Project 0 [[html](projects/2021-08-31-project-0/index.html)] |
+| | Sept 2 | Reproducible Research [[html](posts/2021-09-02-reproducible-research/index.html)] [[Rmd](https://github.com/stephaniehicks/jhustatcomputing2021/blob/main/_posts/2021-09-02-reproducible-research/reproducible-research.Rmd)] |  |
+| | | Literate programming [[html](posts/2021-09-02-literate-programming/index.html)] [[Rmd](https://github.com/stephaniehicks/jhustatcomputing2021/blob/main/_posts/2021-09-02-literate-programming/literate-programming.Rmd)] |  |
+| | | Reference management [[html](posts/2021-09-02-reference-management/index.html)] [[Rmd](https://github.com/stephaniehicks/jhustatcomputing2021/blob/main/_posts/2021-09-02-reference-management/reference-management.Rmd)] |  |
+| | | Building personal or project websites [[html](posts/2021-09-02-building-websites/index.html)] [[Rmd](https://github.com/stephaniehicks/jhustatcomputing2021/blob/main/_posts/2021-09-02-building-websites/building-websites.Rmd)] |  |
+| Week 2      | Sept 7       | Introduction to Tidyverse [[html]()] [[Rmd]()] | |
+| | | | Project 1 [[html](projects/2021-09-07-project-1/index.html)] |
+| | Sept 9 | Data Visualizations in the Tidyverse  | |
+| | | Best Practices with colors |  |
+| **Module 2** |    | **Statistical data analysis with R** |  |
+| Week 3      | Sept 13-17      | Writing and debugging code in base R, Tidyverse, and Python (control structures, functions, regex, etc) | |
+| | | | Project 2 [[html](projects/2021-09-14-project-2/index.html)] |
+| Week 4      | Sept 20-24      | R package software development (build, document, test, debug) | |
+| Week 5      | Sept 27-Oct 1   | Dealing with large data; parallel computing | |
+| | | | Project 3 [[html](projects/2021-09-28-project-3/index.html)] |
+| **Module 3** |    | **Basic Algorithms for Optimization and Estimation ** |  |
+| Week 6      | Oct 4-8         | Basic statistical computing algorithms for linear regression, optimization, EM algorithm, and Monte Carlo | |
+| **Module 4** |    | **Machine Learning Essentials** | |
+| Week 7      | Oct 11-15       | Machine learning essentials (SVM, RF, NN) | |
+| Week 8      | Oct 18-22       | Bootstrap, smoothing splines, TBA, etc         | |
 :::
 

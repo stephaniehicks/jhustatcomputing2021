@@ -7,7 +7,56 @@
     <description>Course website for Statistical Computing (JHSPH Biostatistics 140.776 Fall 2021)
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Tue, 31 Aug 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 02 Sep 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Building websites in RMarkdown</title>
+      <dc:creator>Stephanie Hicks</dc:creator>
+      <link>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-02-building-websites</link>
+      <description>Add a short description here.</description>
+      <category>module 1</category>
+      <category>week 2</category>
+      <category>R Markdown</category>
+      <category>websites</category>
+      <category>programming</category>
+      <guid>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-02-building-websites</guid>
+      <pubDate>Thu, 02 Sep 2021 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Literate Statistical Programming</title>
+      <dc:creator>Stephanie Hicks</dc:creator>
+      <link>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-02-literate-programming</link>
+      <description>Add a short description here.</description>
+      <category>module 1</category>
+      <category>week 2</category>
+      <category>R Markdown</category>
+      <category>programming</category>
+      <guid>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-02-literate-programming</guid>
+      <pubDate>Thu, 02 Sep 2021 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Reference management</title>
+      <dc:creator>Stephanie Hicks</dc:creator>
+      <link>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-02-reference-management</link>
+      <description>Add a short description here.</description>
+      <category>module 1</category>
+      <category>week 2</category>
+      <category>R Markdown</category>
+      <category>programming</category>
+      <guid>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-02-reference-management</guid>
+      <pubDate>Thu, 02 Sep 2021 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Reproducible Research and R Markdown</title>
+      <dc:creator>Stephanie Hicks</dc:creator>
+      <link>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-02-reproducible-research</link>
+      <description>Introduction to reproducible research covering some basic concepts and ideas that are related to reproducible reporting</description>
+      <category>module 1</category>
+      <category>week 2</category>
+      <category>R</category>
+      <category>reproducibility</category>
+      <guid>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-02-reproducible-research</guid>
+      <pubDate>Thu, 02 Sep 2021 00:00:00 +0000</pubDate>
+    </item>
     <item>
       <title>Introduction to git/GitHub</title>
       <dc:creator>Stephanie Hicks</dc:creator>
@@ -35,6 +84,7 @@
       <category>RStudio</category>
       <guid>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-08-31-introduction-to-r-and-rstudio</guid>
       <pubDate>Tue, 31 Aug 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://github.com/allisonhorst/stats-illustrations/raw/master/rstats-artwork/r_first_then.png" medium="image" type="image/png"/>
     </item>
     <item>
       <title>Welcome!</title>

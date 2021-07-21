@@ -1,0 +1,153 @@
+---
+title: "Literate Statistical Programming"
+description: |
+  Add a short description here.
+author:
+  - name: Stephanie Hicks
+    url: https://stephaniehicks.com/
+    affiliation: Department of Biostatistics, Johns Hopkins
+    affiliation_url: https://www.jhsph.edu
+date: 09-02-2021
+output:
+  distill::distill_article:
+    self_contained: false
+    toc: true
+    toc_depth: 3
+categories:
+  - module 1
+  - week 2
+  - R Markdown
+  - programming
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+<!-- Add interesting quote -->
+
+
+# Pre-lecture materials
+
+### Read ahead
+
+:::resources
+
+**Before class, you can prepare by reading the following materials:**
+
+1. 
+
+:::
+
+
+### Acknowledgements
+
+Material for this lecture was borrowed and adopted from
+
+-
+- 
+- 
+
+# Learning objectives
+
+:::keyideas
+
+**At the end of this lesson you will:**
+
+- 
+- 
+- 
+
+:::
+
+
+# Introduction
+
+One basic idea to make writing reproducible reports easier is what's known as *literate statistical programming* (or sometimes called [literate statistical practice](http://www.r-project.org/conferences/DSC-2001/Proceedings/Rossini.pdf)). This comes from the idea of [literate programming](https://en.wikipedia.org/wiki/Literate_programming) in the area of writing computer programs. 
+
+The idea is to think of a report or a publication as a stream of text and code. The text is readable by people and the code is readable by computers. The analysis is described in a series of text and code chunks. Each kind of code chunk will do something like load some data or compute some results. Each text chunk will relay something in a human readable language. There might also be presentation code that formats tables and figures and there's article text that explains what's going on around all this code. This stream of text and code is a literate statistical program or a literate statistical analysis.
+
+### Weaving and Tangling
+
+Literate programs by themselves are a bit difficult to work with, but they can be processed in two important ways. Literate programs can be **weaved** to produce human readable documents like PDFs or HTML web pages, and they can **tangled** to produce machine-readable "documents", or in other words, machine readable code. The basic idea behind literate programming in order to generate the different kinds of output you might need, you only need a *single source document*---you can weave and tangle to get the rist. In order to use a system like this you need a documentational language, that's human readable, and you need a programming language that's machine readable (or can be compiled/interpreted into something that's machine readable).
+
+
+### Sweave 
+
+One of the original literate programming systems in R that was designed to do this was called Sweave. Sweave uses a documentation program called LaTeX and a programming language, which obviously is R. It was originally developed by Fritz Leisch, who is a core member of R, and the code base is still maintained by R Core. The Sweave system comes with a any installation of R.
+
+There are many limitations to the original Sweave system. One of the limitations is that it is focused primarily on LaTeX, which is not a documentation language that many people are familiar with. Therefore, it can be difficult to learn this type of markup language if you're not already in a field that uses it regularly. Sweave also lacks a lot of features that people find useful like caching, and multiple plots per page and mixing programming languages. 
+
+### knitr
+
+One of the alternative that has come up in recent times is something called `knitr`. The `knitr` package for R takes a lot of these ideas of literate programming and updates and improves upon them. `knitr` still uses R as its programming language, but it allows you to mix other programming languages in. You can also use a variety of documentation languages now, such as LaTeX, markdown and HTML. `knitr` was developed by Yihui Xie while he was a graduate student at Iowa State and it has become a very popular package for writing literate statistical programs. 
+
+#### DEMO: Creating and Knitting Your First R Markdown Document
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/dY9KNat_vYs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+When creating your first R Markdown document, in RStudio you can
+
+1. Go to File > New File > R Markdown...
+
+2. Feel free to edit the Title
+
+3. Make sure to select "Default Output Format" to be HTML
+
+4. Click "OK". RStudio creates the R Markdown document and places some boilerplate text in there just so you can see how things are setup. 
+
+5. Click the "Knit" button (or goto File > Knit Document) to make sure you can create the HTML output
+
+
+
+### Summary
+
+* Literate statistical programming tools can make it easier to write up reproducible documents containing data analyses. 
+
+* Sweave was one of the first literate statistical programming tools, which weaved together a statistical language (R) with a markup language (LaTeX).
+
+* knitr is a package that builds on the work of Sweave and provides much more powerful functionality, including the ability to write in Markdown and create a variety of output formats. 
+
+:::questions
+
+**Questions:**
+
+1. 
+2. 
+3. 
+
+:::
+
+
+# Section 2
+
+
+# Post-lecture materials
+
+### Final Questions 
+
+Here are some post-lecture questions to help you think about the material discussed.
+
+:::questions
+
+**Questions:**
+
+1. 
+
+2. 
+
+3.
+
+:::
+
+
+### Additional Resources 
+
+:::resources 
+
+- 
+- 
+- 
+
+::: 

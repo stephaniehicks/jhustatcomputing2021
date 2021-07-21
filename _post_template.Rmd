@@ -1,7 +1,7 @@
 ---
-title: "Introduction to git/GitHub"
+title: "Add a title here"
 description: |
-  Version control is a game changer; or how I learned to love git/GitHub
+  Add a short description here.
 author:
   - name: Stephanie Hicks
     url: https://stephaniehicks.com/
@@ -13,7 +13,6 @@ output:
     self_contained: false
     toc: true
     toc_depth: 3
-    
 categories:
   - module 1
   - week 1

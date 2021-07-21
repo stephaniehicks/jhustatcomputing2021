@@ -94,7 +94,9 @@ Depending on your future needs or jobs, you might have to learn one or several o
 
 With the skills gained in this course, hopefully you will find R a fun and useful programming langauge for your future projects.
 
-![](https://github.com/allisonhorst/stats-illustrations/raw/master/rstats-artwork/r_first_then.png)
+```{r rallisonhorst, echo=FALSE, fig.cap='Artwork by Allison Horst on learning R', out.width = '60%', fig.align='center'}
+knitr::include_graphics("https://github.com/allisonhorst/stats-illustrations/raw/master/rstats-artwork/r_first_then.png")
+```
 
 [**Source**: [Artwork by Allison Horst](https://github.com/allisonhorst/stats-illustrations)]
 
