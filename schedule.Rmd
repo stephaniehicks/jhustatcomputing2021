@@ -17,7 +17,7 @@ For Rmd files, go to the [course GitHub repository](https://github.com/stephanie
 | Week   | Dates           | Topics                             | Projects | 
 |--------- | ----------- | ----------------------------------- | --------------- |
 | **Module 1** |    | **Statistical and Computational Tools for Scientific and Reproducible Research** | 
-| Week 1      | Aug 31  | Course introduction [[html](posts/welcome/index.html)] [[Rmd]()] |  | 
+| Week 1      | Aug 31  | Course introduction [[html](posts/welcome/index.html)] [[Rmd]((https://github.com/stephaniehicks/jhustatcomputing2021/blob/main/_posts/welcome/welcome.Rmd)] |  | 
 | | | Introduction to R and RStudio [[html](posts/2021-08-31-introduction-to-r-and-rstudio/index.html)] [[Rmd](https://github.com/stephaniehicks/jhustatcomputing2021/blob/main/_posts/2021-08-31-introduction-to-r-and-rstudio/introduction-to-r-and-rstudio.Rmd)] |  |
 | | | Introduction to git/GitHub [[html](posts/2021-08-31-introduction-to-gitgithub/index.html)] [[Rmd](https://github.com/stephaniehicks/jhustatcomputing2021/blob/main/_posts/2021-08-31-introduction-to-gitgithub/introduction-to-gitgithub.Rmd)] |  |
 | | | | Project 0 [[html](projects/2021-08-31-project-0/index.html)] |

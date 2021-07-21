@@ -111,7 +111,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","categories"]}},"value":[{"type":"character","attributes":{},"value":["Reference management"]},{"type":"character","attributes":{},"value":["Add a short description here.\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url","affiliation","affiliation_url"]}},"value":[{"type":"character","attributes":{},"value":["Stephanie Hicks"]},{"type":"character","attributes":{},"value":["https://stephaniehicks.com/"]},{"type":"character","attributes":{},"value":["Department of Biostatistics, Johns Hopkins"]},{"type":"character","attributes":{},"value":["https://www.jhsph.edu"]}]}]},{"type":"character","attributes":{},"value":["09-02-2021"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","toc","toc_depth"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[3]}]}]},{"type":"character","attributes":{},"value":["module 1","week 2","R Markdown","programming"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","categories"]}},"value":[{"type":"character","attributes":{},"value":["Reference management"]},{"type":"character","attributes":{},"value":["Add a short description here.\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url","affiliation","affiliation_url"]}},"value":[{"type":"character","attributes":{},"value":["Stephanie Hicks"]},{"type":"character","attributes":{},"value":["https://stephaniehicks.com/"]},{"type":"character","attributes":{},"value":["Department of Biostatistics, Johns Hopkins"]},{"type":"character","attributes":{},"value":["https://www.jhsph.edu"]}]}]},{"type":"character","attributes":{},"value":["09-02-2021"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","toc","toc_depth"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[3]}]}]},{"type":"character","attributes":{},"value":["module 1","week 1","R Markdown","programming"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   
@@ -1469,7 +1469,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_categories-->
 <div class="dt-tags">
 <div class="dt=tag">module 1</div>
-<div class="dt=tag">week 2</div>
+<div class="dt=tag">week 1</div>
 <div class="dt=tag">R Markdown</div>
 <div class="dt=tag">programming</div>
 </div>
@@ -1494,13 +1494,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <li><a href="#acknowledgements">Acknowledgements</a></li>
 </ul></li>
 <li><a href="#learning-objectives">Learning objectives</a></li>
-<li><a href="#section-1">Section 1</a>
-<ul>
-<li><a href="#subsection-1">Subsection 1</a></li>
-<li><a href="#subsection-2">Subsection 2</a></li>
-<li><a href="#subsection-3">Subsection 3</a></li>
-</ul></li>
-<li><a href="#section-2">Section 2</a></li>
+<li><a href="#reference-management-with-r-markdown">Reference management with R Markdown</a></li>
 <li><a href="#post-lecture-materials">Post-lecture materials</a>
 <ul>
 <li><a href="#final-questions">Final Questions</a></li>
@@ -1521,32 +1515,38 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <h3 id="acknowledgements">Acknowledgements</h3>
 <p>Material for this lecture was borrowed and adopted from</p>
 <ul>
-<li></li>
-<li></li>
+<li><a href="https://andreashandel.github.io/MADAcourse/" class="uri">https://andreashandel.github.io/MADAcourse/</a></li>
+<li><a href="https://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html" class="uri">https://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html</a></li>
 <li></li>
 </ul>
 <h1 id="learning-objectives">Learning objectives</h1>
 <div class="keyideas">
 <p><strong>At the end of this lesson you will:</strong></p>
 <ul>
-<li></li>
+<li>Know how to manage references (i.e. citations) using R and R Markdown.</li>
 <li></li>
 <li></li>
 </ul>
 </div>
-<h1 id="section-1">Section 1</h1>
-<h3 id="subsection-1">Subsection 1</h3>
-<h3 id="subsection-2">Subsection 2</h3>
-<div class="questions">
-<p><strong>Questions:</strong></p>
-<ol type="1">
-<li></li>
-<li></li>
-<li></li>
-</ol>
-</div>
-<h3 id="subsection-3">Subsection 3</h3>
-<h1 id="section-2">Section 2</h1>
+<h1 id="reference-management-with-r-markdown">Reference management with R Markdown</h1>
+<p>For almost any data analysis, especially if it is meant for publication in the academic literature, you will have to cite other people’s work and include the references (bibliographies or citations) in your work. In this class, you are likely to need to include references and cite other people’s work like in a regular research paper.</p>
+<p>I assume you are familiar with how citing references works, and hopefully, you are already using a reference manager. If not, let me know in the discussion boards.</p>
+<p>To have something that plays well with R Markdown, you need file format that stores all the references. Click here to learn more about all the possible file formats available to you to use within a R Markdown file:</p>
+<ul>
+<li><a href="https://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html" class="uri">https://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html</a></li>
+</ul>
+<p>As you can see, there are ton of file formats including <code>.medline</code> (MEDLINE), <code>.bibtex</code> (BibTeX), <code>.ris</code> (RIS), <code>.enl</code> (EndNote)</p>
+<p>The work horse behind this is (pandoc)[<a href="https://pandoc.org" class="uri">https://pandoc.org</a>]. I won’t go into much detail here, but generally pandoc is useful if you need to convert files from one markup format into another. And in this case, it can help us automatically generate citations and a bibliography in a number of styles.</p>
+<p>In order to use references within a R Markdown file, you will need to specify the name and a location of a bibliography file using the bibliography metadata field in a YAML metadata section. For example:</p>
+<pre><code>---
+title: &quot;Sample Document&quot;
+output: html_document
+bibliography: bibliography.bibtex
+---</code></pre>
+<p>Inside your file that contains all your references (e.g. <code>bibliography.bibtex</code>), typically each reference gets a key, which is a shorthand that is generated by the reference manager or you can create yourself.</p>
+<p>For instance, I use a format of lower-case first author last name followed by 4 digit year for each reference followed by a keyword (e.g name of a software package). Alternatively, you can omit the keyword. But note that if I cite a paper by the same first author that was published in the same year, then a lower case letter is added to the end. For instance, for a paper that I wrote as 1st author in 2010, my bibtex key might be <code>hicks2021</code> or <code>hicks2021a</code>. You can decide what scheme to use, just pick one and use it <em>forever</em>.</p>
+<p>In your R Markdown document, you can then cite the reference by adding the key, such as <code>...in the paper by Hicks et al. [@hicks2021]...</code>.</p>
+<p>When you knit the markdown file, it looks for a reference with the specified tag in your <code>bibliography.bibtex</code> file and places all references at the end of your document using the formatting you specified.</p>
 <h1 id="post-lecture-materials">Post-lecture materials</h1>
 <h3 id="final-questions">Final Questions</h3>
 <p>Here are some post-lecture questions to help you think about the material discussed.</p>
@@ -1566,7 +1566,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <li></li>
 </ul>
 </div>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

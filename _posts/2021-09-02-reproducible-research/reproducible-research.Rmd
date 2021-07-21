@@ -15,7 +15,7 @@ output:
     toc_depth: 3
 categories:
   - module 1
-  - week 2
+  - week 1
   - R
   - reproducibility
 ---
