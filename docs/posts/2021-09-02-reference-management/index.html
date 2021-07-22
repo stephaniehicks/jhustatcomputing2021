@@ -88,7 +88,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_meta_tags-->
 <title>Statistical Computing: Reference management</title>
 
-<meta property="description" itemprop="description" content="Add a short description here."/>
+<meta property="description" itemprop="description" content="How to use citations and incorporate references from a bibliography in R Markdown."/>
 
 <link rel="canonical" href="https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-02-reference-management/"/>
 <link rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"/>
@@ -101,7 +101,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
 <meta property="og:title" content="Statistical Computing: Reference management"/>
 <meta property="og:type" content="article"/>
-<meta property="og:description" content="Add a short description here."/>
+<meta property="og:description" content="How to use citations and incorporate references from a bibliography in R Markdown."/>
 <meta property="og:url" content="https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-02-reference-management/"/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:site_name" content="Statistical Computing"/>
@@ -109,7 +109,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--  https://dev.twitter.com/cards/types/summary -->
 <meta property="twitter:card" content="summary"/>
 <meta property="twitter:title" content="Statistical Computing: Reference management"/>
-<meta property="twitter:description" content="Add a short description here."/>
+<meta property="twitter:description" content="How to use citations and incorporate references from a bibliography in R Markdown."/>
 <meta property="twitter:url" content="https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-02-reference-management/"/>
 
 <!--  https://scholar.google.com/intl/en/scholar/inclusion.html#indexing -->
@@ -121,15 +121,17 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <meta name="citation_author" content="Stephanie Hicks"/>
 <meta name="citation_author_institution" content="Department of Biostatistics, Johns Hopkins"/>
 <!--/radix_placeholder_meta_tags-->
+  
+  <meta name="citation_reference" content="citation_title=Rmarkdown: Dynamic documents for r;citation_publication_date=2021;citation_author=JJ Allaire;citation_author=Yihui Xie;citation_author=Jonathan McPherson;citation_author=Javier Luraschi;citation_author=Kevin Ushey;citation_author=Aron Atkins;citation_author=Hadley Wickham;citation_author=Joe Cheng;citation_author=Winston Chang;citation_author=Richard Iannone"/>
   <!--radix_placeholder_rmarkdown_metadata-->
 
 <script type="text/json" id="radix-rmarkdown-metadata">
-{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["creative_commons","title","description","author","date","output","categories","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["CC BY-NC-SA"]},{"type":"character","attributes":{},"value":["Reference management"]},{"type":"character","attributes":{},"value":["Add a short description here."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url","affiliation","affiliation_url"]}},"value":[{"type":"character","attributes":{},"value":["Stephanie Hicks"]},{"type":"character","attributes":{},"value":["https://stephaniehicks.com/"]},{"type":"character","attributes":{},"value":["Department of Biostatistics, Johns Hopkins"]},{"type":"character","attributes":{},"value":["https://www.jhsph.edu"]}]}]},{"type":"character","attributes":{},"value":["09-02-2021"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","toc","toc_depth"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[3]}]}]},{"type":"character","attributes":{},"value":["module 1","week 1","R Markdown","programming"]},{"type":"character","attributes":{},"value":["https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-02-reference-management/"]},{"type":"character","attributes":{},"value":["https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-02-reference-management/"]}]}
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["creative_commons","title","description","author","date","output","categories","bibliography","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["CC BY-NC-SA"]},{"type":"character","attributes":{},"value":["Reference management"]},{"type":"character","attributes":{},"value":["How to use citations and incorporate references from a bibliography in R Markdown."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url","affiliation","affiliation_url"]}},"value":[{"type":"character","attributes":{},"value":["Stephanie Hicks"]},{"type":"character","attributes":{},"value":["https://stephaniehicks.com/"]},{"type":"character","attributes":{},"value":["Department of Biostatistics, Johns Hopkins"]},{"type":"character","attributes":{},"value":["https://www.jhsph.edu"]}]}]},{"type":"character","attributes":{},"value":["09-02-2021"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","toc","toc_depth"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[3]}]}]},{"type":"character","attributes":{},"value":["module 1","week 1","R Markdown","programming"]},{"type":"character","attributes":{},"value":["my-refs.bib"]},{"type":"character","attributes":{},"value":["https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-02-reference-management/"]},{"type":"character","attributes":{},"value":["https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-02-reference-management/"]}]}
 </script>
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["reference-management_files/anchor-4.2.2/anchor.min.js","reference-management_files/bowser-1.9.3/bowser.min.js","reference-management_files/distill-2.2.21/template.v2.js","reference-management_files/header-attrs-2.8/header-attrs.js","reference-management_files/jquery-1.11.3/jquery.min.js","reference-management_files/popper-2.6.0/popper.min.js","reference-management_files/tippy-6.2.7/tippy-bundle.umd.min.js","reference-management_files/tippy-6.2.7/tippy-light-border.css","reference-management_files/tippy-6.2.7/tippy.css","reference-management_files/tippy-6.2.7/tippy.umd.min.js","reference-management_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["my-refs.bib","reference-management_files/anchor-4.2.2/anchor.min.js","reference-management_files/bowser-1.9.3/bowser.min.js","reference-management_files/distill-2.2.21/template.v2.js","reference-management_files/header-attrs-2.8/header-attrs.js","reference-management_files/jquery-1.11.3/jquery.min.js","reference-management_files/popper-2.6.0/popper.min.js","reference-management_files/tippy-6.2.7/tippy-bundle.umd.min.js","reference-management_files/tippy-6.2.7/tippy-light-border.css","reference-management_files/tippy-6.2.7/tippy.css","reference-management_files/tippy-6.2.7/tippy.umd.min.js","reference-management_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 <meta name="distill:offset" content="../.."/>
@@ -2209,7 +2211,7 @@ d-appendix d-footnote-list a.footnote-backlink {
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Reference management","description":"Add a short description here.","authors":[{"author":"Stephanie Hicks","authorURL":"https://stephaniehicks.com/","affiliation":"Department of Biostatistics, Johns Hopkins","affiliationURL":"https://www.jhsph.edu","orcidID":""}],"publishedDate":"2021-09-02T00:00:00.000+00:00","citationText":"Hicks, 2021"}
+{"title":"Reference management","description":"How to use citations and incorporate references from a bibliography in R Markdown.","authors":[{"author":"Stephanie Hicks","authorURL":"https://stephaniehicks.com/","affiliation":"Department of Biostatistics, Johns Hopkins","affiliationURL":"https://www.jhsph.edu","orcidID":""}],"publishedDate":"2021-09-02T00:00:00.000+00:00","citationText":"Hicks, 2021"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2271,7 +2273,7 @@ Course Materials
   <a href="../../lectures.html#category:programming" class="dt-tag">programming</a>
 </div>
 <!--/radix_placeholder_categories-->
-<p><p>Add a short description here.</p></p>
+<p><p>How to use citations and incorporate references from a bibliography in R Markdown.</p></p>
 </div>
 
 <div class="d-byline">
@@ -2291,11 +2293,18 @@ Course Materials
 <li><a href="#acknowledgements">Acknowledgements</a></li>
 </ul></li>
 <li><a href="#learning-objectives">Learning objectives</a></li>
-<li><a href="#reference-management-with-r-markdown">Reference management with R Markdown</a></li>
+<li><a href="#introduction">Introduction</a>
+<ul>
+<li><a href="#citation-management-software">Citation management software</a></li>
+<li><a href="#linking-.bib-file-with-r-markdown">Linking <code>.bib</code> file with R Markdown</a></li>
+<li><a href="#inline-citation">Inline citation</a></li>
+<li><a href="#citation-styles">Citation styles</a></li>
+<li><a href="#other-cool-features">Other cool features</a></li>
+</ul></li>
+<li><a href="#other-useful-tips">Other useful tips</a></li>
 <li><a href="#post-lecture-materials">Post-lecture materials</a>
 <ul>
-<li><a href="#final-questions">Final Questions</a></li>
-<li><a href="#additional-resources">Additional Resources</a></li>
+<li><a href="#practice">Practice</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -2306,7 +2315,9 @@ Course Materials
 <div class="resources">
 <p><strong>Before class, you can prepare by reading the following materials:</strong></p>
 <ol type="1">
-<li></li>
+<li><a href="https://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html">R Markdown from RStudio</a></li>
+<li><a href="https://monashdatafluency.github.io/r-rep-res/citations.html">Reproducible Research in R</a> from the <a href="https://monashdatafluency.github.io">Monash Data Fluency</a> initiative</li>
+<li><a href="https://bookdown.org/yihui/rmarkdown-cookbook/bibliography.html">R Markdown Cookbook</a></li>
 </ol>
 </div>
 <h3 id="acknowledgements">Acknowledgements</h3>
@@ -2314,56 +2325,209 @@ Course Materials
 <ul>
 <li><a href="https://andreashandel.github.io/MADAcourse/" class="uri">https://andreashandel.github.io/MADAcourse/</a></li>
 <li><a href="https://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html" class="uri">https://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html</a></li>
-<li></li>
+<li><a href="https://bookdown.org/yihui/rmarkdown-cookbook/bibliography.html" class="uri">https://bookdown.org/yihui/rmarkdown-cookbook/bibliography.html</a></li>
+<li><a href="https://monashdatafluency.github.io/r-rep-res/citations.html" class="uri">https://monashdatafluency.github.io/r-rep-res/citations.html</a></li>
 </ul>
 <h1 id="learning-objectives">Learning objectives</h1>
 <div class="keyideas">
 <p><strong>At the end of this lesson you will:</strong></p>
 <ul>
-<li>Know how to manage references (i.e. citations) using R and R Markdown.</li>
-<li></li>
-<li></li>
+<li>Know what types of bibliography file formats can be used in a R Markdown file</li>
+<li>Learn how to add citations to a R Markdown file</li>
+<li>Know how to change the citation style (e.g. APA, Chicago, etc)</li>
 </ul>
 </div>
-<h1 id="reference-management-with-r-markdown">Reference management with R Markdown</h1>
+<h1 id="introduction">Introduction</h1>
 <p>For almost any data analysis, especially if it is meant for publication in the academic literature, you will have to cite other people’s work and include the references (bibliographies or citations) in your work. In this class, you are likely to need to include references and cite other people’s work like in a regular research paper.</p>
+<p>R provides nice function <code>citation()</code> that helps us generating citation blob for R packages that we have used. Let’s try generating citation text for rmarkdown package by using the following command</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/utils/citation.html'>citation</a></span><span class='op'>(</span><span class='st'>"rmarkdown"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>
+To cite the &#39;rmarkdown&#39; package in publications, please use:
+
+  JJ Allaire and Yihui Xie and Jonathan McPherson and Javier
+  Luraschi and Kevin Ushey and Aron Atkins and Hadley Wickham
+  and Joe Cheng and Winston Chang and Richard Iannone (2021).
+  rmarkdown: Dynamic Documents for R. R package version 2.8.
+  URL https://rmarkdown.rstudio.com.
+
+  Yihui Xie and J.J. Allaire and Garrett Grolemund (2018). R
+  Markdown: The Definitive Guide. Chapman and Hall/CRC. ISBN
+  9781138359338. URL https://bookdown.org/yihui/rmarkdown.
+
+  Yihui Xie and Christophe Dervieux and Emily Riederer (2020).
+  R Markdown Cookbook. Chapman and Hall/CRC. ISBN
+  9780367563837. URL
+  https://bookdown.org/yihui/rmarkdown-cookbook.
+
+To see these entries in BibTeX format, use &#39;print(&lt;citation&gt;,
+bibtex=TRUE)&#39;, &#39;toBibtex(.)&#39;, or set
+&#39;options(citation.bibtex.max=999)&#39;.</code></pre>
+</div>
 <p>I assume you are familiar with how citing references works, and hopefully, you are already using a reference manager. If not, let me know in the discussion boards.</p>
-<p>To have something that plays well with R Markdown, you need file format that stores all the references. Click here to learn more about all the possible file formats available to you to use within a R Markdown file:</p>
+<p>To have something that plays well with R Markdown, you need file format that stores all the references. Click here to learn more other possible file formats available to you to use within a R Markdown file:</p>
 <ul>
 <li><a href="https://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html" class="uri">https://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html</a></li>
 </ul>
-<p>As you can see, there are ton of file formats including <code>.medline</code> (MEDLINE), <code>.bibtex</code> (BibTeX), <code>.ris</code> (RIS), <code>.enl</code> (EndNote)</p>
-<p>The work horse behind this is (pandoc)[<a href="https://pandoc.org" class="uri">https://pandoc.org</a>]. I won’t go into much detail here, but generally pandoc is useful if you need to convert files from one markup format into another. And in this case, it can help us automatically generate citations and a bibliography in a number of styles.</p>
-<p>In order to use references within a R Markdown file, you will need to specify the name and a location of a bibliography file using the bibliography metadata field in a YAML metadata section. For example:</p>
-<pre><code>---
-title: &quot;Sample Document&quot;
-output: html_document
-bibliography: bibliography.bibtex
----</code></pre>
-<p>Inside your file that contains all your references (e.g. <code>bibliography.bibtex</code>), typically each reference gets a key, which is a shorthand that is generated by the reference manager or you can create yourself.</p>
-<p>For instance, I use a format of lower-case first author last name followed by 4 digit year for each reference followed by a keyword (e.g name of a software package). Alternatively, you can omit the keyword. But note that if I cite a paper by the same first author that was published in the same year, then a lower case letter is added to the end. For instance, for a paper that I wrote as 1st author in 2010, my bibtex key might be <code>hicks2021</code> or <code>hicks2021a</code>. You can decide what scheme to use, just pick one and use it <em>forever</em>.</p>
-<p>In your R Markdown document, you can then cite the reference by adding the key, such as <code>...in the paper by Hicks et al. [@hicks2021]...</code>.</p>
-<p>When you knit the markdown file, it looks for a reference with the specified tag in your <code>bibliography.bibtex</code> file and places all references at the end of your document using the formatting you specified.</p>
-<h1 id="post-lecture-materials">Post-lecture materials</h1>
-<h3 id="final-questions">Final Questions</h3>
-<p>Here are some post-lecture questions to help you think about the material discussed.</p>
-<div class="questions">
-<p><strong>Questions:</strong></p>
-<ol type="1">
-<li></li>
-<li></li>
-<li></li>
-</ol>
+<h3 id="citation-management-software">Citation management software</h3>
+<p>As you can see, there are ton of file formats including <code>.medline</code> (MEDLINE), <code>.bib</code> (BibTeX), <code>.ris</code> (RIS), <code>.enl</code> (EndNote).</p>
+<p>I will not discuss underlying citational management software itself, but I will talk briefly how you might create one of these file formats.</p>
+<p>If you recall the output from <code>citation("rmarkdown")</code> above, we might consider manually copying and pasting the output into a citation management software, but instead we can use <code>write_bib()</code> function from <code>knitr</code> package to create a bibliography file ending in <code>.bib</code>.</p>
+<p>Let’s run the following code in order to generate a <code>my-refs.bib</code> file</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>knitr</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/knitr/man/write_bib.html'>write_bib</a></span><span class='op'>(</span><span class='st'>"rmarkdown"</span>, file <span class='op'>=</span> <span class='st'>"my-refs.bib"</span><span class='op'>)</span>
+</code></pre>
 </div>
-<h3 id="additional-resources">Additional Resources</h3>
+</div>
+<p>Now we can see we have the file saved locally.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/list.files.html'>list.files</a></span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>[1] &quot;my-refs.bib&quot;                &quot;reference-management_files&quot;
+[3] &quot;reference-management.html&quot;  &quot;reference-management.Rmd&quot;  </code></pre>
+</div>
+<p>If you open up the <code>my-refs.bib</code> file, you will see</p>
+<pre><code>@Manual{R-rmarkdown,
+  title = {rmarkdown: Dynamic Documents for R},
+  author = {JJ Allaire and Yihui Xie and Jonathan McPherson and Javier Luraschi and Kevin Ushey and Aron Atkins and Hadley Wickham and Joe Cheng and Winston Chang and Richard Iannone},
+  year = {2021},
+  note = {R package version 2.8},
+  url = {https://CRAN.R-project.org/package=rmarkdown},
+}
+
+@Book{rmarkdown2018,
+  title = {R Markdown: The Definitive Guide},
+  author = {Yihui Xie and J.J. Allaire and Garrett Grolemund},
+  publisher = {Chapman and Hall/CRC},
+  address = {Boca Raton, Florida},
+  year = {2018},
+  note = {ISBN 9781138359338},
+  url = {https://bookdown.org/yihui/rmarkdown},
+}
+
+@Book{rmarkdown2020,
+  title = {R Markdown Cookbook},
+  author = {Yihui Xie and Christophe Dervieux and Emily Riederer},
+  publisher = {Chapman and Hall/CRC},
+  address = {Boca Raton, Florida},
+  year = {2020},
+  note = {ISBN 9780367563837},
+  url = {https://bookdown.org/yihui/rmarkdown-cookbook},
+}</code></pre>
 <div class="resources">
+<p><strong>Note there are three keys that we will use later on</strong>:</p>
 <ul>
-<li></li>
-<li></li>
-<li></li>
+<li><code>R-rmarkdown</code></li>
+<li><code>rmarkdown2018</code></li>
+<li><code>rmarkdown2020</code></li>
 </ul>
 </div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<h3 id="linking-.bib-file-with-r-markdown">Linking <code>.bib</code> file with R Markdown</h3>
+<p>In order to use references within a R Markdown file, you will need to specify the name and a location of a bibliography file using the bibliography metadata field in a YAML metadata section. For example:</p>
+<pre><code>---
+title: &quot;My top ten favorite R packages&quot;
+output: html_document
+bibliography: my-refs.bib
+---</code></pre>
+<p>You can include multiple reference files using the following syntax, alternatively you can concatenate two bib files into one.</p>
+<pre><code>---
+bibliography: [&quot;my-refs1.bib&quot;, &quot;my-refs2.bib&quot;]
+---</code></pre>
+<h3 id="inline-citation">Inline citation</h3>
+<p>Now we can start using those bib keys that we have learned just before, using the following syntax</p>
+<ul>
+<li><code>[@key]</code> for single citation</li>
+<li><code>[@key1; @key2]</code> multiple citation can be separated by semi-colon</li>
+<li><code>[-@key]</code> in order to suppress author name, and just display the year</li>
+<li><code>[see @key1 p 12; also this ref @key2]</code> is also a valid syntax</li>
+</ul>
+<p>Let’s start by citing the <code>rmarkdown</code> package using the following code and press <code>Knit</code> button. I am also including a new first level header and a short sentence.</p>
+<hr />
+<p>I have been using the amazing Rmarkdown package <span class="citation" data-cites="R-rmarkdown">(<a href="#ref-R-rmarkdown" role="doc-biblioref">Allaire et al. 2021</a>)</span>! I should also go and read <span class="citation" data-cites="rmarkdown2018 rmarkdown2020">(<a href="#ref-rmarkdown2018" role="doc-biblioref">Xie, Allaire, and Grolemund 2018</a>; and <a href="#ref-rmarkdown2020" role="doc-biblioref">Xie, Dervieux, and Riederer 2020</a>)</span> books.</p>
+<hr />
+<p>Pretty cool, eh??</p>
+<p>To celebrate, I’ll show you another one of my favorite art pieces from Allison Horst.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure"><span id="fig:rmarkdown-wizards"></span>
+<img src="https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/rmarkdown_wizards.png" alt="R Markdown magic [Artwork by Allison Horst]"  />
+<p class="caption">
+Figure 1: R Markdown magic [Artwork by Allison Horst]
+</p>
+</div>
+</div>
+<p>[<strong>Source</strong>: <a href="https://github.com/allisonhorst/stats-illustrations">Artwork by Allison Horst</a>]</p>
+<h3 id="citation-styles">Citation styles</h3>
+<p>By default, Pandoc will use a Chicago author-date format for citations and references.</p>
+<p>To use another style, you will need to specify a CSL (Citation Style Language) file in the <code>csl</code> metadata field, e.g.,</p>
+<pre><code>---
+title: &quot;My top ten favorite R packages&quot;
+output: html_document
+bibliography: my-refs.bib
+csl: biomed-central.csl
+---</code></pre>
+<div class="resources">
+<p>To find your required formats, we recommend using the <a href="https://www.zotero.org/styles">Zotero Style Repository</a>, which makes it easy to search for and download your desired style.</p>
+</div>
+<p>CSL files can be tweaked to meet custom formatting requirements. For example, we can change the number of authors required before “et al.” is used to abbreviate them. This can be simplified through the use of visual editors such as the one available at <a href="https://editor.citationstyles.org" class="uri">https://editor.citationstyles.org</a>.</p>
+<h3 id="other-cool-features">Other cool features</h3>
+<h4 id="add-an-item-to-a-bibliography-without-using-it">Add an item to a bibliography without using it</h4>
+<p>By default, the bibliography will only display items that are directly referenced in the document. If you want to include items in the bibliography without actually citing them in the body text, you can define a dummy nocite metadata field and put the citations there.</p>
+<pre><code>---
+nocite: |
+  @item1, @item2
+---</code></pre>
+<h4 id="add-all-items-to-the-bibliography">Add all items to the bibliography</h4>
+<p>If we do not wish to explicitly state all of the items within the bibliography but would still like to show them in our references, we can use the following syntax:</p>
+<pre><code>---
+nocite: &#39;@*&#39;
+---</code></pre>
+<p>This will force all items to be displayed in the bibliography.</p>
+<div class="resources">
+<p>You can also have an appendix appear after bibliography. For more on this, see:</p>
+<ul>
+<li><a href="https://bookdown.org/yihui/rmarkdown-cookbook/bibliography.html" class="uri">https://bookdown.org/yihui/rmarkdown-cookbook/bibliography.html</a></li>
+</ul>
+</div>
+<h1 id="other-useful-tips">Other useful tips</h1>
+<p>We have learned that inside your file that contains all your references (e.g. <code>my-refs.bib</code>), typically each reference gets a key, which is a shorthand that is generated by the reference manager or you can create yourself.</p>
+<p>For instance, I use a format of lower-case first author last name followed by 4 digit year for each reference followed by a keyword (e.g name of a software package). Alternatively, you can omit the keyword. But note that if I cite a paper by the same first author that was published in the same year, then a lower case letter is added to the end. For instance, for a paper that I wrote as 1st author in 2010, my bibtex key might be <code>hicks2021</code> or <code>hicks2021a</code>. You can decide what scheme to use, just pick one and use it <em>forever</em>.</p>
+<p>In your R Markdown document, you can then cite the reference by adding the key, such as <code>...in the paper by Hicks et al. [@hicks2021]...</code>.</p>
+<h1 id="post-lecture-materials">Post-lecture materials</h1>
+<h3 id="practice">Practice</h3>
+<p>Here are some post-lecture tasks to practice some the material discussed.</p>
+<div class="questions">
+<p><strong>Try out the following:</strong></p>
+<ol type="1">
+<li><p>What do you notice that’s different when you run <code>citation("tidyverse")</code> (compared to <code>citation("rmarkdown")</code>)?</p></li>
+<li><p>Install the following packages:</p></li>
+</ol>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">&quot;bibtex&quot;</span>, <span class="st">&quot;RefManageR&quot;</span>)</span></code></pre></div>
+</div>
+<p>What do they do? How might they be helpful to you in terms of reference management?</p>
+<ol start="3" type="1">
+<li><p>Instead of using a <code>.bib</code> file, try using a different bibliography file format in an R Markdown document.</p></li>
+<li><p>Practice using a different CSL file to change the citation style.</p></li>
+</ol>
+</div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-R-rmarkdown" class="csl-entry" role="doc-biblioentry">
+Allaire, JJ, Yihui Xie, Jonathan McPherson, Javier Luraschi, Kevin Ushey, Aron Atkins, Hadley Wickham, Joe Cheng, Winston Chang, and Richard Iannone. 2021. <em>Rmarkdown: Dynamic Documents for r</em>. <a href="https://CRAN.R-project.org/package=rmarkdown">https://CRAN.R-project.org/package=rmarkdown</a>.
+</div>
+<div id="ref-rmarkdown2018" class="csl-entry" role="doc-biblioentry">
+Xie, Yihui, J. J. Allaire, and Garrett Grolemund. 2018. <em>R Markdown: The Definitive Guide</em>. Boca Raton, Florida: Chapman; Hall/CRC. <a href="https://bookdown.org/yihui/rmarkdown">https://bookdown.org/yihui/rmarkdown</a>.
+</div>
+<div id="ref-rmarkdown2020" class="csl-entry" role="doc-biblioentry">
+Xie, Yihui, Christophe Dervieux, and Emily Riederer. 2020. <em>R Markdown Cookbook</em>. Boca Raton, Florida: Chapman; Hall/CRC. <a href="https://bookdown.org/yihui/rmarkdown-cookbook">https://bookdown.org/yihui/rmarkdown-cookbook</a>.
+</div>
+</div>
 <!--radix_placeholder_article_footer-->
 <div class="article-footer">
   <p class="social_footer">
@@ -2408,6 +2572,8 @@ var disqus_config = function () {
 <!--/radix_placeholder_site_after_body-->
 <!--radix_placeholder_appendices-->
 <div class="appendix-bottom">
+  <h3 id="references">References</h3>
+  <div id="references-listing"></div>
   <h3 id="reuse">Reuse</h3>
   <p>Text and figures are licensed under Creative Commons Attribution <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>. The figures that have been reused from other sources don't fall under this license and can be recognized by a note in their caption: "Figure from ...".</p>
   <h3 id="citation">Citation</h3>
