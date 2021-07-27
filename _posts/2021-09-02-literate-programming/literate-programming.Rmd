@@ -18,6 +18,7 @@ categories:
   - week 1
   - R Markdown
   - programming
+bibliography: my-refs.bib
 ---
 
 
@@ -101,8 +102,8 @@ Instead, folks have moved towards using something called knitr, which offers eve
 Another choice for literate programming is to build documents based on [Markdown](https://en.wikipedia.org/wiki/Markdown) language. A markdown file is a plain text file that is typically given the extension `.md.`. The [`rmarkdown`](https://CRAN.R-project.org/package=rmarkdown) R package takes a R Markdown file (`.Rmd`) and weaves together R code chunks like this: 
 
 
-````markdown
-`r ''````{r plot1, height=4, width=5, eval=FALSE, echo=TRUE}
+````
+```{r plot1, height=4, width=5, eval=FALSE, echo=TRUE}`r ''`
 data(airquality)
 plot(airquality$Ozone ~ airquality$Wind)
 ```
@@ -189,10 +190,6 @@ So in summary:
 
 [[Source](https://bookdown.org/yihui/rmarkdown/)]
 
-### bookdown
-
-The `bookdown` R package is built on top of R Markdown, but also offers features like multi-page HTML output, numbering and cross-referencing figures/tables/sections/equations, inserting parts/appendices, and imported the GitBook style (https://www.gitbook.com) to create elegant and appealing HTML book pages.
-Share
 
 
 # Create and Knit Your First R Markdown Document
@@ -213,9 +210,112 @@ When creating your first R Markdown document, in RStudio you can
 
 If you successfully knit your first R Markdown document, then congratulations! 
 
-```{r mission-accomplished, echo = FALSE, out.width='70%', fig.cap = "Mission accomplished!"}
+```{r missionaccomplished, echo = FALSE, out.width='30%', fig.cap = "Mission accomplished!"}
 knitr::include_graphics("https://media.giphy.com/media/L4ZZNbDpOCfiX8uYSd/giphy.gif")
 ```
+
+# Websites and Books in R Markdown
+
+Now that you are on the road to using R Markdown documents, it is important to know about other wonderful things you do with these documents. For example, let's say you have multiple `.Rmd` documents that you want to put together into a website, blog, book, etc. 
+
+There are primarily two ways to build multiple `.Rmd` documents together: 
+
+1. [**blogdown**](https://bookdown.org/yihui/blogdown/) for building websites
+2. [**bookdown**](https://bookdown.org/yihui/bookdown/) for authoring books
+
+In this section, we briefly introduce both packages, but it's worth mentioning that the [**rmarkdown** package also has a built-in site generator](https://bookdown.org/yihui/rmarkdown/rmarkdown-site.html) to build websites. 
+
+### blogdown
+
+```{r hex-blogdown, echo = FALSE, out.width = '10%', fig.cap = "blogdown logo"}
+knitr::include_graphics("https://bookdown.org/yihui/blogdown/images/logo.png")
+```
+
+
+[[Source](https://bookdown.org/yihui/bookdown/images/logo.png)]
+
+The `blogdown` R package is built on top of R Markdown, supports multi-page HTML output to write a blog post or a general page in an Rmd document, or a plain Markdown document. 
+These source documents (e.g. `.Rmd` or `.md`) are built into a static website (i.e. a bunch of static HTML files, images and CSS files). Using this folder of files, it is very easy to publish it to any web server as a website. 
+Also, it is easy to maintain because it is only a single folder. 
+
+:::resources 
+
+For example, my personal website was built in blogdown: 
+
+- https://www.stephaniehicks.com
+
+Other really great examples can be found here: 
+
+- https://awesome-blogdown.com
+
+:::
+
+Other advantages include the content likely being reproducible, easier to maintain, and easy to convert pages to e.g. PDF or other formats in the future if you do not want to convert to HTML files. Because it is based on the Markdown syntax, it is easy to write technical documents, including math equations, insert figures or tables with captions, cross-reference with figure or table numbers, add citations, and present theorems or proofs. 
+
+### bookdown
+
+```{r hex-bookdown, echo = FALSE, out.width='70%', fig.cap = "blogdown logo"}
+knitr::include_graphics("https://bookdown.org/yihui/bookdown/images/logo.png")
+```
+
+[[Source](https://bookdown.org/yihui/bookdown/images/logo.png)]
+
+Similar to `blogdown`, the `bookdown` R package is built on top of R Markdown, but also offers features like multi-page HTML output, numbering and cross-referencing figures/tables/sections/equations, inserting parts/appendices, and imported the GitBook style (https://www.gitbook.com) to create elegant and appealing HTML book pages.
+Share
+
+:::resources
+
+For example, the previous version of this course was built in bookdown: 
+
+- https://rdpeng.github.io/Biostat776/
+
+Another example is the [Tidyverse Skills for Data Science](https://jhudatascience.org/tidyversecourse/) book that the JHU Data Science Lab wrote. The github repo that contains all the `.Rmd` files can be found [here](https://github.com/jhudsl/tidyversecourse).
+
+- https://jhudatascience.org/tidyversecourse/
+- https://github.com/jhudsl/tidyversecourse
+
+:::
+
+
+**Note**: Even though the word "book" is in "bookdown", this package is not only for books. It really can be anything that consists of multiple `.Rmd` documents meant to be read in a linear sequence such as course dissertation/thesis, handouts, study notes, a software manual, a thesis, or even a diary. 
+
+- https://bookdown.org/yihui/rmarkdown/basics-examples.html#examples-books
+
+
+### distill 
+
+There is another great way to build blogs or websites using the [distill for R Markdown](https://rstudio.github.io/distill/).  
+
+- https://rstudio.github.io/distill
+
+Distill for R Markdown combines the technical authoring features of the [Distill web framework](https://github.com/distillpub/template) (optimized for scientific and technical communication) with [R Markdown](https://rmarkdown.rstudio.com), enabling a fully reproducible workflow based on literate programming [@knuth1984]. 
+
+Distill articles include:
+
+- Reader-friendly typography that adapts well to mobile devices.
+- Features essential to technical writing like LaTeX math, citations, and footnotes.
+- Flexible figure layout options (e.g. displaying figures at a larger width than the article text).
+- Attractively rendered tables with optional support for pagination.
+- Support for a wide variety of diagramming tools for illustrating concepts.
+The ability to incorporate JavaScript and D3-based interactive visualizations.
+- A variety of ways to publish articles, including support for publishing sets of articles as a Distill website or as a Distill blog.
+
+This course website is built in Distill for R Markdown: 
+
+- Website: https://stephaniehicks.com/jhustatcomputing2021
+- Github: https://github.com/stephaniehicks/jhustatcomputing2021
+
+Some other cool things about distill is the use of footnotes and asides. 
+
+For example ^[This will become a hover-able footnote]. The number of the footnote will be automatically generated.
+
+You can also optionally include notes in the gutter of the article (immediately to the right of the article text). To do this use the aside tag.
+
+<aside>
+This content will appear in the gutter of the article.
+</aside>
+
+You can also include figures in the gutter. Just enclose the code chunk which generates the figure in an aside tag
 
 
 # Tips and tricks in R Markdown in RStudio
