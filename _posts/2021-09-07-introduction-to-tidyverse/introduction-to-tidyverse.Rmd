@@ -1,5 +1,5 @@
 ---
-title: "Building websites in RMarkdown"
+title: "Introduction to the Tidyverse"
 description: |
   Add a short description here.
 author:
@@ -7,7 +7,7 @@ author:
     url: https://stephaniehicks.com/
     affiliation: Department of Biostatistics, Johns Hopkins
     affiliation_url: https://www.jhsph.edu
-date: 09-02-2021
+date: 09-07-2021
 output:
   distill::distill_article:
     self_contained: false
@@ -15,10 +15,8 @@ output:
     toc_depth: 3
 categories:
   - module 1
-  - week 1
-  - R Markdown
-  - websites
-  - programming
+  - week 2
+  - tidyverse
 ---
 
 
@@ -69,6 +67,16 @@ Material for this lecture was borrowed and adopted from
 ### Subsection 1
 
 ### Subsection 2
+
+### Pipe operator `%>%`
+
+If you are using the `{dplyr}`, `{tidyverse}` or `{magrittr}` packages often, here is a shortcut for the pipe operator `%>%`:
+
+```
+command + Shift + M on Mac
+Ctrl + Shift + M on Windows
+```
+
 
 
 :::questions

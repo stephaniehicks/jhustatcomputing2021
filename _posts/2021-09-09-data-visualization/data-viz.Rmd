@@ -1,0 +1,118 @@
+---
+title: "Data Visualizations in the Tidyverse"
+description: |
+  Add a short description here.
+author:
+  - name: Stephanie Hicks
+    url: https://stephaniehicks.com/
+    affiliation: Department of Biostatistics, Johns Hopkins
+    affiliation_url: https://www.jhsph.edu
+date: 09-09-2021
+output:
+  distill::distill_article:
+    self_contained: false
+    toc: true
+    toc_depth: 3
+categories:
+  - module 1
+  - week 2
+  - tidyverse
+  - data viz
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+> The data may not contain the answer. 
+> And, if you torture the data long enough,
+> it will tell you anything. ---*John W. Tukey*
+
+
+# Pre-lecture materials
+
+### Read ahead
+
+:::resources
+
+**Before class, you can prepare by reading the following materials:**
+
+1. 
+
+:::
+
+
+### Acknowledgements
+
+Material for this lecture was borrowed and adopted from
+
+-
+- 
+- 
+
+# Learning objectives
+
+:::keyideas
+
+**At the end of this lesson you will:**
+
+- 
+- 
+- 
+
+:::
+
+
+# Section 1
+
+
+### Subsection 1
+
+### Subsection 2
+
+
+:::questions
+
+**Questions:**
+
+1. 
+2. 
+3. 
+
+:::
+
+### Subsection 3
+
+
+# Section 2
+
+
+# Post-lecture materials
+
+### Final Questions 
+
+Here are some post-lecture questions to help you think about the material discussed.
+
+:::questions
+
+**Questions:**
+
+1. 
+
+2. 
+
+3.
+
+:::
+
+
+### Additional Resources 
+
+:::resources 
+
+- 
+- 
+- 
+
+::: 

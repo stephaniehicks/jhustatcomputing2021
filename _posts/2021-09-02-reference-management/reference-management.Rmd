@@ -178,7 +178,7 @@ Now we can start using those bib keys that we have learned just before, using th
 - `[-@key]` in order to suppress author name, and just display the year
 - `[see @key1 p 12; also this ref @key2]` is also a valid syntax
 
-Let's start by citing the `rmarkdown` package using the following code and press `Knit` button. I am also including a new first level header and a short sentence.
+Let's start by citing the `rmarkdown` package using the following code and press `Knit` button: 
 
 --- 
 
