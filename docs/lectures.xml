@@ -7,56 +7,7 @@
     <description>Course website for Statistical Computing (JHSPH Biostatistics 140.776 Fall 2021)
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Thu, 09 Sep 2021 00:00:00 +0000</lastBuildDate>
-    <item>
-      <title>Data Visualizations in the Tidyverse</title>
-      <dc:creator>Stephanie Hicks</dc:creator>
-      <link>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-09-data-visualization</link>
-      <description>Add a short description here.</description>
-      <category>module 1</category>
-      <category>week 2</category>
-      <category>tidyverse</category>
-      <category>data viz</category>
-      <guid>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-09-data-visualization</guid>
-      <pubDate>Thu, 09 Sep 2021 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>Literate Statistical Programming</title>
-      <dc:creator>Stephanie Hicks</dc:creator>
-      <link>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-02-literate-programming</link>
-      <description>Introduction to literate statistical programming tools including R Markdown.</description>
-      <category>module 1</category>
-      <category>week 1</category>
-      <category>R Markdown</category>
-      <category>programming</category>
-      <guid>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-02-literate-programming</guid>
-      <pubDate>Thu, 02 Sep 2021 00:00:00 +0000</pubDate>
-      <media:content url="https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-02-literate-programming/literate-programming_files/figure-html5/plot2-1.png" medium="image" type="image/png" width="1248" height="768"/>
-    </item>
-    <item>
-      <title>Reference management</title>
-      <dc:creator>Stephanie Hicks</dc:creator>
-      <link>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-02-reference-management</link>
-      <description>How to use citations and incorporate references from a bibliography in R Markdown.</description>
-      <category>module 1</category>
-      <category>week 1</category>
-      <category>R Markdown</category>
-      <category>programming</category>
-      <guid>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-02-reference-management</guid>
-      <pubDate>Thu, 02 Sep 2021 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>Reproducible Research</title>
-      <dc:creator>Stephanie Hicks</dc:creator>
-      <link>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-02-reproducible-research</link>
-      <description>Introduction to reproducible research covering some basic concepts and ideas that are related to reproducible reporting</description>
-      <category>module 1</category>
-      <category>week 1</category>
-      <category>R</category>
-      <category>reproducibility</category>
-      <guid>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-02-reproducible-research</guid>
-      <pubDate>Thu, 02 Sep 2021 00:00:00 +0000</pubDate>
-    </item>
+    <lastBuildDate>Tue, 31 Aug 2021 00:00:00 +0000</lastBuildDate>
     <item>
       <title>Introduction to git/GitHub</title>
       <dc:creator>Stephanie Hicks</dc:creator>

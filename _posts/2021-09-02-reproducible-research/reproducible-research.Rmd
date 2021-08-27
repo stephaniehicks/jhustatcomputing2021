@@ -18,6 +18,7 @@ categories:
   - week 1
   - R
   - reproducibility
+draft: true
 ---
 
 ```{r setup, include=FALSE}

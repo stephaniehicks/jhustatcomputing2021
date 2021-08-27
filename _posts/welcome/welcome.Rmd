@@ -100,7 +100,7 @@ Go to [https://cran.r-project.org]() and
 
 2. Click on "base"
 
-3. Click on "Download R 4.1.0 for Windows"
+3. Click on "Download R 4.1.1 for Windows"
 
 ![Video Demo for Downloading R for Windows](../../videos/downloadRWindows.gif)
 
@@ -112,7 +112,7 @@ Goto [https://cran.r-project.org]() and
 
 1. Click the link to "Download R for (Mac) OS X". 
 
-2. Click on "R-4.1.0.pkg"
+2. Click on "R-4.1.1.pkg"
 
 
 ![Video Demo for Downloading R for the Mac](../../videos/downloadRMac.gif)
@@ -185,7 +185,7 @@ All communication for the course is going to take place on one of three platform
 - __Zoom__: for live class lectures 
 
   - Course Zoom: _Link available on Courseplus_
-  - Recorded lectures will be posted online after class ends
+  - The plan is for recorded lectures will be posted online after class ends
 
 The primary communication for the class will go through Courseplus That is where we will post course announcements, host most of our asynchronous course discussion, and as the primary means of communication between course participants and course instructors. 
 

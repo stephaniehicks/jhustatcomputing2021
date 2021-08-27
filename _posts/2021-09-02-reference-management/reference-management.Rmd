@@ -19,6 +19,7 @@ categories:
   - R Markdown 
   - programming
 bibliography: my-refs.bib
+draft: true
 ---
 
 

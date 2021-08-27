@@ -25,6 +25,6 @@ I suggest you start by looking over the [Syllabus](syllabus.html) and [Schedule]
 
 This course was developed and is maintained by [Stephanie Hicks](https://www.stephaniehicks.com).
 
-The following individuals have contributed to improving the course: [Roger D. Peng](https://github.com/rdpeng), [Andreas Handel](https://www.andreashandel.com), [Naim Rashid](https://naimurashid.github.io)], [Michael Love](https://github.com/mikelove)].
+The following individuals have contributed to improving the course or materials have been adapted from their courses: [Roger D. Peng](https://github.com/rdpeng), [Andreas Handel](https://www.andreashandel.com), [Naim Rashid](https://naimurashid.github.io), [Michael Love](https://github.com/mikelove).
 
 The course materials are licensed under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-nc-sa/4.0/). Linked and embedded materials are governed by their own licenses. I assume that all external materials used or embedded here are covered under the educational fair use policy. If this is not the case and any material displayed here violates copyright, please let me know and I will remove it.

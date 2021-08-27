@@ -16,6 +16,7 @@ output:
 categories:
   - project 2
   - projects
+draft: true
 ---
   
 ```{r setup, include=FALSE}

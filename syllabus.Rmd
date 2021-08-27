@@ -12,7 +12,7 @@ knitr::opts_chunk$set(echo = FALSE)
 ## Course Information
 
 * Location: Synchronous (online) for Fall 2021
-* Course time: Tuesdays and Thursdays from 1:30-2:50pm (**Eastern Daylight Time** time zone)
+* Course time: Tuesdays and Thursdays from 1:30-2:50pm (**Eastern Daylight Time** zone)
 * Assignments: Three projects
 
 ### Instructor 
@@ -23,15 +23,17 @@ knitr::opts_chunk$set(echo = FALSE)
 
 Dr. Hicks will hold office hours via Zoom at the following days/times:
 
-* TBA
-* TBA
+* Wednesdays 9-10:30am
+* Fridays 11am-12pm
 
-Appointments can also be made via email.
+Announcements will be made on Zoom if I have conflicts and need to cancel office hours. Appointments can also be made via email.
 
 ### Teaching Assistants
 
-* TBA
-* TBA
+* Athena Chen (achen70@jhu.edu)
+* Ruzhang Zhao (rzhao@jhu.edu)
+
+TA office hours will be announced shortly.
 
 
 ## Important Links
@@ -48,12 +50,13 @@ Upon successfully completing this course, students will be able to:
 - Write and debug code in base R and the tidyverse (and integrate code from Python modules)
 - Build basic data visualizations using R and the tidyverse
 - Build and organize a software package with documentation for publishing on the internet
-- Discuss and implement basic statistical computing algorithms for optimization, linear regression, and Monte Carlo
+- Discuss basic statistical computing algorithms for optimization, linear regression, and Monte Carlo
+- Discuss basic machine learning essentials
 
 
 ## Lectures
 
-In Fall 2021, we will have synchronous (online) lectures, but these will be recorded and posted online shortly afterwards.
+In Fall 2021, we will have synchronous (online) lectures, but my plan is for these to be recorded and posted online shortly afterwards.
 
 
 ## Textbook and Other Course Material
@@ -155,7 +158,7 @@ Go to [https://cran.r-project.org]() and
 
 2. Click on "base"
 
-3. Click on "Download R 4.1.0 for Windows"
+3. Click on "Download R 4.1.1 for Windows"
 
 ![Video Demo for Downloading R for Windows](videos/downloadRWindows.gif)
 
@@ -167,7 +170,7 @@ Goto [https://cran.r-project.org]() and
 
 1. Click the link to "Download R for (Mac) OS X". 
 
-2. Click on "R-4.1.0.pkg"
+2. Click on "R-4.1.1.pkg"
 
 
 ![Video Demo for Downloading R for the Mac](videos/downloadRMac.gif)

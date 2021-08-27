@@ -24,10 +24,10 @@ navbar:
       menu: 
       - text: "Lectures"
         href: lectures.html
-      - text: "Practice exercises (optional)"
-        href: exercises.html
       - text: "Projects"
         href: projects.html
+      - text: "Resources"
+        href: resources.html
     - icon: fa fa-rss
       href: index.xml
 collections:

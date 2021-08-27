@@ -14,30 +14,63 @@ knitr::opts_chunk$set(echo = FALSE)
 For Rmd files, go to the [course GitHub repository](https://github.com/stephaniehicks/jhustatcomputing2021) and navigate the directories, or best of all to clone the repo and navigate within RStudio.
 
 ::: l-body-outset
-| Week   | Dates           | Topics                             | Projects | 
-|--------- | ----------- | ----------------------------------- | --------------- |
-| **Module 1** |    | **Statistical and Computational Tools for Scientific and Reproducible Research** | 
-| Week 1      | Aug 31  | Course introduction [[html](posts/welcome/index.html)] [[Rmd](https://github.com/stephaniehicks/jhustatcomputing2021/blob/main/_posts/welcome/welcome.Rmd)] |  | 
-| | | Introduction to R and RStudio [[html](posts/2021-08-31-introduction-to-r-and-rstudio/index.html)] [[Rmd](https://github.com/stephaniehicks/jhustatcomputing2021/blob/main/_posts/2021-08-31-introduction-to-r-and-rstudio/introduction-to-r-and-rstudio.Rmd)] |  |
-| | | Introduction to git/GitHub [[html](posts/2021-08-31-introduction-to-gitgithub/index.html)] [[Rmd](https://github.com/stephaniehicks/jhustatcomputing2021/blob/main/_posts/2021-08-31-introduction-to-gitgithub/introduction-to-gitgithub.Rmd)] |  |
-| | | | Project 0 [[html](projects/2021-08-31-project-0/index.html)] |
-| | Sept 2 | Reproducible Research [[html](posts/2021-09-02-reproducible-research/index.html)] [[Rmd](https://github.com/stephaniehicks/jhustatcomputing2021/blob/main/_posts/2021-09-02-reproducible-research/reproducible-research.Rmd)] |  |
-| | | Literate programming [[html](posts/2021-09-02-literate-programming/index.html)] [[Rmd](https://github.com/stephaniehicks/jhustatcomputing2021/blob/main/_posts/2021-09-02-literate-programming/literate-programming.Rmd)] |  |
-| | | Reference management [[html](posts/2021-09-02-reference-management/index.html)] [[Rmd](https://github.com/stephaniehicks/jhustatcomputing2021/blob/main/_posts/2021-09-02-reference-management/reference-management.Rmd)] |  |
-| Week 2      | Sept 7       | Introduction to Tidyverse [[html]()] [[Rmd]()] | |
-| | | | Project 1 [[html](projects/2021-09-07-project-1/index.html)] |
-| | Sept 9 | Data Visualizations in the Tidyverse [[html](posts/2021-09-09-data-visualization/index.html)] [[Rmd](https://github.com/stephaniehicks/jhustatcomputing2021/blob/main/_posts/2021-09-09-data-visualization/data-viz.Rmd)] | |
-| | | Data Visualizations Best Practices [[html]()] [[Rmd]()] |  |
-| **Module 2** |    | **Statistical data analysis with R** |  |
-| Week 3      | Sept 13-17      | Writing and debugging code in base R, Tidyverse, and Python (control structures, functions, regex, etc) | |
-| | | | Project 2 [[html](projects/2021-09-14-project-2/index.html)] |
-| Week 4      | Sept 20-24      | R package software development (build, document, test, debug) | |
-| Week 5      | Sept 27-Oct 1   | Dealing with large data; parallel computing | |
-| | | | Project 3 [[html](projects/2021-09-28-project-3/index.html)] |
-| **Module 3** |    | **Basic Algorithms for Optimization and Estimation ** |  |
-| Week 6      | Oct 4-8         | Basic statistical computing algorithms for linear regression, optimization, EM algorithm, and Monte Carlo | |
+| Week   | Dates           | Topics                             | Podcast | Projects | 
+|--------- | ----------- | ----------------------------------- | --------------- | --------------- |
+| **Module 1** |    | **Statistical and computational tools for scientific and reproducible research** |  |
+| | | | | |
+| Week 1      | Aug 31  | `r emojifont::emoji('wave')` Course introduction [[html](posts/welcome/index.html)] [[Rmd](https://github.com/stephaniehicks/jhustatcomputing2021/blob/main/_posts/welcome/welcome.Rmd)] | |  `r emojifont::emoji('palm_tree')` Project 0 [[html](projects/2021-08-31-project-0/index.html)] |
+| | | `r emojifont::emoji('woman_technologist')` Introduction to R and RStudio [[html](posts/2021-08-31-introduction-to-r-and-rstudio/index.html)] [[Rmd](https://github.com/stephaniehicks/jhustatcomputing2021/blob/main/_posts/2021-08-31-introduction-to-r-and-rstudio/introduction-to-r-and-rstudio.Rmd)] | | |
+| | | `r emojifont::emoji('octopus')` Introduction to git/GitHub [[html](posts/2021-08-31-introduction-to-gitgithub/index.html)] [[Rmd](https://github.com/stephaniehicks/jhustatcomputing2021/blob/main/_posts/2021-08-31-introduction-to-gitgithub/introduction-to-gitgithub.Rmd)] |  | |
+| | | | | |
+| | Sept 2 | `r emojifont::emoji('microscope')` Reproducible Research |  | |
+| | | `r emojifont::emoji('eyeglasses')` Literate programming  |  | |
+| | | `r emojifont::emoji('cool')` Reference management  |  | |
+| | | | | |
+| Week 2      | Sept 7       | `r emojifont::emoji('construction')` Getting and cleaning data  | | `r emojifont::emoji('palm_tree')` Project 1 |
+| | | `r emojifont::emoji('scissors')` Managing data frames with the Tidyverse |  | |
+| | | `r emojifont::emoji('heart_eyes_cat')` Tidy data and the Tidyverse |  | |
+| | | `r emojifont::emoji('handshake')` Joining data in R: Basics |  | |
+| | | | | |
+| | Sept 9 | `r emojifont::emoji('bar_chart')` Data visualizations in the Tidyverse  | `r emojifont::emoji('headphones')` Data viz  | `r emojifont::emoji('fallen_leaf')`  Project 0 due |
+| | | `r emojifont::emoji('notebook')` Data visualizations best practices  |  | |
+| | | | | |
+| **Module 2** |    | **Data analysis in R** |  | |
+| | | | | |
+| Week 3      | Sept 14      | `r emojifont::emoji('nut_and_bolt')` R Nuts and Bolts | | `r emojifont::emoji('palm_tree')` Project 2 |
+| | | `r emojifont::emoji('nut_and_bolt')` Control structures in R | | | 
+| | | `r emojifont::emoji('nut_and_bolt')` Functions in R | | | 
+| | | `r emojifont::emoji('nut_and_bolt')` Scoping rules of R | | | 
+| | | `r emojifont::emoji('nut_and_bolt')` Loop functions| | | 
+| | | |  | |
+| | Sept 16 | `r emojifont::emoji('package')` R package software development (build, doc) | | |
+| |  Sept 17 | | | `r emojifont::emoji('fallen_leaf')`  Project 1 due |
+| | | | | |
+| Week 4      | Sept 21      | `r emojifont::emoji('package')` R package software development (testing) | `r emojifont::emoji('headphones')` Data analysis  | | 
+| | |  | | |
+| | Sept 23      | `r emojifont::emoji('bug')` Debugging code in R | | | 
+| | | `r emojifont::emoji('bug')` Error handling code in R  | | |
+| | | `r emojifont::emoji('bug')` Profiling R code | | |
+| | | | | |
+| Week 5      | Sept 28   | `r emojifont::emoji('calendar')` Working with dates and times | | |
+| | | | | |
+| | Sept 30 | `r emojifont::emoji('sparkles')` Regular expressions | | |
+| | Oct 1 | | | `r emojifont::emoji('fallen_leaf')`  Project 2 due |
+| | | | | |
+| Week 6      | Oct 5        | `r emojifont::emoji('volcano')` Dealing with large data; parallel computing  | | `r emojifont::emoji('palm_tree')` Project 3  |
+| | | | | |
+| | Oct 7 | `r emojifont::emoji('snake')` Leveraging Python within R | | |
+| | | | | |
+| **Module 3** |    | **Basic algorithms for optimization and estimation ** | |
+| | | | | |
+| Week 7      | Oct 12       | Basic statistical computing algorithms | |
+| | | | | |
+| | Oct 14 | Basic statistical computing algorithms | | |
+| | | | | |
 | **Module 4** |    | **Machine Learning Essentials** | |
-| Week 7      | Oct 11-15       | Machine learning essentials (SVM, RF, NN) | |
-| Week 8      | Oct 18-22       | Bootstrap, smoothing splines, TBA, etc         | |
+| | | | | |
+| Week 8      | Oct 19      |  Machine learning essentials  | |
+| | | | | |
+| | Oct 21 |  Machine learning essentials | | |
+| |  Oct 22 | | | `r emojifont::emoji('fallen_leaf')`  Project 3 due |
 :::
 

@@ -140,8 +140,9 @@ Some of you may only need to skim it, others will need to spend some time readin
 In this course, you will use git/GitHub in the following ways: 
 
 1. Project 0 (optional) - You will create a website introducing yourself to folks in the course and deploy it on GitHub.
-2. Project 1 and Project 2 - You will be asked to practice using git locally (on your compute environment) to track your changes over time and, if you wish (but highly suggested), you can practice pushing your project solutions to a private GitHub repository on your GitHub account. 
-3. Project 3 - You will be asked to work collaboratively on a project (i.e. writing code as a group) and you will use the skills you have been practicing in the earlier projects (i.e. `git add`, `git commit`, `git push`, `git pull`, etc) to work together as a team in a single GitHub repository. 
+2. Projects 1-3 - You will be asked to practice using git locally (on your compute environment) to track your changes over time and, if you wish (but highly suggested), you can practice pushing your project solutions to a private GitHub repository on your GitHub account (i.e. `git add`, `git commit`, `git push`, `git pull`, etc) . 
+
+Learning these skills will be useful down the road if you ever work collaboratively on a project (i.e. writing code as a group). In this scenario, you will use the skills you have been practicing in your projects to work together as a team in a single GitHub repository. 
 
 # Post-lecture materials
 
@@ -166,6 +167,6 @@ Here are some post-lecture questions to help you think about the material discus
 
 :::resources 
 
-- [git and GitHub in the `dsbook](https://rafalab.github.io/dsbook/git.html) by Rafael Irizarry.
+- [git and GitHub in the `dsbook`](https://rafalab.github.io/dsbook/git.html) by Rafael Irizarry.
 
 ::: 

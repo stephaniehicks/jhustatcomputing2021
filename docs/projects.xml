@@ -7,42 +7,12 @@
     <description>Course website for Statistical Computing (JHSPH Biostatistics 140.776 Fall 2021)
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Tue, 28 Sep 2021 00:00:00 +0000</lastBuildDate>
-    <item>
-      <title>Project 3</title>
-      <dc:creator>Stephanie Hicks</dc:creator>
-      <link>https://stephaniehicks.com/jhustatcomputing2021/projects/2021-09-28-project-3</link>
-      <description>Information for Project 3</description>
-      <category>project 3</category>
-      <category>projects</category>
-      <guid>https://stephaniehicks.com/jhustatcomputing2021/projects/2021-09-28-project-3</guid>
-      <pubDate>Tue, 28 Sep 2021 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>Project 2</title>
-      <dc:creator>Stephanie Hicks</dc:creator>
-      <link>https://stephaniehicks.com/jhustatcomputing2021/projects/2021-09-14-project-2</link>
-      <description>Information for Project 2</description>
-      <category>project 2</category>
-      <category>projects</category>
-      <guid>https://stephaniehicks.com/jhustatcomputing2021/projects/2021-09-14-project-2</guid>
-      <pubDate>Tue, 14 Sep 2021 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>Project 1</title>
-      <dc:creator>Stephanie Hicks</dc:creator>
-      <link>https://stephaniehicks.com/jhustatcomputing2021/projects/2021-09-07-project-1</link>
-      <description>Information for Project 1</description>
-      <category>project 1</category>
-      <category>projects</category>
-      <guid>https://stephaniehicks.com/jhustatcomputing2021/projects/2021-09-07-project-1</guid>
-      <pubDate>Tue, 07 Sep 2021 00:00:00 +0000</pubDate>
-    </item>
+    <lastBuildDate>Tue, 31 Aug 2021 00:00:00 +0000</lastBuildDate>
     <item>
       <title>Project 0 (optional)</title>
       <dc:creator>Stephanie Hicks</dc:creator>
       <link>https://stephaniehicks.com/jhustatcomputing2021/projects/2021-08-31-project-0</link>
-      <description>Information for Project 0 (entirely optional, but hopefully useful and fun)</description>
+      <description>Information for Project 0 (entirely optional, but hopefully useful and fun!)</description>
       <category>project 0</category>
       <category>projects</category>
       <guid>https://stephaniehicks.com/jhustatcomputing2021/projects/2021-08-31-project-0</guid>

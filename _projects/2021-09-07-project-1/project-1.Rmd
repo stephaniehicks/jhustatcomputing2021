@@ -1,7 +1,7 @@
 ---
 title: "Project 1"
 description: |
-  Information for Project 1
+  It's all about the data! 
 author:
   - name: Stephanie Hicks
     url: https://stephaniehicks.com/
@@ -16,7 +16,9 @@ output:
 categories:
   - project 1
   - projects
+draft: true
 ---
+
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
@@ -27,6 +29,10 @@ knitr::opts_chunk$set(echo = FALSE)
 **Due date: Sept 17 at 11:59pm**
 
 Information coming soon.
+
+
+- make the worst figure you can 
+- make a physical object representing tidy tuesday data
 
 #### Tips for increasing the reproducibility of your code 
 
