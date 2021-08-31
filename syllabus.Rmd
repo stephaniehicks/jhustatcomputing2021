@@ -26,7 +26,7 @@ Dr. Hicks will hold office hours via Zoom at the following days/times:
 * Wednesdays 9-10:30am
 * Fridays 11am-12pm
 
-Announcements will be made on Zoom if I have conflicts and need to cancel office hours. Appointments can also be made via email.
+Announcements will be made on CoursePlus if I have conflicts and need to cancel office hours. Appointments can also be made via email.
 
 ### Teaching Assistants
 
@@ -89,19 +89,21 @@ The project assignments will be due on
 
 Please feel free to study together and talk to one another about
 project assignments. The mutual instruction that students give each
-other is among the most valuable that can be achieved. However, it is
-expected that project assignments will be implemented and written up
-independently unless otherwise specified. Specifically, please do not
+other is among the most valuable that can be achieved. 
+
+However, it is expected that **project assignments will be implemented and written up
+independently unless otherwise specified**. Specifically, please do not
 share analytic code or output. Please do not collaborate on write-up
 and interpretation. Please do not access or use solutions from any
 source before your project assignment is submitted for grading.
-
 
 ## Discussion Forum
 
 The course will make use of the CoursePlus Discussion Forum in order to ask and answer questions regarding any of the course materials. The Instructor and the Teaching Assistants will monitor the discussion boards and answer questions when appropriate.
 
+### Icebreakers
 
+Before the start of each lecture, I will post an icebreaker question in CoursePlus. You are welcome to answer it and learn about your fellow students in the course. 
 
 ## Exams
 

@@ -75,6 +75,8 @@ _Git_ is what is called a _version control system_ for file management. The main
 - Great for solo or collaborative work 
 
 
+
+
 ### GitHub 
 
 _GitHub_ is a hosting service on internet for git-aware folders and projects
@@ -158,7 +160,7 @@ Here are some post-lecture questions to help you think about the material discus
 
 2. What is the difference between git and GitHub? 
 
-3. What are other version controls tools that are available? 
+3. What are other version controls software/tools that are available besides git? 
 
 :::
 

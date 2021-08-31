@@ -166,7 +166,11 @@ If you want, you can find me on [Twitter](https://twitter.com/stephaniehicks). I
 
 Roger's research focuses on air pollution, spatial statistics, and reproducibility. We have been colleagues and friends for over 3 years and I am really excited to have the opportunity to teach this course. 
 
-We also have a couple of amazing TA's this year: 
+We also have a couple of amazing TAs this year: 
+
+* Athena Chen (achen70@jhu.edu)
+* Ruzhang Zhao (rzhao@jhu.edu)
+
 
 # Course logistics
 
@@ -190,7 +194,9 @@ All communication for the course is going to take place on one of three platform
 The primary communication for the class will go through Courseplus That is where we will post course announcements, host most of our asynchronous course discussion, and as the primary means of communication between course participants and course instructors. 
 
 :::keyideas
-If you are registered for the course, you should have access to Courseplus now. Once you have access you will also be able to find the course Zoom and Zoom password for lectures.  
+
+If you are registered for the course, you should have access to Courseplus now. Once you have access you will also be able to find the course Zoom links. Zoom links for office hours will also be posted on Courseplus.
+
 :::
 
 ### Assignment Due Dates
@@ -229,7 +235,7 @@ That being said, we have to give you a grade so they will be:
 - B - Passing - 80%+
 - C - Needs improvement - 70%+
 
-We rarely give out grades below a C and if you consistently submit work, participate in discussions, and do your best you are very likely to get an A or a B in the course. 
+We rarely give out grades below a C and if you consistently submit work, and do your best you are very likely to get an A or a B in the course. 
 
 #### Relative weights
 
