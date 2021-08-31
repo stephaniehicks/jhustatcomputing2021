@@ -168,8 +168,8 @@ Roger's research focuses on air pollution, spatial statistics, and reproducibili
 
 We also have a couple of amazing TAs this year: 
 
-* Athena Chen (achen70@jhu.edu)
-* Ruzhang Zhao (rzhao@jhu.edu)
+* Athena Chen (achen70@jhu.edu). She is a fifth year PhD Candidate in the Department of Biostatistics working on characterizing antibody responses to various antigens including the human microbiome and viruses such as coronaviruses and HIV. She is broadly interested in immunology and statistical proteomics. In her free time, she enjoys weight lifting, yoga, cooking, and a nice cup of coffee.
+* Ruzhang Zhao (rzhao@jhu.edu). He is a third year PhD student from Department of Biostatistics. His research interests are single cell genomics and statistical genetics. For more information, please visit [http://ruzhangzhao.com](http://ruzhangzhao.com). 
 
 
 # Course logistics
