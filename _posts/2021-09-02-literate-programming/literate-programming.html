@@ -113,7 +113,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","categories","bibliography","draft"]}},"value":[{"type":"character","attributes":{},"value":["Literate Statistical Programming"]},{"type":"character","attributes":{},"value":["Introduction to literate statistical programming tools including R Markdown.\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url","affiliation","affiliation_url"]}},"value":[{"type":"character","attributes":{},"value":["Stephanie Hicks"]},{"type":"character","attributes":{},"value":["https://stephaniehicks.com/"]},{"type":"character","attributes":{},"value":["Department of Biostatistics, Johns Hopkins"]},{"type":"character","attributes":{},"value":["https://www.jhsph.edu"]}]}]},{"type":"character","attributes":{},"value":["09-02-2021"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","toc","toc_depth"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[3]}]}]},{"type":"character","attributes":{},"value":["module 1","week 1","R Markdown","programming"]},{"type":"character","attributes":{},"value":["my-refs.bib"]},{"type":"logical","attributes":{},"value":[true]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","categories","bibliography"]}},"value":[{"type":"character","attributes":{},"value":["Literate Statistical Programming"]},{"type":"character","attributes":{},"value":["Introduction to literate statistical programming tools including R Markdown.\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url","affiliation","affiliation_url"]}},"value":[{"type":"character","attributes":{},"value":["Stephanie Hicks"]},{"type":"character","attributes":{},"value":["https://stephaniehicks.com/"]},{"type":"character","attributes":{},"value":["Department of Biostatistics, Johns Hopkins"]},{"type":"character","attributes":{},"value":["https://www.jhsph.edu"]}]}]},{"type":"character","attributes":{},"value":["09-02-2021"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","toc","toc_depth"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[3]}]}]},{"type":"character","attributes":{},"value":["module 1","week 1","R Markdown","programming"]},{"type":"character","attributes":{},"value":["my-refs.bib"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   
@@ -1536,16 +1536,15 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <div class="resources">
 <p><strong>Before class, you can prepare by reading the following materials:</strong></p>
 <ol type="1">
-<li></li>
+<li><a href="https://rafalab.github.io/dsbook/reproducible-projects-with-rstudio-and-r-markdown.html" class="uri">https://rafalab.github.io/dsbook/reproducible-projects-with-rstudio-and-r-markdown.html</a></li>
 <li><a href="https://statsandr.com/blog/tips-and-tricks-in-rstudio-and-r-markdown/" class="uri">https://statsandr.com/blog/tips-and-tricks-in-rstudio-and-r-markdown/</a></li>
 </ol>
 </div>
 <h3 id="acknowledgements">Acknowledgements</h3>
 <p>Material for this lecture was borrowed and adopted from</p>
 <ul>
-<li></li>
+<li><a href="https://rdpeng.github.io/Biostat776/lecture-literate-statistical-programming.html" class="uri">https://rdpeng.github.io/Biostat776/lecture-literate-statistical-programming.html</a></li>
 <li><a href="https://statsandr.com/blog/tips-and-tricks-in-rstudio-and-r-markdown/" class="uri">https://statsandr.com/blog/tips-and-tricks-in-rstudio-and-r-markdown/</a></li>
-<li></li>
 </ul>
 <h1 id="learning-objectives">Learning objectives</h1>
 <div class="keyideas">
@@ -1554,6 +1553,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <li>Be able to define literate programming</li>
 <li>Recognize differences between available tools to for literate programming</li>
 <li>Know how to efficiently work within RStudio for efficient literate programming</li>
+<li>Create a R Markdown document</li>
 </ul>
 </div>
 <h1 id="introduction">Introduction</h1>
@@ -1568,7 +1568,7 @@ data(airquality)
 plot(airquality$Ozone ~ airquality$Wind)
 @</code></pre>
 <p>Once you have created your <code>.Rnw</code> file, Sweave will process the file, executing the R chunks and replacing them with output as appropriate before creating the PDF document.</p>
-<p>It was originally developed by Fritz Leisch, who is a core member of R, and the code base is still maintained by R Core. The Sweave system comes with a any installation of R.</p>
+<p>It was originally developed by Fritz Leisch, who is a core member of R, and the code base is still maintained by R Core. The Sweave system comes with any installation of R.</p>
 <p>There are many limitations to the original Sweave system. One of the limitations is that it is focused primarily on LaTeX, which is not a documentation language that many people are familiar with. Therefore, it can be difficult to learn this type of markup language if you’re not already in a field that uses it regularly. Sweave also lacks a lot of features that people find useful like caching, and multiple plots per page and mixing programming languages.</p>
 <p>Instead, folks have moved towards using something called knitr, which offers everything Sweave does, plus it extends it further. With Sweave, additional tools are required for advanced operations, whereas knitr supports more internally. We’ll discuss knitr below.</p>
 <h3 id="rmarkdown">rmarkdown</h3>
@@ -1919,6 +1919,7 @@ for (i in 1:10) {
 <li><code>command + Shift + N</code> on Mac and <code>Ctrl + Shift + N</code> on Windows to open a new R Script</li>
 <li><code>command + S</code> on Mac and <code>Ctrl + S</code> on Windows to save your current script or R Markdown document</li>
 </ul>
+<p>Check out Tools –&gt; Keyboard Shortcuts Help to see a long list of these shortcuts.</p>
 <h1 id="post-lecture-materials">Post-lecture materials</h1>
 <h3 id="final-questions">Final Questions</h3>
 <p>Here are some post-lecture questions to help you think about the material discussed.</p>
@@ -1934,9 +1935,9 @@ for (i in 1:10) {
 <h3 id="additional-resources">Additional Resources</h3>
 <div class="resources">
 <ul>
-<li></li>
-<li></li>
-<li></li>
+<li><a href="https://indrajeetpatil.github.io/RmarkdownTips/">RMarkdown Tips and Tricks</a> by Indrajeet Patil</li>
+<li><a href="https://bookdown.org/yihui/rmarkdown/" class="uri">https://bookdown.org/yihui/rmarkdown/</a></li>
+<li><a href="https://bookdown.org/yihui/rmarkdown-cookbook/" class="uri">https://bookdown.org/yihui/rmarkdown-cookbook/</a></li>
 </ul>
 </div>
 <div class="sourceCode" id="cb16"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>

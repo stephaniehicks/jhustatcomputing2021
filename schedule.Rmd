@@ -22,9 +22,9 @@ For Rmd files, go to the [course GitHub repository](https://github.com/stephanie
 | | | `r emojifont::emoji('woman_technologist')` Introduction to R and RStudio [[html](posts/2021-08-31-introduction-to-r-and-rstudio/index.html)] [[Rmd](https://github.com/stephaniehicks/jhustatcomputing2021/blob/main/_posts/2021-08-31-introduction-to-r-and-rstudio/introduction-to-r-and-rstudio.Rmd)] | | |
 | | | `r emojifont::emoji('octopus')` Introduction to git/GitHub [[html](posts/2021-08-31-introduction-to-gitgithub/index.html)] [[Rmd](https://github.com/stephaniehicks/jhustatcomputing2021/blob/main/_posts/2021-08-31-introduction-to-gitgithub/introduction-to-gitgithub.Rmd)] |  | |
 | | | | | |
-| | Sept 2 | `r emojifont::emoji('microscope')` Reproducible Research |  | |
-| | | `r emojifont::emoji('eyeglasses')` Literate programming  |  | |
-| | | `r emojifont::emoji('cool')` Reference management  |  | |
+| | Sept 2 | `r emojifont::emoji('microscope')` Reproducible Research [[html](posts/2021-09-02-reproducible-research/index.html)] [[Rmd](https://github.com/stephaniehicks/jhustatcomputing2021/blob/main/_posts/2021-09-02-reproducible-research/reproducible-research.Rmd)] |  | |
+| | | `r emojifont::emoji('eyeglasses')` Literate programming [[html](posts/2021-09-02-literate-programming/index.html)] [[Rmd](https://github.com/stephaniehicks/jhustatcomputing2021/blob/main/_posts/2021-09-02-literate-programming/literate-programming.Rmd)] |  | |
+| | | `r emojifont::emoji('cool')` Reference management [[html](posts/2021-09-02-reference-management/index.html)] [[Rmd](https://github.com/stephaniehicks/jhustatcomputing2021/blob/main/_posts/2021-09-02-reference-management/reference-management.Rmd)] |  | |
 | | | | | |
 | Week 2      | Sept 7       | `r emojifont::emoji('construction')` Getting and cleaning data  | | `r emojifont::emoji('palm_tree')` Project 1 |
 | | | `r emojifont::emoji('scissors')` Managing data frames with the Tidyverse |  | |

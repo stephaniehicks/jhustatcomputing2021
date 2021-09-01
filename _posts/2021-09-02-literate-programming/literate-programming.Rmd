@@ -19,7 +19,6 @@ categories:
   - R Markdown
   - programming
 bibliography: my-refs.bib
-draft: true
 ---
 
 
@@ -41,7 +40,7 @@ knitr::opts_chunk$set(
 
 **Before class, you can prepare by reading the following materials:**
 
-1. 
+1. https://rafalab.github.io/dsbook/reproducible-projects-with-rstudio-and-r-markdown.html
 2. https://statsandr.com/blog/tips-and-tricks-in-rstudio-and-r-markdown/
 
 :::
@@ -51,9 +50,8 @@ knitr::opts_chunk$set(
 
 Material for this lecture was borrowed and adopted from
 
--
+- https://rdpeng.github.io/Biostat776/lecture-literate-statistical-programming.html
 - https://statsandr.com/blog/tips-and-tricks-in-rstudio-and-r-markdown/
-- 
 
 # Learning objectives
 
@@ -93,7 +91,7 @@ plot(airquality$Ozone ~ airquality$Wind)
 
 Once you have created your `.Rnw` file, Sweave will process the file, executing the R chunks and replacing them with output as appropriate before creating the PDF document.
 
-It was originally developed by Fritz Leisch, who is a core member of R, and the code base is still maintained by R Core. The Sweave system comes with a any installation of R. 
+It was originally developed by Fritz Leisch, who is a core member of R, and the code base is still maintained by R Core. The Sweave system comes with any installation of R. 
  
 There are many limitations to the original Sweave system. One of the limitations is that it is focused primarily on LaTeX, which is not a documentation language that many people are familiar with. Therefore, it can be difficult to learn this type of markup language if you're not already in a field that uses it regularly. Sweave also lacks a lot of features that people find useful like caching, and multiple plots per page and mixing programming languages. 
 
@@ -126,6 +124,7 @@ The authors of the 2nd book describe  the motivation for the 2nd book as:
 > "However, we have received comments from our readers and publisher that it would be beneficial to provide more practical and relatively short examples to show the interesting and useful usage of R Markdown, because it can be daunting to find out how to achieve a certain task from the aforementioned reference book (put another way, that book is too dry to read). As a result, this cookbook was born."
 
 :::
+
 
 Because this is lecture is built in a `.Rmd` file, let's demonstrate how this work. I am going to change `eval=FALSE` to `eval=TRUE`.
 
@@ -541,6 +540,8 @@ Similar to many other programs, you can also use:
 * `command + Shift + N` on Mac and `Ctrl + Shift + N` on Windows to open a new R Script
 * `command + S` on Mac and `Ctrl + S` on Windows to save your current script or R Markdown document
 
+Check out Tools --> Keyboard Shortcuts Help to see a long list of these shortcuts. 
+
 # Post-lecture materials
 
 ### Final Questions 
@@ -566,8 +567,8 @@ Here are some post-lecture questions to help you think about the material discus
 
 :::resources 
 
-- 
-- 
-- 
+- [RMarkdown Tips and Tricks](https://indrajeetpatil.github.io/RmarkdownTips/) by Indrajeet Patil 
+- https://bookdown.org/yihui/rmarkdown/
+- https://bookdown.org/yihui/rmarkdown-cookbook/
 
 ::: 
