@@ -73,7 +73,7 @@ The `dplyr` package was developed by RStudio and is an optimized and distilled v
 One important contribution of the `dplyr` package is that it provides a "grammar" (in particular, verbs) for data manipulation and for operating on data frames. With this grammar, you can sensibly communicate what it is that you are doing to a data frame that other people can understand (assuming they also know the grammar).  This is useful because it provides an abstraction for data manipulation that previously did not exist. Another useful contribution is that the `dplyr` functions are **very** fast, as many key operations are coded in C++.
 
 
-```{r dplyr, echo = FALSE, fig.cap = "Artwork by Allison Horst on the dplyr package"}
+```{r dplyr, echo = FALSE, fig.cap = "Artwork by Allison Horst on the dplyr package", out.width = '60%', fig.align='center'}
 knitr::include_graphics("https://github.com/allisonhorst/stats-illustrations/raw/master/rstats-artwork/dplyr_wrangling.png")
 ```
 

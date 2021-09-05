@@ -1522,7 +1522,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <p><strong>Before class, you can prepare by reading the following materials:</strong></p>
 <ol type="1">
 <li><a href="http://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf">dplyr cheat sheet from RStudio</a></li>
-<li></li>
+<li><a href="https://jhudatascience.org/tidyversecourse/wrangle-data.html#data-wrangling" class="uri">https://jhudatascience.org/tidyversecourse/wrangle-data.html#data-wrangling</a></li>
 </ol>
 </div>
 <h3 id="acknowledgements">Acknowledgements</h3>
@@ -1546,8 +1546,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <p>The <code>dplyr</code> package was developed by RStudio and is an optimized and distilled version of the older <code>plyr</code> package for data manipulation. The <code>dplyr</code> package does not provide any “new” functionality to R per se, in the sense that everything <code>dplyr</code> does could already be done with base R, but it <strong>greatly</strong> simplifies existing functionality in R.</p>
 <p>One important contribution of the <code>dplyr</code> package is that it provides a “grammar” (in particular, verbs) for data manipulation and for operating on data frames. With this grammar, you can sensibly communicate what it is that you are doing to a data frame that other people can understand (assuming they also know the grammar). This is useful because it provides an abstraction for data manipulation that previously did not exist. Another useful contribution is that the <code>dplyr</code> functions are <strong>very</strong> fast, as many key operations are coded in C++.</p>
 <div class="layout-chunk" data-layout="l-body">
-<div class="figure"><span style="display:block;" id="fig:dplyr"></span>
-<img src="https://github.com/allisonhorst/stats-illustrations/raw/master/rstats-artwork/dplyr_wrangling.png" alt="Artwork by Allison Horst on the dplyr package"  />
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:dplyr"></span>
+<img src="https://github.com/allisonhorst/stats-illustrations/raw/master/rstats-artwork/dplyr_wrangling.png" alt="Artwork by Allison Horst on the dplyr package" width="60%" />
 <p class="caption">
 Figure 1: Artwork by Allison Horst on the dplyr package
 </p>
@@ -1691,6 +1691,59 @@ Figure 2: Artwork by Allison Horst on tidy data
 17 2005-08-03   84   37.90000</code></pre>
 </div>
 <p>Now there are only 17 observations where both of those conditions are met.</p>
+<p>Other logical operators you should be aware of include:</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: right;">Operator</th>
+<th style="text-align: right;">Meaning</th>
+<th style="text-align: right;">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;"><code>==</code></td>
+<td style="text-align: right;">Equals</td>
+<td style="text-align: right;"><code>city == chic</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><code>!=</code></td>
+<td style="text-align: right;">Does not equal</td>
+<td style="text-align: right;"><code>city != chic</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><code>&gt;</code></td>
+<td style="text-align: right;">Greater than</td>
+<td style="text-align: right;"><code>tmpd &gt; 32.0</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><code>&gt;=</code></td>
+<td style="text-align: right;">Greater than or equal to</td>
+<td style="text-align: right;"><code>tmpd &gt;- 32.0</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><code>&lt;</code></td>
+<td style="text-align: right;">Less than</td>
+<td style="text-align: right;"><code>tmpd &lt; 32.0</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><code>&lt;=</code></td>
+<td style="text-align: right;">Less than or equal to</td>
+<td style="text-align: right;"><code>tmpd &lt;= 32.0</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><code>%in%</code></td>
+<td style="text-align: right;">Included in</td>
+<td style="text-align: right;"><code>city %in% c("chic", "bmore")</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><code>is.na()</code></td>
+<td style="text-align: right;">Is a missing value</td>
+<td style="text-align: right;"><code>is.na(pm10tmean2)</code></td>
+</tr>
+</tbody>
+</table>
+<p>If you are ever unsure of how to write a logical statement, but know how to write its opposite, you can use the <code>!</code> operator to negate the whole statement. A common use of this is to identify observations with non-missing data (e.g., <code>!(is.na(pm10tmean2))</code>).</p>
 <h3 id="arrange"><code>arrange()</code></h3>
 <p>The <code>arrange()</code> function is used to reorder rows of a data frame according to one of the variables/columns. Reordering rows of a data frame (while preserving corresponding order of other columns) is normally a pain to do in R. The <code>arrange()</code> function simplifies the process quite a bit.</p>
 <p>Here we can order the rows of the data frame by date, so that the first row is the earliest (oldest) observation and the last row is the latest (most recent) observation.</p>
@@ -1893,7 +1946,7 @@ Figure 3: Artwork by Allison Horst on the mutate function
 </div>
 <p>Here we can see that <code>o3</code> tends to be low in the winter months and high in the summer while <code>no2</code> is higher in the winter and lower in the summer.</p>
 <h1 id="summary">Summary</h1>
-<p>The <code>dplyr</code> package provides a concise set of operations for managing data frames. With these functions we can do a number of complex operations in just a few lines of code. In particular, we can often conduct the beginnings of an exploratory analysis with the powerful combination of <code>group_by()</code> and <code>summarize()</code>.</p>
+<p>The <code>dplyr</code> pacfkage provides a concise set of operations for managing data frames. With these functions we can do a number of complex operations in just a few lines of code. In particular, we can often conduct the beginnings of an exploratory analysis with the powerful combination of <code>group_by()</code> and <code>summarize()</code>.</p>
 <p>Once you learn the <code>dplyr</code> grammar there are a few additional benefits</p>
 <ul>
 <li><p><code>dplyr</code> can work with other data frame “back ends” such as SQL databases. There is an SQL interface for relational databases via the DBI package</p></li>

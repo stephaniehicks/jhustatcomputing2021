@@ -68,7 +68,7 @@ Material for this lecture was borrowed and adopted from
 
 # Cat meme
 
-```{r data-meme, echo = FALSE, fig.cap = "Meme: that variable should be cat-egorical"}
+```{r data-meme, echo = FALSE, fig.cap = "Meme: that variable should be cat-egorical", preview=TRUE}
 knitr::include_graphics("https://pbs.twimg.com/media/DKrgcLMWkAEYgUO?format=jpg&name=small")
 ```
 
@@ -152,7 +152,7 @@ workflow suggestions, read
 [this post](https://www.tidyverse.org/articles/2017/12/workflow-vs-script/)
 from Jenny Bryan.
 
-```{r fig-setwd, echo = FALSE, fig.cap = "Artwork by Allison Horst on the setwd function"}
+```{r figsetwd, echo=FALSE, fig.cap='Artwork by Allison Horst on on the setwd function', out.width = '60%', fig.align='center'}
 knitr::include_graphics("https://github.com/allisonhorst/stats-illustrations/raw/master/rstats-artwork/cracked_setwd.png")
 ```
 

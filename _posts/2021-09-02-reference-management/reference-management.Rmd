@@ -190,7 +190,7 @@ Pretty cool, eh??
 
 To celebrate, I'll show you another one of my favorite art pieces from Allison Horst. 
 
-```{r rmarkdown-wizards, echo = FALSE, fig.cap = "R Markdown magic"}
+```{r rmarkdown-wizards, echo = FALSE, fig.cap = "R Markdown magic", out.width = '60%', fig.align='center'}
 knitr::include_graphics("https://github.com/allisonhorst/stats-illustrations/raw/master/rstats-artwork/rmarkdown_wizards.png")
 ```
 

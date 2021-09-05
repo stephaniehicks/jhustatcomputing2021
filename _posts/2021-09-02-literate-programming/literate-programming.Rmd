@@ -177,7 +177,7 @@ This core function performs three roles:
 - A code evaluator, which evaluates this code 
 - An output renderer, which writes the results of evaluation back to the document in a format which is interpretable by the raw output type. For instance, if the input file is an `.Rmd`, the output render marks up the output of code evaluation in `.md` format.
 
-```{r rmarkdown-wizards, echo = FALSE, fig.cap = "Converting a Rmd file to many outputs using knitr and pandoc"}
+```{r rmarkdown-wizards, echo = FALSE, fig.cap = "Converting a Rmd file to many outputs using knitr and pandoc", out.width = '60%', fig.align='center', preview=TRUE}
 knitr::include_graphics("https://d33wubrfki0l68.cloudfront.net/61d189fd9cdf955058415d3e1b28dd60e1bd7c9b/9791d/images/rmarkdownflow.png")
 ```
 

@@ -17,6 +17,7 @@
       <category>week 2</category>
       <guid>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-07-managing-data-frames-with-tidyverse</guid>
       <pubDate>Tue, 07 Sep 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://github.com/allisonhorst/stats-illustrations/raw/master/rstats-artwork/dplyr_wrangling.png" medium="image" type="image/png"/>
     </item>
     <item>
       <title>Reading and Writing data</title>
@@ -27,6 +28,7 @@
       <category>week 2</category>
       <guid>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-07-reading-and-writing-data</guid>
       <pubDate>Tue, 07 Sep 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://github.com/allisonhorst/stats-illustrations/raw/master/rstats-artwork/cracked_setwd.png" medium="image" type="image/png"/>
     </item>
     <item>
       <title>Literate Statistical Programming</title>
@@ -39,7 +41,7 @@
       <category>programming</category>
       <guid>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-02-literate-programming</guid>
       <pubDate>Thu, 02 Sep 2021 00:00:00 +0000</pubDate>
-      <media:content url="https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-02-literate-programming/literate-programming_files/figure-html5/plot2-1.png" medium="image" type="image/png" width="1248" height="768"/>
+      <media:content url="https://d33wubrfki0l68.cloudfront.net/61d189fd9cdf955058415d3e1b28dd60e1bd7c9b/9791d/images/rmarkdownflow.png" medium="image" type="image/png"/>
     </item>
     <item>
       <title>Reference management</title>
@@ -52,6 +54,7 @@
       <category>programming</category>
       <guid>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-02-reference-management</guid>
       <pubDate>Thu, 02 Sep 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://github.com/allisonhorst/stats-illustrations/raw/master/rstats-artwork/rmarkdown_wizards.png" medium="image" type="image/png"/>
     </item>
     <item>
       <title>Reproducible Research</title>
