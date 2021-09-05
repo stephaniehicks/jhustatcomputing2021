@@ -1,0 +1,291 @@
+---
+title: "Joining data in R"
+description: |
+  Add a short description here.
+author:
+  - name: Stephanie Hicks
+    url: https://stephaniehicks.com/
+    affiliation: Department of Biostatistics, Johns Hopkins
+    affiliation_url: https://www.jhsph.edu
+date: 09-04-2021
+output:
+  distill::distill_article:
+    self_contained: false
+    toc: true
+    toc_depth: 3
+categories:
+  - module 1
+  - week 2
+draft: true
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+<!-- Add interesting quote -->
+
+
+# Pre-lecture materials
+
+### Read ahead
+
+:::resources
+
+**Before class, you can prepare by reading the following materials:**
+
+1. 
+
+:::
+
+
+### Acknowledgements
+
+Material for this lecture was borrowed and adopted from
+
+-
+- 
+- 
+
+# Learning objectives
+
+:::keyideas
+
+**At the end of this lesson you will:**
+
+- 
+- 
+- 
+
+:::
+
+
+# Introduction
+
+The `dplyr` package provides a set of functions for joining two data frames into a single data frame based on a set of key columns. There are several functions in the `*_join` family. These functions all merge together two data frames; they differ in how they handle observations that exist in one but not both data frames. Here are the four functions from this family that you will likely use the most often: 
+
+```{r echo = FALSE}
+library(knitr)
+join_funcs <- data.frame(func = c("`left_join`",
+                                  "`right_join`",
+                                  "`inner_join`",
+                                  "`full_join`"),
+                         does = c("Includes all observations in the left data frame, whether or not there is a match in the right data frame",
+                                  "Includes all observations in the right data frame, whether or not there is a match in the left data frame",
+                                  "Includes only observations that are in both data frames",
+                                  "Includes all observations from both data frames"))
+kable(join_funcs, col.names = c("Function", "What it includes in merged data frame"))
+```
+
+
+# The First Table 
+
+Imagine you are conduct a study and collecting data on subjects and a health outcome. Often, subjects will make multiple visits (a so-called longitudinal study) and so we will record the outcome for each visit. Similarly, we may record other information about them, such as the kind of housing they live in.
+
+This code creates a simple table with some made up data about some hypothetical subjects' outcomes.
+
+```{r,message=FALSE}
+library(tidyverse)
+
+outcomes <- tibble(
+        id = rep(c("a", "b", "c"), each = 3),
+        visit = rep(0:2, 3),
+        outcome = rnorm(3 * 3, 3)
+)
+
+print(outcomes)
+```
+
+Note that subjects are labeled by their id in the `id` column.
+
+
+
+### A Second Table
+
+Here is some code to create a second table (we will be joining the first and second tables shortly). This table contains some data about the hypothetical subjects' housing situation by recording the type of house they live in.
+
+```{r second_table,exercise=TRUE,message=FALSE}
+subjects <- tibble(
+        id = c("a", "b", "c"),
+        house = c("detached", "rowhouse", "rowhouse")
+)
+
+print(subjects)
+```
+
+
+## Left Join
+
+Now suppose we want to create a table that combines the information about houses with the information about the outcomes. We can use the `left_join()` function to merge the `outcomes` and `subjects` tables and produce the output above.
+
+```{r leftjoin, exercise=TRUE}
+left_join(outcomes, subjects, by = "id")
+```
+
+The `by` argument indicates the column (or columns) that the two tables have in common.
+
+
+
+## Left Join with Incomplete Data
+
+In the previous examples, the `subjects` table didn't have a `visit` column. But suppose it did? Maybe people move around during the study. We could image a table like this one.
+
+
+```{r,echo=TRUE}
+subjects <- tibble(
+        id = c("a", "b", "c"),
+        visit = c(0, 1, 0),
+        house = c("detached", "rowhouse", "rowhouse"),
+)
+
+print(subjects)
+```
+
+When we left joint the tables now we get:
+
+```{r}
+left_join(outcomes, subjects, by = c("id", "visit"))
+```
+
+Notice how now if we do not have information about a subject's housing in a given visit, the `left_join()` function automatically inserts an `NA` value to indicate that it is missing.
+
+Also, in the above example, we joined on the `id` and the `visit` columns.
+
+
+
+We may even have a situation where we are missing housing data for a subject completely. The following table has no information about subject `a`.
+
+```{r}
+subjects <- tibble(
+        id = c("b", "c"),
+        visit = c(1, 0),
+        house = c("rowhouse", "rowhouse"),
+)
+
+subjects
+```
+
+
+But we can still join the tables together and the `house` values for subject `a` will all be `NA`.
+
+```{r}
+left_join(outcomes, subjects, by = c("id", "visit"))
+```
+
+The bottom line for `left_join()` is that it always retains the values in the "left" argument (in this case the `outcomes` table). If there are no corresponding values in the "right" argument, `NA` values will be filled in.
+
+
+## Inner Join
+
+
+The `inner_join()` function only retains the rows of both tables that have corresponding values. Here we can see the difference.
+
+```{r}
+inner_join(outcomes, subjects, by = c("id", "visit"))
+```
+
+
+
+## Right Join
+
+The `right_join()` function is like the `left_join()` function except that it gives priority to the "right" hand argument.
+
+```{r}
+right_join(outcomes, subjects, by = c("id", "visit"))
+```
+
+
+## More Examples
+
+Often, you will have data in two separate datasets that you'd like to combine based on a common variable or variables. For example, for the World Cup example data we've been using, it would be interesting to add in a column with the final standing of each player's team. We've included data with that information in a file called "team_standings.csv", which can be read into the R object `team_standings` with the call:
+
+```{r message = FALSE}
+library(knitr)
+library(tidyverse)
+team_standings <- read_csv(here("data", "team_standings.csv"))
+team_standings %>% 
+        slice(1:3)
+```
+
+This data frame has one observation per team, and the team names are consistent with the team names in the `worldcup` data frame. 
+
+You can use the different functions from the `*_join` family to merge this team standing data with the player statistics in the `worldcup` data frame. Once you've done that, you can use other data cleaning tools from `dplyr` to quickly pull and explore interesting parts of the dataset. The main arguments for the `*_join` functions are the object names of the two data frames to join and `by`, which specifies which variables to use to match up observations from the two dataframes.
+
+The "left" data frame refers to the first data frame input in the `*_join` call, while the "right" data frame refers to the second data frame input into the function. For example, in the call 
+
+```{r eval = FALSE}
+left_join(world_cup, team_standings, by = "Team")
+```
+
+the `world_cup` data frame is the "left" data frame and the `team_standings` data frame is the "right" data frame. Therefore, using `left_join` would include all rows from `world_cup`, whether or not the player had a team listed in `team_standings`, while `right_join` would include all the rows from `team_standings`, whether or not there were any players from that team in `world_cup`. 
+
+```{block, type = 'rmdwarning'}
+Remember that if you are using piping, the first data frame ("left" for these functions) is by default the dataframe created by the code right before the pipe. When you merge data frames as a step in piped code, therefore, the "left" data frame is the one piped into the function while the "right" data frame is the one stated in the `*_join` function call. 
+```
+
+As an example of merging, say you want to create a table of the top 5 players by shots on goal, as well as the final standing for each of these player's teams, using the `worldcup` and `team_standings` data. You can do this by running: 
+
+```{r message = FALSE}
+library(faraway)
+data(worldcup)
+worldcup %>% 
+  mutate(Name = rownames(worldcup),
+         Team = as.character(Team)) %>%
+  select(Name, Position, Shots, Team) %>%
+  arrange(desc(Shots)) %>%
+  slice(1:5) %>%
+  left_join(team_standings, by = "Team") %>% # Merge in team standings
+  rename("Team Standing" = Standing) %>%
+  kable()
+```
+
+In addition to the merging in this code, there are a few other interesting things to point out: 
+
+- The code uses the `as.character` function within a `mutate` call to change the team name from a factor to a character in the `worldcup` data frame. When merging two data frames, it's safest if the column you're using to merge has the same class in each data frame. The "Team" column is a character class in the `team_standings` data frame but a factor class in the `worldcup` data frame, so this call converts that column to a character class in `worldcup`. The `left_join` function will still perform a merge if you don't include this call, but it will throw a warning that it is coercing the column in `worldcup` to a character vector. It's generally safer to do this yourself explictly.
+- It uses the `select` function both to remove columns we're not interested in and also to put the columns we want to keep in the order we'd like for the final table. 
+- It uses `arrange` followed by `slice` to pull out the top 5 players and order them by number of shots. 
+- For one of the column names, we want to use "Team Standing" rather than the current column name of "Standing". This code uses `rename` at the very end to make this change right before creating the table. You can also use the `col.names` argument in the `kable` function to customize all the column names in the final table, but this `rename` call is a quick fix since we just want to change one column name.
+
+
+
+## Summary
+
+* `left_join()` is useful for merging a "large" data frame with a "smaller" one while retaining all the rows of the "large" data frame
+
+* `inner_join()` gives you the intersection of the rows between two data frames 
+
+* `right_join()` is like `left_join()` with the arguments reversed (likely only useful at the end of a pipeline)
+
+
+
+
+
+# Post-lecture materials
+
+### Final Questions 
+
+Here are some post-lecture questions to help you think about the material discussed.
+
+:::questions
+
+**Questions:**
+
+1. 
+
+2. 
+
+3.
+
+:::
+
+
+### Additional Resources 
+
+:::resources 
+
+- 
+- 
+- 
+
+::: 

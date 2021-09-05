@@ -1,0 +1,250 @@
+---
+title: "Tidy data and the Tidyverse"
+description: |
+  Add a short description here.
+author:
+  - name: Stephanie Hicks
+    url: https://stephaniehicks.com/
+    affiliation: Department of Biostatistics, Johns Hopkins
+    affiliation_url: https://www.jhsph.edu
+date: 09-07-2021
+output:
+  distill::distill_article:
+    self_contained: false
+    toc: true
+    toc_depth: 3
+categories:
+  - module 1
+  - week 2
+draft: TRUE
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+<!-- Add interesting quote -->
+
+
+# Pre-lecture materials
+
+### Read ahead
+
+:::resources
+
+**Before class, you can prepare by reading the following materials:**
+
+1. 
+
+:::
+
+
+### Acknowledgements
+
+Material for this lecture was borrowed and adopted from
+
+-
+- 
+- 
+
+# Learning objectives
+
+:::keyideas
+
+**At the end of this lesson you will:**
+
+- Define tidy data 
+- Be able to transform non-tidy data into tidy data
+
+:::
+
+
+# Introduction
+
+As we learned in the last lesson, One unifying concept of the tidyverse is the notion of **tidy data**. As defined by Hadley Wickham in his 2014 paper published in the *Journal of Statistical Software*, a [tidy dataset](https://www.jstatsoft.org/article/view/v059i10) has the following properties:
+
+1. Each variable forms a column.
+
+2. Each observation forms a row.
+
+3. Each type of observational unit forms a table.
+
+The purpose of defining tidy data is to highlight the fact that *most data do not start out life as tidy*. In fact, much of the work of data analysis may involve simply making the data tidy (at least this has been our experience). Once a dataset is tidy, it can be used as input into a variety of other functions that may transform, model, or visualize the data.
+
+As a quick example, consider the following data illustrating death rates in Virginia in 1940 in a classic table format:
+
+```{r,echo=FALSE}
+library(datasets)
+VADeaths
+```
+
+While this format is canonical and is useful for quickly observing the relationship between multiple variables, it is not tidy. This format violates the tidy form because there are variables in both the rows and columns. In this case the variables are age category, gender, and urban-ness. Finally, the death rate itself, which is the fourth variable, is presented inside the table. 
+
+Converting this data to tidy format would give us
+
+```{r, message=FALSE}
+library(tidyverse)
+
+VADeaths %>%
+  as_tibble() %>%
+  mutate(age = row.names(VADeaths)) %>%
+  pivot_longer(-age) %>%
+  separate(name, c("urban", "gender"), sep = " ") %>%
+  mutate(age = factor(age), urban = factor(urban), gender = factor(gender))
+```
+
+# The "Tidyverse"
+
+There are a number of R packages that take advantage of the tidy data form and can be used to do interesting things with data. Many (but not all) of these packages are written by Hadley Wickham and the collection of packages is sometimes referred to as the "tidyverse" because of their dependence on and presumption of tidy data. "Tidyverse" packages include
+
+* [ggplot2](https://cran.r-project.org/package=ggplot2): a plotting system based on the grammar of graphics
+
+* [magrittr](https://cran.r-project.org/package=magrittr"): defines the `%>%` operator for chaining functions together in a series of operations on data
+
+* [dplyr](https://cran.r-project.org/package=dplyr): a suite of (fast) functions for working with data frames
+
+* [tidyr](https://cran.r-project.org/package=tidyr): easily  tidy data with `pivot_wider()` and `pivot_longer()` functions
+
+We will be using these packages quite a bit this week.
+
+The "tidyverse" package can be used to install all of the packages in the tidyverse at once. For example, instead of starting an R script with this: 
+
+```{r, eval = FALSE}
+library(dplyr)
+library(tidyr)
+library(readr)
+library(ggplot2)
+```
+
+You can start with this: 
+
+```{r, eval = FALSE}
+library(tidyverse)
+```
+
+
+### Spreading and gathering data
+
+The `tidyr` package includes functions to transfer a data frame between *long* and *wide*. Wide format data tends to have different attributes or variables describing an observation placed in separate columns. Long format data tends to have different attributes encoded as levels of a single variable, followed by another column that contains tha values of the observation at those different levels. 
+
+In the section on tidy data, we showed an example that used `pivot_longer` to convert data into a tidy format. The data is first in an untidy format: 
+
+```{r}
+data("VADeaths")
+head(VADeaths)
+```
+
+After changing the age categories from row names to a variable (which can be done with the `mutate` function), the key problem with the tidyness of the data is that the variables of urban / rural and male / female are not in their own columns, but rather are embedded in the structure of the columns. To fix this, you can use the `pivot_longer` function to gather values spread across several columns into a single column, with the column names gathered into a "name" column. When gathering, exclude any columns that you don't want "gathered" (`age` in this case) by including the column names with a the minus sign in the `pivot_longer` function. For example:
+
+```{r}
+data("VADeaths")
+library(tidyr)
+
+# Move age from row names into a column
+VADeaths  <- VADeaths %>%
+  as_tibble() %>%
+  mutate(age = row.names(VADeaths)) 
+VADeaths
+
+# Gather everything EXCEPT age to tidy data
+VADeaths %>%
+  pivot_longer(-age)
+```
+
+Even if your data is in a tidy format, `pivot_longer()` is occasionally useful for pulling data together to take advantage of faceting, or plotting separate plots based on a grouping variable. For example, if you'd like to plot the relationship between the time a player played in the World Cup and his number of saves, tackles, and shots, with a separate graph for each position, you can use `pivot_longer()` to pull all the numbers of saves, tackles, and shots into a single column (`Number`) and then use faceting to plot them as separate graphs:
+
+```{r facetworldcup, message = FALSE, fig.cap = "Example of a faceted plot created by taking advantage of the `pivot_longer` function to pull together data.", fig.align = "center"}
+library(tidyr)
+library(ggplot2)
+worldcup %>%
+  select(Position, Time, Shots, Tackles, Saves) %>% 
+  pivot_longer(-c(Position, Time), 
+               names_to = "Type", 
+               values_to = "Number") %>%
+  ggplot(aes(x = Time, y = Number)) + 
+  geom_point() + 
+  facet_grid(Type ~ Position)
+```
+
+The `pivot_wider` function is less commonly needed to tidy data. It can, however, be useful for creating summary tables. For example, if you wanted to print a table of the average number and range of passes by position for the top four teams in this World Cup (Spain, Netherlands, Uruguay, and Germany), you could run:
+
+```{r}
+library(knitr)
+
+# Summarize the data to create the summary statistics you want
+wc_table <- worldcup %>% 
+  filter(Team %in% c("Spain", "Netherlands", "Uruguay", "Germany")) %>%
+  select(Team, Position, Passes) %>%
+  group_by(Team, Position) %>%
+  summarize(ave_passes = mean(Passes),
+            min_passes = min(Passes),
+            max_passes = max(Passes),
+            pass_summary = paste0(round(ave_passes), " (", 
+                                  min_passes, ", ",
+                                  max_passes, ")"),
+            .groups = "drop") %>%
+  select(Team, Position, pass_summary)
+# What the data looks like before using `pivot_wider`
+wc_table
+
+# Use pivot_wider to create a prettier format for a table
+wc_table %>%
+  pivot_wider(names_from = "Position", 
+              values_from = "pass_summary") %>%
+  kable()
+```
+
+Notice in this example how `pivot_wider` has been used at the very end of the code sequence to convert the summarized data into a shape that offers a better tabular presentation for a report. In the `pivot_wider` call, you first specify the name of the column to use for the new column names (`Position` in this example) and then specify the column to use for the cell values (`pass_summary` here).
+
+
+
+### Subsection 1
+
+### Subsection 2
+
+
+:::questions
+
+**Questions:**
+
+1. 
+2. 
+3. 
+
+:::
+
+### Subsection 3
+
+
+# Section 2
+
+
+# Post-lecture materials
+
+### Final Questions 
+
+Here are some post-lecture questions to help you think about the material discussed.
+
+:::questions
+
+**Questions:**
+
+1. 
+
+2. 
+
+3.
+
+:::
+
+
+### Additional Resources 
+
+:::resources 
+
+- 
+- 
+- 
+
+::: 

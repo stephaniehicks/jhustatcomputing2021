@@ -7,7 +7,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
   <meta name="generator" content="distill" />
-  <link rel="alternate" type="application/rss+xml" href="https://stephaniehicks.com/jhustatcomputing2021/lectures.xml" />
 
   <style type="text/css">
   /* Hide doc at startup (prevent jankiness while JS renders/transforms) */
@@ -87,380 +86,39 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
 
   <!--radix_placeholder_meta_tags-->
-  <title>Statistical Computing: Lectures</title>
+  <title>Managing data frames with the Tidyverse</title>
 
-  <meta property="description" itemprop="description" content="A new article created using the Distill format."/>
+  <meta property="description" itemprop="description" content="An introduction to data frames in R and the managing them with the dplyr R package."/>
 
-  <link rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"/>
 
+  <!--  https://schema.org/Article -->
+  <meta property="article:published" itemprop="datePublished" content="2021-09-07"/>
+  <meta property="article:created" itemprop="dateCreated" content="2021-09-07"/>
+  <meta name="article:author" content="Stephanie Hicks"/>
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="Statistical Computing: Lectures"/>
+  <meta property="og:title" content="Managing data frames with the Tidyverse"/>
   <meta property="og:type" content="article"/>
-  <meta property="og:description" content="A new article created using the Distill format."/>
+  <meta property="og:description" content="An introduction to data frames in R and the managing them with the dplyr R package."/>
   <meta property="og:locale" content="en_US"/>
-  <meta property="og:site_name" content="Statistical Computing"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="Statistical Computing: Lectures"/>
-  <meta property="twitter:description" content="A new article created using the Distill format."/>
+  <meta property="twitter:title" content="Managing data frames with the Tidyverse"/>
+  <meta property="twitter:description" content="An introduction to data frames in R and the managing them with the dplyr R package."/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","listing"]}},"value":[{"type":"character","attributes":{},"value":["Lectures"]},{"type":"character","attributes":{},"value":["A new article created using the Distill format.\n"]},{"type":"character","attributes":{},"value":["posts"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","categories"]}},"value":[{"type":"character","attributes":{},"value":["Managing data frames with the Tidyverse"]},{"type":"character","attributes":{},"value":["An introduction to data frames in R and the managing them with the dplyr R package. \n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url","affiliation","affiliation_url"]}},"value":[{"type":"character","attributes":{},"value":["Stephanie Hicks"]},{"type":"character","attributes":{},"value":["https://stephaniehicks.com/"]},{"type":"character","attributes":{},"value":["Department of Biostatistics, Johns Hopkins"]},{"type":"character","attributes":{},"value":["https://www.jhsph.edu"]}]}]},{"type":"character","attributes":{},"value":["09-07-2021"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","toc","toc_depth"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[3]}]}]},{"type":"character","attributes":{},"value":["module 1","week 2"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
-  <!--radix_placeholder_navigation_in_header-->
-  <meta name="distill:offset" content=""/>
-
-  <script type="application/javascript">
-
-    window.headroom_prevent_pin = false;
-
-    window.document.addEventListener("DOMContentLoaded", function (event) {
-
-      // initialize headroom for banner
-      var header = $('header').get(0);
-      var headerHeight = header.offsetHeight;
-      var headroom = new Headroom(header, {
-        tolerance: 5,
-        onPin : function() {
-          if (window.headroom_prevent_pin) {
-            window.headroom_prevent_pin = false;
-            headroom.unpin();
-          }
-        }
-      });
-      headroom.init();
-      if(window.location.hash)
-        headroom.unpin();
-      $(header).addClass('headroom--transition');
-
-      // offset scroll location for banner on hash change
-      // (see: https://github.com/WickyNilliams/headroom.js/issues/38)
-      window.addEventListener("hashchange", function(event) {
-        window.scrollTo(0, window.pageYOffset - (headerHeight + 25));
-      });
-
-      // responsive menu
-      $('.distill-site-header').each(function(i, val) {
-        var topnav = $(this);
-        var toggle = topnav.find('.nav-toggle');
-        toggle.on('click', function() {
-          topnav.toggleClass('responsive');
-        });
-      });
-
-      // nav dropdowns
-      $('.nav-dropbtn').click(function(e) {
-        $(this).next('.nav-dropdown-content').toggleClass('nav-dropdown-active');
-        $(this).parent().siblings('.nav-dropdown')
-           .children('.nav-dropdown-content').removeClass('nav-dropdown-active');
-      });
-      $("body").click(function(e){
-        $('.nav-dropdown-content').removeClass('nav-dropdown-active');
-      });
-      $(".nav-dropdown").click(function(e){
-        e.stopPropagation();
-      });
-    });
+  
+  <script type="text/json" id="radix-resource-manifest">
+  {"type":"character","attributes":{},"value":["managing-data-frames-with-tidyverse_files/anchor-4.2.2/anchor.min.js","managing-data-frames-with-tidyverse_files/bowser-1.9.3/bowser.min.js","managing-data-frames-with-tidyverse_files/distill-2.2.21/template.v2.js","managing-data-frames-with-tidyverse_files/header-attrs-2.10/header-attrs.js","managing-data-frames-with-tidyverse_files/jquery-1.11.3/jquery.min.js","managing-data-frames-with-tidyverse_files/popper-2.6.0/popper.min.js","managing-data-frames-with-tidyverse_files/tippy-6.2.7/tippy-bundle.umd.min.js","managing-data-frames-with-tidyverse_files/tippy-6.2.7/tippy-light-border.css","managing-data-frames-with-tidyverse_files/tippy-6.2.7/tippy.css","managing-data-frames-with-tidyverse_files/tippy-6.2.7/tippy.umd.min.js","managing-data-frames-with-tidyverse_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
-
-  <style type="text/css">
-
-  /* Theme (user-documented overrideables for nav appearance) */
-
-  .distill-site-nav {
-    color: rgba(255, 255, 255, 0.8);
-    background-color: #0F2E3D;
-    font-size: 15px;
-    font-weight: 300;
-  }
-
-  .distill-site-nav a {
-    color: inherit;
-    text-decoration: none;
-  }
-
-  .distill-site-nav a:hover {
-    color: white;
-  }
-
-  @media print {
-    .distill-site-nav {
-      display: none;
-    }
-  }
-
-  .distill-site-header {
-
-  }
-
-  .distill-site-footer {
-
-  }
-
-
-  /* Site Header */
-
-  .distill-site-header {
-    width: 100%;
-    box-sizing: border-box;
-    z-index: 3;
-  }
-
-  .distill-site-header .nav-left {
-    display: inline-block;
-    margin-left: 8px;
-  }
-
-  @media screen and (max-width: 768px) {
-    .distill-site-header .nav-left {
-      margin-left: 0;
-    }
-  }
-
-
-  .distill-site-header .nav-right {
-    float: right;
-    margin-right: 8px;
-  }
-
-  .distill-site-header a,
-  .distill-site-header .title {
-    display: inline-block;
-    text-align: center;
-    padding: 14px 10px 14px 10px;
-  }
-
-  .distill-site-header .title {
-    font-size: 18px;
-    min-width: 150px;
-  }
-
-  .distill-site-header .logo {
-    padding: 0;
-  }
-
-  .distill-site-header .logo img {
-    display: none;
-    max-height: 20px;
-    width: auto;
-    margin-bottom: -4px;
-  }
-
-  .distill-site-header .nav-image img {
-    max-height: 18px;
-    width: auto;
-    display: inline-block;
-    margin-bottom: -3px;
-  }
-
-
-
-  @media screen and (min-width: 1000px) {
-    .distill-site-header .logo img {
-      display: inline-block;
-    }
-    .distill-site-header .nav-left {
-      margin-left: 20px;
-    }
-    .distill-site-header .nav-right {
-      margin-right: 20px;
-    }
-    .distill-site-header .title {
-      padding-left: 12px;
-    }
-  }
-
-
-  .distill-site-header .nav-toggle {
-    display: none;
-  }
-
-  .nav-dropdown {
-    display: inline-block;
-    position: relative;
-  }
-
-  .nav-dropdown .nav-dropbtn {
-    border: none;
-    outline: none;
-    color: rgba(255, 255, 255, 0.8);
-    padding: 16px 10px;
-    background-color: transparent;
-    font-family: inherit;
-    font-size: inherit;
-    font-weight: inherit;
-    margin: 0;
-    margin-top: 1px;
-    z-index: 2;
-  }
-
-  .nav-dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: white;
-    min-width: 200px;
-    border: 1px solid rgba(0,0,0,0.15);
-    border-radius: 4px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
-    z-index: 1;
-    margin-top: 2px;
-    white-space: nowrap;
-    padding-top: 4px;
-    padding-bottom: 4px;
-  }
-
-  .nav-dropdown-content hr {
-    margin-top: 4px;
-    margin-bottom: 4px;
-    border: none;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  }
-
-  .nav-dropdown-active {
-    display: block;
-  }
-
-  .nav-dropdown-content a, .nav-dropdown-content .nav-dropdown-header {
-    color: black;
-    padding: 6px 24px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
-  }
-
-  .nav-dropdown-content .nav-dropdown-header {
-    display: block;
-    padding: 5px 24px;
-    padding-bottom: 0;
-    text-transform: uppercase;
-    font-size: 14px;
-    color: #999999;
-    white-space: nowrap;
-  }
-
-  .nav-dropdown:hover .nav-dropbtn {
-    color: white;
-  }
-
-  .nav-dropdown-content a:hover {
-    background-color: #ddd;
-    color: black;
-  }
-
-  .nav-right .nav-dropdown-content {
-    margin-left: -45%;
-    right: 0;
-  }
-
-  @media screen and (max-width: 768px) {
-    .distill-site-header a, .distill-site-header .nav-dropdown  {display: none;}
-    .distill-site-header a.nav-toggle {
-      float: right;
-      display: block;
-    }
-    .distill-site-header .title {
-      margin-left: 0;
-    }
-    .distill-site-header .nav-right {
-      margin-right: 0;
-    }
-    .distill-site-header {
-      overflow: hidden;
-    }
-    .nav-right .nav-dropdown-content {
-      margin-left: 0;
-    }
-  }
-
-
-  @media screen and (max-width: 768px) {
-    .distill-site-header.responsive {position: relative; min-height: 500px; }
-    .distill-site-header.responsive a.nav-toggle {
-      position: absolute;
-      right: 0;
-      top: 0;
-    }
-    .distill-site-header.responsive a,
-    .distill-site-header.responsive .nav-dropdown {
-      display: block;
-      text-align: left;
-    }
-    .distill-site-header.responsive .nav-left,
-    .distill-site-header.responsive .nav-right {
-      width: 100%;
-    }
-    .distill-site-header.responsive .nav-dropdown {float: none;}
-    .distill-site-header.responsive .nav-dropdown-content {position: relative;}
-    .distill-site-header.responsive .nav-dropdown .nav-dropbtn {
-      display: block;
-      width: 100%;
-      text-align: left;
-    }
-  }
-
-  /* Site Footer */
-
-  .distill-site-footer {
-    width: 100%;
-    overflow: hidden;
-    box-sizing: border-box;
-    z-index: 3;
-    margin-top: 30px;
-    padding-top: 30px;
-    padding-bottom: 30px;
-    text-align: center;
-  }
-
-  /* Headroom */
-
-  d-title {
-    padding-top: 6rem;
-  }
-
-  @media print {
-    d-title {
-      padding-top: 4rem;
-    }
-  }
-
-  .headroom {
-    z-index: 1000;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-  }
-
-  .headroom--transition {
-    transition: all .4s ease-in-out;
-  }
-
-  .headroom--unpinned {
-    top: -100px;
-  }
-
-  .headroom--pinned {
-    top: 0;
-  }
-
-  /* adjust viewport for navbar height */
-  /* helps vertically center bootstrap (non-distill) content */
-  .min-vh-100 {
-    min-height: calc(100vh - 100px) !important;
-  }
-
-  </style>
-
-  <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
-  <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet"/>
-  <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet"/>
-  <script src="site_libs/headroom-0.9.4/headroom.min.js"></script>
+  <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
   <!--radix_placeholder_distill-->
 
@@ -1775,872 +1433,493 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
   </script>
 
-  <style type="text/css">
-  /* base variables */
-
-  /* Edit the CSS properties in this file to create a custom
-     Distill theme. Only edit values in the right column
-     for each row; values shown are the CSS defaults.
-     To return any property to the default,
-     you may set its value to: unset
-     All rows must end with a semi-colon.                      */
-
-  /* Optional: embed custom fonts here with `@import`          */
-  /* This must remain at the top of this file.                 */
-
-
-
-  html {
-    /*-- Main font sizes --*/
-    --title-size:      50px;
-    --body-size:       1.06rem;
-    --code-size:       14px;
-    --aside-size:      12px;
-    --fig-cap-size:    13px;
-    /*-- Main font colors --*/
-    --title-color:     #000000;
-    --header-color:    rgba(0, 0, 0, 0.8);
-    --body-color:      rgba(0, 0, 0, 0.8);
-    --aside-color:     rgba(0, 0, 0, 0.6);
-    --fig-cap-color:   rgba(0, 0, 0, 0.6);
-    /*-- Specify custom fonts ~~~ must be imported above   --*/
-    --heading-font:    sans-serif;
-    --mono-font:       monospace;
-    --body-font:       sans-serif;
-    --navbar-font:     sans-serif;  /* websites + blogs only */
-  }
-
-  /*-- ARTICLE METADATA --*/
-  d-byline {
-    --heading-size:    0.6rem;
-    --heading-color:   rgba(0, 0, 0, 0.5);
-    --body-size:       0.8rem;
-    --body-color:      rgba(0, 0, 0, 0.8);
-  }
-
-  /*-- ARTICLE TABLE OF CONTENTS --*/
-  .d-contents {
-    --heading-size:    18px;
-    --contents-size:   13px;
-  }
-
-  /*-- ARTICLE APPENDIX --*/
-  d-appendix {
-    --heading-size:    15px;
-    --heading-color:   rgba(0, 0, 0, 0.65);
-    --text-size:       0.8em;
-    --text-color:      rgba(0, 0, 0, 0.5);
-  }
-
-  /*-- WEBSITE HEADER + FOOTER --*/
-  /* These properties only apply to Distill sites and blogs  */
-
-  .distill-site-header {
-    --title-size:       18px;
-    --text-color:       rgba(255, 255, 255, 0.8);
-    --text-size:        15px;
-    --hover-color:      white;
-    --bkgd-color:       #0F2E3D;
-  }
-
-  .distill-site-footer {
-    --text-color:       rgba(255, 255, 255, 0.8);
-    --text-size:        15px;
-    --hover-color:      white;
-    --bkgd-color:       #0F2E3D;
-  }
-
-  /*-- Additional custom styles --*/
-  /* Add any additional CSS rules below                      */
-  </style>
-  <style type="text/css">
-  /* base variables */
-
-  /* Edit the CSS properties in this file to create a custom
-     Distill theme. Only edit values in the right column
-     for each row; values shown are the CSS defaults.
-     To return any property to the default,
-     you may set its value to: unset
-     All rows must end with a semi-colon.                      */
-
-  /* Optional: embed custom fonts here with `@import`          */
-  /* This must remain at the top of this file.                 */
-
-
-
-  html {
-    /*-- Main font sizes --*/
-    --title-size:      50px;
-    --body-size:       1.06rem;
-    --code-size:       14px;
-    --aside-size:      12px;
-    --fig-cap-size:    13px;
-    /*-- Main font colors --*/
-    --title-color:     #000000;
-    --header-color:    rgba(0, 0, 0, 0.8);
-    --body-color:      rgba(0, 0, 0, 0.8);
-    --aside-color:     rgba(0, 0, 0, 0.6);
-    --fig-cap-color:   rgba(0, 0, 0, 0.6);
-    /*-- Specify custom fonts ~~~ must be imported above   --*/
-    --heading-font:    sans-serif;
-    --mono-font:       monospace;
-    --body-font:       sans-serif;
-    --navbar-font:     sans-serif;  /* websites + blogs only */
-  }
-
-  /*-- ARTICLE METADATA --*/
-  d-byline {
-    --heading-size:    0.6rem;
-    --heading-color:   rgba(0, 0, 0, 0.5);
-    --body-size:       0.8rem;
-    --body-color:      rgba(0, 0, 0, 0.8);
-  }
-
-  /*-- ARTICLE TABLE OF CONTENTS --*/
-  .d-contents {
-    --heading-size:    18px;
-    --contents-size:   13px;
-  }
-
-  /*-- ARTICLE APPENDIX --*/
-  d-appendix {
-    --heading-size:    15px;
-    --heading-color:   rgba(0, 0, 0, 0.65);
-    --text-size:       0.8em;
-    --text-color:      rgba(0, 0, 0, 0.5);
-  }
-
-  /*-- WEBSITE HEADER + FOOTER --*/
-  /* These properties only apply to Distill sites and blogs  */
-
-  .distill-site-header {
-    --title-size:       18px;
-    --text-color:       rgba(255, 255, 255, 0.8);
-    --text-size:        15px;
-    --hover-color:      white;
-    --bkgd-color:       #2B3851FF; /* #0F2E3D; */
-  }
-
-  .distill-site-footer {
-    --text-color:       rgba(255, 255, 255, 0.8);
-    --text-size:        15px;
-    --hover-color:      white;
-    --bkgd-color:       #2B3851FF; /* #0F2E3D; */
-  }
-
-  /*-- Additional custom styles --*/
-  /* Add any additional CSS rules below                      */
-
-
-
-
-  /* -----------div tips------------- */
-
-
-    div.puzzle, div.fyi, div.demo, div.note {
-      padding: 1em;
-      margin: 1em 0;
-      padding-left: 100px;
-      background-size: 70px;
-      background-repeat: no-repeat;
-      background-position: 15px center;
-      min-height: 120px;
-      color: #1f5386;
-      background-color: #bed3ec;
-      border: solid 5px #dfedff;
-    }
-    
-  div.puzzle {
-    background-image: url("Your-turn.png");
-  }
-
-  div.fyi {
-   background-image: url("images/fyi.png");
-  }
-
-  div.demo {
-    background-image: url("images/Live-code.png");
-  }
-
-  div.note {
-    background-image: url("images/lightbulb.png");
-  }
-
-    .questions {
-      padding: 1em;
-      margin: 1em 0;
-      padding-left: 100px;
-      background-size: 70px;
-      background-repeat: no-repeat;
-      background-position: 15px center;
-      min-height: 50px;
-      color: #000000 ;
-      background-color: #9BB1BBFF;
-      border: solid 5px #000000;
-      background-image: url("images/study.png");
-    }
-    
-    
-     .resources {
-      padding: 1em;
-      margin: 1em 0;
-      padding-left: 100px;
-      background-size: 70px;
-      background-repeat: no-repeat;
-      background-position: 15px center;
-      min-height: 50px;
-      color: #000000;
-      background-color: #ECBD95FF; /* #e5d468; */
-      border: solid 5px #000000;
-      background-image: url("images/list.png");
-    }
-
-  .keyideas{
-      padding: 1em;
-      margin: 1em 0;
-      padding-left: 100px;
-      background-size: 70px;
-      background-repeat: no-repeat;
-      background-position: 15px center;
-      min-height: 120px;
-      color: #441F29;
-      background-color: #E56889;
-      border: solid 5px #441F29;
-      background-image: url('images/important.png') ;
-  }
-
-  .center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-  }</style>
-  <style type="text/css">
-  /* base style */
-
-  /* FONT FAMILIES */
-
-  :root {
-    --heading-default: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
-    --mono-default: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-    --body-default: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
-  }
-
-  body,
-  .posts-list .post-preview p,
-  .posts-list .description p {
-    font-family: var(--body-font), var(--body-default);
-  }
-
-  h1, h2, h3, h4, h5, h6,
-  .posts-list .post-preview h2,
-  .posts-list .description h2 {
-    font-family: var(--heading-font), var(--heading-default);
-  }
-
-  d-article div.sourceCode code,
-  d-article pre code {
-    font-family: var(--mono-font), var(--mono-default);
-  }
-
-
-  /*-- TITLE --*/
-  d-title h1,
-  .posts-list > h1 {
-    color: var(--title-color, black);
-  }
-
-  d-title h1 {
-    font-size: var(--title-size, 50px);
-  }
-
-  /*-- HEADERS --*/
-  d-article h1,
-  d-article h2,
-  d-article h3,
-  d-article h4,
-  d-article h5,
-  d-article h6 {
-    color: var(--header-color, rgba(0, 0, 0, 0.8));
-  }
-
-  /*-- BODY --*/
-  d-article > p,  /* only text inside of <p> tags */
-  d-article > ul, /* lists */
-  d-article > ol {
-    color: var(--body-color, rgba(0, 0, 0, 0.8));
-    font-size: var(--body-size, 1.06rem);
-  }
-
-
-  /*-- CODE --*/
-  d-article div.sourceCode code,
-  d-article pre code {
-    font-size: var(--code-size, 14px);
-  }
-
-  /*-- ASIDE --*/
-  d-article aside {
-    font-size: var(--aside-size, 12px);
-    color: var(--aside-color, rgba(0, 0, 0, 0.6));
-  }
-
-  /*-- FIGURE CAPTIONS --*/
-  figure .caption,
-  figure figcaption,
-  .figure .caption {
-    font-size: var(--fig-cap-size, 13px);
-    color: var(--fig-cap-color, rgba(0, 0, 0, 0.6));
-  }
-
-  /*-- METADATA --*/
-  d-byline h3 {
-    font-size: var(--heading-size, 0.6rem);
-    color: var(--heading-color, rgba(0, 0, 0, 0.5));
-  }
-
-  d-byline {
-    font-size: var(--body-size, 0.8rem);
-    color: var(--body-color, rgba(0, 0, 0, 0.8));
-  }
-
-  d-byline a,
-  d-article d-byline a {
-    color: var(--body-color, rgba(0, 0, 0, 0.8));
-  }
-
-  /*-- TABLE OF CONTENTS --*/
-  .d-contents nav h3 {
-    font-size: var(--heading-size, 18px);
-  }
-
-  .d-contents nav a {
-    font-size: var(--contents-size, 13px);
-  }
-
-  /*-- APPENDIX --*/
-  d-appendix h3 {
-    font-size: var(--heading-size, 15px);
-    color: var(--heading-color, rgba(0, 0, 0, 0.65));
-  }
-
-  d-appendix {
-    font-size: var(--text-size, 0.8em);
-    color: var(--text-color, rgba(0, 0, 0, 0.5));
-  }
-
-  d-appendix d-footnote-list a.footnote-backlink {
-    color: var(--text-color, rgba(0, 0, 0, 0.5));
-  }
-
-  /*-- WEBSITE HEADER + FOOTER --*/
-  .distill-site-header .title {
-    font-size: var(--title-size, 18px);
-    font-family: var(--navbar-font), var(--heading-default);
-  }
-
-  .distill-site-header a,
-  .nav-dropdown .nav-dropbtn {
-    font-family: var(--navbar-font), var(--heading-default);
-  }
-
-  .nav-dropdown .nav-dropbtn {
-    color: var(--text-color, rgba(255, 255, 255, 0.8));
-    font-size: var(--text-size, 15px);
-  }
-
-  .distill-site-header a:hover,
-  .nav-dropdown:hover .nav-dropbtn {
-    color: var(--hover-color, white);
-  }
-
-  .distill-site-header {
-    font-size: var(--text-size, 15px);
-    color: var(--text-color, rgba(255, 255, 255, 0.8));
-    background-color: var(--bkgd-color, #0F2E3D);
-  }
-
-  .distill-site-footer {
-    font-size: var(--text-size, 15px);
-    color: var(--text-color, rgba(255, 255, 255, 0.8));
-    background-color: var(--bkgd-color, #0F2E3D);
-  }
-
-  .distill-site-footer a:hover {
-    color: var(--hover-color, white);
-  }</style>
   <!--/radix_placeholder_distill-->
-  <script src="site_libs/header-attrs-2.10/header-attrs.js"></script>
-  <script src="site_libs/popper-2.6.0/popper.min.js"></script>
-  <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
-  <link href="site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
-  <script src="site_libs/tippy-6.2.7/tippy.umd.min.js"></script>
-  <script src="site_libs/anchor-4.2.2/anchor.min.js"></script>
-  <script src="site_libs/bowser-1.9.3/bowser.min.js"></script>
-  <script src="site_libs/webcomponents-2.0.0/webcomponents.js"></script>
-  <script src="site_libs/distill-2.2.21/template.v2.js"></script>
+  <script src="managing-data-frames-with-tidyverse_files/header-attrs-2.10/header-attrs.js"></script>
+  <script src="managing-data-frames-with-tidyverse_files/jquery-1.11.3/jquery.min.js"></script>
+  <script src="managing-data-frames-with-tidyverse_files/popper-2.6.0/popper.min.js"></script>
+  <link href="managing-data-frames-with-tidyverse_files/tippy-6.2.7/tippy.css" rel="stylesheet" />
+  <link href="managing-data-frames-with-tidyverse_files/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
+  <script src="managing-data-frames-with-tidyverse_files/tippy-6.2.7/tippy.umd.min.js"></script>
+  <script src="managing-data-frames-with-tidyverse_files/anchor-4.2.2/anchor.min.js"></script>
+  <script src="managing-data-frames-with-tidyverse_files/bowser-1.9.3/bowser.min.js"></script>
+  <script src="managing-data-frames-with-tidyverse_files/webcomponents-2.0.0/webcomponents.js"></script>
+  <script src="managing-data-frames-with-tidyverse_files/distill-2.2.21/template.v2.js"></script>
   <!--radix_placeholder_site_in_header-->
   <!--/radix_placeholder_site_in_header-->
 
 
 </head>
 
-<body class="layout-listing">
+<body>
 
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Lectures","description":"A new article created using the Distill format.","authors":[]}
+{"title":"Managing data frames with the Tidyverse","description":"An introduction to data frames in R and the managing them with the dplyr R package.","authors":[{"author":"Stephanie Hicks","authorURL":"https://stephaniehicks.com/","affiliation":"Department of Biostatistics, Johns Hopkins","affiliationURL":"https://www.jhsph.edu","orcidID":""}],"publishedDate":"2021-09-07T00:00:00.000+00:00","citationText":"Hicks, 2021"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
 <!--radix_placeholder_navigation_before_body-->
-<header class="header header--fixed" role="banner">
-<nav class="distill-site-nav distill-site-header">
-<div class="nav-left">
-<a class="logo" href="https://stephaniehicks.com/jhustatcomputing2021">
-<img src="images/ads2020-small.png" alt="Logo"/>
-</a>
-<a href="index.html" class="title">Statistical Computing</a>
-</div>
-<div class="nav-right">
-<a href="index.html">Home</a>
-<div class="nav-dropdown">
-<button class="nav-dropbtn">
-General Information
- 
-<span class="down-arrow">&#x25BE;</span>
-</button>
-<div class="nav-dropdown-content">
-<a href="syllabus.html">Syllabus</a>
-<a href="schedule.html">Schedule</a>
-</div>
-</div>
-<div class="nav-dropdown">
-<button class="nav-dropbtn">
-Course Materials
- 
-<span class="down-arrow">&#x25BE;</span>
-</button>
-<div class="nav-dropdown-content">
-<a href="lectures.html">Lectures</a>
-<a href="projects.html">Projects</a>
-<a href="resources.html">Resources</a>
-</div>
-</div>
-<a href="index.xml">
-<i class="fa fa-rss" aria-hidden="true"></i>
-</a>
-<a href="https://github.com/stephaniehicks/jhustatcomputing2021" aria-label="Link to source">
-<i class="fab fa-github" aria-hidden="true"></i>
-</a>
-<a href="javascript:void(0);" class="nav-toggle">&#9776;</a>
-</div>
-</nav>
-</header>
 <!--/radix_placeholder_navigation_before_body-->
 <!--radix_placeholder_site_before_body-->
 <!--/radix_placeholder_site_before_body-->
-<!--radix_placeholder_article_listing-->
-
-
-<script type="application/javascript">
-
-function init_posts_list() {
-
-  function load_image(img) {
-    var src = $(img).attr('data-src');
-    if (src) {
-      $(img).attr('src', src);
-      $(img).load(function() {
-        img.removeAttribute('data-src');
-      });
-    }
-  }
-
-  function set_posts_visible(posts, visible) {
-    if (visible) {
-
-      // show bottom border by default
-      $(posts).removeClass('post-preview-last');
-
-      // apply limits if need be
-      var max_posts = 25;
-      var apply_limits = $('.posts-container').hasClass('posts-apply-limit');
-      if (apply_limits && posts.length > max_posts) {
-        posts = $(posts).slice(0, max_posts);
-      } else {
-        $('.posts-more a').addClass('hidden');
-      }
-
-      // apply last style
-      $(posts.slice(-1)[0]).addClass('post-preview-last');
-
-      $(posts).removeClass('hidden');
-      $(posts).find('img[data-src]').each(function(i, img) {
-        load_image(img);
-      });
-    } else {
-      $(posts).addClass('hidden');
-    }
-  }
-
-  function apply_hash_filter() {
-
-    // clear active state
-    $('.categories .active').removeClass('active');
-
-    // mark all posts invisible to start
-    set_posts_visible($('.posts-list').children('a'), false);
-
-    // if we have a hash filter
-    if (window.location.hash && window.location.hash.startsWith("#category:")) {
-
-      // mark posts that match the category visible
-      var page_category = window.location.hash.replace(/^#category:/, "");
-      var posts = $('.post-metadata').map(function(idx, script) {
-        var metadata = $.parseJSON($(script).html());
-        var post = null;
-        $.each(metadata.categories, function(idx, category) {
-          category = category.replace(/ /g,"_");
-          if ((page_category || '').toLowerCase() === "articles" || category === page_category) {
-            post = $(script).parent().get();
-            return false;
-          }
-        });
-        return post;
-      });
-      set_posts_visible(posts, true);
-
-      // mark the hash active
-      $('.categories li>a[href="' + window.location.hash + '"]').addClass('active');
-
-      // update the list_caption
-      var list_caption = $('.posts-list-caption');
-      var caption = (page_category || '').toLowerCase() === "articles"
-        ? list_caption.attr('data-caption')
-        : ('Category: ' + page_category.replace(/_/g," "));
-      list_caption.text(caption);
-
-    } else {
-
-      // no hash filter, make all posts visible (subject to max display)
-      set_posts_visible($('.posts-list').children(), true);
-
-      // reset list caption
-      var list_caption = $('.posts-list-caption');
-      list_caption.text(list_caption.attr('data-caption'));
-
-
-    }
-  }
-
-  // more articles
-  function apply_post_limits(apply) {
-    if (apply) {
-      $('.posts-container').addClass('posts-apply-limit');
-      $('.posts-more a').removeClass('hidden');
-    } else {
-      $('.posts-container').removeClass('posts-apply-limit');
-      $('.posts-more a').addClass('hidden');
-    }
-  }
-
-  // click handling for tags
-  $('.dt-tag').click(function(ev) {
-    window.location.hash = '#category:' + $(this).text().replace(/ /g, "_");
-    return false;
-  })
-
-  // hash filter handling
-  apply_hash_filter();
-  $(window).on('hashchange',function() {
-    apply_post_limits(true);
-    apply_hash_filter();
-  });
-
-  // more articles link
-  $('.posts-more a').click(function(e) {
-    e.preventDefault();
-    apply_post_limits(false);
-    apply_hash_filter();
-    return false;
-  });
-
-}
-
-</script>
-
-
-
-<div class="posts-container posts-with-sidebar posts-apply-limit l-screen-inset">
-<div class="posts-list">
-<h1 class="posts-list-caption" data-caption="Lectures">Lectures</h1>
-<a href="posts/2021-09-07-managing-data-frames-with-tidyverse/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":["module 1","week 2"]}</script>
-<div class="metadata">
-<div class="publishedDate">Sept. 7, 2021</div>
-<div class="dt-authors">
-<div class="dt-author">Stephanie Hicks</div>
-</div>
-</div>
-<div class="thumbnail">
-<img/>
-</div>
-<div class="description">
-<h2>Managing data frames with the Tidyverse</h2>
-<div class="dt-tags">
-<div class="dt-tag">module 1</div>
-<div class="dt-tag">week 2</div>
-</div>
-<p>An introduction to data frames in R and the managing them with the dplyr R package.</p>
-</div>
-</a>
-<a href="posts/2021-09-07-reading-and-writing-data/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":["module 1","week 2"]}</script>
-<div class="metadata">
-<div class="publishedDate">Sept. 7, 2021</div>
-<div class="dt-authors">
-<div class="dt-author">Stephanie Hicks</div>
-</div>
-</div>
-<div class="thumbnail">
-<img/>
-</div>
-<div class="description">
-<h2>Reading and Writing data</h2>
-<div class="dt-tags">
-<div class="dt-tag">module 1</div>
-<div class="dt-tag">week 2</div>
-</div>
-<p>How to get data in and out of R using relative paths</p>
-</div>
-</a>
-<a href="posts/2021-09-02-literate-programming/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":["module 1","week 1","R Markdown","programming"]}</script>
-<div class="metadata">
-<div class="publishedDate">Sept. 2, 2021</div>
-<div class="dt-authors">
-<div class="dt-author">Stephanie Hicks</div>
-</div>
-</div>
-<div class="thumbnail">
-<img src="posts/2021-09-02-literate-programming/literate-programming_files/figure-html5/plot2-1.png"/>
-</div>
-<div class="description">
-<h2>Literate Statistical Programming</h2>
-<div class="dt-tags">
-<div class="dt-tag">module 1</div>
-<div class="dt-tag">week 1</div>
-<div class="dt-tag">R Markdown</div>
-<div class="dt-tag">programming</div>
-</div>
-<p>Introduction to literate statistical programming tools including R Markdown.</p>
-</div>
-</a>
-<a href="posts/2021-09-02-reference-management/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":["module 1","week 1","R Markdown","programming"]}</script>
-<div class="metadata">
-<div class="publishedDate">Sept. 2, 2021</div>
-<div class="dt-authors">
-<div class="dt-author">Stephanie Hicks</div>
-</div>
-</div>
-<div class="thumbnail">
-<img/>
-</div>
-<div class="description">
-<h2>Reference management</h2>
-<div class="dt-tags">
-<div class="dt-tag">module 1</div>
-<div class="dt-tag">week 1</div>
-<div class="dt-tag">R Markdown</div>
-<div class="dt-tag">programming</div>
-</div>
-<p>How to use citations and incorporate references from a bibliography in R Markdown.</p>
-</div>
-</a>
-<a href="posts/2021-09-02-reproducible-research/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":["module 1","week 1","R","reproducibility"]}</script>
-<div class="metadata">
-<div class="publishedDate">Sept. 2, 2021</div>
-<div class="dt-authors">
-<div class="dt-author">Stephanie Hicks</div>
-</div>
-</div>
-<div class="thumbnail">
-<img src="posts/2021-09-02-reproducible-research/reproducible-research_files/figure-html5/noah-1.png"/>
-</div>
-<div class="description">
-<h2>Reproducible Research</h2>
-<div class="dt-tags">
-<div class="dt-tag">module 1</div>
-<div class="dt-tag">week 1</div>
-<div class="dt-tag">R</div>
-<div class="dt-tag">reproducibility</div>
-</div>
-<p>Introduction to reproducible research covering some basic concepts and ideas that are related to reproducible reporting</p>
-</div>
-</a>
-<a href="posts/2021-08-31-introduction-to-gitgithub/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":["module 1","week 1","programming","version control","git","GitHub"]}</script>
-<div class="metadata">
-<div class="publishedDate">Aug. 31, 2021</div>
-<div class="dt-authors">
-<div class="dt-author">Stephanie Hicks</div>
-</div>
-</div>
-<div class="thumbnail">
-<img data-src="posts/2021-08-31-introduction-to-gitgithub/../../images/phdversioncontrol.gif"/>
-</div>
-<div class="description">
-<h2>Introduction to git/GitHub</h2>
-<div class="dt-tags">
-<div class="dt-tag">module 1</div>
-<div class="dt-tag">week 1</div>
-<div class="dt-tag">programming</div>
-<div class="dt-tag">version control</div>
-<div class="dt-tag">git</div>
-<div class="dt-tag">GitHub</div>
-</div>
-<p>Version control is a game changer; or how I learned to love git/GitHub</p>
-</div>
-</a>
-<a href="posts/2021-08-31-introduction-to-r-and-rstudio/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":["module 1","week 1","R","programming","RStudio"]}</script>
-<div class="metadata">
-<div class="publishedDate">Aug. 31, 2021</div>
-<div class="dt-authors">
-<div class="dt-author">Stephanie Hicks</div>
-</div>
-</div>
-<div class="thumbnail">
-<img data-src="https://github.com/allisonhorst/stats-illustrations/raw/master/rstats-artwork/r_first_then.png"/>
-</div>
-<div class="description">
-<h2>Introduction to R and RStudio</h2>
-<div class="dt-tags">
-<div class="dt-tag">module 1</div>
-<div class="dt-tag">week 1</div>
-<div class="dt-tag">R</div>
-<div class="dt-tag">programming</div>
-<div class="dt-tag">RStudio</div>
-</div>
-<p>Let's dig into the R programming language and the RStudio integrated developer environment</p>
-</div>
-</a>
-<a href="posts/welcome/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":["course-admin","module 1","week 1"]}</script>
-<div class="metadata">
-<div class="publishedDate">Aug. 31, 2021</div>
-<div class="dt-authors">
-<div class="dt-author">Stephanie Hicks</div>
-</div>
-</div>
-<div class="thumbnail">
-<img data-src="https://media.giphy.com/media/XdIOEZTt6dL7zTYWIo/giphy.gif"/>
-</div>
-<div class="description">
-<h2>Welcome!</h2>
-<div class="dt-tags">
-<div class="dt-tag">course-admin</div>
-<div class="dt-tag">module 1</div>
-<div class="dt-tag">week 1</div>
-</div>
-<p>Overview course information for students enrolled in JHSPH Biostatistics 140.776 in Fall 2021</p>
-</div>
-</a>
-</div>
-<div class="posts-sidebar">
-<div><div class="sidebar-section custom">
-  <h3>About</h3>
-  Lectures for the Statistical Computing course (<a href="https://www.jhsph.edu/courses/course/33154/2021/140.776.71/statistical-computing">JHSPH Biostatistics 140.776</a>) taught in Fall 2021.
-</div>
-
-<div class="sidebar-section custom">
-  <h3>Search</h3>
-  <form action="https://duckduckgo.com/">
-    <input type="text" name="q" placeholder="Search...">
-    <input type="hidden" name="sites" 
-      value="https://beta.rstudioconnect.com/content/3776/"> <!-- Replace with your blog URL -->
-    <!--<button type="submit">Search</button>-->
-  </form>
-</div>
-</div>
-<div class="sidebar-section categories">
-<h3>Categories</h3>
-<ul>
-<li>
-<a href="#category:Articles">Articles</a>
-<span class="category-count">(8)</span>
-</li>
-<li>
-<a href="#category:course-admin">course-admin</a>
-<span class="category-count">(1)</span>
-</li>
-<li>
-<a href="#category:git">git</a>
-<span class="category-count">(1)</span>
-</li>
-<li>
-<a href="#category:GitHub">GitHub</a>
-<span class="category-count">(1)</span>
-</li>
-<li>
-<a href="#category:module_1">module 1</a>
-<span class="category-count">(8)</span>
-</li>
-<li>
-<a href="#category:programming">programming</a>
-<span class="category-count">(4)</span>
-</li>
-<li>
-<a href="#category:R">R</a>
-<span class="category-count">(2)</span>
-</li>
-<li>
-<a href="#category:R_Markdown">R Markdown</a>
-<span class="category-count">(2)</span>
-</li>
-<li>
-<a href="#category:reproducibility">reproducibility</a>
-<span class="category-count">(1)</span>
-</li>
-<li>
-<a href="#category:RStudio">RStudio</a>
-<span class="category-count">(1)</span>
-</li>
-<li>
-<a href="#category:version_control">version control</a>
-<span class="category-count">(1)</span>
-</li>
-<li>
-<a href="#category:week_1">week 1</a>
-<span class="category-count">(6)</span>
-</li>
-<li>
-<a href="#category:week_2">week 2</a>
-<span class="category-count">(2)</span>
-</li>
-</ul>
-</div>
-</div>
-<div class="posts-more">
-<a href="#">More articles &raquo;</a>
-</div>
-</div>
-<!--/radix_placeholder_article_listing-->
 
 <div class="d-title">
-<h1>Lectures</h1>
+<h1>Managing data frames with the Tidyverse</h1>
 <!--radix_placeholder_categories-->
+<div class="dt-tags">
+<div class="dt=tag">module 1</div>
+<div class="dt=tag">week 2</div>
+</div>
 <!--/radix_placeholder_categories-->
-<p><p>A new article created using the Distill format.</p></p>
+<p><p>An introduction to data frames in R and the managing them with the dplyr R package.</p></p>
 </div>
 
+<div class="d-byline">
+  Stephanie Hicks <a href="https://stephaniehicks.com/" class="uri">https://stephaniehicks.com/</a> (Department of Biostatistics, Johns Hopkins)<a href="https://www.jhsph.edu" class="uri">https://www.jhsph.edu</a>
+  
+<br/>09-07-2021
+</div>
 
 <div class="d-article">
-<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="d-contents d-contents-float">
+<nav class="l-text toc figcaption" id="TOC">
+<h3>Contents</h3>
+<ul>
+<li><a href="#pre-lecture-materials">Pre-lecture materials</a>
+<ul>
+<li><a href="#read-ahead">Read ahead</a></li>
+<li><a href="#acknowledgements">Acknowledgements</a></li>
+</ul></li>
+<li><a href="#learning-objectives">Learning objectives</a></li>
+<li><a href="#data-frames">Data Frames</a></li>
+<li><a href="#the-dplyr-package">The <code>dplyr</code> Package</a>
+<ul>
+<li><a href="#dplyr-grammar"><code>dplyr</code> Grammar</a></li>
+<li><a href="#common-dplyr-function-properties">Common <code>dplyr</code> function properties</a></li>
+<li><a href="#installing-the-dplyr-package">Installing the <code>dplyr</code> package</a></li>
+<li><a href="#select"><code>select()</code></a></li>
+<li><a href="#filter"><code>filter()</code></a></li>
+<li><a href="#arrange"><code>arrange()</code></a></li>
+<li><a href="#rename"><code>rename()</code></a></li>
+<li><a href="#mutate"><code>mutate()</code></a></li>
+<li><a href="#group_by"><code>group_by()</code></a></li>
+<li><a href="#section"><code>%&gt;%</code></a></li>
+</ul></li>
+<li><a href="#summary">Summary</a></li>
+<li><a href="#post-lecture-materials">Post-lecture materials</a>
+<ul>
+<li><a href="#final-questions">Final Questions</a></li>
+<li><a href="#additional-resources">Additional Resources</a></li>
+</ul></li>
+</ul>
+</nav>
+</div>
+<!-- Add interesting quote -->
+<h1 id="pre-lecture-materials">Pre-lecture materials</h1>
+<h3 id="read-ahead">Read ahead</h3>
+<div class="resources">
+<p><strong>Before class, you can prepare by reading the following materials:</strong></p>
+<ol type="1">
+<li><a href="http://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf">dplyr cheat sheet from RStudio</a></li>
+<li></li>
+</ol>
+</div>
+<h3 id="acknowledgements">Acknowledgements</h3>
+<p>Material for this lecture was borrowed and adopted from</p>
+<ul>
+<li><a href="https://rdpeng.github.io/Biostat776/lecture-managing-data-frames-with-the-tidyverse.html" class="uri">https://rdpeng.github.io/Biostat776/lecture-managing-data-frames-with-the-tidyverse.html</a></li>
+</ul>
+<h1 id="learning-objectives">Learning objectives</h1>
+<div class="keyideas">
+<p><strong>At the end of this lesson you will:</strong></p>
+<ul>
+<li>Learn about the dplyr R package to manage data frames</li>
+<li>Recognize the key verbs to manage data frames in dplyr</li>
+<li>Use the “pipe” operator to combine verbs together</li>
+</ul>
+</div>
+<h1 id="data-frames">Data Frames</h1>
+<p>The <strong>data frame</strong> is a key data structure in statistics and in R. The basic structure of a data frame is that there is one observation per row and each column represents a variable, a measure, feature, or characteristic of that observation. R has an internal implementation of data frames that is likely the one you will use most often. However, there are packages on CRAN that implement data frames via things like relational databases that allow you to operate on very very large data frames (but we will not discuss them here).</p>
+<p>Given the importance of managing data frames, it is important that we have good tools for dealing with them. For example, operations like filtering rows, re-ordering rows, and selecting columns, can often be tedious operations in R whose syntax is not very intuitive. The <code>dplyr</code> package is designed to mitigate a lot of these problems and to provide a highly optimized set of routines specifically for dealing with data frames.</p>
+<h1 id="the-dplyr-package">The <code>dplyr</code> Package</h1>
+<p>The <code>dplyr</code> package was developed by RStudio and is an optimized and distilled version of the older <code>plyr</code> package for data manipulation. The <code>dplyr</code> package does not provide any “new” functionality to R per se, in the sense that everything <code>dplyr</code> does could already be done with base R, but it <strong>greatly</strong> simplifies existing functionality in R.</p>
+<p>One important contribution of the <code>dplyr</code> package is that it provides a “grammar” (in particular, verbs) for data manipulation and for operating on data frames. With this grammar, you can sensibly communicate what it is that you are doing to a data frame that other people can understand (assuming they also know the grammar). This is useful because it provides an abstraction for data manipulation that previously did not exist. Another useful contribution is that the <code>dplyr</code> functions are <strong>very</strong> fast, as many key operations are coded in C++.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure"><span style="display:block;" id="fig:dplyr"></span>
+<img src="https://github.com/allisonhorst/stats-illustrations/raw/master/rstats-artwork/dplyr_wrangling.png" alt="Artwork by Allison Horst on the dplyr package"  />
+<p class="caption">
+Figure 1: Artwork by Allison Horst on the dplyr package
+</p>
+</div>
+</div>
+<p>[<strong>Source</strong>: <a href="https://github.com/allisonhorst/stats-illustrations">Artwork by Allison Horst</a>]</p>
+<h3 id="dplyr-grammar"><code>dplyr</code> Grammar</h3>
+<p>Some of the key “verbs” provided by the <code>dplyr</code> package are</p>
+<ul>
+<li><p><code>select()</code>: return a subset of the columns of a data frame, using a flexible notation</p></li>
+<li><p><code>filter()</code>: extract a subset of rows from a data frame based on logical conditions</p></li>
+<li><p><code>arrange()</code>: reorder rows of a data frame</p></li>
+<li><p><code>rename()</code>: rename variables in a data frame</p></li>
+<li><p><code>mutate()</code>: add new variables/columns or transform existing variables</p></li>
+<li><p><code>summarise()</code> / <code>summarize()</code>: generate summary statistics of different variables in the data frame, possibly within strata</p></li>
+<li><p><code>%&gt;%</code>: the “pipe” operator is used to connect multiple verb actions together into a pipeline</p></li>
+</ul>
+<p>The <code>dplyr</code> package as a number of its own data types that it takes advantage of. For example, there is a handy <code>print</code> method that prevents you from printing a lot of data to the console. Most of the time, these additional data types are transparent to the user and do not need to be worried about.</p>
+<h3 id="common-dplyr-function-properties">Common <code>dplyr</code> function properties</h3>
+<p>All of the functions that we will discuss in this Chapter will have a few common characteristics. In particular,</p>
+<ol type="1">
+<li><p>The first argument is a data frame.</p></li>
+<li><p>The subsequent arguments describe what to do with the data frame specified in the first argument, and you can refer to columns in the data frame directly (without using the <code>$</code> operator, just use the column names).</p></li>
+<li><p>The return result of a function is a new data frame.</p></li>
+<li><p>Data frames must be properly formatted and annotated for this to all be useful. In particular, the data must be <a href="http://www.jstatsoft.org/v59/i10/paper">tidy</a>. In short, there should be one observation per row, and each column should represent a feature or characteristic of that observation.</p></li>
+</ol>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure"><span style="display:block;" id="fig:tidy-data"></span>
+<img src="https://github.com/allisonhorst/stats-illustrations/raw/master/rstats-artwork/tidydata_1.jpg" alt="Artwork by Allison Horst on tidy data"  />
+<p class="caption">
+Figure 2: Artwork by Allison Horst on tidy data
+</p>
+</div>
+</div>
+<h3 id="installing-the-dplyr-package">Installing the <code>dplyr</code> package</h3>
+<p>The <code>dplyr</code> package can be installed from CRAN or from GitHub using the <code>devtools</code> package and the <code>install_github()</code> function. The GitHub repository will usually contain the latest updates to the package and the development version.</p>
+<p>To install from CRAN, just run</p>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<p>The <code>dplyr</code> package is also installed when you install the <code>tidyverse</code> meta-package.</p>
+<p>After installing the package it is important that you load it into your R session with the <code>library()</code> function.</p>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<p>You may get some warnings when the package is loaded because there are functions in the <code>dplyr</code> package that have the same name as functions in other packages. For now you can ignore the warnings.</p>
+<h3 id="select"><code>select()</code></h3>
+<p>For the examples in this chapter we will be using a dataset containing air pollution and temperature data for the city of Chicago in the U.S. The dataset is available in this repository.</p>
+<p>After unzipping the archive, you can load the data into R using the <code>readRDS()</code> function.</p>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<p>You can see some basic characteristics of the dataset with the <code>dim()</code> and <code>str()</code> functions.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code>[1] 6940    8
+&#39;data.frame&#39;:   6940 obs. of  8 variables:
+ $ city      : chr  &quot;chic&quot; &quot;chic&quot; &quot;chic&quot; &quot;chic&quot; ...
+ $ tmpd      : num  31.5 33 33 29 32 40 34.5 29 26.5 32.5 ...
+ $ dptp      : num  31.5 29.9 27.4 28.6 28.9 ...
+ $ date      : Date, format: &quot;1987-01-01&quot; ...
+ $ pm25tmean2: num  NA NA NA NA NA NA NA NA NA NA ...
+ $ pm10tmean2: num  34 NA 34.2 47 NA ...
+ $ o3tmean2  : num  4.25 3.3 3.33 4.38 4.75 ...
+ $ no2tmean2 : num  20 23.2 23.8 30.4 30.3 ...</code></pre>
+</div>
+<p>The <code>select()</code> function can be used to select columns of a data frame that you want to focus on. Often you’ll have a large data frame containing “all” of the data, but any <em>given</em> analysis might only use a subset of variables or observations. The <code>select()</code> function allows you to get the few columns you might need.</p>
+<p>Suppose we wanted to take the first 3 columns only. There are a few ways to do this. We could for example use numerical indices. But we can also use the names directly.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code>[1] &quot;city&quot; &quot;tmpd&quot; &quot;dptp&quot;
+  city tmpd   dptp
+1 chic 31.5 31.500
+2 chic 33.0 29.875
+3 chic 33.0 27.375
+4 chic 29.0 28.625
+5 chic 32.0 28.875
+6 chic 40.0 35.125</code></pre>
+</div>
+<p>Note that the <code>:</code> normally cannot be used with names or strings, but inside the <code>select()</code> function you can use it to specify a range of variable names.</p>
+<p>You can also <strong>omit</strong> variables using the <code>select()</code> function by using the negative sign. With <code>select()</code> you can do</p>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<p>which indicates that we should include every variable <em>except</em> the variables <code>city</code> through <code>dptp</code>. The equivalent code in base R would be</p>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<p>Not super intuitive, right?</p>
+<p>The <code>select()</code> function also allows a special syntax that allows you to specify variable names based on patterns. So, for example, if you wanted to keep every variable that ends with a “2”, we could do</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code>&#39;data.frame&#39;:   6940 obs. of  4 variables:
+ $ pm25tmean2: num  NA NA NA NA NA NA NA NA NA NA ...
+ $ pm10tmean2: num  34 NA 34.2 47 NA ...
+ $ o3tmean2  : num  4.25 3.3 3.33 4.38 4.75 ...
+ $ no2tmean2 : num  20 23.2 23.8 30.4 30.3 ...</code></pre>
+</div>
+<p>Or if we wanted to keep every variable that starts with a “d”, we could do</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code>&#39;data.frame&#39;:   6940 obs. of  2 variables:
+ $ dptp: num  31.5 29.9 27.4 28.6 28.9 ...
+ $ date: Date, format: &quot;1987-01-01&quot; ...</code></pre>
+</div>
+<p>You can also use more general regular expressions if necessary. See the help page (<code>?select</code>) for more details.</p>
+<h3 id="filter"><code>filter()</code></h3>
+<p>The <code>filter()</code> function is used to extract subsets of rows from a data frame. This function is similar to the existing <code>subset()</code> function in R but is quite a bit faster in my experience.</p>
+<p>Suppose we wanted to extract the rows of the <code>chicago</code> data frame where the levels of PM2.5 are greater than 30 (which is a reasonably high level), we could do</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code>&#39;data.frame&#39;:   194 obs. of  8 variables:
+ $ city      : chr  &quot;chic&quot; &quot;chic&quot; &quot;chic&quot; &quot;chic&quot; ...
+ $ tmpd      : num  23 28 55 59 57 57 75 61 73 78 ...
+ $ dptp      : num  21.9 25.8 51.3 53.7 52 56 65.8 59 60.3 67.1 ...
+ $ date      : Date, format: &quot;1998-01-17&quot; ...
+ $ pm25tmean2: num  38.1 34 39.4 35.4 33.3 ...
+ $ pm10tmean2: num  32.5 38.7 34 28.5 35 ...
+ $ o3tmean2  : num  3.18 1.75 10.79 14.3 20.66 ...
+ $ no2tmean2 : num  25.3 29.4 25.3 31.4 26.8 ...</code></pre>
+</div>
+<p>You can see that there are now only 194 rows in the data frame and the distribution of the <code>pm25tmean2</code> values is.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  30.05   32.12   35.04   36.63   39.53   61.50 </code></pre>
+</div>
+<p>We can place an arbitrarily complex logical sequence inside of <code>filter()</code>, so we could for example extract the rows where PM2.5 is greater than 30 <em>and</em> temperature is greater than 80 degrees Fahrenheit.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code>         date tmpd pm25tmean2
+1  1998-08-23   81   39.60000
+2  1998-09-06   81   31.50000
+3  2001-07-20   82   32.30000
+4  2001-08-01   84   43.70000
+5  2001-08-08   85   38.83750
+6  2001-08-09   84   38.20000
+7  2002-06-20   82   33.00000
+8  2002-06-23   82   42.50000
+9  2002-07-08   81   33.10000
+10 2002-07-18   82   38.85000
+11 2003-06-25   82   33.90000
+12 2003-07-04   84   32.90000
+13 2005-06-24   86   31.85714
+14 2005-06-27   82   51.53750
+15 2005-06-28   85   31.20000
+16 2005-07-17   84   32.70000
+17 2005-08-03   84   37.90000</code></pre>
+</div>
+<p>Now there are only 17 observations where both of those conditions are met.</p>
+<h3 id="arrange"><code>arrange()</code></h3>
+<p>The <code>arrange()</code> function is used to reorder rows of a data frame according to one of the variables/columns. Reordering rows of a data frame (while preserving corresponding order of other columns) is normally a pain to do in R. The <code>arrange()</code> function simplifies the process quite a bit.</p>
+<p>Here we can order the rows of the data frame by date, so that the first row is the earliest (oldest) observation and the last row is the latest (most recent) observation.</p>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<p>We can now check the first few rows</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code>        date pm25tmean2
+1 1987-01-01         NA
+2 1987-01-02         NA
+3 1987-01-03         NA</code></pre>
+</div>
+<p>and the last few rows.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code>           date pm25tmean2
+6938 2005-12-29    7.45000
+6939 2005-12-30   15.05714
+6940 2005-12-31   15.00000</code></pre>
+</div>
+<p>Columns can be arranged in descending order too by useing the special <code>desc()</code> operator.</p>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<p>Looking at the first three and last three rows shows the dates in descending order.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code>        date pm25tmean2
+1 2005-12-31   15.00000
+2 2005-12-30   15.05714
+3 2005-12-29    7.45000
+           date pm25tmean2
+6938 1987-01-03         NA
+6939 1987-01-02         NA
+6940 1987-01-01         NA</code></pre>
+</div>
+<h3 id="rename"><code>rename()</code></h3>
+<p>Renaming a variable in a data frame in R is surprisingly hard to do! The <code>rename()</code> function is designed to make this process easier.</p>
+<p>Here you can see the names of the first five variables in the <code>chicago</code> data frame.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code>  city tmpd dptp       date pm25tmean2
+1 chic   35 30.1 2005-12-31   15.00000
+2 chic   36 31.0 2005-12-30   15.05714
+3 chic   35 29.4 2005-12-29    7.45000</code></pre>
+</div>
+<p>The <code>dptp</code> column is supposed to represent the dew point temperature adn the <code>pm25tmean2</code> column provides the PM2.5 data. However, these names are pretty obscure or awkward and probably be renamed to something more sensible.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code>  city tmpd dewpoint       date     pm25
+1 chic   35     30.1 2005-12-31 15.00000
+2 chic   36     31.0 2005-12-30 15.05714
+3 chic   35     29.4 2005-12-29  7.45000</code></pre>
+</div>
+<p>The syntax inside the <code>rename()</code> function is to have the new name on the left-hand side of the <code>=</code> sign and the old name on the right-hand side.</p>
+<p>I leave it as an exercise for the reader to figure how you do this in base R without <code>dplyr</code>.</p>
+<h3 id="mutate"><code>mutate()</code></h3>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure"><span style="display:block;" id="fig:dplyr-mutate"></span>
+<img src="https://github.com/allisonhorst/stats-illustrations/raw/master/rstats-artwork/dplyr_mutate.png" alt="Artwork by Allison Horst on the mutate function"  />
+<p class="caption">
+Figure 3: Artwork by Allison Horst on the mutate function
+</p>
+</div>
+</div>
+<p>[<strong>Source</strong>: <a href="https://github.com/allisonhorst/stats-illustrations">Artwork by Allison Horst</a>]</p>
+<p>The <code>mutate()</code> function exists to compute transformations of variables in a data frame. Often, you want to create new variables that are derived from existing variables and <code>mutate()</code> provides a clean interface for doing that.</p>
+<p>For example, with air pollution data, we often want to <em>detrend</em> the data by subtracting the mean from the data. That way we can look at whether a given day’s air pollution level is higher than or less than average (as opposed to looking at its absolute level).</p>
+<p>Here we create a <code>pm25detrend</code> variable that subtracts the mean from the <code>pm25</code> variable.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code>  city tmpd dewpoint       date     pm25 pm10tmean2  o3tmean2
+1 chic   35     30.1 2005-12-31 15.00000       23.5  2.531250
+2 chic   36     31.0 2005-12-30 15.05714       19.2  3.034420
+3 chic   35     29.4 2005-12-29  7.45000       23.5  6.794837
+4 chic   37     34.5 2005-12-28 17.75000       27.5  3.260417
+5 chic   40     33.6 2005-12-27 23.56000       27.0  4.468750
+6 chic   35     29.6 2005-12-26  8.40000        8.5 14.041667
+  no2tmean2 pm25detrend
+1  13.25000   -1.230958
+2  22.80556   -1.173815
+3  19.97222   -8.780958
+4  19.28563    1.519042
+5  23.50000    7.329042
+6  16.81944   -7.830958</code></pre>
+</div>
+<p>There is also the related <code>transmute()</code> function, which does the same thing as <code>mutate()</code> but then <em>drops all non-transformed variables</em>.</p>
+<p>Here we detrend the PM10 and ozone (O3) variables.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code>  pm10detrend  o3detrend
+1  -10.395206 -16.904263
+2  -14.695206 -16.401093
+3  -10.395206 -12.640676
+4   -6.395206 -16.175096
+5   -6.895206 -14.966763
+6  -25.395206  -5.393846</code></pre>
+</div>
+<p>Note that there are only two columns in the transmuted data frame.</p>
+<h3 id="group_by"><code>group_by()</code></h3>
+<p>The <code>group_by()</code> function is used to generate summary statistics from the data frame within strata defined by a variable. For example, in this air pollution dataset, you might want to know what the average annual level of PM2.5 is. So the stratum is the year, and that is something we can derive from the <code>date</code> variable. In conjunction with the <code>group_by()</code> function we often use the <code>summarize()</code> function (or <code>summarise()</code> for some parts of the world).</p>
+<p>The general operation here is a combination of splitting a data frame into separate pieces defined by a variable or group of variables (<code>group_by()</code>), and then applying a summary function across those subsets (<code>summarize()</code>).</p>
+<p>First, we can create a <code>year</code> varible using <code>as.POSIXlt()</code>.</p>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<p>Now we can create a separate data frame that splits the original data frame by year.</p>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<p>Finally, we compute summary statistics for each year in the data frame with the <code>summarize()</code> function.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code># A tibble: 19 × 4
+    year  pm25    o3   no2
+   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+ 1  1987 NaN    63.0  23.5
+ 2  1988 NaN    61.7  24.5
+ 3  1989 NaN    59.7  26.1
+ 4  1990 NaN    52.2  22.6
+ 5  1991 NaN    63.1  21.4
+ 6  1992 NaN    50.8  24.8
+ 7  1993 NaN    44.3  25.8
+ 8  1994 NaN    52.2  28.5
+ 9  1995 NaN    66.6  27.3
+10  1996 NaN    58.4  26.4
+11  1997 NaN    56.5  25.5
+12  1998  18.3  50.7  24.6
+13  1999  18.5  57.5  24.7
+14  2000  16.9  55.8  23.5
+15  2001  16.9  51.8  25.1
+16  2002  15.3  54.9  22.7
+17  2003  15.2  56.2  24.6
+18  2004  14.6  44.5  23.4
+19  2005  16.2  58.8  22.6</code></pre>
+</div>
+<p><code>summarize()</code> returns a data frame with <code>year</code> as the first column, and then the annual averages of <code>pm25</code>, <code>o3</code>, and <code>no2</code>.</p>
+<p>In a slightly more complicated example, we might want to know what are the average levels of ozone (<code>o3</code>) and nitrogen dioxide (<code>no2</code>) within quintiles of <code>pm25</code>. A slicker way to do this would be through a regression model, but we can actually do this quickly with <code>group_by()</code> and <code>summarize()</code>.</p>
+<p>First, we can create a categorical variable of <code>pm25</code> divided into quantiles</p>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<p>Now we can group the data frame by the <code>pm25.quint</code> variable.</p>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<p>Finally, we can compute the mean of <code>o3</code> and <code>no2</code> within quintiles of <code>pm25</code>.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code># A tibble: 6 × 3
+  pm25.quint     o3   no2
+  &lt;fct&gt;       &lt;dbl&gt; &lt;dbl&gt;
+1 (1.7,8.7]    21.7  18.0
+2 (8.7,12.4]   20.4  22.1
+3 (12.4,16.7]  20.7  24.4
+4 (16.7,22.6]  19.9  27.3
+5 (22.6,61.5]  20.3  29.6
+6 &lt;NA&gt;         18.8  25.8</code></pre>
+</div>
+<p>From the table, it seems there is not a strong relationship between <code>pm25</code> and <code>o3</code>, but there appears to be a positive correlation between <code>pm25</code> and <code>no2</code>. More sophisticated statistical modeling can help to provide precise answers to these questions, but a simple application of <code>dplyr</code> functions can often get you most of the way there.</p>
+<h3 id="section"><code>%&gt;%</code></h3>
+<p>The pipeline operator <code>%&gt;%</code> is very handy for stringing together multiple <code>dplyr</code> functions in a sequence of operations. Notice above that every time we wanted to apply more than one function, the sequence gets buried in a sequence of nested function calls that is difficult to read, i.e.</p>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<p>This nesting is not a natural way to think about a sequence of operations. The <code>%&gt;%</code> operator allows you to string operations in a left-to-right fashion, i.e.</p>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<p>Take the example that we just did in the last section where we computed the mean of <code>o3</code> and <code>no2</code> within quintiles of <code>pm25</code>. There we had to</p>
+<ol type="1">
+<li>create a new variable <code>pm25.quint</code></li>
+<li>split the data frame by that new variable</li>
+<li>compute the mean of <code>o3</code> and <code>no2</code> in the sub-groups defined by <code>pm25.quint</code></li>
+</ol>
+<p>That can be done with the following sequence in a single R expression.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code># A tibble: 6 × 3
+  pm25.quint     o3   no2
+  &lt;fct&gt;       &lt;dbl&gt; &lt;dbl&gt;
+1 (1.7,8.7]    21.7  18.0
+2 (8.7,12.4]   20.4  22.1
+3 (12.4,16.7]  20.7  24.4
+4 (16.7,22.6]  19.9  27.3
+5 (22.6,61.5]  20.3  29.6
+6 &lt;NA&gt;         18.8  25.8</code></pre>
+</div>
+<p>This way we don’t have to create a set of temporary variables along the way or create a massive nested sequence of function calls.</p>
+<p>Notice in the above code that I pass the <code>chicago</code> data frame to the first call to <code>mutate()</code>, but then afterwards I do not have to pass the first argument to <code>group_by()</code> or <code>summarize()</code>. Once you travel down the pipeline with <code>%&gt;%</code>, the first argument is taken to be the output of the previous element in the pipeline.</p>
+<p>Another example might be computing the average pollutant level by month. This could be useful to see if there are any seasonal trends in the data.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code># A tibble: 12 × 4
+   month  pm25    o3   no2
+   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+ 1     1  17.8  28.2  25.4
+ 2     2  20.4  37.4  26.8
+ 3     3  17.4  39.0  26.8
+ 4     4  13.9  47.9  25.0
+ 5     5  14.1  52.8  24.2
+ 6     6  15.9  66.6  25.0
+ 7     7  16.6  59.5  22.4
+ 8     8  16.9  54.0  23.0
+ 9     9  15.9  57.5  24.5
+10    10  14.2  47.1  24.2
+11    11  15.2  29.5  23.6
+12    12  17.5  27.7  24.5</code></pre>
+</div>
+<p>Here we can see that <code>o3</code> tends to be low in the winter months and high in the summer while <code>no2</code> is higher in the winter and lower in the summer.</p>
+<h1 id="summary">Summary</h1>
+<p>The <code>dplyr</code> package provides a concise set of operations for managing data frames. With these functions we can do a number of complex operations in just a few lines of code. In particular, we can often conduct the beginnings of an exploratory analysis with the powerful combination of <code>group_by()</code> and <code>summarize()</code>.</p>
+<p>Once you learn the <code>dplyr</code> grammar there are a few additional benefits</p>
+<ul>
+<li><p><code>dplyr</code> can work with other data frame “back ends” such as SQL databases. There is an SQL interface for relational databases via the DBI package</p></li>
+<li><p><code>dplyr</code> can be integrated with the <code>data.table</code> package for large fast tables</p></li>
+</ul>
+<p>The <code>dplyr</code> package is handy way to both simplify and speed up your data frame management code. It is rare that you get such a combination at the same time!</p>
+<h1 id="post-lecture-materials">Post-lecture materials</h1>
+<h3 id="final-questions">Final Questions</h3>
+<p>Here are some post-lecture questions to help you think about the material discussed.</p>
+<div class="questions">
+<p><strong>Questions:</strong></p>
+<ol type="1">
+<li></li>
+<li></li>
+<li></li>
+</ol>
+</div>
+<h3 id="additional-resources">Additional Resources</h3>
+<div class="resources">
+<ul>
+<li></li>
+<li></li>
+<li></li>
+</ul>
+</div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
@@ -2652,10 +1931,7 @@ function init_posts_list() {
 <!--radix_placeholder_site_after_body-->
 <!--/radix_placeholder_site_after_body-->
 <!--radix_placeholder_appendices-->
-<div class="appendix-bottom">
-<h3 id="reuse">Reuse</h3>
-<p>Text and figures are licensed under Creative Commons Attribution <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>. The figures that have been reused from other sources don't fall under this license and can be recognized by a note in their caption: "Figure from ...".</p>
-</div>
+<div class="appendix-bottom"></div>
 <!--/radix_placeholder_appendices-->
 <!--radix_placeholder_navigation_after_body-->
 <!--/radix_placeholder_navigation_after_body-->

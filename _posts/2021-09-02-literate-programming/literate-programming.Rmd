@@ -253,6 +253,16 @@ Other really great examples can be found here:
 
 Other advantages include the content likely being reproducible, easier to maintain, and easy to convert pages to e.g. PDF or other formats in the future if you do not want to convert to HTML files. Because it is based on the Markdown syntax, it is easy to write technical documents, including math equations, insert figures or tables with captions, cross-reference with figure or table numbers, add citations, and present theorems or proofs. 
 
+Here's a video you can watch of someone making a blogdown website. 
+
+
+
+<p align="center"><iframe width="560" height="315" src="https://www.youtube.com/embed/AADnslLpzJ4" frameborder="0" allowfullscreen></iframe></p>
+
+[[Source](https://www.youtube.com/watch?v=AADnslLpzJ4) on YouTube]
+
+
+
 ### bookdown
 
 ```{r hex-bookdown, echo = FALSE, out.width='70%', fig.cap = "blogdown logo"}

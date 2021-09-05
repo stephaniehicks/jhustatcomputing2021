@@ -7,7 +7,27 @@
     <description>Course website for Statistical Computing (JHSPH Biostatistics 140.776 Fall 2021)
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Thu, 02 Sep 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 07 Sep 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Managing data frames with the Tidyverse</title>
+      <dc:creator>Stephanie Hicks</dc:creator>
+      <link>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-07-managing-data-frames-with-tidyverse</link>
+      <description>An introduction to data frames in R and the managing them with the dplyr R package.</description>
+      <category>module 1</category>
+      <category>week 2</category>
+      <guid>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-07-managing-data-frames-with-tidyverse</guid>
+      <pubDate>Tue, 07 Sep 2021 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Reading and Writing data</title>
+      <dc:creator>Stephanie Hicks</dc:creator>
+      <link>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-07-reading-and-writing-data</link>
+      <description>How to get data in and out of R using relative paths</description>
+      <category>module 1</category>
+      <category>week 2</category>
+      <guid>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-07-reading-and-writing-data</guid>
+      <pubDate>Tue, 07 Sep 2021 00:00:00 +0000</pubDate>
+    </item>
     <item>
       <title>Literate Statistical Programming</title>
       <dc:creator>Stephanie Hicks</dc:creator>
