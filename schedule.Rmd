@@ -26,10 +26,10 @@ For Rmd files, go to the [course GitHub repository](https://github.com/stephanie
 | | | `r emojifont::emoji('eyeglasses')` Literate programming [[html](posts/2021-09-02-literate-programming/index.html)] [[Rmd](https://github.com/stephaniehicks/jhustatcomputing2021/blob/main/_posts/2021-09-02-literate-programming/literate-programming.Rmd)] |  | |
 | | | `r emojifont::emoji('cool')` Reference management [[html](posts/2021-09-02-reference-management/index.html)] [[Rmd](https://github.com/stephaniehicks/jhustatcomputing2021/blob/main/_posts/2021-09-02-reference-management/reference-management.Rmd)] |  | |
 | | | | | |
-| Week 2      | Sept 7       | `r emojifont::emoji('construction')` Getting and cleaning data  | | `r emojifont::emoji('palm_tree')` Project 1 |
-| | | `r emojifont::emoji('scissors')` Managing data frames with the Tidyverse |  | |
-| | | `r emojifont::emoji('heart_eyes_cat')` Tidy data and the Tidyverse |  | |
-| | | `r emojifont::emoji('handshake')` Joining data in R: Basics |  | |
+| Week 2      | Sept 7       | `r emojifont::emoji('construction')` Getting and cleaning data [[html](posts/2021-09-07-reading-and-writing-data/index.html)] [[Rmd](https://github.com/stephaniehicks/jhustatcomputing2021/blob/main/_posts/2021-09-07-reading-and-writing-data/reading-and-writing-data.Rmd)] | | `r emojifont::emoji('palm_tree')` Project 1 [[html](projects/2021-09-07-project-1/index.html)] [[Rmd](https://github.com/stephaniehicks/jhustatcomputing2021/blob/main/_projects/2021-09-07-project-1/project-1.Rmd)] |
+| | | `r emojifont::emoji('scissors')` Managing data frames with Tidyverse [[html](posts/2021-09-07-managing-data-frames-with-tidyverse/index.html)] [[Rmd](https://github.com/stephaniehicks/jhustatcomputing2021/blob/main/_posts/2021-09-07-managing-data-frames-with-tidyverse/managing-data-frames-with-tidyverse.Rmd)] |  | |
+| | | `r emojifont::emoji('heart_eyes_cat')` Tidy data and the Tidyverse [[html](posts/2021-09-07-tidy-data-and-the-tidyverse/index.html)] [[Rmd](https://github.com/stephaniehicks/jhustatcomputing2021/blob/main/_posts/2021-09-07-tidy-data-and-the-tidyverse/tidy-data-and-the-tidyverse.Rmd)] |  | |
+| | | `r emojifont::emoji('handshake')` Joining data in R: Basics [[html](posts/2021-09-07-joining-data-in-r/index.html)] [[Rmd](https://github.com/stephaniehicks/jhustatcomputing2021/blob/main/_posts/2021-09-07-joining-data-in-r/joining-data-in-r.Rmd)] |  | |
 | | | | | |
 | | Sept 9 | `r emojifont::emoji('bar_chart')` Data visualizations in the Tidyverse  | `r emojifont::emoji('headphones')` Data viz  | `r emojifont::emoji('fallen_leaf')`  Project 0 due |
 | | | `r emojifont::emoji('notebook')` Data visualizations best practices  |  | |

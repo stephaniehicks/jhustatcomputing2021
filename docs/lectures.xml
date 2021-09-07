@@ -9,12 +9,33 @@
     <generator>Distill</generator>
     <lastBuildDate>Tue, 07 Sep 2021 00:00:00 +0000</lastBuildDate>
     <item>
+      <title>Joining data in R</title>
+      <dc:creator>Stephanie Hicks</dc:creator>
+      <link>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-07-joining-data-in-r</link>
+      <description>Introduction to relational data and join functions in the dplyr R package.</description>
+      <category>module 1</category>
+      <category>week 2</category>
+      <category>R</category>
+      <category>Programming</category>
+      <category>dplyr</category>
+      <category>here</category>
+      <category>tidyverse</category>
+      <guid>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-07-joining-data-in-r</guid>
+      <pubDate>Tue, 07 Sep 2021 00:00:00 +0000</pubDate>
+    </item>
+    <item>
       <title>Managing data frames with the Tidyverse</title>
       <dc:creator>Stephanie Hicks</dc:creator>
       <link>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-07-managing-data-frames-with-tidyverse</link>
       <description>An introduction to data frames in R and the managing them with the dplyr R package.</description>
       <category>module 1</category>
       <category>week 2</category>
+      <category>R</category>
+      <category>Programming</category>
+      <category>dplyr</category>
+      <category>here</category>
+      <category>tibble</category>
+      <category>tidyverse</category>
       <guid>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-07-managing-data-frames-with-tidyverse</guid>
       <pubDate>Tue, 07 Sep 2021 00:00:00 +0000</pubDate>
       <media:content url="https://github.com/allisonhorst/stats-illustrations/raw/master/rstats-artwork/dplyr_wrangling.png" medium="image" type="image/png"/>
@@ -26,9 +47,30 @@
       <description>How to get data in and out of R using relative paths</description>
       <category>module 1</category>
       <category>week 2</category>
+      <category>R</category>
+      <category>Programming</category>
+      <category>readr</category>
+      <category>here</category>
+      <category>tidyverse</category>
       <guid>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-07-reading-and-writing-data</guid>
       <pubDate>Tue, 07 Sep 2021 00:00:00 +0000</pubDate>
       <media:content url="https://github.com/allisonhorst/stats-illustrations/raw/master/rstats-artwork/cracked_setwd.png" medium="image" type="image/png"/>
+    </item>
+    <item>
+      <title>Tidy data and the Tidyverse</title>
+      <dc:creator>Stephanie Hicks</dc:creator>
+      <link>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-07-tidy-data-and-the-tidyverse</link>
+      <description>Introduction to tidy data and how to convert between wide and long data with the tidyr R package.</description>
+      <category>module 1</category>
+      <category>week 2</category>
+      <category>R</category>
+      <category>Programming</category>
+      <category>tidyr</category>
+      <category>here</category>
+      <category>tidyverse</category>
+      <guid>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-07-tidy-data-and-the-tidyverse</guid>
+      <pubDate>Tue, 07 Sep 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://github.com/allisonhorst/stats-illustrations/raw/master/rstats-artwork/tidydata_1.jpg" medium="image" type="image/jpeg"/>
     </item>
     <item>
       <title>Literate Statistical Programming</title>

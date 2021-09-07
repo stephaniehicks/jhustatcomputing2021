@@ -7,7 +7,18 @@
     <description>Course website for Statistical Computing (JHSPH Biostatistics 140.776 Fall 2021)
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Tue, 31 Aug 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 07 Sep 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Project 1</title>
+      <dc:creator>Stephanie Hicks</dc:creator>
+      <link>https://stephaniehicks.com/jhustatcomputing2021/projects/2021-09-07-project-1</link>
+      <description>Understanding genres using Spotify audio features</description>
+      <category>project 1</category>
+      <category>projects</category>
+      <guid>https://stephaniehicks.com/jhustatcomputing2021/projects/2021-09-07-project-1</guid>
+      <pubDate>Tue, 07 Sep 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://github.com/rfordatascience/tidytuesday/raw/master/static/tt_logo.png" medium="image" type="image/png"/>
+    </item>
     <item>
       <title>Project 0 (optional)</title>
       <dc:creator>Stephanie Hicks</dc:creator>

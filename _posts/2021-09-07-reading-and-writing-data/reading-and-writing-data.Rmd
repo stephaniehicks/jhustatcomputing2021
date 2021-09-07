@@ -16,6 +16,11 @@ output:
 categories:
   - module 1
   - week 2
+  - R
+  - Programming
+  - readr
+  - here
+  - tidyverse
 ---
 
 
@@ -657,7 +662,7 @@ logs <- read_csv(here("data", "2016-07-19.csv.bz2"),
 logs
 ```
 
-You can specify the column type in a more detailed fashion by using the various `col_*` functions. For example, in the log data above, the first column is actually a date, so it might make more sense to read it in as a Date variable. If we wanted to just read in that first column, we could do
+You can specify the column type in a more detailed fashion by using the various `col_*` functions. For example, in the log data above, the first column is actually a date, so it might make more sense to read it in as a `Date` object. If we wanted to just read in that first column, we could do
 
 ```{r}
 logdates <- read_csv(here("data", "2016-07-19.csv.bz2"), 
@@ -683,9 +688,12 @@ Here are some post-lecture questions to help you think about the material discus
 
 1. What is the point of reference for using relative paths with the `here::here()` function? 
 
-2. Why was the arguement `stringsAsFactors=TRUE` historically used?
+2. Why was the argument `stringsAsFactors=TRUE` historically used?
 
 3. What is the difference between `.Rds` and `.Rda` file formats? 
+
+4. What function in `readr` would you use to read a file where fields were separated with
+"|"?
 
 :::
 

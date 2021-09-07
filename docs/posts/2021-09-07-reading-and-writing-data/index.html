@@ -124,7 +124,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
 <script type="text/json" id="radix-rmarkdown-metadata">
-{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["creative_commons","title","description","author","date","output","categories","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["CC BY-NC-SA"]},{"type":"character","attributes":{},"value":["Reading and Writing data"]},{"type":"character","attributes":{},"value":["How to get data in and out of R using relative paths"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url","affiliation","affiliation_url"]}},"value":[{"type":"character","attributes":{},"value":["Stephanie Hicks"]},{"type":"character","attributes":{},"value":["https://stephaniehicks.com/"]},{"type":"character","attributes":{},"value":["Department of Biostatistics, Johns Hopkins"]},{"type":"character","attributes":{},"value":["https://www.jhsph.edu"]}]}]},{"type":"character","attributes":{},"value":["09-07-2021"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","toc","toc_depth"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[3]}]}]},{"type":"character","attributes":{},"value":["module 1","week 2"]},{"type":"character","attributes":{},"value":["https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-07-reading-and-writing-data/"]},{"type":"character","attributes":{},"value":["https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-07-reading-and-writing-data/"]}]}
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["creative_commons","title","description","author","date","output","categories","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["CC BY-NC-SA"]},{"type":"character","attributes":{},"value":["Reading and Writing data"]},{"type":"character","attributes":{},"value":["How to get data in and out of R using relative paths"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url","affiliation","affiliation_url"]}},"value":[{"type":"character","attributes":{},"value":["Stephanie Hicks"]},{"type":"character","attributes":{},"value":["https://stephaniehicks.com/"]},{"type":"character","attributes":{},"value":["Department of Biostatistics, Johns Hopkins"]},{"type":"character","attributes":{},"value":["https://www.jhsph.edu"]}]}]},{"type":"character","attributes":{},"value":["09-07-2021"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","toc","toc_depth"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[3]}]}]},{"type":"character","attributes":{},"value":["module 1","week 2","R","Programming","readr","here","tidyverse"]},{"type":"character","attributes":{},"value":["https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-07-reading-and-writing-data/"]},{"type":"character","attributes":{},"value":["https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-07-reading-and-writing-data/"]}]}
 </script>
 <!--/radix_placeholder_rmarkdown_metadata-->
   
@@ -2267,6 +2267,11 @@ Course Materials
 <div class="dt-tags">
   <a href="../../lectures.html#category:module_1" class="dt-tag">module 1</a>
   <a href="../../lectures.html#category:week_2" class="dt-tag">week 2</a>
+  <a href="../../lectures.html#category:R" class="dt-tag">R</a>
+  <a href="../../lectures.html#category:Programming" class="dt-tag">Programming</a>
+  <a href="../../lectures.html#category:readr" class="dt-tag">readr</a>
+  <a href="../../lectures.html#category:here" class="dt-tag">here</a>
+  <a href="../../lectures.html#category:tidyverse" class="dt-tag">tidyverse</a>
 </div>
 <!--/radix_placeholder_categories-->
 <p><p>How to get data in and out of R using relative paths</p></p>
@@ -2926,7 +2931,7 @@ When you are done:
 10 2016-… 22:00… 1.52e5 3.3.1     x86_64 ming… magrit… 1.5     US     
 # … with 1 more variable: ip_id &lt;int&gt;</code></pre>
 </div>
-<p>You can specify the column type in a more detailed fashion by using the various <code>col_*</code> functions. For example, in the log data above, the first column is actually a date, so it might make more sense to read it in as a Date variable. If we wanted to just read in that first column, we could do</p>
+<p>You can specify the column type in a more detailed fashion by using the various <code>col_*</code> functions. For example, in the log data above, the first column is actually a date, so it might make more sense to read it in as a <code>Date</code> object. If we wanted to just read in that first column, we could do</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>logdates</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://readr.tidyverse.org/reference/read_delim.html'>read_csv</a></span><span class='op'>(</span><span class='fu'><a href='https://here.r-lib.org//reference/here.html'>here</a></span><span class='op'>(</span><span class='st'>"data"</span>, <span class='st'>"2016-07-19.csv.bz2"</span><span class='op'>)</span>, 
@@ -2958,8 +2963,9 @@ When you are done:
 <p><strong>Questions:</strong></p>
 <ol type="1">
 <li><p>What is the point of reference for using relative paths with the <code>here::here()</code> function?</p></li>
-<li><p>Why was the arguement <code>stringsAsFactors=TRUE</code> historically used?</p></li>
+<li><p>Why was the argument <code>stringsAsFactors=TRUE</code> historically used?</p></li>
 <li><p>What is the difference between <code>.Rds</code> and <code>.Rda</code> file formats?</p></li>
+<li><p>What function in <code>readr</code> would you use to read a file where fields were separated with “|”?</p></li>
 </ol>
 </div>
 <h3 id="additional-resources">Additional Resources</h3>

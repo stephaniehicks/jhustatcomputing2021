@@ -1,7 +1,7 @@
 ---
 title: "Project 1"
 description: |
-  It's all about the data! 
+  Understanding songs and genres using Spotify audio features 
 author:
   - name: Stephanie Hicks
     url: https://stephaniehicks.com/
@@ -16,18 +16,242 @@ output:
 categories:
   - project 1
   - projects
-draft: true
 ---
 
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(comment = NA, collapse = TRUE)
 ```
 
 # Background
 
 **Due date: Sept 17 at 11:59pm**
 
-Information coming soon.
+### To submit your project
+
+Please write up your project using R Markdown and `knitr`. Compile your document as an **HTML file** and submit your HTML file to the dropbox on Courseplus. Please **show all your code** for each of the answers to each part.
+
+To get started, [watch this video on setting up your R Markdown document](https://www.stephaniehicks.com/jhustatcomputing2021/posts/2021-09-02-literate-programming/#create-and-knit-your-first-r-markdown-document).
 
 
+### Install `tidyverse` 
+
+Before attempting this assignment, you should first install the `tidyverse` package if you have not already. The `tidyverse` package is actually a collection of many packages that serves as a convenient way to install many packages without having to do them one by one. This can be done with the `install.packages()` function.
+
+```{r,eval=FALSE}
+install.packages("tidyverse")
+```
+
+Running this function will install a host of other packages so it make take a minute or two depending on how fast your computer is. Once you have installed it, you will want to load the package.
+
+```{r, message=FALSE}
+library(tidyverse)
+```
+
+For all of the questions below, you can ignore the missing values in the dataset, so e.g. when taking averages, just remove the missing values before taking the average, if needed.
+
+### Data 
+
+That data for this part of the assignment comes from [TidyTuesday](https://www.tidytuesday.com), which is a weekly podcast and global [community activity](https://github.com/rfordatascience/tidytuesday) brought to you by the R4DS Online Learning Community. The goal of TidyTuesday is to help R learners learn in real-world contexts.
+
+```{r tidy-data, echo = FALSE, fig.cap = "Icon from TidyTuesday", out.width = '60%', fig.align='center', preview = TRUE}
+knitr::include_graphics("https://github.com/rfordatascience/tidytuesday/raw/master/static/tt_logo.png")
+```
+
+[**Source**: [TidyTuesday](https://github.com/rfordatascience/tidytuesday/blob/master/static/tt_logo.png)]
+
+To access the data, you need to install the `tidytuesdayR` R package and use the function `tt_load()` with the date of '2020-01-21' to load the data.
+
+```{r,eval=FALSE}
+install.packages("tidytuesdayR")
+```
+
+```{r}
+tuesdata <- tidytuesdayR::tt_load('2020-01-21')
+spotify_songs <- tuesdata$spotify_songs
+glimpse(spotify_songs)
+```
+
+If we look at the [TidyTuesday github repo](https://github.com/rfordatascience/tidytuesday/tree/master/data/2020#2020-data) from 2020, we see this dataset contains songs from Spotify.
+
+Here is a data dictionary for what all the column names mean: 
+
+- https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-01-21/readme.md#data-dictionary
+
+
+
+# Part 1: Explore data
+
+In this part, use functions from `dplyr` to answer the following questions. 
+
+1. How many songs are in each genre? 
+
+```{r}
+# Add your solution here
+
+```
+
+
+2. What is average value of `energy` and `acousticness` in the `latin` genre in this dataset?
+
+```{r}
+# Add your solution here
+
+```
+
+
+3. Calculate the average duration of song (in minutes) across all subgenres. Which subgenre has the longest song on average?
+
+```{r}
+# Add your solution here
+
+```
+
+
+4. Make two boxplots side-by-side of the `danceability` of songs stratifying by whether a song has a fast or slow tempo. Define fast tempo as any song that has a `tempo` above its median value. On average, which songs are more danceable?
+
+**Hint**: You may find the `case_when()` function useful in this part, which can be used to map values from one variable to different values in a new variable (when used in a `mutate()` call).
+
+```{r,message=FALSE}
+## Generate some random numbers
+dat <- tibble(x = rnorm(100))
+slice(dat, 1:3)
+
+## Create a new column that indicates whether the value of 'x' is positive or negative
+dat %>%
+        mutate(is_positive = case_when(
+                x >= 0 ~ "Yes",
+                x < 0 ~ "No"
+        ))
+```
+
+
+```{r}
+# Add your solution here
+
+```
+
+
+# Part 2: Convert nontidy data into tidy data
+
+The goal of this part of the assignment is to take a dataset that is either messy or simply not tidy and to make them tidy datasets. The objective is to gain some familiarity with the functions in the `dplyr`, `tidyr` packages. You may find it helpful to review the section on spreading and gathering data.
+
+### Tasks
+
+This dataset gives a set of 12 audio features (e.g. `acousticness`, `liveness`, `speechiness`, etc) and descriptors like duration, tempo, key, and mode for a set of 32833 songs (in addition to the artist, album name, album release date, etc). 
+
+```{r}
+spotify_songs
+```
+
+Use the functions in `dplyr`, `tidyr`, and `lubridate` to perform the following steps to the `spotify_songs` dataset: 
+
+1. Select only unique distinct rows from the dataset based on the `track_name` and `track_artist` columns (**Hint** check out the `distinct()` function in `dplyr`). 
+2. Add a new column called `year_released` listing just the year that the song was released. (**Hint** check out the `ymd()` function in `lubridate` R package. Also, if you get a warning message with "failed to parse", check out the `truncated` argument in the `ymd()` function.).
+3. Keep only songs that were released in or after 1980. 
+4. Add a new column with the duration of the song in minutes
+5. For each `year_released`, calculate the mean of at least 6 of the audio features (e.g. danceability, energy, loudness, etc), or descriptors (e.g. tempo, duration in minutes, etc). (**Hint**: If all has gone well thus far, you should have a dataset with 41 rows and 7 columns). 
+6. Convert this wide dataset into a long dataset with a new `feature` and `mean_score` column
+
+It should look something like this: 
+
+```
+year_released   feature   mean_score
+<dbl>           <chr>       <dbl>
+1980	Danceability	0.5633676		
+1980	Energy	0.7107647		
+1980	Loudness	-8.5211765		
+1980	Valence	0.6333235		
+1980	Tempo	124.1458529		
+1980	Duration	4.2853662		
+1981	Danceability	0.5697258		
+1981	Energy	0.6967581		
+1981	Loudness	-8.8678065		
+1981	Valence	0.6650968	
+```
+
+### Notes
+
+* You may need to use functions outside these packages to obtain this result.
+
+* Note that the functions in the `dplyr` and `tidyr` package expect table-like objects (data frames or tibbles) as their input. You can convert data to these objects using the `as_tibble()` function in the `tibble` package.
+
+* Do not worry about the ordering of the rows or columns. Depending on whether you use `gather()` or `pivot_longer()`, the order of your output may differ from what is printed above. As long as the result is a tidy data set, that is sufficient.
+
+
+```{r}
+# Add your solution here
+
+```
+
+
+# Part 3: Data visualization
+
+In this part of the project, we will continue to work with our now tidy song dataset from the previous part. 
+
+### Tasks 
+
+Use the functions in `ggplot2` package to make a scatter plot of the six (or more) `mean_score`s (y-axis) over time (x-axis). For full credit, your plot should include: 
+
+1. An overall title for the plot and a subtitle summarizing key trends that you found. Also include a caption in the figure with your name. 
+2. Both the observed points for the `mean_score`, but also a smoothed non-linear pattern of the trend
+3. All six (or more) plots should be shown in the one figure 
+4. There should be an informative x-axis and y-axis label
+
+Consider playing around with the `theme()` function to make the figure shine, including playing with background colors, font, etc.
+
+### Notes
+
+* You may need to use functions outside these packages to obtain this result.
+
+* Note that the functions in the `dplyr` and `tidyr` package expect table-like objects (data frames or tibbles) as their input. You can convert data to these objects using the `as_tibble()` function in the `tibble` package.
+
+* Don't worry about the ordering of the rows or columns. Depending on whether you use `gather()` or `pivot_longer()`, the order of your output may differ from what is printed above. As long as the result is a tidy data set, that is sufficient.
+
+
+```{r}
+# Add your solution here
+
+```
+
+
+
+# Part 4: Make the worst plot you can! 
+
+This sounds a bit crazy I know, but I want this to try and be FUN! Instead of trying to make a "good" plot, I want you to explore your creative side and make a really awful data visualization in every way. :)
+
+### Tasks
+
+Using the `spotify_songs` dataset (and it does not have to be the tidy dataset that we created in Part 2, it can be anything from the original dataset): 
+
+1. Make the absolute worst plot that you can. You need to customize it in **at least 7 ways** to make it awful. 
+2. In your document, write 1 - 2 sentences about each different customization you added (using bullets -- i.e. there should be at least 7 bullet points each with 1-2 sentences), and how it could be useful for you when you want to make an awesome data visualization.  
+
+
+```{r}
+# Add your solution here
+
+```
+
+
+
+# Part 5: Make my plot a better plot! 
+
+The goal is to take my sad looking plot and make it better! If you'd like an [example](https://twitter.com/drmowinckels/status/1392136510468763652), here is a tweet I came across of someone who gave a talk about how to zhoosh up your ggplots. 
+
+```{r}
+spotify_songs %>% 
+  ggplot(aes(y=track_popularity, x=playlist_subgenre, fill = playlist_genre)) + 
+  geom_violin() +
+  facet_wrap( ~ playlist_genre, scales = "free_x")
+```
+### Tasks 
+
+1. You need to customize it in **at least 7 ways** to make it better. 
+2. In your document, write 1 - 2 sentences about each different customization you added (using bullets -- i.e. there should be at least 7 bullet points each with 1-2 sentences), describing how you improved it.
+
+
+```{r}
+# Add your solution here
+
+```
