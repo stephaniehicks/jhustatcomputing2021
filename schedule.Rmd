@@ -28,49 +28,49 @@ For Rmd files, go to the [course GitHub repository](https://github.com/stephanie
 | | | | | |
 | Week 2      | Sept 7       | `r emojifont::emoji('construction')` Getting and cleaning data [[html](posts/2021-09-07-reading-and-writing-data/index.html)] [[Rmd](https://github.com/stephaniehicks/jhustatcomputing2021/blob/main/_posts/2021-09-07-reading-and-writing-data/reading-and-writing-data.Rmd)] | | `r emojifont::emoji('palm_tree')` Project 1 [[html](projects/2021-09-07-project-1/index.html)] [[Rmd](https://github.com/stephaniehicks/jhustatcomputing2021/blob/main/_projects/2021-09-07-project-1/project-1.Rmd)] |
 | | | `r emojifont::emoji('scissors')` Managing data frames with Tidyverse [[html](posts/2021-09-07-managing-data-frames-with-tidyverse/index.html)] [[Rmd](https://github.com/stephaniehicks/jhustatcomputing2021/blob/main/_posts/2021-09-07-managing-data-frames-with-tidyverse/managing-data-frames-with-tidyverse.Rmd)] |  | |
-| | | `r emojifont::emoji('heart_eyes_cat')` Tidy data and the Tidyverse [[html](posts/2021-09-07-tidy-data-and-the-tidyverse/index.html)] [[Rmd](https://github.com/stephaniehicks/jhustatcomputing2021/blob/main/_posts/2021-09-07-tidy-data-and-the-tidyverse/tidy-data-and-the-tidyverse.Rmd)] |  | |
+| | | | | |
+| | Sept 9 | `r emojifont::emoji('heart_eyes_cat')` Tidy data and the Tidyverse [[html](posts/2021-09-07-tidy-data-and-the-tidyverse/index.html)] [[Rmd](https://github.com/stephaniehicks/jhustatcomputing2021/blob/main/_posts/2021-09-07-tidy-data-and-the-tidyverse/tidy-data-and-the-tidyverse.Rmd)] | `r emojifont::emoji('headphones')` Data viz  | `r emojifont::emoji('fallen_leaf')`  Project 0 due |
 | | | `r emojifont::emoji('handshake')` Joining data in R: Basics [[html](posts/2021-09-07-joining-data-in-r/index.html)] [[Rmd](https://github.com/stephaniehicks/jhustatcomputing2021/blob/main/_posts/2021-09-07-joining-data-in-r/joining-data-in-r.Rmd)] |  | |
+| | | `r emojifont::emoji('bar_chart')` Plotting systems in R  [[html](posts/2021-09-09-plotting-systems/index.html)] [[Rmd](https://github.com/stephaniehicks/jhustatcomputing2021/blob/main/_posts/2021-09-09-plotting-systems/plotting-systems.Rmd)] |  | |
 | | | | | |
-| | Sept 9 | `r emojifont::emoji('bar_chart')` Data visualizations in the Tidyverse  | `r emojifont::emoji('headphones')` Data viz  | `r emojifont::emoji('fallen_leaf')`  Project 0 due |
-| | | `r emojifont::emoji('notebook')` Data visualizations best practices  |  | |
-| | | | | |
+|   Week 3 | Sept 14  | `r emojifont::emoji('bar_chart')` The ggplot2 plotting system: qplot() [[html](posts/2021-09-09-ggplot2-plotting-systems-part-1/index.html)] [[Rmd](https://github.com/stephaniehicks/jhustatcomputing2021/blob/main/_posts/2021-09-09-ggplot2-plotting-systems-part-1/ggplot2-plotting-systems-part-1.Rmd)] |  | |
+| | | `r emojifont::emoji('bar_chart')` The ggplot2 plotting system: ggplot() [[html](posts/2021-09-09-ggplot2-plotting-systems-part-2/index.html)] [[Rmd](https://github.com/stephaniehicks/jhustatcomputing2021/blob/main/_posts/2021-09-09-ggplot2-plotting-systems-part-2/ggplot2-plotting-systems-part-2.Rmd)] |  | |
+| | | |  | |
 | **Module 2** |    | **Data analysis in R** |  | |
 | | | | | |
-| Week 3      | Sept 14      | `r emojifont::emoji('nut_and_bolt')` R Nuts and Bolts | | `r emojifont::emoji('palm_tree')` Project 2 |
+|      | Sept 16      | `r emojifont::emoji('nut_and_bolt')` R Nuts and Bolts | | `r emojifont::emoji('palm_tree')` Project 2 |
 | | | `r emojifont::emoji('nut_and_bolt')` Control structures in R | | | 
-| | | `r emojifont::emoji('nut_and_bolt')` Functions in R | | | 
-| | | `r emojifont::emoji('nut_and_bolt')` Scoping rules of R | | | 
-| | | `r emojifont::emoji('nut_and_bolt')` Loop functions| | | 
-| | | |  | |
-| | Sept 16 | `r emojifont::emoji('package')` R package software development (build, doc) | | |
 | |  Sept 17 | | | `r emojifont::emoji('fallen_leaf')`  Project 1 due |
 | | | | | |
-| Week 4      | Sept 21      | `r emojifont::emoji('package')` R package software development (testing) | `r emojifont::emoji('headphones')` Data analysis  | | 
+| Week 4  | Sept 21 | `r emojifont::emoji('nut_and_bolt')` Scoping rules of R  | | |
+| |  | `r emojifont::emoji('nut_and_bolt')` Loop functions  | | |
+| |  | `r emojifont::emoji('nut_and_bolt')` Functions in R   | | |
+| | | | | |
+| | Sept 23      | `r emojifont::emoji('package')` R package software development (build, doc) | `r emojifont::emoji('headphones')` Data analysis  | | 
 | | |  | | |
-| | Sept 23      | `r emojifont::emoji('bug')` Debugging code in R | | | 
+| Week 5 | Sept 28      | `r emojifont::emoji('package')` R package software development (testing) | `r emojifont::emoji('headphones')` Data analysis  | | 
+| | |  | | |
+| | Sept 30      | `r emojifont::emoji('bug')` Debugging code in R | | | 
 | | | `r emojifont::emoji('bug')` Error handling code in R  | | |
 | | | `r emojifont::emoji('bug')` Profiling R code | | |
-| | | | | |
-| Week 5      | Sept 28   | `r emojifont::emoji('calendar')` Working with dates and times | | |
-| | | | | |
-| | Sept 30 | `r emojifont::emoji('sparkles')` Regular expressions | | |
 | | Oct 1 | | | `r emojifont::emoji('fallen_leaf')`  Project 2 due |
 | | | | | |
-| Week 6      | Oct 5        | `r emojifont::emoji('volcano')` Dealing with large data; parallel computing  | | `r emojifont::emoji('palm_tree')` Project 3  |
+| Week 6      | Oct 5   | `r emojifont::emoji('calendar')` Working with dates and times | | `r emojifont::emoji('palm_tree')` Project 3  f|
 | | | | | |
-| | Oct 7 | `r emojifont::emoji('snake')` Leveraging Python within R | | |
+| | Oct 7 | `r emojifont::emoji('sparkles')` Regular expressions | | |
+| | | | | |
+| Week 7      | Oct 12        | `r emojifont::emoji('volcano')` Dealing with large data; parallel computing  | | |
+| | | | | |
+| | Oct 14 | `r emojifont::emoji('snake')` Leveraging Python within R | | |
 | | | | | |
 | **Module 3** |    | **Basic algorithms for optimization and estimation ** | |
 | | | | | |
-| Week 7      | Oct 12       | Basic statistical computing algorithms | |
-| | | | | |
-| | Oct 14 | Basic statistical computing algorithms | | |
+| Week 8      | Oct 19       | Basic statistical computing algorithms | |
 | | | | | |
 | **Module 4** |    | **Machine Learning Essentials** | |
 | | | | | |
-| Week 8      | Oct 19      |  Machine learning essentials  | |
+| | Oct 21 |   Machine learning essentials | | |
 | | | | | |
-| | Oct 21 |  Machine learning essentials | | |
 | |  Oct 22 | | | `r emojifont::emoji('fallen_leaf')`  Project 3 due |
 :::
 

@@ -7,7 +7,52 @@
     <description>Course website for Statistical Computing (JHSPH Biostatistics 140.776 Fall 2021)
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Tue, 07 Sep 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 09 Sep 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>The ggplot2 plotting system: qplot()</title>
+      <dc:creator>Stephanie Hicks</dc:creator>
+      <link>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-09-ggplot2-plotting-system-part-1</link>
+      <description>An overview of the ggplot2 plotting system in R with qplot().</description>
+      <category>module 1</category>
+      <category>week 3</category>
+      <category>R</category>
+      <category>Programming</category>
+      <category>ggplot2</category>
+      <category>data viz</category>
+      <guid>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-09-ggplot2-plotting-system-part-1</guid>
+      <pubDate>Thu, 09 Sep 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-09-ggplot2-plotting-system-part-1/ggplot2-plotting-system-part-1_files/figure-html5/unnamed-chunk-1-1.png" medium="image" type="image/png" width="1248" height="960"/>
+    </item>
+    <item>
+      <title>The ggplot2 plotting system: ggplot()</title>
+      <dc:creator>Stephanie Hicks</dc:creator>
+      <link>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-09-ggplot2-plotting-system-part-2</link>
+      <description>An overview of the ggplot2 plotting system in R with ggplot().</description>
+      <category>module 1</category>
+      <category>week 3</category>
+      <category>R</category>
+      <category>Programming</category>
+      <category>ggplot2</category>
+      <category>data viz</category>
+      <guid>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-09-ggplot2-plotting-system-part-2</guid>
+      <pubDate>Thu, 09 Sep 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-09-ggplot2-plotting-system-part-2/ggplot2-plotting-system-part-2_files/figure-html5/unnamed-chunk-4-1.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
+    <item>
+      <title>Plotting Systems</title>
+      <dc:creator>Stephanie Hicks</dc:creator>
+      <link>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-09-plotting-systems</link>
+      <description>Overview of three plotting systems in R</description>
+      <category>module 1</category>
+      <category>week 2</category>
+      <category>R</category>
+      <category>Programming</category>
+      <category>ggplot2</category>
+      <category>data viz</category>
+      <guid>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-09-plotting-systems</guid>
+      <pubDate>Thu, 09 Sep 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-09-plotting-systems/plotting-systems_files/figure-html5/unnamed-chunk-1-1.png" medium="image" type="image/png" width="960" height="960"/>
+    </item>
     <item>
       <title>Joining data in R</title>
       <dc:creator>Stephanie Hicks</dc:creator>
