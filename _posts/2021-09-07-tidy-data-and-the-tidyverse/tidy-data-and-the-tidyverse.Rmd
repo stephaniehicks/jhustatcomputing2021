@@ -93,26 +93,23 @@ knitr::include_graphics("https://github.com/allisonhorst/stats-illustrations/raw
 
 The purpose of defining tidy data is to highlight the fact that *most data do not start out life as tidy*. In fact, much of the work of data analysis may involve simply making the data tidy (at least this has been our experience). Once a dataset is tidy, it can be used as input into a variety of other functions that may transform, model, or visualize the data.
 
-As a quick example, consider the following data illustrating death rates in Virginia in 1940 in a classic table format:
+As a quick example, consider the following data illustrating religion and income survey data with the number of respondees with income range in column name. This is in a classic table format:
 
 ```{r}
-library(datasets)
-VADeaths
+library(tidyr)
+relig_income
 ```
 
-While this format is canonical and is useful for quickly observing the relationship between multiple variables, it is not tidy. This format violates the tidy form because there are variables in both the rows and columns. In this case the variables are age category, gender, and urban-ness. Finally, the death rate itself, which is the fourth variable, is presented inside the table. 
+While this format is canonical and is useful for quickly observing the relationship between multiple variables, it is not tidy. This format violates the tidy form because there are variables in the columns. In this case the variables are religion, income bracket, and the number of respondents, which is the third variable, is presented inside the table. 
 
 Converting this data to tidy format would give us
 
 ```{r, message=FALSE}
 library(tidyverse)
 
-VADeaths %>%
-  as_tibble() %>%
-  mutate(age = row.names(VADeaths)) %>%
-  pivot_longer(-age) %>%
-  separate(name, c("urban", "gender"), sep = " ") %>%
-  mutate(age = factor(age), urban = factor(urban), gender = factor(gender))
+relig_income %>%
+  pivot_longer(-religion, names_to = "income", values_to = "respondents") %>%
+  mutate(religion = factor(religion), income = factor(income))
 ```
 
 Some of these functions you have seen before, others might be new to you. Let's talk about each one in the context of the Tidyverse package. 
@@ -147,20 +144,8 @@ You can start with this:
 library(tidyverse)
 ```
 
-Ok, so the first three lines, you should recognize what is happening: 
-
-```{r, message=FALSE}
-VADeaths %>%
-  as_tibble() %>%
-  mutate(age = row.names(VADeaths))
-```
-
-We did the following: 
-
-1. Converted the VADeaths `data.frame` to a tibble. 
-2. Added a new column called `age` which contained the row name information so all information is contained in a given column. 
-
-Let's talk about the `pivot_longer()`  and `pivot_wider()` functions next. 
+In the code above, let's talk about what we did using the
+`pivot_longer()` function. We will also talk about `pivot_wider()`. 
 
 ### `pivot_longer()` and `pivot_wider()`
 
@@ -171,36 +156,81 @@ The `tidyr` package includes functions to transfer a data frame between *long* a
 
 In the section above, we showed an example that used `pivot_longer()` to convert data into a tidy format. 
 
-After changing the age categories from row names to a variable (which can be done with the `mutate` function), the key problem with the tidyness of the data is that the variables of urban / rural and male / female are not in their own columns, but rather are embedded in the structure of the columns. 
+The key problem with the tidyness of the data is that the income variables are not in their own columns, but rather are embedded in the structure of the columns. 
 
-To fix this, you can use the `pivot_longer()` function to gather values spread across several columns into a single column, with the column names gathered into a "name" column. When gathering, exclude any columns that you do not want "gathered" (`age` in this case) by including the column names with a the minus sign in the `pivot_longer()` function. For example:
+To fix this, you can use the `pivot_longer()` function to gather values spread across several columns into a single column, with the column names gathered into an `income` column. When gathering, exclude any columns that you do not want "gathered" (`religion` in this case) by including the column names with a the minus sign in the `pivot_longer()` function. For example:
 
 ```{r}
-# Gather everything EXCEPT age to tidy data
-VADeaths %>%
-  as_tibble() %>%
-  mutate(age = row.names(VADeaths)) %>%
-  pivot_longer(-age)
+# Gather everything EXCEPT religion to tidy data
+relig_income %>%
+  pivot_longer(-religion, names_to = "income", values_to = "respondents")
 ```
 
 Even if your data is in a tidy format, `pivot_longer()` is occasionally useful for pulling data together to take advantage of faceting, or plotting separate plots based on a grouping variable. We will talk more about that in a future lecture. 
 
-The `pivot_wider()` function is less commonly needed to tidy data. It can, however, be useful for creating summary tables. For example, you use the `summarize()` function in `dplyr` to summarize the mean death rates by age across both rural / urban and male / female 
+The `pivot_wider()` function is less commonly needed to tidy data. It can, however, be useful for creating summary tables. For example, you use the `summarize()` function in `dplyr` to summarize the total number of respondents per income category.
 
 ```{r}
-VADeaths %>%
-  as_tibble() %>%
-  mutate(age = row.names(VADeaths)) %>%
-  pivot_longer(-age) %>% 
-  group_by(age) %>% 
-  summarize(mean_value = mean(value)) %>% 
-  pivot_wider(names_from = "age", 
-              values_from = "mean_value") %>%
+relig_income %>%
+  pivot_longer(-religion, names_to = "income", values_to = "respondents") %>%
+  mutate(religion = factor(religion), income = factor(income)) %>% 
+  group_by(income) %>% 
+  summarize(total_respondents = sum(respondents)) %>%
+  pivot_wider(names_from = "income", 
+              values_from = "total_respondents") %>%
   knitr::kable()
 ```
 
-Notice in this example how `pivot_wider()` has been used at the very end of the code sequence to convert the summarized data into a shape that offers a better tabular presentation for a report. In the `pivot_wider()` call, you first specify the name of the column to use for the new column names (`age` in this example) and then specify the column to use for the cell values (`mean_value` here).
+Notice in this example how `pivot_wider()` has been used at the very end of the code sequence to convert the summarized data into a shape that offers a better tabular presentation for a report. In the `pivot_wider()` call, you first specify the name of the column to use for the new column names (`income` in this example) and then specify the column to use for the cell values (`total_respondents` here).
 
+:::questions
+
+**Example**: Let's try another dataset. This data contain an excerpt of the [Gapminder data](https://cran.r-project.org/web/packages/gapminder/README.html#gapminder) on life expectancy, GDP per capita, and population by country.
+
+```{r}
+library(gapminder)
+gapminder
+```
+
+If we wanted to make `lifeExp`, `pop` and `gdpPercap` (all measurements that we observe) go from a wide table into a long table, what would we do? 
+
+```{r}
+# try it yourself
+
+```
+
+:::
+
+
+
+:::questions
+
+
+One more! Try using `pivot_longer()` to convert the the following data that contains made-up revenues for three companies by quarter for years 2006 to 2009. 
+
+Afterward, use `group_by()` and `summarize()` to calculate the average revenue for each company across all years and all quarters. 
+
+**Bonus**: Calculate a mean revenue for each company AND each year (averaged across all 4 quarters).
+
+```{r, set.seed(123)}
+df <- tibble(
+  "company" = rep(1:3, each=4), 
+  "year"  = rep(2006:2009, 3),
+  "Q1"    = sample(x = 0:100, size = 12),
+  "Q2"    = sample(x = 0:100, size = 12),
+  "Q3"    = sample(x = 0:100, size = 12),
+  "Q4"    = sample(x = 0:100, size = 12),
+)
+df
+```
+
+```{r}
+# try it yourself 
+
+```
+
+
+:::
 
 ### `separate()` and `unite()`
 
@@ -209,36 +239,23 @@ The same `tidyr` package also contains two useful functions:
 - `unite()`: combine contents of two or more columns into a single column
 - `separate()`:  separate contents of a column into two or more columns
 
-If you recall, this is where we were at: 
+
+First, we combine the first three columns into one new column using `unite()`. 
 
 ```{r}
-VADeaths %>%
-  as_tibble() %>%
-  mutate(age = row.names(VADeaths)) %>%
-  pivot_longer(-age)
+gapminder %>% 
+  unite(col="country_continent_year", country:year, sep="_")
 ```
 
-Next, we want to take the `name` column and separate the two types of information into two columns using the `col`, `into` and `sep` arguments: 
+Next, we show how to separate the columns into three separate columns using `separate()` using the `col`, `into` and `sep` arguments. 
 
 ```{r}
-VADeaths %>%
-  as_tibble() %>%
-  mutate(age = row.names(VADeaths)) %>%
-  pivot_longer(-age) %>%
-  separate(col=name, into=c("urban", "gender"), sep = " ")
+gapminder %>% 
+  unite(col="country_continent_year", country:year, sep="_") %>% 
+  separate(col="country_continent_year", into=c("country", "continent", "year"), sep="_")
 ```
 
 
-The last step we want to do is convert the data types of the first three columns from characters to factors: 
-
-```{r}
-VADeaths %>%
-  as_tibble() %>%
-  mutate(age = row.names(VADeaths)) %>%
-  pivot_longer(-age) %>%
-  separate(col=name, into=c("urban", "gender"), sep = " ") %>%
-  mutate(age = factor(age), urban = factor(urban), gender = factor(gender))
-```
 
 
 # Post-lecture materials

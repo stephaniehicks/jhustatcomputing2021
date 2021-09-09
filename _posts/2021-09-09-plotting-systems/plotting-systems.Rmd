@@ -77,7 +77,7 @@ There are three different plotting systems in R and they each have different cha
 
 The base plotting system is the original plotting system for R. The basic model is sometimes referred to as the "artist's palette" model. The idea is you start with blank canvas and build up from there. 
 
-In more R-specific terms, you typically start with `plot` function (or similar plot creating function) to *initiate* a plot and then *annotate* the plot with various annotation functions (`text`, `lines`, `points`, `axis`)
+In more R-specific terms, you typically start with `plot()` function (or similar plot creating function) to *initiate* a plot and then *annotate* the plot with various annotation functions (`text`, `lines`, `points`, `axis`)
 
 The base plotting system is often the most convenient plotting system to use because it mirrors how we sometimes think of building plots and analyzing data. If we do not have a completely well-formed idea of how we want to look at some data, often we will start by "throwing some data on the page" and then slowly add more information to it as our thought process evolves. 
 
@@ -91,9 +91,17 @@ with(airquality, {
 })
 ```
 
-In the code above, the `plot` function creates the initial plot and draws the points (circles) on the canvas. The `lines` function is used to annotate or add to the plot; in this case it adds a loess smoother to the scatterplot.
+In the code above, the `plot()` function creates the initial plot and draws the points (circles) on the canvas. The `lines` function is used to annotate or add to the plot; in this case it adds a loess smoother to the scatterplot.
 
-Here, we use the `plot()` function to draw the points on the scatterplot and then use the `title` function to add a main title to the plot. 
+Here, we use the `plot()` function to draw the points on the scatterplot and then use the `main` arguement to add a main title to the plot. 
+
+```{r,fig.width=5,fig.height=5,fig.cap="Scatterplot with loess curve"}
+data(airquality)
+with(airquality, {
+        plot(Temp, Ozone, main = "my plot")
+        lines(loess.smooth(Temp, Ozone))
+})
+```
 
 One downside with constructing base plots is that you can not go backwards once the plot has started. So it is possible that you could start down the road of constructing a plot and realize later (when it is too late) that you do not have enough room to add a y-axis label or something like that.
 
@@ -113,7 +121,7 @@ with(cars, plot(speed, dist))
 title("Speed vs. Stopping distance")
 ```
 
-We will go into more detail on what these functions do in later chapters.
+We will go into more detail on what these functions do in later lessons.
 
 
 ### The Lattice System

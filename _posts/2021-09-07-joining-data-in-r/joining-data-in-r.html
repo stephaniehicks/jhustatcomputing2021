@@ -1614,15 +1614,15 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <pre><code># A tibble: 9 × 3
   id    visit outcome
   &lt;chr&gt; &lt;int&gt;   &lt;dbl&gt;
-1 a         0   3.18 
-2 a         1   3.67 
-3 a         2   2.96 
-4 b         0   4.71 
-5 b         1   2.36 
-6 b         2   0.932
-7 c         0   3.74 
-8 c         1   4.05 
-9 c         2   2.56 </code></pre>
+1 a         0    2.34
+2 a         1    3.59
+3 a         2    2.74
+4 b         0    4.32
+5 b         1    2.88
+6 b         2    1.69
+7 c         0    3.50
+8 c         1    2.80
+9 c         2    3.05</code></pre>
 </div>
 <p>Note that subjects are labeled by their id in the <code>id</code> column.</p>
 <h3 id="a-second-table">A second table</h3>
@@ -1648,21 +1648,21 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <p>Now suppose we want to create a table that combines the information about houses with the information about the outcomes. We can use the <code>left_join()</code> function to merge the <code>outcomes</code> and <code>subjects</code> tables and produce the output above.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>left_join</span><span class='op'>(</span><span class='va'>outcomes</span>, <span class='va'>subjects</span>, by <span class='op'>=</span> <span class='st'>"id"</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>left_join</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>outcomes</span>, y <span class='op'>=</span> <span class='va'>subjects</span>, by <span class='op'>=</span> <span class='st'>"id"</span><span class='op'>)</span>
 </code></pre>
 </div>
 <pre><code># A tibble: 9 × 4
   id    visit outcome house   
   &lt;chr&gt; &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;   
-1 a         0   3.18  detached
-2 a         1   3.67  detached
-3 a         2   2.96  detached
-4 b         0   4.71  rowhouse
-5 b         1   2.36  rowhouse
-6 b         2   0.932 rowhouse
-7 c         0   3.74  rowhouse
-8 c         1   4.05  rowhouse
-9 c         2   2.56  rowhouse</code></pre>
+1 a         0    2.34 detached
+2 a         1    3.59 detached
+3 a         2    2.74 detached
+4 b         0    4.32 rowhouse
+5 b         1    2.88 rowhouse
+6 b         2    1.69 rowhouse
+7 c         0    3.50 rowhouse
+8 c         1    2.80 rowhouse
+9 c         2    3.05 rowhouse</code></pre>
 </div>
 <p>The <code>by</code> argument indicates the column (or columns) that the two tables have in common.</p>
 <h3 id="left-join-with-incomplete-data">Left Join with Incomplete Data</h3>
@@ -1694,15 +1694,15 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <pre><code># A tibble: 9 × 4
   id    visit outcome house   
   &lt;chr&gt; &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;   
-1 a         0   3.18  detached
-2 a         1   3.67  &lt;NA&gt;    
-3 a         2   2.96  &lt;NA&gt;    
-4 b         0   4.71  &lt;NA&gt;    
-5 b         1   2.36  rowhouse
-6 b         2   0.932 &lt;NA&gt;    
-7 c         0   3.74  rowhouse
-8 c         1   4.05  &lt;NA&gt;    
-9 c         2   2.56  &lt;NA&gt;    </code></pre>
+1 a         0    2.34 detached
+2 a         1    3.59 &lt;NA&gt;    
+3 a         2    2.74 &lt;NA&gt;    
+4 b         0    4.32 &lt;NA&gt;    
+5 b         1    2.88 rowhouse
+6 b         2    1.69 &lt;NA&gt;    
+7 c         0    3.50 rowhouse
+8 c         1    2.80 &lt;NA&gt;    
+9 c         2    3.05 &lt;NA&gt;    </code></pre>
 </div>
 <p>Notice how now if we do not have information about a subject’s housing in a given visit, the <code>left_join()</code> function automatically inserts an <code>NA</code> value to indicate that it is missing.</p>
 <p>Also, in the above example, we joined on the <code>id</code> and the <code>visit</code> columns.</p>
@@ -1727,48 +1727,48 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <p>But we can still join the tables together and the <code>house</code> values for subject <code>a</code> will all be <code>NA</code>.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>left_join</span><span class='op'>(</span><span class='va'>outcomes</span>, <span class='va'>subjects</span>, by <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"id"</span>, <span class='st'>"visit"</span><span class='op'>)</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>left_join</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>outcomes</span>, y <span class='op'>=</span> <span class='va'>subjects</span>, by <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"id"</span>, <span class='st'>"visit"</span><span class='op'>)</span><span class='op'>)</span>
 </code></pre>
 </div>
 <pre><code># A tibble: 9 × 4
   id    visit outcome house   
   &lt;chr&gt; &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;   
-1 a         0   3.18  &lt;NA&gt;    
-2 a         1   3.67  &lt;NA&gt;    
-3 a         2   2.96  &lt;NA&gt;    
-4 b         0   4.71  &lt;NA&gt;    
-5 b         1   2.36  rowhouse
-6 b         2   0.932 &lt;NA&gt;    
-7 c         0   3.74  rowhouse
-8 c         1   4.05  &lt;NA&gt;    
-9 c         2   2.56  &lt;NA&gt;    </code></pre>
+1 a         0    2.34 &lt;NA&gt;    
+2 a         1    3.59 &lt;NA&gt;    
+3 a         2    2.74 &lt;NA&gt;    
+4 b         0    4.32 &lt;NA&gt;    
+5 b         1    2.88 rowhouse
+6 b         2    1.69 &lt;NA&gt;    
+7 c         0    3.50 rowhouse
+8 c         1    2.80 &lt;NA&gt;    
+9 c         2    3.05 &lt;NA&gt;    </code></pre>
 </div>
 <p>The bottom line for <code>left_join()</code> is that it always retains the values in the “left” argument (in this case the <code>outcomes</code> table). If there are no corresponding values in the “right” argument, <code>NA</code> values will be filled in.</p>
 <h3 id="inner-join">Inner Join</h3>
 <p>The <code>inner_join()</code> function only retains the rows of both tables that have corresponding values. Here we can see the difference.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>inner_join</span><span class='op'>(</span><span class='va'>outcomes</span>, <span class='va'>subjects</span>, by <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"id"</span>, <span class='st'>"visit"</span><span class='op'>)</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>inner_join</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>outcomes</span>, y <span class='op'>=</span> <span class='va'>subjects</span>, by <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"id"</span>, <span class='st'>"visit"</span><span class='op'>)</span><span class='op'>)</span>
 </code></pre>
 </div>
 <pre><code># A tibble: 2 × 4
   id    visit outcome house   
   &lt;chr&gt; &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;   
-1 b         1    2.36 rowhouse
-2 c         0    3.74 rowhouse</code></pre>
+1 b         1    2.88 rowhouse
+2 c         0    3.50 rowhouse</code></pre>
 </div>
 <h3 id="right-join">Right Join</h3>
 <p>The <code>right_join()</code> function is like the <code>left_join()</code> function except that it gives priority to the “right” hand argument.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>right_join</span><span class='op'>(</span><span class='va'>outcomes</span>, <span class='va'>subjects</span>, by <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"id"</span>, <span class='st'>"visit"</span><span class='op'>)</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>right_join</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>outcomes</span>, y <span class='op'>=</span> <span class='va'>subjects</span>, by <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"id"</span>, <span class='st'>"visit"</span><span class='op'>)</span><span class='op'>)</span>
 </code></pre>
 </div>
 <pre><code># A tibble: 2 × 4
   id    visit outcome house   
   &lt;chr&gt; &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;   
-1 b         1    2.36 rowhouse
-2 c         0    3.74 rowhouse</code></pre>
+1 b         1    2.88 rowhouse
+2 c         0    3.50 rowhouse</code></pre>
 </div>
 <h1 id="summary">Summary</h1>
 <ul>

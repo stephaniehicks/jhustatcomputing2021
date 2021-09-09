@@ -148,7 +148,7 @@ print(subjects)
 Now suppose we want to create a table that combines the information about houses with the information about the outcomes. We can use the `left_join()` function to merge the `outcomes` and `subjects` tables and produce the output above.
 
 ```{r leftjoin}
-left_join(outcomes, subjects, by = "id")
+left_join(x = outcomes, y = subjects, by = "id")
 ```
 
 The `by` argument indicates the column (or columns) that the two tables have in common.
@@ -196,7 +196,7 @@ subjects
 But we can still join the tables together and the `house` values for subject `a` will all be `NA`.
 
 ```{r}
-left_join(outcomes, subjects, by = c("id", "visit"))
+left_join(x = outcomes, y = subjects, by = c("id", "visit"))
 ```
 
 The bottom line for `left_join()` is that it always retains the values in the "left" argument (in this case the `outcomes` table). If there are no corresponding values in the "right" argument, `NA` values will be filled in.
@@ -208,7 +208,7 @@ The bottom line for `left_join()` is that it always retains the values in the "l
 The `inner_join()` function only retains the rows of both tables that have corresponding values. Here we can see the difference.
 
 ```{r}
-inner_join(outcomes, subjects, by = c("id", "visit"))
+inner_join(x = outcomes, y = subjects, by = c("id", "visit"))
 ```
 
 
@@ -218,7 +218,7 @@ inner_join(outcomes, subjects, by = c("id", "visit"))
 The `right_join()` function is like the `left_join()` function except that it gives priority to the "right" hand argument.
 
 ```{r}
-right_join(outcomes, subjects, by = c("id", "visit"))
+right_join(x = outcomes, y = subjects, by = c("id", "visit"))
 ```
 
 
