@@ -86,50 +86,56 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
 
   <!--radix_placeholder_meta_tags-->
-<title>Statistical Computing: Tidy data and the Tidyverse</title>
+<title>Statistical Computing: The ggplot2 plotting system: qplot()</title>
 
-<meta property="description" itemprop="description" content="Introduction to tidy data and how to convert between wide and long data with the tidyr R package."/>
+<meta property="description" itemprop="description" content="An overview of the ggplot2 plotting system in R with qplot()."/>
 
-<link rel="canonical" href="https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-07-tidy-data-and-the-tidyverse/"/>
+<link rel="canonical" href="https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-14-ggplot2-plotting-system-part-1/"/>
 <link rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"/>
 
 <!--  https://schema.org/Article -->
-<meta property="article:published" itemprop="datePublished" content="2021-09-09"/>
-<meta property="article:created" itemprop="dateCreated" content="2021-09-09"/>
+<meta property="article:published" itemprop="datePublished" content="2021-09-14"/>
+<meta property="article:created" itemprop="dateCreated" content="2021-09-14"/>
 <meta name="article:author" content="Stephanie Hicks"/>
 
 <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-<meta property="og:title" content="Statistical Computing: Tidy data and the Tidyverse"/>
+<meta property="og:title" content="Statistical Computing: The ggplot2 plotting system: qplot()"/>
 <meta property="og:type" content="article"/>
-<meta property="og:description" content="Introduction to tidy data and how to convert between wide and long data with the tidyr R package."/>
-<meta property="og:url" content="https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-07-tidy-data-and-the-tidyverse/"/>
+<meta property="og:description" content="An overview of the ggplot2 plotting system in R with qplot()."/>
+<meta property="og:url" content="https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-14-ggplot2-plotting-system-part-1/"/>
+<meta property="og:image" content="https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-14-ggplot2-plotting-system-part-1/ggplot2-plotting-system-part-1_files/figure-html5/unnamed-chunk-1-1.png"/>
+<meta property="og:image:width" content="1248"/>
+<meta property="og:image:height" content="960"/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:site_name" content="Statistical Computing"/>
 
 <!--  https://dev.twitter.com/cards/types/summary -->
-<meta property="twitter:card" content="summary"/>
-<meta property="twitter:title" content="Statistical Computing: Tidy data and the Tidyverse"/>
-<meta property="twitter:description" content="Introduction to tidy data and how to convert between wide and long data with the tidyr R package."/>
-<meta property="twitter:url" content="https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-07-tidy-data-and-the-tidyverse/"/>
+<meta property="twitter:card" content="summary_large_image"/>
+<meta property="twitter:title" content="Statistical Computing: The ggplot2 plotting system: qplot()"/>
+<meta property="twitter:description" content="An overview of the ggplot2 plotting system in R with qplot()."/>
+<meta property="twitter:url" content="https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-14-ggplot2-plotting-system-part-1/"/>
+<meta property="twitter:image" content="https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-14-ggplot2-plotting-system-part-1/ggplot2-plotting-system-part-1_files/figure-html5/unnamed-chunk-1-1.png"/>
+<meta property="twitter:image:width" content="1248"/>
+<meta property="twitter:image:height" content="960"/>
 
 <!--  https://scholar.google.com/intl/en/scholar/inclusion.html#indexing -->
-<meta name="citation_title" content="Statistical Computing: Tidy data and the Tidyverse"/>
-<meta name="citation_fulltext_html_url" content="https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-07-tidy-data-and-the-tidyverse/"/>
+<meta name="citation_title" content="Statistical Computing: The ggplot2 plotting system: qplot()"/>
+<meta name="citation_fulltext_html_url" content="https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-14-ggplot2-plotting-system-part-1/"/>
 <meta name="citation_fulltext_world_readable" content=""/>
-<meta name="citation_online_date" content="2021/09/09"/>
-<meta name="citation_publication_date" content="2021/09/09"/>
+<meta name="citation_online_date" content="2021/09/14"/>
+<meta name="citation_publication_date" content="2021/09/14"/>
 <meta name="citation_author" content="Stephanie Hicks"/>
 <meta name="citation_author_institution" content="Department of Biostatistics, Johns Hopkins"/>
 <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
 <script type="text/json" id="radix-rmarkdown-metadata">
-{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["creative_commons","title","description","author","date","output","categories","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["CC BY-NC-SA"]},{"type":"character","attributes":{},"value":["Tidy data and the Tidyverse"]},{"type":"character","attributes":{},"value":["Introduction to tidy data and how to convert between wide and long data with the tidyr R package."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url","affiliation","affiliation_url"]}},"value":[{"type":"character","attributes":{},"value":["Stephanie Hicks"]},{"type":"character","attributes":{},"value":["https://stephaniehicks.com/"]},{"type":"character","attributes":{},"value":["Department of Biostatistics, Johns Hopkins"]},{"type":"character","attributes":{},"value":["https://www.jhsph.edu"]}]}]},{"type":"character","attributes":{},"value":["09-09-2021"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","toc","toc_depth"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[3]}]}]},{"type":"character","attributes":{},"value":["module 1","week 2","R","Programming","tidyr","here","tidyverse"]},{"type":"character","attributes":{},"value":["https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-07-tidy-data-and-the-tidyverse/"]},{"type":"character","attributes":{},"value":["https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-07-tidy-data-and-the-tidyverse/"]}]}
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["creative_commons","title","description","author","date","output","categories","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["CC BY-NC-SA"]},{"type":"character","attributes":{},"value":["The ggplot2 plotting system: qplot()"]},{"type":"character","attributes":{},"value":["An overview of the ggplot2 plotting system in R with qplot()."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url","affiliation","affiliation_url"]}},"value":[{"type":"character","attributes":{},"value":["Stephanie Hicks"]},{"type":"character","attributes":{},"value":["https://stephaniehicks.com/"]},{"type":"character","attributes":{},"value":["Department of Biostatistics, Johns Hopkins"]},{"type":"character","attributes":{},"value":["https://www.jhsph.edu"]}]}]},{"type":"character","attributes":{},"value":["09-14-2021"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","toc","toc_depth"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[3]}]}]},{"type":"character","attributes":{},"value":["module 1","week 3","R","Programming","ggplot2","data viz"]},{"type":"character","attributes":{},"value":["https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-14-ggplot2-plotting-system-part-1/"]},{"type":"character","attributes":{},"value":["https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-14-ggplot2-plotting-system-part-1/"]}]}
 </script>
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["tidy-data-and-the-tidyverse_files/anchor-4.2.2/anchor.min.js","tidy-data-and-the-tidyverse_files/bowser-1.9.3/bowser.min.js","tidy-data-and-the-tidyverse_files/distill-2.2.21/template.v2.js","tidy-data-and-the-tidyverse_files/header-attrs-2.10/header-attrs.js","tidy-data-and-the-tidyverse_files/jquery-1.11.3/jquery.min.js","tidy-data-and-the-tidyverse_files/popper-2.6.0/popper.min.js","tidy-data-and-the-tidyverse_files/tippy-6.2.7/tippy-bundle.umd.min.js","tidy-data-and-the-tidyverse_files/tippy-6.2.7/tippy-light-border.css","tidy-data-and-the-tidyverse_files/tippy-6.2.7/tippy.css","tidy-data-and-the-tidyverse_files/tippy-6.2.7/tippy.umd.min.js","tidy-data-and-the-tidyverse_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["ggplot2-plotting-system-part-1_files/anchor-4.2.2/anchor.min.js","ggplot2-plotting-system-part-1_files/bowser-1.9.3/bowser.min.js","ggplot2-plotting-system-part-1_files/distill-2.2.21/template.v2.js","ggplot2-plotting-system-part-1_files/figure-html5/unnamed-chunk-1-1.png","ggplot2-plotting-system-part-1_files/figure-html5/unnamed-chunk-10-1.png","ggplot2-plotting-system-part-1_files/figure-html5/unnamed-chunk-11-1.png","ggplot2-plotting-system-part-1_files/figure-html5/unnamed-chunk-12-1.png","ggplot2-plotting-system-part-1_files/figure-html5/unnamed-chunk-15-1.png","ggplot2-plotting-system-part-1_files/figure-html5/unnamed-chunk-16-1.png","ggplot2-plotting-system-part-1_files/figure-html5/unnamed-chunk-17-1.png","ggplot2-plotting-system-part-1_files/figure-html5/unnamed-chunk-18-1.png","ggplot2-plotting-system-part-1_files/figure-html5/unnamed-chunk-19-1.png","ggplot2-plotting-system-part-1_files/figure-html5/unnamed-chunk-2-1.png","ggplot2-plotting-system-part-1_files/figure-html5/unnamed-chunk-20-1.png","ggplot2-plotting-system-part-1_files/figure-html5/unnamed-chunk-21-1.png","ggplot2-plotting-system-part-1_files/figure-html5/unnamed-chunk-22-1.png","ggplot2-plotting-system-part-1_files/figure-html5/unnamed-chunk-23-1.png","ggplot2-plotting-system-part-1_files/figure-html5/unnamed-chunk-4-1.png","ggplot2-plotting-system-part-1_files/figure-html5/unnamed-chunk-5-1.png","ggplot2-plotting-system-part-1_files/figure-html5/unnamed-chunk-6-1.png","ggplot2-plotting-system-part-1_files/figure-html5/unnamed-chunk-7-1.png","ggplot2-plotting-system-part-1_files/figure-html5/unnamed-chunk-8-1.png","ggplot2-plotting-system-part-1_files/figure-html5/unnamed-chunk-9-1.png","ggplot2-plotting-system-part-1_files/header-attrs-2.10/header-attrs.js","ggplot2-plotting-system-part-1_files/jquery-1.11.3/jquery.min.js","ggplot2-plotting-system-part-1_files/popper-2.6.0/popper.min.js","ggplot2-plotting-system-part-1_files/tippy-6.2.7/tippy-bundle.umd.min.js","ggplot2-plotting-system-part-1_files/tippy-6.2.7/tippy-light-border.css","ggplot2-plotting-system-part-1_files/tippy-6.2.7/tippy.css","ggplot2-plotting-system-part-1_files/tippy-6.2.7/tippy.umd.min.js","ggplot2-plotting-system-part-1_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 <meta name="distill:offset" content="../.."/>
@@ -2209,7 +2215,7 @@ d-appendix d-footnote-list a.footnote-backlink {
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Tidy data and the Tidyverse","description":"Introduction to tidy data and how to convert between wide and long data with the tidyr R package.","authors":[{"author":"Stephanie Hicks","authorURL":"https://stephaniehicks.com/","affiliation":"Department of Biostatistics, Johns Hopkins","affiliationURL":"https://www.jhsph.edu","orcidID":""}],"publishedDate":"2021-09-09T00:00:00.000+00:00","citationText":"Hicks, 2021"}
+{"title":"The ggplot2 plotting system: qplot()","description":"An overview of the ggplot2 plotting system in R with qplot().","authors":[{"author":"Stephanie Hicks","authorURL":"https://stephaniehicks.com/","affiliation":"Department of Biostatistics, Johns Hopkins","affiliationURL":"https://www.jhsph.edu","orcidID":""}],"publishedDate":"2021-09-14T00:00:00.000+00:00","citationText":"Hicks, 2021"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2262,25 +2268,24 @@ Course Materials
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>Tidy data and the Tidyverse</h1>
+<h1>The ggplot2 plotting system: qplot()</h1>
 <!--radix_placeholder_categories-->
 <div class="dt-tags">
   <a href="../../lectures.html#category:module_1" class="dt-tag">module 1</a>
-  <a href="../../lectures.html#category:week_2" class="dt-tag">week 2</a>
+  <a href="../../lectures.html#category:week_3" class="dt-tag">week 3</a>
   <a href="../../lectures.html#category:R" class="dt-tag">R</a>
   <a href="../../lectures.html#category:Programming" class="dt-tag">Programming</a>
-  <a href="../../lectures.html#category:tidyr" class="dt-tag">tidyr</a>
-  <a href="../../lectures.html#category:here" class="dt-tag">here</a>
-  <a href="../../lectures.html#category:tidyverse" class="dt-tag">tidyverse</a>
+  <a href="../../lectures.html#category:ggplot2" class="dt-tag">ggplot2</a>
+  <a href="../../lectures.html#category:data_viz" class="dt-tag">data viz</a>
 </div>
 <!--/radix_placeholder_categories-->
-<p><p>Introduction to tidy data and how to convert between wide and long data with the tidyr R package.</p></p>
+<p><p>An overview of the ggplot2 plotting system in R with qplot().</p></p>
 </div>
 
 <div class="d-byline">
   Stephanie Hicks <a href="https://stephaniehicks.com/" class="uri">https://stephaniehicks.com/</a> (Department of Biostatistics, Johns Hopkins)<a href="https://www.jhsph.edu" class="uri">https://www.jhsph.edu</a>
   
-<br/>09-09-2021
+<br/>09-14-2021
 </div>
 
 <div class="d-article">
@@ -2294,11 +2299,17 @@ Course Materials
 <li><a href="#acknowledgements">Acknowledgements</a></li>
 </ul></li>
 <li><a href="#learning-objectives">Learning objectives</a></li>
-<li><a href="#tidy-data">Tidy data</a></li>
-<li><a href="#the-tidyverse">The “Tidyverse”</a>
+<li><a href="#the-ggplot2-plotting-system">The ggplot2 Plotting System</a>
 <ul>
-<li><a href="#pivot_longer-and-pivot_wider"><code>pivot_longer()</code> and <code>pivot_wider()</code></a></li>
-<li><a href="#separate-and-unite"><code>separate()</code> and <code>unite()</code></a></li>
+<li><a href="#the-basics-qplot">The Basics: <code>qplot()</code></a></li>
+<li><a href="#before-you-start-label-your-data">Before You Start: Label Your Data</a></li>
+<li><a href="#ggplot2-hello-world">ggplot2 “Hello, world!”</a></li>
+<li><a href="#modifying-aesthetics">Modifying aesthetics</a></li>
+<li><a href="#adding-a-geom">Adding a geom</a></li>
+<li><a href="#histograms-and-boxplots">Histograms and boxplots</a></li>
+<li><a href="#facets">Facets</a></li>
+<li><a href="#case-study-maacs-cohort">Case Study: MAACS Cohort</a></li>
+<li><a href="#summary">Summary</a></li>
 </ul></li>
 <li><a href="#post-lecture-materials">Post-lecture materials</a>
 <ul>
@@ -2308,399 +2319,435 @@ Course Materials
 </ul>
 </nav>
 </div>
-<blockquote>
-<p>“Happy families are all alike; every unhappy family is unhappy in its own way.” –– Leo Tolstoy</p>
-</blockquote>
-<blockquote>
-<p>“Tidy datasets are all alike, but every messy dataset is messy in its own way.” –– Hadley Wickham</p>
-</blockquote>
+<!-- Add interesting quote -->
 <h1 id="pre-lecture-materials">Pre-lecture materials</h1>
 <h3 id="read-ahead">Read ahead</h3>
 <div class="resources">
 <p><strong>Before class, you can prepare by reading the following materials:</strong></p>
 <ol type="1">
-<li><a href="https://www.jstatsoft.org/article/view/v059i10">Tidy Data</a> paper published in the Journal of Statistical Software</li>
-<li><a href="https://r4ds.had.co.nz/tidy-data.html" class="uri">https://r4ds.had.co.nz/tidy-data.html</a></li>
-<li><a href="http://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf">tidyr cheat sheet from RStudio</a></li>
+<li><a href="https://r4ds.had.co.nz/data-visualisation.html" class="uri">https://r4ds.had.co.nz/data-visualisation.html</a></li>
+<li><a href="http://vita.had.co.nz/papers/layered-grammar.pdf" class="uri">http://vita.had.co.nz/papers/layered-grammar.pdf</a></li>
 </ol>
 </div>
 <h3 id="acknowledgements">Acknowledgements</h3>
 <p>Material for this lecture was borrowed and adopted from</p>
 <ul>
-<li><a href="https://rdpeng.github.io/Biostat776/lecture-tidy-data-and-the-tidyverse.html" class="uri">https://rdpeng.github.io/Biostat776/lecture-tidy-data-and-the-tidyverse.html</a></li>
-<li><a href="https://r4ds.had.co.nz/tidy-data.html" class="uri">https://r4ds.had.co.nz/tidy-data.html</a></li>
+<li><a href="https://rdpeng.github.io/Biostat776/lecture-the-ggplot2-plotting-system-part-1.html" class="uri">https://rdpeng.github.io/Biostat776/lecture-the-ggplot2-plotting-system-part-1.html</a></li>
 </ul>
 <h1 id="learning-objectives">Learning objectives</h1>
 <div class="keyideas">
 <p><strong>At the end of this lesson you will:</strong></p>
 <ul>
-<li>Define tidy data</li>
-<li>Be able to transform non-tidy data into tidy data</li>
-<li>Be able to transform wide data into long data</li>
-<li>Be able to separate character columns into multiple columns</li>
-<li>Be able to unite multiple character columns into one column</li>
+<li>Recognize the difference between <em>aesthetics</em> and <em>geoms</em></li>
+<li>Become familiar with differen types of plots (e.g. scatterplots, boxplots, and histograms)</li>
+<li>Be able to facet plots into a grid</li>
 </ul>
 </div>
-<h1 id="tidy-data">Tidy data</h1>
-<p>As we learned in the last lesson, one unifying concept of the tidyverse is the notion of <strong>tidy data</strong>. As defined by Hadley Wickham in his 2014 paper published in the <em>Journal of Statistical Software</em>, a <a href="https://www.jstatsoft.org/article/view/v059i10">tidy dataset</a> has the following properties:</p>
-<ol type="1">
-<li><p>Each variable forms a column.</p></li>
-<li><p>Each observation forms a row.</p></li>
-<li><p>Each type of observational unit forms a table.</p></li>
-</ol>
+<h1 id="the-ggplot2-plotting-system">The ggplot2 Plotting System</h1>
+<p>The <code>ggplot2</code> package in R is an implementation of <em>The Grammar of Graphics</em> as described by Leland Wilkinson in his book. The package was originally written by Hadley Wickham while he was a graduate student at Iowa State University (he still actively maintains the packgae). The package implements what might be considered a third graphics system for R (along with <code>base</code> graphics and <code>lattice</code>). The package is available from <a href="http://cran.r-project.org/package=ggplot2">CRAN</a> via <code>install.packages()</code>; the latest version of the source can be found on the package’s <a href="https://github.com/hadley/ggplot2">GitHub Repository</a>. Documentation of the package can be found at <a href="https://ggplot2.tidyverse.org">the tidyverse web site</a>.</p>
+<p>The grammar of graphics represents an abstraction of graphics ideas and objects. You can think of this as developing the verbs, nouns, and adjectives for data graphics. Developing such a grammar allows for a “theory” of graphics on which to build new graphics and graphics objects. To quote from Hadley Wickham’s book on <code>ggplot2</code>, we want to “shorten the distance from mind to page”. In summary,</p>
+<blockquote>
+<p>“…the grammar tells us that a statistical graphic is a <strong>mapping</strong> from data to <strong>aesthetic</strong> attributes (colour, shape, size) of <strong>geometric</strong> objects (points, lines, bars). The plot may also contain statistical transformations of the data and is drawn on a specific coordinate system” – from <em>ggplot2</em> book</p>
+</blockquote>
+<p>You might ask yourself “Why do we need a grammar of graphics?” Well, for much the same reasons that having a grammar is useful for spoken languages. The grammer allows for a more compact summary of the base components of a language, and it allows us to extend the language and to handle situations that we have not before seen.</p>
+<p>If you think about making a plot with the base graphics system, the plot is constructed by calling a series of functions that either create or annotate a plot. There’s no convenient agreed-upon way to describe the plot, except to just recite the series of R functions that were called to create the thing in the first place. In a previous lesson, we described the base plotting system as a kind of “artist’s palette” model, where you start with blank “canvas” and build up from there.</p>
+<p>For example, consider the following plot made using base graphics.</p>
 <div class="layout-chunk" data-layout="l-body">
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:tidy-data"></span>
-<img src="https://github.com/allisonhorst/stats-illustrations/raw/master/rstats-artwork/tidydata_1.jpg" alt="Artwork by Allison Horst on tidy data" width="60%" data-distill-preview=1 />
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/with.html'>with</a></span><span class='op'>(</span><span class='va'>airquality</span>, <span class='op'>{</span> 
+        <span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>Temp</span>, <span class='va'>Ozone</span><span class='op'>)</span>
+        <span class='fu'><a href='https://rdrr.io/r/graphics/lines.html'>lines</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/scatter.smooth.html'>loess.smooth</a></span><span class='op'>(</span><span class='va'>Temp</span>, <span class='va'>Ozone</span><span class='op'>)</span><span class='op'>)</span>
+<span class='op'>}</span><span class='op'>)</span>
+</code></pre>
+</div>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-1"></span>
+<img src="ggplot2-plotting-system-part-1_files/figure-html5/unnamed-chunk-1-1.png" alt="Scatterplot of Temperature and Ozone in New York (base graphics)" width="624" />
 <p class="caption">
-Figure 1: Artwork by Allison Horst on tidy data
+Figure 1: Scatterplot of Temperature and Ozone in New York (base graphics)
 </p>
 </div>
 </div>
-<p>[<strong>Source</strong>: <a href="https://github.com/allisonhorst/stats-illustrations">Artwork by Allison Horst</a>]</p>
-<p>The purpose of defining tidy data is to highlight the fact that <em>most data do not start out life as tidy</em>. In fact, much of the work of data analysis may involve simply making the data tidy (at least this has been our experience). Once a dataset is tidy, it can be used as input into a variety of other functions that may transform, model, or visualize the data.</p>
-<p>As a quick example, consider the following data illustrating religion and income survey data with the number of respondees with income range in column name. This is in a classic table format:</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://tidyr.tidyverse.org'>tidyr</a></span><span class='op'>)</span>
-<span class='va'>relig_income</span>
-</code></pre>
-</div>
-<pre><code># A tibble: 18 × 11
-   religion  `&lt;$10k` `$10-20k` `$20-30k` `$30-40k` `$40-50k` `$50-75k`
-   &lt;chr&gt;       &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
- 1 Agnostic       27        34        60        81        76       137
- 2 Atheist        12        27        37        52        35        70
- 3 Buddhist       27        21        30        34        33        58
- 4 Catholic      418       617       732       670       638      1116
- 5 Don’t kn…      15        14        15        11        10        35
- 6 Evangeli…     575       869      1064       982       881      1486
- 7 Hindu           1         9         7         9        11        34
- 8 Historic…     228       244       236       238       197       223
- 9 Jehovah&#39;…      20        27        24        24        21        30
-10 Jewish         19        19        25        25        30        95
-11 Mainline…     289       495       619       655       651      1107
-12 Mormon         29        40        48        51        56       112
-13 Muslim          6         7         9        10         9        23
-14 Orthodox       13        17        23        32        32        47
-15 Other Ch…       9         7        11        13        13        14
-16 Other Fa…      20        33        40        46        49        63
-17 Other Wo…       5         2         3         4         2         7
-18 Unaffili…     217       299       374       365       341       528
-# … with 4 more variables: $75-100k &lt;dbl&gt;, $100-150k &lt;dbl&gt;,
-#   &gt;150k &lt;dbl&gt;, Don&#39;t know/refused &lt;dbl&gt;</code></pre>
-</div>
-<p>While this format is canonical and is useful for quickly observing the relationship between multiple variables, it is not tidy. This format violates the tidy form because there are variables in the columns. In this case the variables are religion, income bracket, and the number of respondents, which is the third variable, is presented inside the table.</p>
-<p>Converting this data to tidy format would give us</p>
+<p>How would one describe the creation of this plot? Well, we could say that we called the <code>plot()</code> function and then added a loess smoother by calling the <code>lines()</code> function on the output of <code>loess.smooth()</code>.</p>
+<p>The base plotting system is convenient and it often mirrors how we think of building plots and analyzing data. But a key drawback is that you can’t go back once plot has started (e.g. to adjust margins), so there is in fact a need to plan in advance. Furthermore, it is difficult to “translate” a plot to others because there’s no formal graphical language; each plot is just a series of R commands.</p>
+<p>Here’s the same plot made using <code>ggplot2</code>.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://tidyverse.tidyverse.org'>tidyverse</a></span><span class='op'>)</span>
-
-<span class='va'>relig_income</span> <span class='op'>%&gt;%</span>
-  <span class='fu'><a href='https://tidyr.tidyverse.org/reference/pivot_longer.html'>pivot_longer</a></span><span class='op'>(</span><span class='op'>-</span><span class='va'>religion</span>, names_to <span class='op'>=</span> <span class='st'>"income"</span>, values_to <span class='op'>=</span> <span class='st'>"respondents"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
-  <span class='fu'>mutate</span><span class='op'>(</span>religion <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='va'>religion</span><span class='op'>)</span>, income <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='va'>income</span><span class='op'>)</span><span class='op'>)</span>
+<span class='va'>airquality</span> <span class='op'>%&gt;%</span>
+        <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span><span class='va'>Temp</span>, <span class='va'>Ozone</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> 
+        <span class='fu'>geom_point</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span> 
+        <span class='fu'>geom_smooth</span><span class='op'>(</span>method <span class='op'>=</span> <span class='st'>"loess"</span>, 
+                    se <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>+</span> 
+        <span class='fu'>theme_minimal</span><span class='op'>(</span><span class='op'>)</span>
 </code></pre>
 </div>
-<pre><code># A tibble: 180 × 3
-   religion income             respondents
-   &lt;fct&gt;    &lt;fct&gt;                    &lt;dbl&gt;
- 1 Agnostic &lt;$10k                       27
- 2 Agnostic $10-20k                     34
- 3 Agnostic $20-30k                     60
- 4 Agnostic $30-40k                     81
- 5 Agnostic $40-50k                     76
- 6 Agnostic $50-75k                    137
- 7 Agnostic $75-100k                   122
- 8 Agnostic $100-150k                  109
- 9 Agnostic &gt;150k                       84
-10 Agnostic Don&#39;t know/refused          96
-# … with 170 more rows</code></pre>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-2"></span>
+<img src="ggplot2-plotting-system-part-1_files/figure-html5/unnamed-chunk-2-1.png" alt="Scatterplot of Temperature and Ozone in New York (ggplot2)" width="624" />
+<p class="caption">
+Figure 2: Scatterplot of Temperature and Ozone in New York (ggplot2)
+</p>
 </div>
-<p>Some of these functions you have seen before, others might be new to you. Let’s talk about each one in the context of the Tidyverse package.</p>
-<h1 id="the-tidyverse">The “Tidyverse”</h1>
-<p>There are a number of R packages that take advantage of the tidy data form and can be used to do interesting things with data. Many (but not all) of these packages are written by Hadley Wickham and the collection of packages is sometimes referred to as the “tidyverse” because of their dependence on and presumption of tidy data. “Tidyverse” packages include:</p>
+</div>
+<p>Note that the output is roughly equivalent, and the amount of code is similar, but <code>ggplot2</code> allows for a more elegant way of expressing the components of the plot. In this case, the plot is a <em>dataset</em> (<code>airquality</code>) with <em>aesthetic mappings</em> derived from the <code>Temp</code> and <code>Ozone</code> variables, a set of <em>points</em>, and a <em>smoother</em>. In a sense, the <code>ggplot2</code> system takes many of the cues from the base plotting system and formalizes them a bit.</p>
+<p>The <code>ggplot2</code> system also takes some cues from <code>lattice</code>. With the <code>lattice</code> system, plots are created with a single function call (<code>xyplot</code>, <code>bwplot</code>, etc.). Things like margins and spacing are set automatically because the entire plot is specified at once. The <code>lattice</code> system is most useful for conditioning types of plots and is good for putting many many plots on a screen. That said, it is sometimes awkward to specify an entire plot in a single function call because many different options have to be specified at once. Furthermore, annotation in plots is not intuitive and the use of panel functions and subscripts is difficult to wield and requires intense preparation.</p>
+<p>The <code>ggplot2</code> system essentially takes the good parts of both the base graphics and lattice graphics system. It automatically handles things like margins and spacing, and also has the concept of “themes” which provide a default set of plotting symbols and colors. While <code>ggplot2</code> bears a superficial similarity to <code>lattice</code>, <code>ggplot2</code> is generally easier and more intuitive to use. The default thems makes many choices for you, but you can customize the presentation if you want.</p>
+<h3 id="the-basics-qplot">The Basics: <code>qplot()</code></h3>
+<p>The <code>qplot()</code> function in <code>ggplot2</code> is meant to get you going <em>q</em>uickly. It works much like the <code>plot()</code> function in base graphics system. It looks for variables to plot within a data frame, similar to lattice, or in the parent environment. In general, it’s good to get used to putting your data in a data frame and then passing it to <code>qplot()</code>.</p>
+<div class="keyideas">
+<p>The <code>qplot()</code> function is somewhat discouraged in ggplot2 now and new users are encouraged to use the more general <code>ggplot()</code> function (more details in the next lesson).</p>
+<p>However, the <code>qplot()</code> function is still useful and may be easier to use if transitioning from the base plotting system or a different statistical package.</p>
+</div>
+<p>Plots are made up of <em>aesthetics</em> (size, shape, color) and <em>geoms</em> (points, lines). Factors play an important role for indicating subsets of the data (if they are to have different properties) so they should be <strong>labeled</strong> properly. The <code>qplot()</code> hides much of what goes on underneath, which is okay for most operations, <code>ggplot()</code> is the core function and is very flexible for doing things <code>qplot()</code> cannot do.</p>
+<h3 id="before-you-start-label-your-data">Before You Start: Label Your Data</h3>
+<p>One thing that is always true, but is particularly useful when using <code>ggplot2</code>, is that you should always use informative and descriptive labels on your data. More generally, your data should have appropriate <em>metadata</em> so that you can quickly look at a dataset and know</p>
 <ul>
-<li><p><a href="https://cran.r-project.org/package=ggplot2">ggplot2</a>: a plotting system based on the grammar of graphics</p></li>
-<li><p><a href="https://cran.r-project.org/package=magrittr%22">magrittr</a>: defines the <code>%&gt;%</code> operator for chaining functions together in a series of operations on data</p></li>
-<li><p><a href="https://cran.r-project.org/package=dplyr">dplyr</a>: a suite of (fast) functions for working with data frames</p></li>
-<li><p><a href="https://cran.r-project.org/package=tidyr">tidyr</a>: easily tidy data with <code>pivot_wider()</code> and <code>pivot_longer()</code> functions (also <code>separate()</code> and <code>unite()</code>)</p></li>
+<li><p>what the variables are</p></li>
+<li><p>what the values of each variable mean</p></li>
 </ul>
-<p>We will be using these packages quite a bit this week.</p>
-<p>The “tidyverse” package can be used to install all of the packages in the tidyverse at once. For example, instead of starting an R script with this:</p>
+<p>This means that each column of a data frame should have a meaningful (but concise) variable name that accurately reflects the data stored in that column. Also, non-numeric or categorical variables should be coded as factor variables and have meaningful labels for each level of the factor. For example, it’s common to code a binary variable as a “0” or a “1”, but the problem is that from quickly looking at the data, it’s impossible to know whether which level of that variable is represented by a “0” or a “1”. Much better to simply label each observation as what they are. If a variable represents temperature categories, it might be better to use “cold”, “mild”, and “hot” rather than “1”, “2”, and “3”.</p>
+<p>While it’s sometimes a pain to make sure all of your data are properly labeled, this investment in time can pay dividends down the road when you’re trying to figure out what you were plotting. In other words, including the proper metadata can make your exploratory plots essentially self-documenting.</p>
+<h3 id="ggplot2-hello-world">ggplot2 “Hello, world!”</h3>
+<p>This example dataset comes with the <code>ggplot2</code> package and contains data on the fuel economy of 38 popular car models from 1999 to 2008.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://dplyr.tidyverse.org'>dplyr</a></span><span class='op'>)</span>
-<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://tidyr.tidyverse.org'>tidyr</a></span><span class='op'>)</span>
-<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://readr.tidyverse.org'>readr</a></span><span class='op'>)</span>
-<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://ggplot2.tidyverse.org'>ggplot2</a></span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://ggplot2.tidyverse.org'>ggplot2</a></span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/utils/str.html'>str</a></span><span class='op'>(</span><span class='va'>mpg</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>tibble [234 × 11] (S3: tbl_df/tbl/data.frame)
+ $ manufacturer: chr [1:234] &quot;audi&quot; &quot;audi&quot; &quot;audi&quot; &quot;audi&quot; ...
+ $ model       : chr [1:234] &quot;a4&quot; &quot;a4&quot; &quot;a4&quot; &quot;a4&quot; ...
+ $ displ       : num [1:234] 1.8 1.8 2 2 2.8 2.8 3.1 1.8 1.8 2 ...
+ $ year        : int [1:234] 1999 1999 2008 2008 1999 1999 2008 1999 1999 2008 ...
+ $ cyl         : int [1:234] 4 4 4 4 6 6 6 4 4 4 ...
+ $ trans       : chr [1:234] &quot;auto(l5)&quot; &quot;manual(m5)&quot; &quot;manual(m6)&quot; &quot;auto(av)&quot; ...
+ $ drv         : chr [1:234] &quot;f&quot; &quot;f&quot; &quot;f&quot; &quot;f&quot; ...
+ $ cty         : int [1:234] 18 21 20 21 16 18 18 18 16 20 ...
+ $ hwy         : int [1:234] 29 29 31 30 26 26 27 26 25 28 ...
+ $ fl          : chr [1:234] &quot;p&quot; &quot;p&quot; &quot;p&quot; &quot;p&quot; ...
+ $ class       : chr [1:234] &quot;compact&quot; &quot;compact&quot; &quot;compact&quot; &quot;compact&quot; ...</code></pre>
+</div>
+<p>You can see from the <code>str()</code> output that all of the categorical variables (like “manufacturer” or “class”) are appropriately coded with meaningful labels. This will come in handy when <code>qplot()</code> has to label different aspects of a plot. Also note that all of the columns/variables have meaningful (if sometimes abbreviated) names, rather than names like “X1”, and “X2”, etc.</p>
+<p>We can make a quick scatterplot of the engine displacement (<code>displ</code>) and the highway miles per gallon (<code>hwy</code>).</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/qplot.html'>qplot</a></span><span class='op'>(</span><span class='va'>displ</span>, <span class='va'>hwy</span>, data <span class='op'>=</span> <span class='va'>mpg</span><span class='op'>)</span>
+</code></pre>
+</div>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-4"></span>
+<img src="ggplot2-plotting-system-part-1_files/figure-html5/unnamed-chunk-4-1.png" alt="Plot of engine displacement and highway mileage" width="624" />
+<p class="caption">
+Figure 3: Plot of engine displacement and highway mileage
+</p>
+</div>
+</div>
+<p>Note that in the call to <code>qplot()</code> you must specify the <code>data</code> argument so that <code>qplot()</code> knows where to look up the variables.</p>
+<h3 id="modifying-aesthetics">Modifying aesthetics</h3>
+<p>We can introduce a third variable into the plot by modifying the color of the points based on the value of that third variable. Color is an aesthetic and the color of each point can be mapped to a variable. Note that the x-coordinates and y-coordinates are aesthetics too, and they got mapped to the <code>displ</code> and <code>hwy</code> variables, respectively. In this case we will map the color to the <code>drv</code> variable which indicates whether a car is front wheel drive, rear wheel drive, or 4-wheel drive.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/qplot.html'>qplot</a></span><span class='op'>(</span><span class='va'>displ</span>, <span class='va'>hwy</span>, data <span class='op'>=</span> <span class='va'>mpg</span>, color <span class='op'>=</span> <span class='va'>drv</span><span class='op'>)</span>
+</code></pre>
+</div>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-5"></span>
+<img src="ggplot2-plotting-system-part-1_files/figure-html5/unnamed-chunk-5-1.png" alt="Engine displacement and highway mileage by drive class" width="624" />
+<p class="caption">
+Figure 4: Engine displacement and highway mileage by drive class
+</p>
+</div>
+</div>
+<p>Now we can see that the front wheel drive cars tend to have lower displacement relative to the 4-wheel or rear wheel drive cars. Also, it’s clear that the 4-wheel drive cars have the lowest highway gas mileage.</p>
+<h3 id="adding-a-geom">Adding a geom</h3>
+<p>Sometimes it’s nice to add a smoother to a scatterplot ot highlight any trends. Trends can be difficult to see if the data are very noisy or there are many data points obscuring the view. A smooth is a “geom” that you can add along with your data points.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/qplot.html'>qplot</a></span><span class='op'>(</span><span class='va'>displ</span>, <span class='va'>hwy</span>, data <span class='op'>=</span> <span class='va'>mpg</span>, geom <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"point"</span>, <span class='st'>"smooth"</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-6"></span>
+<img src="ggplot2-plotting-system-part-1_files/figure-html5/unnamed-chunk-6-1.png" alt="Engine displacement and highway mileage w/smoother" width="624" />
+<p class="caption">
+Figure 5: Engine displacement and highway mileage w/smoother
+</p>
+</div>
+</div>
+<p>Note that previously, we didn’t have to specify <code>geom = "point"</code> because that was done automatically. But if you want the smoother overlayed with the points, then you need to specify both explicitly.</p>
+<p>Here it seems that engine displacement and highway mileage have a nonlinear U-shaped relationship, but from the previous plot we know that this is largely due to confounding by the drive class of the car.</p>
+<p>Look at what happens if we <em>don’t</em> include the <code>point</code> geom.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/qplot.html'>qplot</a></span><span class='op'>(</span><span class='va'>displ</span>, <span class='va'>hwy</span>, data <span class='op'>=</span> <span class='va'>mpg</span>, geom <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"smooth"</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-7"></span>
+<img src="ggplot2-plotting-system-part-1_files/figure-html5/unnamed-chunk-7-1.png" alt="Engine displacement and highway mileage w/smoother" width="624" />
+<p class="caption">
+Figure 6: Engine displacement and highway mileage w/smoother
+</p>
+</div>
+</div>
+<p>Soemtimes that’s the plot you want to show, but in this case it might make more sense to show the data along with the smoother.</p>
+<h3 id="histograms-and-boxplots">Histograms and boxplots</h3>
+<p>The <code>qplot()</code> function can be used to be used to plot 1-dimensional data too. By specifying a single variable, <code>qplot()</code> will by default make a histogram. Here we make a histogram if the highway mileage data and stratify on the drive class. So technically this is three histograms overlayed on top of each other.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/qplot.html'>qplot</a></span><span class='op'>(</span><span class='va'>hwy</span>, data <span class='op'>=</span> <span class='va'>mpg</span>, fill <span class='op'>=</span> <span class='va'>drv</span>, binwidth <span class='op'>=</span> <span class='fl'>2</span><span class='op'>)</span>
+</code></pre>
+</div>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-8"></span>
+<img src="ggplot2-plotting-system-part-1_files/figure-html5/unnamed-chunk-8-1.png" alt="Histogram of highway mileage by drive class" width="624" />
+<p class="caption">
+Figure 7: Histogram of highway mileage by drive class
+</p>
+</div>
+</div>
+<p>Having the different colors for each drive class is nice, but the three histograms can be a bit difficult to separate out. Side-by-side boxplots is one solution to this problem.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/qplot.html'>qplot</a></span><span class='op'>(</span><span class='va'>drv</span>, <span class='va'>hwy</span>, data <span class='op'>=</span> <span class='va'>mpg</span>, geom <span class='op'>=</span> <span class='st'>"boxplot"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-9"></span>
+<img src="ggplot2-plotting-system-part-1_files/figure-html5/unnamed-chunk-9-1.png" alt="Boxplots of highway mileage by drive class" width="624" />
+<p class="caption">
+Figure 8: Boxplots of highway mileage by drive class
+</p>
+</div>
+</div>
+<p>Another solution is to plot the histograms in separate panels using facets.</p>
+<h3 id="facets">Facets</h3>
+<p>Facets are a way to create multiple panels of plots based on the levels of categorical variable. Here, we want to see a histogram of the highway mileages and the categorical variable is the drive class variable. We can do that using the <code>facets</code> argument to <code>qplot()</code>.</p>
+<p>The <code>facets</code> argument expects a formula type of input, with a <code>~</code> separating the left hand side variable and the right hand side variable. The left hand side variable indicates how the rows of the panels should be divided and the right hand side variable indicates how the columns of the panels should be divided. Here, we just want three rows of histograms (and just one column), one for each drive class, so we specify <code>drv</code> on the left hand side and <code>.</code> on the right hand side indicating that there’s no variable there (it’s empty).</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/qplot.html'>qplot</a></span><span class='op'>(</span><span class='va'>hwy</span>, data <span class='op'>=</span> <span class='va'>mpg</span>, facets <span class='op'>=</span> <span class='va'>drv</span> <span class='op'>~</span> <span class='va'>.</span>, binwidth <span class='op'>=</span> <span class='fl'>2</span><span class='op'>)</span>
+</code></pre>
+</div>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-10"></span>
+<img src="ggplot2-plotting-system-part-1_files/figure-html5/unnamed-chunk-10-1.png" alt="Histogram of highway mileage by drive class" width="480" />
+<p class="caption">
+Figure 9: Histogram of highway mileage by drive class
+</p>
+</div>
+</div>
+<p>We could also look at more data using facets, so instead of histograms we could look at scatterplots of engine displacement and highway mileage by drive class. Here we put the <code>drv</code> variable on the right hand side to indicate that we want a column for each drive class (as opposed to splitting by rows like we did above).</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/qplot.html'>qplot</a></span><span class='op'>(</span><span class='va'>displ</span>, <span class='va'>hwy</span>, data <span class='op'>=</span> <span class='va'>mpg</span>, facets <span class='op'>=</span> <span class='va'>.</span> <span class='op'>~</span> <span class='va'>drv</span><span class='op'>)</span>
+</code></pre>
+</div>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-11"></span>
+<img src="ggplot2-plotting-system-part-1_files/figure-html5/unnamed-chunk-11-1.png" alt="Engine displacement and highway mileage by drive class" width="576" />
+<p class="caption">
+Figure 10: Engine displacement and highway mileage by drive class
+</p>
+</div>
+</div>
+<p>What if you wanted to add a smoother to each one of those panels? Simple, you literally just add the smoother as another geom.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/qplot.html'>qplot</a></span><span class='op'>(</span><span class='va'>displ</span>, <span class='va'>hwy</span>, data <span class='op'>=</span> <span class='va'>mpg</span>, facets <span class='op'>=</span> <span class='va'>.</span> <span class='op'>~</span> <span class='va'>drv</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_smooth.html'>geom_smooth</a></span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-12"></span>
+<img src="ggplot2-plotting-system-part-1_files/figure-html5/unnamed-chunk-12-1.png" alt="Engine displacement and highway mileage by drive class w/smoother" width="576" />
+<p class="caption">
+Figure 11: Engine displacement and highway mileage by drive class w/smoother
+</p>
+</div>
+</div>
+<p>You could have also used the “geom” argument to <code>qplot()</code>, as in</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/qplot.html'>qplot</a></span><span class='op'>(</span><span class='va'>displ</span>, <span class='va'>hwy</span>, data <span class='op'>=</span> <span class='va'>mpg</span>, facets <span class='op'>=</span> <span class='va'>.</span> <span class='op'>~</span> <span class='va'>drv</span>, geom <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"point"</span>, <span class='st'>"smooth"</span><span class='op'>)</span><span class='op'>)</span>
 </code></pre>
 </div>
 </div>
-<p>You can start with this:</p>
+<p>There’s more than one way to do it.</p>
+<h3 id="case-study-maacs-cohort">Case Study: MAACS Cohort</h3>
+<p>This case study will use data based on the Mouse Allergen and Asthma Cohort Study (MAACS). This study was aimed at characterizing the indoor (home) environment and its relationship with asthma morbidity amonst children aged 5–17 living in Baltimore, MD. The children all had persistent asthma, defined as having had an exacerbation in the past year. A representative publication of results from this study can be found in this paper by <a href="https://pubmed.ncbi.nlm.nih.gov/23403052/">Lu, et al.</a></p>
+<div class="keyideas">
+<p>Because the individual-level data for this study are protected by various U.S. privacy laws, we cannot make those data available. For the purposes of this lesson, we have simulated data that share many of the same features of the original data, but do not contain any of the actual measurements or values contained in the original dataset.</p>
+</div>
+<p>Here is a snapshot of what the data look like.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://tidyverse.tidyverse.org'>tidyverse</a></span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://here.r-lib.org/'>here</a></span><span class='op'>)</span>
+<span class='va'>maacs</span> <span class='op'>&lt;-</span> <span class='fu'>read_csv</span><span class='op'>(</span><span class='fu'><a href='https://here.r-lib.org//reference/here.html'>here</a></span><span class='op'>(</span><span class='st'>"data"</span>, <span class='st'>"maacs_sim.csv"</span><span class='op'>)</span>, col_types <span class='op'>=</span> <span class='st'>"icnn"</span><span class='op'>)</span>
+<span class='va'>maacs</span>
 </code></pre>
 </div>
+<pre><code># A tibble: 750 × 4
+      id mopos  pm25    eno
+   &lt;int&gt; &lt;chr&gt; &lt;dbl&gt;  &lt;dbl&gt;
+ 1     1 yes    6.01  28.8 
+ 2     2 no    25.2   17.7 
+ 3     3 yes   21.8   43.6 
+ 4     4 no    13.4  288.  
+ 5     5 no    49.4    7.60
+ 6     6 no    43.4   12.0 
+ 7     7 yes   33.0   79.2 
+ 8     8 yes   32.7   34.2 
+ 9     9 yes   52.2   12.1 
+10    10 yes   51.9   65.0 
+# … with 740 more rows</code></pre>
 </div>
-<p>In the code above, let’s talk about what we did using the <code>pivot_longer()</code> function. We will also talk about <code>pivot_wider()</code>.</p>
-<h3 id="pivot_longer-and-pivot_wider"><code>pivot_longer()</code> and <code>pivot_wider()</code></h3>
-<p>The <code>tidyr</code> package includes functions to transfer a data frame between <em>long</em> and <em>wide</em>.</p>
+<p>The key variables are:</p>
 <ul>
-<li><strong>Wide format</strong> data tends to have different attributes or variables describing an observation placed in separate columns.</li>
-<li><strong>Long format</strong> data tends to have different attributes encoded as levels of a single variable, followed by another column that contains tha values of the observation at those different levels.</li>
+<li><p><code>mopos</code>: an indicator of whether the subject is allergic to mouse allergen (yes/no)</p></li>
+<li><p><code>pm25</code>: average level of PM2.5 over the course of 7 days (micrograms per cubic meter)</p></li>
+<li><p><code>eno</code>: exhaled nitric oxide</p></li>
 </ul>
-<p>In the section above, we showed an example that used <code>pivot_longer()</code> to convert data into a tidy format.</p>
-<p>The key problem with the tidyness of the data is that the income variables are not in their own columns, but rather are embedded in the structure of the columns.</p>
-<p>To fix this, you can use the <code>pivot_longer()</code> function to gather values spread across several columns into a single column, with the column names gathered into an <code>income</code> column. When gathering, exclude any columns that you do not want “gathered” (<code>religion</code> in this case) by including the column names with a the minus sign in the <code>pivot_longer()</code> function. For example:</p>
+<p>The outcome of interest for this analysis will be exhaled nitric oxide (eNO), which is a measure of pulmonary inflamation. We can get a sense of how eNO is distributed in this population by making a quick histogram of the variable. Here, we take the log of eNO because some right-skew in the data.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># Gather everything EXCEPT religion to tidy data</span>
-<span class='va'>relig_income</span> <span class='op'>%&gt;%</span>
-  <span class='fu'><a href='https://tidyr.tidyverse.org/reference/pivot_longer.html'>pivot_longer</a></span><span class='op'>(</span><span class='op'>-</span><span class='va'>religion</span>, names_to <span class='op'>=</span> <span class='st'>"income"</span>, values_to <span class='op'>=</span> <span class='st'>"respondents"</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/qplot.html'>qplot</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='va'>eno</span><span class='op'>)</span>, data <span class='op'>=</span> <span class='va'>maacs</span><span class='op'>)</span>
 </code></pre>
 </div>
-<pre><code># A tibble: 180 × 3
-   religion income             respondents
-   &lt;chr&gt;    &lt;chr&gt;                    &lt;dbl&gt;
- 1 Agnostic &lt;$10k                       27
- 2 Agnostic $10-20k                     34
- 3 Agnostic $20-30k                     60
- 4 Agnostic $30-40k                     81
- 5 Agnostic $40-50k                     76
- 6 Agnostic $50-75k                    137
- 7 Agnostic $75-100k                   122
- 8 Agnostic $100-150k                  109
- 9 Agnostic &gt;150k                       84
-10 Agnostic Don&#39;t know/refused          96
-# … with 170 more rows</code></pre>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-15"></span>
+<img src="ggplot2-plotting-system-part-1_files/figure-html5/unnamed-chunk-15-1.png" alt="Histogram of log eNO" width="624" />
+<p class="caption">
+Figure 12: Histogram of log eNO
+</p>
 </div>
-<p>Even if your data is in a tidy format, <code>pivot_longer()</code> is occasionally useful for pulling data together to take advantage of faceting, or plotting separate plots based on a grouping variable. We will talk more about that in a future lecture.</p>
-<p>The <code>pivot_wider()</code> function is less commonly needed to tidy data. It can, however, be useful for creating summary tables. For example, you use the <code>summarize()</code> function in <code>dplyr</code> to summarize the total number of respondents per income category.</p>
+</div>
+<p>A quick glance suggests that the histogram is a bit “fat”, suggesting that there might be multiple groups of people being lumped together. We can stratify the histogram by whether they are allergic to mouse.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>relig_income</span> <span class='op'>%&gt;%</span>
-  <span class='fu'><a href='https://tidyr.tidyverse.org/reference/pivot_longer.html'>pivot_longer</a></span><span class='op'>(</span><span class='op'>-</span><span class='va'>religion</span>, names_to <span class='op'>=</span> <span class='st'>"income"</span>, values_to <span class='op'>=</span> <span class='st'>"respondents"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
-  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>religion <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='va'>religion</span><span class='op'>)</span>, income <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='va'>income</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
-  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span><span class='op'>(</span><span class='va'>income</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
-  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarize</a></span><span class='op'>(</span>total_respondents <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>respondents</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
-  <span class='fu'><a href='https://tidyr.tidyverse.org/reference/pivot_wider.html'>pivot_wider</a></span><span class='op'>(</span>names_from <span class='op'>=</span> <span class='st'>"income"</span>, 
-              values_from <span class='op'>=</span> <span class='st'>"total_respondents"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
-  <span class='fu'>knitr</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/knitr/man/kable.html'>kable</a></span><span class='op'>(</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/qplot.html'>qplot</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='va'>eno</span><span class='op'>)</span>, data <span class='op'>=</span> <span class='va'>maacs</span>, fill <span class='op'>=</span> <span class='va'>mopos</span><span class='op'>)</span>
 </code></pre>
 </div>
-<table>
-<colgroup>
-<col style="width: 6%" />
-<col style="width: 6%" />
-<col style="width: 8%" />
-<col style="width: 11%" />
-<col style="width: 8%" />
-<col style="width: 8%" />
-<col style="width: 8%" />
-<col style="width: 8%" />
-<col style="width: 10%" />
-<col style="width: 21%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: right;">&lt;$10k</th>
-<th style="text-align: right;">&gt;150k</th>
-<th style="text-align: right;">$10-20k</th>
-<th style="text-align: right;">$100-150k</th>
-<th style="text-align: right;">$20-30k</th>
-<th style="text-align: right;">$30-40k</th>
-<th style="text-align: right;">$40-50k</th>
-<th style="text-align: right;">$50-75k</th>
-<th style="text-align: right;">$75-100k</th>
-<th style="text-align: right;">Don’t know/refused</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">1930</td>
-<td style="text-align: right;">2608</td>
-<td style="text-align: right;">2781</td>
-<td style="text-align: right;">3197</td>
-<td style="text-align: right;">3357</td>
-<td style="text-align: right;">3302</td>
-<td style="text-align: right;">3085</td>
-<td style="text-align: right;">5185</td>
-<td style="text-align: right;">3990</td>
-<td style="text-align: right;">6121</td>
-</tr>
-</tbody>
-</table>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-16"></span>
+<img src="ggplot2-plotting-system-part-1_files/figure-html5/unnamed-chunk-16-1.png" alt="Histogram of log eNO by mouse allergic status" width="624" />
+<p class="caption">
+Figure 13: Histogram of log eNO by mouse allergic status
+</p>
 </div>
-<p>Notice in this example how <code>pivot_wider()</code> has been used at the very end of the code sequence to convert the summarized data into a shape that offers a better tabular presentation for a report. In the <code>pivot_wider()</code> call, you first specify the name of the column to use for the new column names (<code>income</code> in this example) and then specify the column to use for the cell values (<code>total_respondents</code> here).</p>
-<div class="questions">
-<p><strong>Example</strong>: Let’s try another dataset. This data contain an excerpt of the <a href="https://cran.r-project.org/web/packages/gapminder/README.html#gapminder">Gapminder data</a> on life expectancy, GDP per capita, and population by country.</p>
+</div>
+<p>We can see from this plot that the non-allergic subjects are shifted slightly to the left, indicating a lower eNO and less pulmonary inflammation. That said, there is significant overlap between the two groups.</p>
+<p>An alternative to histograms is a density smoother, which sometimes can be easier to visualize when there are multiple groups. Here is a density smooth of the entire study population.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/jennybc/gapminder'>gapminder</a></span><span class='op'>)</span>
-<span class='va'>gapminder</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/qplot.html'>qplot</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='va'>eno</span><span class='op'>)</span>, data <span class='op'>=</span> <span class='va'>maacs</span>, geom <span class='op'>=</span> <span class='st'>"density"</span><span class='op'>)</span>
 </code></pre>
 </div>
-<pre><code># A tibble: 1,704 × 6
-   country     continent  year lifeExp      pop gdpPercap
-   &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
- 1 Afghanistan Asia       1952    28.8  8425333      779.
- 2 Afghanistan Asia       1957    30.3  9240934      821.
- 3 Afghanistan Asia       1962    32.0 10267083      853.
- 4 Afghanistan Asia       1967    34.0 11537966      836.
- 5 Afghanistan Asia       1972    36.1 13079460      740.
- 6 Afghanistan Asia       1977    38.4 14880372      786.
- 7 Afghanistan Asia       1982    39.9 12881816      978.
- 8 Afghanistan Asia       1987    40.8 13867957      852.
- 9 Afghanistan Asia       1992    41.7 16317921      649.
-10 Afghanistan Asia       1997    41.8 22227415      635.
-# … with 1,694 more rows</code></pre>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-17"></span>
+<img src="ggplot2-plotting-system-part-1_files/figure-html5/unnamed-chunk-17-1.png" alt="Density smooth of log eNO" width="624" />
+<p class="caption">
+Figure 14: Density smooth of log eNO
+</p>
 </div>
-<p>If we wanted to make <code>lifeExp</code>, <code>pop</code> and <code>gdpPercap</code> (all measurements that we observe) go from a wide table into a long table, what would we do?</p>
+</div>
+<p>And here are the densities straitified by allergic status. We can map the color aesthetic to the <code>mopos</code> variable.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># try it yourself</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/qplot.html'>qplot</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='va'>eno</span><span class='op'>)</span>, data <span class='op'>=</span> <span class='va'>maacs</span>, geom <span class='op'>=</span> <span class='st'>"density"</span>, color <span class='op'>=</span> <span class='va'>mopos</span><span class='op'>)</span>
 </code></pre>
 </div>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-18"></span>
+<img src="ggplot2-plotting-system-part-1_files/figure-html5/unnamed-chunk-18-1.png" alt="Density smooth of log eNO by mouse allergic status" width="624" />
+<p class="caption">
+Figure 15: Density smooth of log eNO by mouse allergic status
+</p>
 </div>
 </div>
-<div class="questions">
-<p>One more! Try using <code>pivot_longer()</code> to convert the the following data that contains made-up revenues for three companies by quarter for years 2006 to 2009.</p>
-<p>Afterward, use <code>group_by()</code> and <code>summarize()</code> to calculate the average revenue for each company across all years and all quarters.</p>
-<p><strong>Bonus</strong>: Calculate a mean revenue for each company AND each year (averaged across all 4 quarters).</p>
+<p>These tell the same story as the stratified histograms, which should come as no surprise.</p>
+<p>Now we can examine the indoor environment and its relationship to eNO. Here, we use the level of indoor PM2.5 as a measure of indoor environment air quality. We can make a simple scatterplot of PM2.5 and eNO.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>df</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://tibble.tidyverse.org/reference/tibble.html'>tibble</a></span><span class='op'>(</span>
-  <span class='st'>"company"</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>3</span>, each<span class='op'>=</span><span class='fl'>4</span><span class='op'>)</span>, 
-  <span class='st'>"year"</span>  <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='fl'>2006</span><span class='op'>:</span><span class='fl'>2009</span>, <span class='fl'>3</span><span class='op'>)</span>,
-  <span class='st'>"Q1"</span>    <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='fl'>0</span><span class='op'>:</span><span class='fl'>100</span>, size <span class='op'>=</span> <span class='fl'>12</span><span class='op'>)</span>,
-  <span class='st'>"Q2"</span>    <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='fl'>0</span><span class='op'>:</span><span class='fl'>100</span>, size <span class='op'>=</span> <span class='fl'>12</span><span class='op'>)</span>,
-  <span class='st'>"Q3"</span>    <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='fl'>0</span><span class='op'>:</span><span class='fl'>100</span>, size <span class='op'>=</span> <span class='fl'>12</span><span class='op'>)</span>,
-  <span class='st'>"Q4"</span>    <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='fl'>0</span><span class='op'>:</span><span class='fl'>100</span>, size <span class='op'>=</span> <span class='fl'>12</span><span class='op'>)</span>,
-<span class='op'>)</span>
-<span class='va'>df</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/qplot.html'>qplot</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='va'>pm25</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='va'>eno</span><span class='op'>)</span>, data <span class='op'>=</span> <span class='va'>maacs</span>, geom <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"point"</span>, <span class='st'>"smooth"</span><span class='op'>)</span><span class='op'>)</span>
 </code></pre>
 </div>
-<pre><code># A tibble: 12 × 6
-   company  year    Q1    Q2    Q3    Q4
-     &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
- 1       1  2006   100    90    24    86
- 2       1  2007    23    29    30    67
- 3       1  2008    42    39    53    77
- 4       1  2009    98    98    60    87
- 5       2  2006     8    97    17    73
- 6       2  2007    15    83    18     8
- 7       2  2008     7    12    38    72
- 8       2  2009    22    49    99    82
- 9       3  2006    65    28    39    22
-10       3  2007    20    33    14    56
-11       3  2008    56    78    72    44
-12       3  2009    36    67    91    42</code></pre>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-19"></span>
+<img src="ggplot2-plotting-system-part-1_files/figure-html5/unnamed-chunk-19-1.png" alt="eNO and PM2.5" width="624" />
+<p class="caption">
+Figure 16: eNO and PM2.5
+</p>
 </div>
+</div>
+<p>The relationship appears modest at best, as there is substantial noise in the data. However, one question that we might be interested in is whether allergic individuals are perhaps more sensitive to PM2.5 inhalation than non-allergic individuals. To examine that question we can stratify the data into two groups.</p>
+<p>This first plot uses different plot symbols for the two groups and overlays them on a single canvas. We can do this by mapping the <code>mopos</code> variable to the <code>shape</code> aesthetic.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># try it yourself </span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/qplot.html'>qplot</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='va'>pm25</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='va'>eno</span><span class='op'>)</span>, data <span class='op'>=</span> <span class='va'>maacs</span>, shape <span class='op'>=</span> <span class='va'>mopos</span><span class='op'>)</span>
 </code></pre>
 </div>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-20"></span>
+<img src="ggplot2-plotting-system-part-1_files/figure-html5/unnamed-chunk-20-1.png" alt="eNO and PM2.5 by mouse allergic status" width="624" />
+<p class="caption">
+Figure 17: eNO and PM2.5 by mouse allergic status
+</p>
 </div>
 </div>
-<h3 id="separate-and-unite"><code>separate()</code> and <code>unite()</code></h3>
-<p>The same <code>tidyr</code> package also contains two useful functions:</p>
-<ul>
-<li><code>unite()</code>: combine contents of two or more columns into a single column</li>
-<li><code>separate()</code>: separate contents of a column into two or more columns</li>
-</ul>
-<p>First, we combine the first three columns into one new column using <code>unite()</code>.</p>
+<p>Because there is substantial overlap in the data it is a bit challenging to discern the circles from the triangles. Part of the reason might be that all of the symbols are the same color (black).</p>
+<p>We can plot each group a different color to see if that helps.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>gapminder</span> <span class='op'>%&gt;%</span> 
-  <span class='fu'><a href='https://tidyr.tidyverse.org/reference/unite.html'>unite</a></span><span class='op'>(</span>col<span class='op'>=</span><span class='st'>"country_continent_year"</span>, <span class='va'>country</span><span class='op'>:</span><span class='va'>year</span>, sep<span class='op'>=</span><span class='st'>"_"</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/qplot.html'>qplot</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='va'>pm25</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='va'>eno</span><span class='op'>)</span>, data <span class='op'>=</span> <span class='va'>maacs</span>, color <span class='op'>=</span> <span class='va'>mopos</span><span class='op'>)</span>
 </code></pre>
 </div>
-<pre><code># A tibble: 1,704 × 4
-   country_continent_year lifeExp      pop gdpPercap
-   &lt;chr&gt;                    &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
- 1 Afghanistan_Asia_1952     28.8  8425333      779.
- 2 Afghanistan_Asia_1957     30.3  9240934      821.
- 3 Afghanistan_Asia_1962     32.0 10267083      853.
- 4 Afghanistan_Asia_1967     34.0 11537966      836.
- 5 Afghanistan_Asia_1972     36.1 13079460      740.
- 6 Afghanistan_Asia_1977     38.4 14880372      786.
- 7 Afghanistan_Asia_1982     39.9 12881816      978.
- 8 Afghanistan_Asia_1987     40.8 13867957      852.
- 9 Afghanistan_Asia_1992     41.7 16317921      649.
-10 Afghanistan_Asia_1997     41.8 22227415      635.
-# … with 1,694 more rows</code></pre>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-21"></span>
+<img src="ggplot2-plotting-system-part-1_files/figure-html5/unnamed-chunk-21-1.png" alt="eNO and PM2.5 by mouse allergic status" width="624" />
+<p class="caption">
+Figure 18: eNO and PM2.5 by mouse allergic status
+</p>
 </div>
-<p>Next, we show how to separate the columns into three separate columns using <code>separate()</code> using the <code>col</code>, <code>into</code> and <code>sep</code> arguments.</p>
+</div>
+<p>This is slightly better but the substantial overlap makes it difficult to discern any trends in the data. For this we need to add a smoother of some sort. Here we add a linear regression line (a type of smoother) to each group to see if there’s any difference.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>gapminder</span> <span class='op'>%&gt;%</span> 
-  <span class='fu'><a href='https://tidyr.tidyverse.org/reference/unite.html'>unite</a></span><span class='op'>(</span>col<span class='op'>=</span><span class='st'>"country_continent_year"</span>, <span class='va'>country</span><span class='op'>:</span><span class='va'>year</span>, sep<span class='op'>=</span><span class='st'>"_"</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
-  <span class='fu'><a href='https://tidyr.tidyverse.org/reference/separate.html'>separate</a></span><span class='op'>(</span>col<span class='op'>=</span><span class='st'>"country_continent_year"</span>, into<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"country"</span>, <span class='st'>"continent"</span>, <span class='st'>"year"</span><span class='op'>)</span>, sep<span class='op'>=</span><span class='st'>"_"</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/qplot.html'>qplot</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='va'>pm25</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='va'>eno</span><span class='op'>)</span>, data <span class='op'>=</span> <span class='va'>maacs</span>, color <span class='op'>=</span> <span class='va'>mopos</span><span class='op'>)</span> <span class='op'>+</span> 
+        <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_smooth.html'>geom_smooth</a></span><span class='op'>(</span>method <span class='op'>=</span> <span class='st'>"lm"</span><span class='op'>)</span>
 </code></pre>
 </div>
-<pre><code># A tibble: 1,704 × 6
-   country     continent year  lifeExp      pop gdpPercap
-   &lt;chr&gt;       &lt;chr&gt;     &lt;chr&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
- 1 Afghanistan Asia      1952     28.8  8425333      779.
- 2 Afghanistan Asia      1957     30.3  9240934      821.
- 3 Afghanistan Asia      1962     32.0 10267083      853.
- 4 Afghanistan Asia      1967     34.0 11537966      836.
- 5 Afghanistan Asia      1972     36.1 13079460      740.
- 6 Afghanistan Asia      1977     38.4 14880372      786.
- 7 Afghanistan Asia      1982     39.9 12881816      978.
- 8 Afghanistan Asia      1987     40.8 13867957      852.
- 9 Afghanistan Asia      1992     41.7 16317921      649.
-10 Afghanistan Asia      1997     41.8 22227415      635.
-# … with 1,694 more rows</code></pre>
+<p><img src="ggplot2-plotting-system-part-1_files/figure-html5/unnamed-chunk-22-1.png" width="624" /></p>
 </div>
+<p>Here we see quite clearly that the red group and the green group exhibit rather different relationships between PM2.5 and eNO. For the non-allergic individuals, there appears to be a slightly negative relationship between PM2.5 and eNO and for the allergic individuals, there is a positive relationship. This suggests a strong interaction between PM2.5 and allergic status, an hypothesis perhaps worth following up on in greater detail than this brief exploratory analysis.</p>
+<p>Another, and perhaps more clear, way to visualize this interaction is to use separate panels for the non-allergic and allergic individuals using the <code>facets</code> argument to <code>qplot()</code>.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/qplot.html'>qplot</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='va'>pm25</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='va'>eno</span><span class='op'>)</span>, data <span class='op'>=</span> <span class='va'>maacs</span>, facets <span class='op'>=</span> <span class='va'>.</span> <span class='op'>~</span> <span class='va'>mopos</span><span class='op'>)</span> <span class='op'>+</span> 
+        <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_smooth.html'>geom_smooth</a></span><span class='op'>(</span>method <span class='op'>=</span> <span class='st'>"lm"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="ggplot2-plotting-system-part-1_files/figure-html5/unnamed-chunk-23-1.png" width="864" /></p>
+</div>
+<h3 id="summary">Summary</h3>
+<p>The <code>qplot()</code> function in <code>ggplot2</code> is the analog of <code>plot()</code> in base graphics but with many built-in features that the traditionaly <code>plot()</code> does not provide. The syntax is somewhere in between the base and lattice graphics system. The <code>qplot()</code> function is useful for quickly putting data on the page/screen, but for ultimate customization, it may make more sense to use some of the lower level functions that we discuss later in the next lesson.</p>
 <h1 id="post-lecture-materials">Post-lecture materials</h1>
 <h3 id="final-questions">Final Questions</h3>
 <p>Here are some post-lecture questions to help you think about the material discussed.</p>
 <div class="questions">
 <p><strong>Questions:</strong></p>
 <ol type="1">
-<li><p>Using prose, describe how the variables and observations are organised in a tidy dataset versus an non-tidy dataset.</p></li>
-<li><p>What do the extra and fill arguments do in <code>separate()</code>? Experiment with the various options for the following two toy datasets.</p></li>
-</ol>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://tibble.tidyverse.org/reference/tibble.html'>tibble</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"a,b,c"</span>, <span class='st'>"d,e,f,g"</span>, <span class='st'>"h,i,j"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
-  <span class='fu'><a href='https://tidyr.tidyverse.org/reference/separate.html'>separate</a></span><span class='op'>(</span><span class='va'>x</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"one"</span>, <span class='st'>"two"</span>, <span class='st'>"three"</span><span class='op'>)</span><span class='op'>)</span>
-
-<span class='fu'><a href='https://tibble.tidyverse.org/reference/tibble.html'>tibble</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"a,b,c"</span>, <span class='st'>"d,e"</span>, <span class='st'>"f,g,i"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
-  <span class='fu'><a href='https://tidyr.tidyverse.org/reference/separate.html'>separate</a></span><span class='op'>(</span><span class='va'>x</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"one"</span>, <span class='st'>"two"</span>, <span class='st'>"three"</span><span class='op'>)</span><span class='op'>)</span>
-</code></pre>
-</div>
-</div>
-<ol start="3" type="1">
-<li><p>Both <code>unite()</code> and <code>separate()</code> have a remove argument. What does it do? Why would you set it to FALSE?</p></li>
-<li><p>Compare and contrast <code>separate()</code> and <code>extract()</code>. Why are there three variations of separation (by position, by separator, and with groups), but only one <code>unite()</code>?</p></li>
+<li></li>
+<li></li>
+<li></li>
 </ol>
 </div>
 <h3 id="additional-resources">Additional Resources</h3>
 <div class="resources">
 <ul>
-<li><a href="https://www.jstatsoft.org/article/view/v059i10">Tidy Data</a> paper published in the Journal of Statistical Software</li>
-<li><a href="https://r4ds.had.co.nz/tidy-data.html" class="uri">https://r4ds.had.co.nz/tidy-data.html</a></li>
-<li><a href="http://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf">tidyr cheat sheet from RStudio</a></li>
+<li></li>
+<li></li>
+<li></li>
 </ul>
 </div>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <div class="article-footer">
   <p class="social_footer">
     <span class="disqus-comments">
       <i class="fas fa-comments"></i>
       &nbsp;
-      <span class="disqus-comment-count" data-disqus-identifier="posts/2021-09-07-tidy-data-and-the-tidyverse/">Comment on this article</span>
+      <span class="disqus-comment-count" data-disqus-identifier="posts/2021-09-14-ggplot2-plotting-system-part-1/">Comment on this article</span>
     </span>
     <span class="article-sharing">
       Share: &nbsp;
-      <a href="https://twitter.com/share?text=Tidy%20data%20and%20the%20Tidyverse&amp;url=https%3A%2F%2Fstephaniehicks.com%2Fjhustatcomputing2021%2Fposts%2F2021-09-07-tidy-data-and-the-tidyverse%2F">
+      <a href="https://twitter.com/share?text=The%20ggplot2%20plotting%20system%3A%20qplot%28%29&amp;url=https%3A%2F%2Fstephaniehicks.com%2Fjhustatcomputing2021%2Fposts%2F2021-09-14-ggplot2-plotting-system-part-1%2F">
         <i class="fab fa-twitter"></i>
       </a>
-      <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A%2F%2Fstephaniehicks.com%2Fjhustatcomputing2021%2Fposts%2F2021-09-07-tidy-data-and-the-tidyverse%2F&amp;title=Tidy%20data%20and%20the%20Tidyverse">
+      <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A%2F%2Fstephaniehicks.com%2Fjhustatcomputing2021%2Fposts%2F2021-09-14-ggplot2-plotting-system-part-1%2F&amp;title=The%20ggplot2%20plotting%20system%3A%20qplot%28%29">
         <i class="fab fa-linkedin"></i>
       </a>
     </span>
@@ -2709,8 +2756,8 @@ Figure 1: Artwork by Allison Horst on tidy data
   <div id="disqus_thread" class="hidden"></div>
   <script type="text/javascript" cookie-consent="functionality">
 var disqus_config = function () {
-  this.page.url = 'https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-07-tidy-data-and-the-tidyverse/';
-  this.page.identifier = 'posts/2021-09-07-tidy-data-and-the-tidyverse/';
+  this.page.url = 'https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-14-ggplot2-plotting-system-part-1/';
+  this.page.identifier = 'posts/2021-09-14-ggplot2-plotting-system-part-1/';
 };
 (function() {
   var d = document, s = d.createElement('script');
@@ -2735,12 +2782,12 @@ var disqus_config = function () {
   <p>Text and figures are licensed under Creative Commons Attribution <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>. The figures that have been reused from other sources don't fall under this license and can be recognized by a note in their caption: "Figure from ...".</p>
   <h3 id="citation">Citation</h3>
   <p>For attribution, please cite this work as</p>
-  <pre class="citation-appendix short">Hicks (2021, Sept. 9). Statistical Computing: Tidy data and the Tidyverse. Retrieved from https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-07-tidy-data-and-the-tidyverse/</pre>
+  <pre class="citation-appendix short">Hicks (2021, Sept. 14). Statistical Computing: The ggplot2 plotting system: qplot(). Retrieved from https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-14-ggplot2-plotting-system-part-1/</pre>
   <p>BibTeX citation</p>
-  <pre class="citation-appendix long">@misc{hicks2021tidy,
+  <pre class="citation-appendix long">@misc{hicks2021the,
   author = {Hicks, Stephanie},
-  title = {Statistical Computing: Tidy data and the Tidyverse},
-  url = {https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-07-tidy-data-and-the-tidyverse/},
+  title = {Statistical Computing: The ggplot2 plotting system: qplot()},
+  url = {https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-14-ggplot2-plotting-system-part-1/},
   year = {2021}
 }</pre>
 </div>

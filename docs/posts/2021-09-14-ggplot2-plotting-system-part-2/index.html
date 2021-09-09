@@ -86,50 +86,56 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
 
   <!--radix_placeholder_meta_tags-->
-<title>Statistical Computing: Tidy data and the Tidyverse</title>
+<title>Statistical Computing: The ggplot2 plotting system: ggplot()</title>
 
-<meta property="description" itemprop="description" content="Introduction to tidy data and how to convert between wide and long data with the tidyr R package."/>
+<meta property="description" itemprop="description" content="An overview of the ggplot2 plotting system in R with ggplot()."/>
 
-<link rel="canonical" href="https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-07-tidy-data-and-the-tidyverse/"/>
+<link rel="canonical" href="https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-14-ggplot2-plotting-system-part-2/"/>
 <link rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"/>
 
 <!--  https://schema.org/Article -->
-<meta property="article:published" itemprop="datePublished" content="2021-09-09"/>
-<meta property="article:created" itemprop="dateCreated" content="2021-09-09"/>
+<meta property="article:published" itemprop="datePublished" content="2021-09-14"/>
+<meta property="article:created" itemprop="dateCreated" content="2021-09-14"/>
 <meta name="article:author" content="Stephanie Hicks"/>
 
 <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-<meta property="og:title" content="Statistical Computing: Tidy data and the Tidyverse"/>
+<meta property="og:title" content="Statistical Computing: The ggplot2 plotting system: ggplot()"/>
 <meta property="og:type" content="article"/>
-<meta property="og:description" content="Introduction to tidy data and how to convert between wide and long data with the tidyr R package."/>
-<meta property="og:url" content="https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-07-tidy-data-and-the-tidyverse/"/>
+<meta property="og:description" content="An overview of the ggplot2 plotting system in R with ggplot()."/>
+<meta property="og:url" content="https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-14-ggplot2-plotting-system-part-2/"/>
+<meta property="og:image" content="https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-14-ggplot2-plotting-system-part-2/ggplot2-plotting-system-part-2_files/figure-html5/unnamed-chunk-4-1.png"/>
+<meta property="og:image:width" content="1248"/>
+<meta property="og:image:height" content="768"/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:site_name" content="Statistical Computing"/>
 
 <!--  https://dev.twitter.com/cards/types/summary -->
-<meta property="twitter:card" content="summary"/>
-<meta property="twitter:title" content="Statistical Computing: Tidy data and the Tidyverse"/>
-<meta property="twitter:description" content="Introduction to tidy data and how to convert between wide and long data with the tidyr R package."/>
-<meta property="twitter:url" content="https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-07-tidy-data-and-the-tidyverse/"/>
+<meta property="twitter:card" content="summary_large_image"/>
+<meta property="twitter:title" content="Statistical Computing: The ggplot2 plotting system: ggplot()"/>
+<meta property="twitter:description" content="An overview of the ggplot2 plotting system in R with ggplot()."/>
+<meta property="twitter:url" content="https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-14-ggplot2-plotting-system-part-2/"/>
+<meta property="twitter:image" content="https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-14-ggplot2-plotting-system-part-2/ggplot2-plotting-system-part-2_files/figure-html5/unnamed-chunk-4-1.png"/>
+<meta property="twitter:image:width" content="1248"/>
+<meta property="twitter:image:height" content="768"/>
 
 <!--  https://scholar.google.com/intl/en/scholar/inclusion.html#indexing -->
-<meta name="citation_title" content="Statistical Computing: Tidy data and the Tidyverse"/>
-<meta name="citation_fulltext_html_url" content="https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-07-tidy-data-and-the-tidyverse/"/>
+<meta name="citation_title" content="Statistical Computing: The ggplot2 plotting system: ggplot()"/>
+<meta name="citation_fulltext_html_url" content="https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-14-ggplot2-plotting-system-part-2/"/>
 <meta name="citation_fulltext_world_readable" content=""/>
-<meta name="citation_online_date" content="2021/09/09"/>
-<meta name="citation_publication_date" content="2021/09/09"/>
+<meta name="citation_online_date" content="2021/09/14"/>
+<meta name="citation_publication_date" content="2021/09/14"/>
 <meta name="citation_author" content="Stephanie Hicks"/>
 <meta name="citation_author_institution" content="Department of Biostatistics, Johns Hopkins"/>
 <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
 <script type="text/json" id="radix-rmarkdown-metadata">
-{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["creative_commons","title","description","author","date","output","categories","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["CC BY-NC-SA"]},{"type":"character","attributes":{},"value":["Tidy data and the Tidyverse"]},{"type":"character","attributes":{},"value":["Introduction to tidy data and how to convert between wide and long data with the tidyr R package."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url","affiliation","affiliation_url"]}},"value":[{"type":"character","attributes":{},"value":["Stephanie Hicks"]},{"type":"character","attributes":{},"value":["https://stephaniehicks.com/"]},{"type":"character","attributes":{},"value":["Department of Biostatistics, Johns Hopkins"]},{"type":"character","attributes":{},"value":["https://www.jhsph.edu"]}]}]},{"type":"character","attributes":{},"value":["09-09-2021"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","toc","toc_depth"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[3]}]}]},{"type":"character","attributes":{},"value":["module 1","week 2","R","Programming","tidyr","here","tidyverse"]},{"type":"character","attributes":{},"value":["https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-07-tidy-data-and-the-tidyverse/"]},{"type":"character","attributes":{},"value":["https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-07-tidy-data-and-the-tidyverse/"]}]}
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["creative_commons","title","description","author","date","output","categories","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["CC BY-NC-SA"]},{"type":"character","attributes":{},"value":["The ggplot2 plotting system: ggplot()"]},{"type":"character","attributes":{},"value":["An overview of the ggplot2 plotting system in R with ggplot()."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url","affiliation","affiliation_url"]}},"value":[{"type":"character","attributes":{},"value":["Stephanie Hicks"]},{"type":"character","attributes":{},"value":["https://stephaniehicks.com/"]},{"type":"character","attributes":{},"value":["Department of Biostatistics, Johns Hopkins"]},{"type":"character","attributes":{},"value":["https://www.jhsph.edu"]}]}]},{"type":"character","attributes":{},"value":["09-14-2021"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","toc","toc_depth"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[3]}]}]},{"type":"character","attributes":{},"value":["module 1","week 3","R","Programming","ggplot2","data viz"]},{"type":"character","attributes":{},"value":["https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-14-ggplot2-plotting-system-part-2/"]},{"type":"character","attributes":{},"value":["https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-14-ggplot2-plotting-system-part-2/"]}]}
 </script>
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["tidy-data-and-the-tidyverse_files/anchor-4.2.2/anchor.min.js","tidy-data-and-the-tidyverse_files/bowser-1.9.3/bowser.min.js","tidy-data-and-the-tidyverse_files/distill-2.2.21/template.v2.js","tidy-data-and-the-tidyverse_files/header-attrs-2.10/header-attrs.js","tidy-data-and-the-tidyverse_files/jquery-1.11.3/jquery.min.js","tidy-data-and-the-tidyverse_files/popper-2.6.0/popper.min.js","tidy-data-and-the-tidyverse_files/tippy-6.2.7/tippy-bundle.umd.min.js","tidy-data-and-the-tidyverse_files/tippy-6.2.7/tippy-light-border.css","tidy-data-and-the-tidyverse_files/tippy-6.2.7/tippy.css","tidy-data-and-the-tidyverse_files/tippy-6.2.7/tippy.umd.min.js","tidy-data-and-the-tidyverse_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["ggplot2-plotting-system-part-2_files/anchor-4.2.2/anchor.min.js","ggplot2-plotting-system-part-2_files/bowser-1.9.3/bowser.min.js","ggplot2-plotting-system-part-2_files/distill-2.2.21/template.v2.js","ggplot2-plotting-system-part-2_files/figure-html5/Scatterplot of PM2.5 and days with nocturnal symptoms-1.png","ggplot2-plotting-system-part-2_files/figure-html5/unnamed-chunk-10-1.png","ggplot2-plotting-system-part-2_files/figure-html5/unnamed-chunk-11-1.png","ggplot2-plotting-system-part-2_files/figure-html5/unnamed-chunk-12-1.png","ggplot2-plotting-system-part-2_files/figure-html5/unnamed-chunk-16-1.png","ggplot2-plotting-system-part-2_files/figure-html5/unnamed-chunk-17-1.png","ggplot2-plotting-system-part-2_files/figure-html5/unnamed-chunk-18-1.png","ggplot2-plotting-system-part-2_files/figure-html5/unnamed-chunk-19-1.png","ggplot2-plotting-system-part-2_files/figure-html5/unnamed-chunk-20-1.png","ggplot2-plotting-system-part-2_files/figure-html5/unnamed-chunk-4-1.png","ggplot2-plotting-system-part-2_files/figure-html5/unnamed-chunk-5-1.png","ggplot2-plotting-system-part-2_files/figure-html5/unnamed-chunk-6-1.png","ggplot2-plotting-system-part-2_files/figure-html5/unnamed-chunk-7-1.png","ggplot2-plotting-system-part-2_files/figure-html5/unnamed-chunk-8-1.png","ggplot2-plotting-system-part-2_files/figure-html5/unnamed-chunk-9-1.png","ggplot2-plotting-system-part-2_files/header-attrs-2.10/header-attrs.js","ggplot2-plotting-system-part-2_files/jquery-1.11.3/jquery.min.js","ggplot2-plotting-system-part-2_files/popper-2.6.0/popper.min.js","ggplot2-plotting-system-part-2_files/tippy-6.2.7/tippy-bundle.umd.min.js","ggplot2-plotting-system-part-2_files/tippy-6.2.7/tippy-light-border.css","ggplot2-plotting-system-part-2_files/tippy-6.2.7/tippy.css","ggplot2-plotting-system-part-2_files/tippy-6.2.7/tippy.umd.min.js","ggplot2-plotting-system-part-2_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 <meta name="distill:offset" content="../.."/>
@@ -2209,7 +2215,7 @@ d-appendix d-footnote-list a.footnote-backlink {
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Tidy data and the Tidyverse","description":"Introduction to tidy data and how to convert between wide and long data with the tidyr R package.","authors":[{"author":"Stephanie Hicks","authorURL":"https://stephaniehicks.com/","affiliation":"Department of Biostatistics, Johns Hopkins","affiliationURL":"https://www.jhsph.edu","orcidID":""}],"publishedDate":"2021-09-09T00:00:00.000+00:00","citationText":"Hicks, 2021"}
+{"title":"The ggplot2 plotting system: ggplot()","description":"An overview of the ggplot2 plotting system in R with ggplot().","authors":[{"author":"Stephanie Hicks","authorURL":"https://stephaniehicks.com/","affiliation":"Department of Biostatistics, Johns Hopkins","affiliationURL":"https://www.jhsph.edu","orcidID":""}],"publishedDate":"2021-09-14T00:00:00.000+00:00","citationText":"Hicks, 2021"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2262,25 +2268,24 @@ Course Materials
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>Tidy data and the Tidyverse</h1>
+<h1>The ggplot2 plotting system: ggplot()</h1>
 <!--radix_placeholder_categories-->
 <div class="dt-tags">
   <a href="../../lectures.html#category:module_1" class="dt-tag">module 1</a>
-  <a href="../../lectures.html#category:week_2" class="dt-tag">week 2</a>
+  <a href="../../lectures.html#category:week_3" class="dt-tag">week 3</a>
   <a href="../../lectures.html#category:R" class="dt-tag">R</a>
   <a href="../../lectures.html#category:Programming" class="dt-tag">Programming</a>
-  <a href="../../lectures.html#category:tidyr" class="dt-tag">tidyr</a>
-  <a href="../../lectures.html#category:here" class="dt-tag">here</a>
-  <a href="../../lectures.html#category:tidyverse" class="dt-tag">tidyverse</a>
+  <a href="../../lectures.html#category:ggplot2" class="dt-tag">ggplot2</a>
+  <a href="../../lectures.html#category:data_viz" class="dt-tag">data viz</a>
 </div>
 <!--/radix_placeholder_categories-->
-<p><p>Introduction to tidy data and how to convert between wide and long data with the tidyr R package.</p></p>
+<p><p>An overview of the ggplot2 plotting system in R with ggplot().</p></p>
 </div>
 
 <div class="d-byline">
   Stephanie Hicks <a href="https://stephaniehicks.com/" class="uri">https://stephaniehicks.com/</a> (Department of Biostatistics, Johns Hopkins)<a href="https://www.jhsph.edu" class="uri">https://www.jhsph.edu</a>
   
-<br/>09-09-2021
+<br/>09-14-2021
 </div>
 
 <div class="d-article">
@@ -2294,11 +2299,22 @@ Course Materials
 <li><a href="#acknowledgements">Acknowledgements</a></li>
 </ul></li>
 <li><a href="#learning-objectives">Learning objectives</a></li>
-<li><a href="#tidy-data">Tidy data</a></li>
-<li><a href="#the-tidyverse">The “Tidyverse”</a>
+<li><a href="#the-ggplot2-plotting-system">The ggplot2 Plotting System</a>
 <ul>
-<li><a href="#pivot_longer-and-pivot_wider"><code>pivot_longer()</code> and <code>pivot_wider()</code></a></li>
-<li><a href="#separate-and-unite"><code>separate()</code> and <code>unite()</code></a></li>
+<li><a href="#basic-components-of-a-ggplot2-plot">Basic components of a ggplot2 plot</a></li>
+<li><a href="#example-bmi-pm2.5-asthma">Example: BMI, PM2.5, Asthma</a></li>
+<li><a href="#building-up-in-layers">Building up in layers</a></li>
+<li><a href="#first-plot-with-point-layer">First plot with point layer</a></li>
+<li><a href="#adding-more-layers-smooth">Adding more layers: smooth</a></li>
+<li><a href="#adding-more-layers-facets">Adding more layers: facets</a></li>
+<li><a href="#modifying-geom-properties">Modifying geom properties</a></li>
+<li><a href="#modifying-labels">Modifying labels</a></li>
+<li><a href="#customizing-the-smooth">Customizing the smooth</a></li>
+<li><a href="#more-complex-example">More complex example</a></li>
+<li><a href="#a-quick-aside-about-axis-limits">A quick aside about axis limits</a>
+<ul>
+<li><a href="#resources">Resources</a></li>
+</ul></li>
 </ul></li>
 <li><a href="#post-lecture-materials">Post-lecture materials</a>
 <ul>
@@ -2308,399 +2324,427 @@ Course Materials
 </ul>
 </nav>
 </div>
-<blockquote>
-<p>“Happy families are all alike; every unhappy family is unhappy in its own way.” –– Leo Tolstoy</p>
-</blockquote>
-<blockquote>
-<p>“Tidy datasets are all alike, but every messy dataset is messy in its own way.” –– Hadley Wickham</p>
-</blockquote>
+<!-- Add interesting quote -->
 <h1 id="pre-lecture-materials">Pre-lecture materials</h1>
 <h3 id="read-ahead">Read ahead</h3>
 <div class="resources">
 <p><strong>Before class, you can prepare by reading the following materials:</strong></p>
 <ol type="1">
-<li><a href="https://www.jstatsoft.org/article/view/v059i10">Tidy Data</a> paper published in the Journal of Statistical Software</li>
-<li><a href="https://r4ds.had.co.nz/tidy-data.html" class="uri">https://r4ds.had.co.nz/tidy-data.html</a></li>
-<li><a href="http://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf">tidyr cheat sheet from RStudio</a></li>
+<li><a href="https://r4ds.had.co.nz/data-visualisation.html" class="uri">https://r4ds.had.co.nz/data-visualisation.html</a></li>
+<li><a href="http://vita.had.co.nz/papers/layered-grammar.pdf" class="uri">http://vita.had.co.nz/papers/layered-grammar.pdf</a></li>
 </ol>
 </div>
 <h3 id="acknowledgements">Acknowledgements</h3>
 <p>Material for this lecture was borrowed and adopted from</p>
 <ul>
-<li><a href="https://rdpeng.github.io/Biostat776/lecture-tidy-data-and-the-tidyverse.html" class="uri">https://rdpeng.github.io/Biostat776/lecture-tidy-data-and-the-tidyverse.html</a></li>
-<li><a href="https://r4ds.had.co.nz/tidy-data.html" class="uri">https://r4ds.had.co.nz/tidy-data.html</a></li>
+<li><a href="https://rdpeng.github.io/Biostat776/lecture-the-ggplot2-plotting-system-part-2.html" class="uri">https://rdpeng.github.io/Biostat776/lecture-the-ggplot2-plotting-system-part-2.html</a></li>
 </ul>
 <h1 id="learning-objectives">Learning objectives</h1>
 <div class="keyideas">
 <p><strong>At the end of this lesson you will:</strong></p>
 <ul>
-<li>Define tidy data</li>
-<li>Be able to transform non-tidy data into tidy data</li>
-<li>Be able to transform wide data into long data</li>
-<li>Be able to separate character columns into multiple columns</li>
-<li>Be able to unite multiple character columns into one column</li>
+<li>Be able to build up layers of graphics using <code>ggplot()</code></li>
+<li>Be able to modify properties of a <code>ggplot()</code> including layers and labels</li>
 </ul>
 </div>
-<h1 id="tidy-data">Tidy data</h1>
-<p>As we learned in the last lesson, one unifying concept of the tidyverse is the notion of <strong>tidy data</strong>. As defined by Hadley Wickham in his 2014 paper published in the <em>Journal of Statistical Software</em>, a <a href="https://www.jstatsoft.org/article/view/v059i10">tidy dataset</a> has the following properties:</p>
+<h1 id="the-ggplot2-plotting-system">The ggplot2 Plotting System</h1>
+<p>In this lesson we will get into a little more of the nitty gritty of how <code>ggplot2</code> builds plots and how you can customize various aspects of any plot. In the previous chapter we used the <code>qplot()</code> function to quickly put points on a page. The <code>qplot()</code> function’s syntax is very similar to that of the <code>plot()</code> function in base graphics so for those switching over, it makes for an easy transition. But it’s worth knowing the underlying details of how <code>ggplot2</code> works so that you can really exploit its power.</p>
+<h3 id="basic-components-of-a-ggplot2-plot">Basic components of a ggplot2 plot</h3>
+<p>A <code>ggplot2</code> plot consists of a number of key components. Here are a few of the more commonly used ones.</p>
+<ul>
+<li><p>A <em>data frame</em>: stores all of the data that will be displayed on the plot</p></li>
+<li><p><em>aesthetic mappings</em>: describe how data are mapped to color, size, shape, location</p></li>
+<li><p><em>geoms</em>: geometric objects like points, lines, shapes.</p></li>
+<li><p><em>facets</em>: describes how conditional/panel plots should be constructed</p></li>
+<li><p><em>stats</em>: statistical transformations like binning, quantiles, smoothing.</p></li>
+<li><p><em>scales</em>: what scale an aesthetic map uses (example: male = red, female = blue).</p></li>
+<li><p><em>coordinate system</em>: describes the system in which the locations of the geoms will be drawn</p></li>
+</ul>
+<p>It is essential that you properly organize your data into a data frame before you start with <code>ggplot2</code>. In particular, it’s important that you provide all of the appropriate metadata so that your data frame is self-describing and your plots will be self-documenting.</p>
+<p>When building plots in ggplot2 (rather than using <code>qplot()</code>) the “artist’s palette” model may be the closest analogy. Essentially, you start with some raw data, and then you gradually add bits and pieces to it to create a plot. Plots are built up in layers, with the typically ordering being</p>
 <ol type="1">
-<li><p>Each variable forms a column.</p></li>
-<li><p>Each observation forms a row.</p></li>
-<li><p>Each type of observational unit forms a table.</p></li>
+<li><p>Plot the data</p></li>
+<li><p>Overlay a summary</p></li>
+<li><p>Add metadata and annotation</p></li>
 </ol>
+<p>For quick exploratory plots you may not get past step 1.</p>
+<h3 id="example-bmi-pm2.5-asthma">Example: BMI, PM2.5, Asthma</h3>
+<p>To demonstrate the various pieces of <code>ggplot2</code> we will use a running example from the Mouse Allergen and Asthma Cohort Study (MAACS), which was described in the previous chapter. Here, the question we are interested in is</p>
+<blockquote>
+<p>“Are overweight individuals, as measured by body mass index (BMI), more susceptible than normal weight individuals to the harmful effects of PM2.5 on asthma symptoms?”</p>
+</blockquote>
+<p>There is a suggestion that overweight individuals may be more susceptible to the negative effects of inhaling PM2.5. This would suggest that increases in PM2.5 exposure in the home of an overweight child would be more deleterious to his/her asthma symptoms than they would be in the home of a normal weight child. We want to see if we can see that difference in the data from MAACS.</p>
 <div class="layout-chunk" data-layout="l-body">
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:tidy-data"></span>
-<img src="https://github.com/allisonhorst/stats-illustrations/raw/master/rstats-artwork/tidydata_1.jpg" alt="Artwork by Allison Horst on tidy data" width="60%" data-distill-preview=1 />
-<p class="caption">
-Figure 1: Artwork by Allison Horst on tidy data
+<div class="rmdnote">
+<p>
+Because the individual-level data for this study are protected by various U.S. privacy laws, we cannot make those data available. For the purposes of this chapter, we have simulated data that share many of the same features of the original data, but do not contain any of the actual measurements or values contained in the original dataset.
 </p>
 </div>
 </div>
-<p>[<strong>Source</strong>: <a href="https://github.com/allisonhorst/stats-illustrations">Artwork by Allison Horst</a>]</p>
-<p>The purpose of defining tidy data is to highlight the fact that <em>most data do not start out life as tidy</em>. In fact, much of the work of data analysis may involve simply making the data tidy (at least this has been our experience). Once a dataset is tidy, it can be used as input into a variety of other functions that may transform, model, or visualize the data.</p>
-<p>As a quick example, consider the following data illustrating religion and income survey data with the number of respondees with income range in column name. This is in a classic table format:</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://tidyr.tidyverse.org'>tidyr</a></span><span class='op'>)</span>
-<span class='va'>relig_income</span>
-</code></pre>
-</div>
-<pre><code># A tibble: 18 × 11
-   religion  `&lt;$10k` `$10-20k` `$20-30k` `$30-40k` `$40-50k` `$50-75k`
-   &lt;chr&gt;       &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
- 1 Agnostic       27        34        60        81        76       137
- 2 Atheist        12        27        37        52        35        70
- 3 Buddhist       27        21        30        34        33        58
- 4 Catholic      418       617       732       670       638      1116
- 5 Don’t kn…      15        14        15        11        10        35
- 6 Evangeli…     575       869      1064       982       881      1486
- 7 Hindu           1         9         7         9        11        34
- 8 Historic…     228       244       236       238       197       223
- 9 Jehovah&#39;…      20        27        24        24        21        30
-10 Jewish         19        19        25        25        30        95
-11 Mainline…     289       495       619       655       651      1107
-12 Mormon         29        40        48        51        56       112
-13 Muslim          6         7         9        10         9        23
-14 Orthodox       13        17        23        32        32        47
-15 Other Ch…       9         7        11        13        13        14
-16 Other Fa…      20        33        40        46        49        63
-17 Other Wo…       5         2         3         4         2         7
-18 Unaffili…     217       299       374       365       341       528
-# … with 4 more variables: $75-100k &lt;dbl&gt;, $100-150k &lt;dbl&gt;,
-#   &gt;150k &lt;dbl&gt;, Don&#39;t know/refused &lt;dbl&gt;</code></pre>
-</div>
-<p>While this format is canonical and is useful for quickly observing the relationship between multiple variables, it is not tidy. This format violates the tidy form because there are variables in the columns. In this case the variables are religion, income bracket, and the number of respondents, which is the third variable, is presented inside the table.</p>
-<p>Converting this data to tidy format would give us</p>
+<p>We can look at the data quickly by reading it in as a tibble with <code>read_csv()</code> in the <code>tidyverse</code> package.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://tidyverse.tidyverse.org'>tidyverse</a></span><span class='op'>)</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://here.r-lib.org/'>here</a></span><span class='op'>)</span>
+<span class='va'>maacs</span> <span class='op'>&lt;-</span> <span class='fu'>read_csv</span><span class='op'>(</span><span class='fu'><a href='https://here.r-lib.org//reference/here.html'>here</a></span><span class='op'>(</span><span class='st'>"data"</span>, <span class='st'>"bmi_pm25_no2_sim.csv"</span><span class='op'>)</span>,
+                  col_types <span class='op'>=</span> <span class='st'>"nnci"</span><span class='op'>)</span>
+<span class='va'>maacs</span>
+</code></pre>
+</div>
+<pre><code># A tibble: 517 × 4
+   logpm25 logno2_new bmicat        NocturnalSympt
+     &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;                  &lt;int&gt;
+ 1   1.25       1.18  normal weight              1
+ 2   1.12       1.55  overweight                 0
+ 3   1.93       1.43  normal weight              0
+ 4   1.37       1.77  overweight                 2
+ 5   0.775      0.765 normal weight              0
+ 6   1.49       1.11  normal weight              0
+ 7   2.16       1.43  normal weight              0
+ 8   1.65       1.40  normal weight              0
+ 9   1.55       1.81  normal weight              0
+10   2.04       1.35  overweight                 3
+# … with 507 more rows</code></pre>
+</div>
+<p>The outcome we will look at here, <code>NocturnalSymp</code>, is the number of days in the past 2 weeks where the child experienced asthma symptoms (e.g. coughing, wheezing) while sleeping.</p>
+<h3 id="building-up-in-layers">Building up in layers</h3>
+<p>First we can create a <code>ggplot</code> object that stores the dataset and the basic aesthetics for mapping the x- and y-coordinates for the plot. Here we will eventually be plotting the log of PM2.5 and <code>NocturnalSymp</code> variable.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>g</span> <span class='op'>&lt;-</span> <span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>maacs</span>, <span class='fu'>aes</span><span class='op'>(</span><span class='va'>logpm25</span>, <span class='va'>NocturnalSympt</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>g</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>data: logpm25, logno2_new, bmicat, NocturnalSympt [517x4]
+mapping:  x = ~logpm25, y = ~NocturnalSympt
+faceting: &lt;ggproto object: Class FacetNull, Facet, gg&gt;
+    compute_layout: function
+    draw_back: function
+    draw_front: function
+    draw_labels: function
+    draw_panels: function
+    finish_data: function
+    init_scales: function
+    map_data: function
+    params: list
+    setup_data: function
+    setup_params: function
+    shrink: TRUE
+    train_scales: function
+    vars: function
+    super:  &lt;ggproto object: Class FacetNull, Facet, gg&gt;</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/class.html'>class</a></span><span class='op'>(</span><span class='va'>g</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>[1] &quot;gg&quot;     &quot;ggplot&quot;</code></pre>
+</div>
+<p>You can see above that the object <code>g</code> contains the dataset <code>maacs</code> and the mappings.</p>
+<p>Now, normally if you were to <code>print()</code> a <code>ggplot</code> object a plot would appear on the plot device, however, our object <code>g</code> actually doesn’t contain enough information to make a plot yet.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>g</span> <span class='op'>&lt;-</span> <span class='va'>maacs</span> <span class='op'>%&gt;%</span>
+        <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span><span class='va'>logpm25</span>, <span class='va'>NocturnalSympt</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>g</span><span class='op'>)</span>
+</code></pre>
+</div>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-4"></span>
+<img src="ggplot2-plotting-system-part-2_files/figure-html5/unnamed-chunk-4-1.png" alt="Nothing to see here!" width="624" />
+<p class="caption">
+Figure 1: Nothing to see here!
+</p>
+</div>
+</div>
+<h3 id="first-plot-with-point-layer">First plot with point layer</h3>
+<p>To make a scatterplot we need add at least one <em>geom</em>, such as points. Here we add the <code>geom_point()</code> function to create a traditional scatterplot.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>g</span> <span class='op'>&lt;-</span> <span class='va'>maacs</span> <span class='op'>%&gt;%</span>
+        <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span><span class='va'>logpm25</span>, <span class='va'>NocturnalSympt</span><span class='op'>)</span><span class='op'>)</span>
+<span class='va'>g</span> <span class='op'>+</span> <span class='fu'>geom_point</span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="ggplot2-plotting-system-part-2_files/figure-html5/Scatterplot%20of%20PM2.5%20and%20days%20with%20nocturnal%20symptoms-1.png" width="624" /></p>
+</div>
+<p>How does ggplot know what points to plot? In this case, it can grab them from the data frame <code>maacs</code> that served as the input into the <code>ggplot()</code> function.</p>
+<h3 id="adding-more-layers-smooth">Adding more layers: smooth</h3>
+<p>Because the data appear rather noisy, it might be better if we added a smoother on top of the points to see if there is a trend in the data with PM2.5.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>g</span> <span class='op'>+</span> <span class='fu'>geom_point</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'>geom_smooth</span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-5"></span>
+<img src="ggplot2-plotting-system-part-2_files/figure-html5/unnamed-chunk-5-1.png" alt="Scatterplot with smoother" width="624" />
+<p class="caption">
+Figure 2: Scatterplot with smoother
+</p>
+</div>
+</div>
+<p>The default smoother is a loess smoother, which is flexible and nonparametric but might be too flexible for our purposes. Perhaps we’d prefer a simple linear regression line to highlight any first order trends. We can do this by specifying <code>method = "lm"</code> to <code>geom_smooth()</code>.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>g</span> <span class='op'>+</span> <span class='fu'>geom_point</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'>geom_smooth</span><span class='op'>(</span>method <span class='op'>=</span> <span class='st'>"lm"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-6"></span>
+<img src="ggplot2-plotting-system-part-2_files/figure-html5/unnamed-chunk-6-1.png" alt="Scatterplot with linear regression line" width="624" />
+<p class="caption">
+Figure 3: Scatterplot with linear regression line
+</p>
+</div>
+</div>
+<p>Here, we can see there appears to be a slight increasing trend, suggesting that higher levels of PM2.5 are assocuated with increased days with nocturnal symptoms.</p>
+<h3 id="adding-more-layers-facets">Adding more layers: facets</h3>
+<p>Because our primary question involves comparing overweight individuals to normal weight individuals, we can stratify the scatterplot of PM2.5 and nocturnal symptoms by the BMI category (<code>bmicat</code>) variable, which indicates whether an individual is overweight or now. To visualize this we can add a <code>facet_grid()</code>, which takes a formula argument. Here we want one row and two columns, one column for each weight category. So we specify <code>bmicat</code> on the right hand side of the forumla passed to <code>facet_grid()</code>.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>g</span> <span class='op'>+</span> <span class='fu'>geom_point</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span> 
+        <span class='fu'>geom_smooth</span><span class='op'>(</span>method <span class='op'>=</span> <span class='st'>"lm"</span><span class='op'>)</span> <span class='op'>+</span>
+        <span class='fu'>facet_grid</span><span class='op'>(</span><span class='va'>.</span> <span class='op'>~</span> <span class='va'>bmicat</span><span class='op'>)</span> 
+</code></pre>
+</div>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-7"></span>
+<img src="ggplot2-plotting-system-part-2_files/figure-html5/unnamed-chunk-7-1.png" alt="Scatterplot of PM2.5 and nocturnal symptoms by BMI category" width="864" />
+<p class="caption">
+Figure 4: Scatterplot of PM2.5 and nocturnal symptoms by BMI category
+</p>
+</div>
+</div>
+<p>Now it seems clear that the relationship between PM2.5 and nocturnal symptoms is relatively flat amongst normal weight individuals, while the relationship is increasing amongst overweight individuals. This plot suggests that overweight individuals may be more susceptible to the effects of PM2.5.</p>
+<p>There are a variety of annotations you can add to a plot, including different kinds of labels. You can use <code>xlab()</code> for x-axis labels, <code>ylab()</code> for y-axis labels, and <code>ggtitle()</code> for specifying plot titles. The <code>labs()</code> function is generic and can be used to modify multiple types of labels at once.</p>
+<p>For things that only make sense globally, use <code>theme()</code>, i.e. <code>theme(legend.position = "none")</code>. Two standard appearance themes are included</p>
+<ul>
+<li><p><code>theme_gray()</code>: The default theme (gray background)</p></li>
+<li><p><code>theme_bw()</code>: More stark/plain</p></li>
+</ul>
+<h3 id="modifying-geom-properties">Modifying geom properties</h3>
+<p>You can modify properties of geoms by specifying options to their respective <code>geom_*</code> functions. For example, here we modify the points in the scatterplot to make the color “steelblue”, the size larger , and the alpha transparency greater.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>g</span> <span class='op'>+</span> <span class='fu'>geom_point</span><span class='op'>(</span>color <span class='op'>=</span> <span class='st'>"steelblue"</span>, size <span class='op'>=</span> <span class='fl'>4</span>, alpha <span class='op'>=</span> <span class='fl'>1</span><span class='op'>/</span><span class='fl'>2</span><span class='op'>)</span>
+</code></pre>
+</div>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-8"></span>
+<img src="ggplot2-plotting-system-part-2_files/figure-html5/unnamed-chunk-8-1.png" alt="Modifying point color with a constant" width="624" />
+<p class="caption">
+Figure 5: Modifying point color with a constant
+</p>
+</div>
+</div>
+<p>In addition to setting specific geom attributes to constants, we can map aesthetics to variables. So, here, we map the color aesthetic <code>color</code> to the variable <code>bmicat</code>, so the points will be colored according to the levels of <code>bmicat</code>. We use the <code>aes()</code> function to indicate this difference from the plot above.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>g</span> <span class='op'>+</span> <span class='fu'>geom_point</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>color <span class='op'>=</span> <span class='va'>bmicat</span><span class='op'>)</span>, size <span class='op'>=</span> <span class='fl'>4</span>, alpha <span class='op'>=</span> <span class='fl'>1</span><span class='op'>/</span><span class='fl'>2</span><span class='op'>)</span>
+</code></pre>
+</div>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-9"></span>
+<img src="ggplot2-plotting-system-part-2_files/figure-html5/unnamed-chunk-9-1.png" alt="Mapping color to a variable" width="624" />
+<p class="caption">
+Figure 6: Mapping color to a variable
+</p>
+</div>
+</div>
+<h3 id="modifying-labels">Modifying labels</h3>
+<p>Here is an example of modifying the title and the x and y labels to make the plot a bit more informative.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>g</span> <span class='op'>+</span> <span class='fu'>geom_point</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>color <span class='op'>=</span> <span class='va'>bmicat</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> 
+        <span class='fu'>labs</span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"MAACS Cohort"</span><span class='op'>)</span> <span class='op'>+</span> 
+        <span class='fu'>labs</span><span class='op'>(</span>x <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/expression.html'>expression</a></span><span class='op'>(</span><span class='st'>"log "</span> <span class='op'>*</span> <span class='va'>PM</span><span class='op'>[</span><span class='fl'>2.5</span><span class='op'>]</span><span class='op'>)</span>, y <span class='op'>=</span> <span class='st'>"Nocturnal Symptoms"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-10"></span>
+<img src="ggplot2-plotting-system-part-2_files/figure-html5/unnamed-chunk-10-1.png" alt="Modifying plot labels" width="624" />
+<p class="caption">
+Figure 7: Modifying plot labels
+</p>
+</div>
+</div>
+<h3 id="customizing-the-smooth">Customizing the smooth</h3>
+<p>We can also customize aspects of the smoother that we overlay on the points with <code>geom_smooth()</code>. Here we change the line type and increase the size from the default. We also remove the shaded standard error from the line.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>g</span> <span class='op'>+</span> <span class='fu'>geom_point</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>color <span class='op'>=</span> <span class='va'>bmicat</span><span class='op'>)</span>, 
+               size <span class='op'>=</span> <span class='fl'>2</span>, alpha <span class='op'>=</span> <span class='fl'>1</span><span class='op'>/</span><span class='fl'>2</span><span class='op'>)</span> <span class='op'>+</span> 
+        <span class='fu'>geom_smooth</span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>4</span>, linetype <span class='op'>=</span> <span class='fl'>3</span>, 
+                    method <span class='op'>=</span> <span class='st'>"lm"</span>, se <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
+</code></pre>
+</div>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-11"></span>
+<img src="ggplot2-plotting-system-part-2_files/figure-html5/unnamed-chunk-11-1.png" alt="Customizing a smoother" width="624" />
+<p class="caption">
+Figure 8: Customizing a smoother
+</p>
+</div>
+</div>
+<p>#3# Changing the theme</p>
+<p>The default theme for <code>ggplot2</code> uses the gray background with white grid lines. If you don’t find this suitable, you can use the black and white theme by using the <code>theme_bw()</code> function. The <code>theme_bw()</code> function also allows you to set the typeface for the plot, in case you don’t want the default Helvetica. Here we change the typeface to Times.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>g</span> <span class='op'>+</span> <span class='fu'>geom_point</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>color <span class='op'>=</span> <span class='va'>bmicat</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> 
+        <span class='fu'>theme_bw</span><span class='op'>(</span>base_family <span class='op'>=</span> <span class='st'>"Times"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-12"></span>
+<img src="ggplot2-plotting-system-part-2_files/figure-html5/unnamed-chunk-12-1.png" alt="Modifying the theme for a plot" width="624" />
+<p class="caption">
+Figure 9: Modifying the theme for a plot
+</p>
+</div>
+</div>
+<h3 id="more-complex-example">More complex example</h3>
+<p>Now you get the sense that plots in the <code>ggplot2</code> system are constructed by successively adding components to the plot, starting with the base dataset and maybe a scatterplot. In this section we will show a slightly more complicated example with an additional variable. Now, we will ask the question</p>
+<blockquote>
+<p>How does the relationship between PM2.5 and nocturnal symptoms vary by BMI category and nitrogen dioxide (NO2)?</p>
+</blockquote>
+<p>Unlike our previous BMI variable, NO2 is continuous, and so we need to make NO2 categorical so we can condition on it in the plotting. We can use the <code>cut()</code> function for this purpose. We will divide the NO2 variable into tertiles.</p>
+<p>First we need to calculate the tertiles with the <code>quantile()</code> function.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>cutpoints</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/quantile.html'>quantile</a></span><span class='op'>(</span><span class='va'>maacs</span><span class='op'>$</span><span class='va'>logno2_new</span>, <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>1</span>, length <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span>, na.rm <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<p>Then we need to divide the original <code>logno2_new</code> variable into the ranges defined by the cut points computed above.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>maacs</span><span class='op'>$</span><span class='va'>no2tert</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/cut.html'>cut</a></span><span class='op'>(</span><span class='va'>maacs</span><span class='op'>$</span><span class='va'>logno2_new</span>, <span class='va'>cutpoints</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<p>The <code>not2tert</code> variable is now a categorical factor variable containing 3 levels, indicating the ranges of NO2 (on the log scale).</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'>## See the levels of the newly created factor variable</span>
+<span class='fu'><a href='https://rdrr.io/r/base/levels.html'>levels</a></span><span class='op'>(</span><span class='va'>maacs</span><span class='op'>$</span><span class='va'>no2tert</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>[1] &quot;(0.342,1.23]&quot; &quot;(1.23,1.47]&quot;  &quot;(1.47,2.17]&quot; </code></pre>
+</div>
+<p>The final plot shows the relationship between PM2.5 and nocturnal symptoms by BMI category and NO2 tertile.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'>## Setup ggplot with data frame</span>
+<span class='va'>g</span> <span class='op'>&lt;-</span> <span class='va'>maacs</span> <span class='op'>%&gt;%</span>
+        <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span><span class='va'>logpm25</span>, <span class='va'>NocturnalSympt</span><span class='op'>)</span><span class='op'>)</span>
 
-<span class='va'>relig_income</span> <span class='op'>%&gt;%</span>
-  <span class='fu'><a href='https://tidyr.tidyverse.org/reference/pivot_longer.html'>pivot_longer</a></span><span class='op'>(</span><span class='op'>-</span><span class='va'>religion</span>, names_to <span class='op'>=</span> <span class='st'>"income"</span>, values_to <span class='op'>=</span> <span class='st'>"respondents"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
-  <span class='fu'>mutate</span><span class='op'>(</span>religion <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='va'>religion</span><span class='op'>)</span>, income <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='va'>income</span><span class='op'>)</span><span class='op'>)</span>
+<span class='co'>## Add layers</span>
+<span class='va'>g</span> <span class='op'>+</span> <span class='fu'>geom_point</span><span class='op'>(</span>alpha <span class='op'>=</span> <span class='fl'>1</span><span class='op'>/</span><span class='fl'>3</span><span class='op'>)</span> <span class='op'>+</span> 
+        <span class='fu'>facet_grid</span><span class='op'>(</span><span class='va'>bmicat</span> <span class='op'>~</span> <span class='va'>no2tert</span><span class='op'>)</span> <span class='op'>+</span> 
+        <span class='fu'>geom_smooth</span><span class='op'>(</span>method<span class='op'>=</span><span class='st'>"lm"</span>, se<span class='op'>=</span><span class='cn'>FALSE</span>, col<span class='op'>=</span><span class='st'>"steelblue"</span><span class='op'>)</span> <span class='op'>+</span> 
+        <span class='fu'>theme_bw</span><span class='op'>(</span>base_family <span class='op'>=</span> <span class='st'>"Avenir"</span>, base_size <span class='op'>=</span> <span class='fl'>10</span><span class='op'>)</span> <span class='op'>+</span> 
+        <span class='fu'>labs</span><span class='op'>(</span>x <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/expression.html'>expression</a></span><span class='op'>(</span><span class='st'>"log "</span> <span class='op'>*</span> <span class='va'>PM</span><span class='op'>[</span><span class='fl'>2.5</span><span class='op'>]</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> 
+        <span class='fu'>labs</span><span class='op'>(</span>y <span class='op'>=</span> <span class='st'>"Nocturnal Symptoms"</span><span class='op'>)</span> <span class='op'>+</span> 
+        <span class='fu'>labs</span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"MAACS Cohort"</span><span class='op'>)</span>
 </code></pre>
 </div>
-<pre><code># A tibble: 180 × 3
-   religion income             respondents
-   &lt;fct&gt;    &lt;fct&gt;                    &lt;dbl&gt;
- 1 Agnostic &lt;$10k                       27
- 2 Agnostic $10-20k                     34
- 3 Agnostic $20-30k                     60
- 4 Agnostic $30-40k                     81
- 5 Agnostic $40-50k                     76
- 6 Agnostic $50-75k                    137
- 7 Agnostic $75-100k                   122
- 8 Agnostic $100-150k                  109
- 9 Agnostic &gt;150k                       84
-10 Agnostic Don&#39;t know/refused          96
-# … with 170 more rows</code></pre>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-16"></span>
+<img src="ggplot2-plotting-system-part-2_files/figure-html5/unnamed-chunk-16-1.png" alt="PM2.5 and nocturnal symptoms by BMI category and NO2 tertile" width="864" />
+<p class="caption">
+Figure 10: PM2.5 and nocturnal symptoms by BMI category and NO2 tertile
+</p>
 </div>
-<p>Some of these functions you have seen before, others might be new to you. Let’s talk about each one in the context of the Tidyverse package.</p>
-<h1 id="the-tidyverse">The “Tidyverse”</h1>
-<p>There are a number of R packages that take advantage of the tidy data form and can be used to do interesting things with data. Many (but not all) of these packages are written by Hadley Wickham and the collection of packages is sometimes referred to as the “tidyverse” because of their dependence on and presumption of tidy data. “Tidyverse” packages include:</p>
+</div>
+<h2 id="a-quick-aside-about-axis-limits">A quick aside about axis limits</h2>
+<p>One quick quirk about <code>ggplot2</code> that caught me up when I first started using the package can be displayed in the following example. I make a lot of time series plots and I often want to restrict the range of the y-axis while still plotting all the data. In the base graphics system you can do that as follows.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>testdat</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='fl'>1</span><span class='op'>:</span><span class='fl'>100</span>, y <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='fl'>100</span><span class='op'>)</span><span class='op'>)</span>
+<span class='va'>testdat</span><span class='op'>[</span><span class='fl'>50</span>,<span class='fl'>2</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='fl'>100</span>  <span class='co'>## Outlier!</span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>testdat</span><span class='op'>$</span><span class='va'>x</span>, <span class='va'>testdat</span><span class='op'>$</span><span class='va'>y</span>, type <span class='op'>=</span> <span class='st'>"l"</span>, ylim <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>-</span><span class='fl'>3</span>,<span class='fl'>3</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-17"></span>
+<img src="ggplot2-plotting-system-part-2_files/figure-html5/unnamed-chunk-17-1.png" alt="Time series plot with base graphics" width="624" />
+<p class="caption">
+Figure 11: Time series plot with base graphics
+</p>
+</div>
+</div>
+<p>Here I’ve restricted the y-axis range to be between -3 and 3, even though there is a clear outlier in the data.</p>
+<p>With <code>ggplot2</code> the default settings will give you this.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>g</span> <span class='op'>&lt;-</span> <span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>testdat</span>, <span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>x</span>, y <span class='op'>=</span> <span class='va'>y</span><span class='op'>)</span><span class='op'>)</span>
+<span class='va'>g</span> <span class='op'>+</span> <span class='fu'>geom_line</span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-18"></span>
+<img src="ggplot2-plotting-system-part-2_files/figure-html5/unnamed-chunk-18-1.png" alt="Time series plot with default settings" width="624" />
+<p class="caption">
+Figure 12: Time series plot with default settings
+</p>
+</div>
+</div>
+<p>Modifying the <code>ylim()</code> attribute would seem to give you the same thing as the base plot, but it doesn’t.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>g</span> <span class='op'>+</span> <span class='fu'>geom_line</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://rdrr.io/r/graphics/plot.window.html'>ylim</a></span><span class='op'>(</span><span class='op'>-</span><span class='fl'>3</span>, <span class='fl'>3</span><span class='op'>)</span>
+</code></pre>
+</div>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-19"></span>
+<img src="ggplot2-plotting-system-part-2_files/figure-html5/unnamed-chunk-19-1.png" alt="Time series plot with modified ylim" width="624" />
+<p class="caption">
+Figure 13: Time series plot with modified ylim
+</p>
+</div>
+</div>
+<p>Effectively, what this does is subset the data so that only observations between -3 and 3 are included, then plot the data.</p>
+<p>To plot the data without subsetting it first and still get the restricted range, you have to do the following.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>g</span> <span class='op'>+</span> <span class='fu'>geom_line</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'>coord_cartesian</span><span class='op'>(</span>ylim <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>-</span><span class='fl'>3</span>, <span class='fl'>3</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-20"></span>
+<img src="ggplot2-plotting-system-part-2_files/figure-html5/unnamed-chunk-20-1.png" alt="Time series plot with restricted y-axis range" width="624" />
+<p class="caption">
+Figure 14: Time series plot with restricted y-axis range
+</p>
+</div>
+</div>
+<p>And now you know!</p>
+<h3 id="resources">Resources</h3>
 <ul>
-<li><p><a href="https://cran.r-project.org/package=ggplot2">ggplot2</a>: a plotting system based on the grammar of graphics</p></li>
-<li><p><a href="https://cran.r-project.org/package=magrittr%22">magrittr</a>: defines the <code>%&gt;%</code> operator for chaining functions together in a series of operations on data</p></li>
-<li><p><a href="https://cran.r-project.org/package=dplyr">dplyr</a>: a suite of (fast) functions for working with data frames</p></li>
-<li><p><a href="https://cran.r-project.org/package=tidyr">tidyr</a>: easily tidy data with <code>pivot_wider()</code> and <code>pivot_longer()</code> functions (also <code>separate()</code> and <code>unite()</code>)</p></li>
+<li>The <em>ggplot2</em> book by Hadley Wickham</li>
+<li>The <em>R Graphics Cookbook</em> by Winston Chang (examples in base plots and in ggplot2)</li>
+<li><a href="http://ggplot2.tidyverse.org">tidyverse web site</a></li>
 </ul>
-<p>We will be using these packages quite a bit this week.</p>
-<p>The “tidyverse” package can be used to install all of the packages in the tidyverse at once. For example, instead of starting an R script with this:</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://dplyr.tidyverse.org'>dplyr</a></span><span class='op'>)</span>
-<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://tidyr.tidyverse.org'>tidyr</a></span><span class='op'>)</span>
-<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://readr.tidyverse.org'>readr</a></span><span class='op'>)</span>
-<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://ggplot2.tidyverse.org'>ggplot2</a></span><span class='op'>)</span>
-</code></pre>
-</div>
-</div>
-<p>You can start with this:</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://tidyverse.tidyverse.org'>tidyverse</a></span><span class='op'>)</span>
-</code></pre>
-</div>
-</div>
-<p>In the code above, let’s talk about what we did using the <code>pivot_longer()</code> function. We will also talk about <code>pivot_wider()</code>.</p>
-<h3 id="pivot_longer-and-pivot_wider"><code>pivot_longer()</code> and <code>pivot_wider()</code></h3>
-<p>The <code>tidyr</code> package includes functions to transfer a data frame between <em>long</em> and <em>wide</em>.</p>
-<ul>
-<li><strong>Wide format</strong> data tends to have different attributes or variables describing an observation placed in separate columns.</li>
-<li><strong>Long format</strong> data tends to have different attributes encoded as levels of a single variable, followed by another column that contains tha values of the observation at those different levels.</li>
-</ul>
-<p>In the section above, we showed an example that used <code>pivot_longer()</code> to convert data into a tidy format.</p>
-<p>The key problem with the tidyness of the data is that the income variables are not in their own columns, but rather are embedded in the structure of the columns.</p>
-<p>To fix this, you can use the <code>pivot_longer()</code> function to gather values spread across several columns into a single column, with the column names gathered into an <code>income</code> column. When gathering, exclude any columns that you do not want “gathered” (<code>religion</code> in this case) by including the column names with a the minus sign in the <code>pivot_longer()</code> function. For example:</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># Gather everything EXCEPT religion to tidy data</span>
-<span class='va'>relig_income</span> <span class='op'>%&gt;%</span>
-  <span class='fu'><a href='https://tidyr.tidyverse.org/reference/pivot_longer.html'>pivot_longer</a></span><span class='op'>(</span><span class='op'>-</span><span class='va'>religion</span>, names_to <span class='op'>=</span> <span class='st'>"income"</span>, values_to <span class='op'>=</span> <span class='st'>"respondents"</span><span class='op'>)</span>
-</code></pre>
-</div>
-<pre><code># A tibble: 180 × 3
-   religion income             respondents
-   &lt;chr&gt;    &lt;chr&gt;                    &lt;dbl&gt;
- 1 Agnostic &lt;$10k                       27
- 2 Agnostic $10-20k                     34
- 3 Agnostic $20-30k                     60
- 4 Agnostic $30-40k                     81
- 5 Agnostic $40-50k                     76
- 6 Agnostic $50-75k                    137
- 7 Agnostic $75-100k                   122
- 8 Agnostic $100-150k                  109
- 9 Agnostic &gt;150k                       84
-10 Agnostic Don&#39;t know/refused          96
-# … with 170 more rows</code></pre>
-</div>
-<p>Even if your data is in a tidy format, <code>pivot_longer()</code> is occasionally useful for pulling data together to take advantage of faceting, or plotting separate plots based on a grouping variable. We will talk more about that in a future lecture.</p>
-<p>The <code>pivot_wider()</code> function is less commonly needed to tidy data. It can, however, be useful for creating summary tables. For example, you use the <code>summarize()</code> function in <code>dplyr</code> to summarize the total number of respondents per income category.</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>relig_income</span> <span class='op'>%&gt;%</span>
-  <span class='fu'><a href='https://tidyr.tidyverse.org/reference/pivot_longer.html'>pivot_longer</a></span><span class='op'>(</span><span class='op'>-</span><span class='va'>religion</span>, names_to <span class='op'>=</span> <span class='st'>"income"</span>, values_to <span class='op'>=</span> <span class='st'>"respondents"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
-  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>religion <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='va'>religion</span><span class='op'>)</span>, income <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='va'>income</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
-  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span><span class='op'>(</span><span class='va'>income</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
-  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarize</a></span><span class='op'>(</span>total_respondents <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>respondents</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
-  <span class='fu'><a href='https://tidyr.tidyverse.org/reference/pivot_wider.html'>pivot_wider</a></span><span class='op'>(</span>names_from <span class='op'>=</span> <span class='st'>"income"</span>, 
-              values_from <span class='op'>=</span> <span class='st'>"total_respondents"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
-  <span class='fu'>knitr</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/knitr/man/kable.html'>kable</a></span><span class='op'>(</span><span class='op'>)</span>
-</code></pre>
-</div>
-<table>
-<colgroup>
-<col style="width: 6%" />
-<col style="width: 6%" />
-<col style="width: 8%" />
-<col style="width: 11%" />
-<col style="width: 8%" />
-<col style="width: 8%" />
-<col style="width: 8%" />
-<col style="width: 8%" />
-<col style="width: 10%" />
-<col style="width: 21%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: right;">&lt;$10k</th>
-<th style="text-align: right;">&gt;150k</th>
-<th style="text-align: right;">$10-20k</th>
-<th style="text-align: right;">$100-150k</th>
-<th style="text-align: right;">$20-30k</th>
-<th style="text-align: right;">$30-40k</th>
-<th style="text-align: right;">$40-50k</th>
-<th style="text-align: right;">$50-75k</th>
-<th style="text-align: right;">$75-100k</th>
-<th style="text-align: right;">Don’t know/refused</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">1930</td>
-<td style="text-align: right;">2608</td>
-<td style="text-align: right;">2781</td>
-<td style="text-align: right;">3197</td>
-<td style="text-align: right;">3357</td>
-<td style="text-align: right;">3302</td>
-<td style="text-align: right;">3085</td>
-<td style="text-align: right;">5185</td>
-<td style="text-align: right;">3990</td>
-<td style="text-align: right;">6121</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>Notice in this example how <code>pivot_wider()</code> has been used at the very end of the code sequence to convert the summarized data into a shape that offers a better tabular presentation for a report. In the <code>pivot_wider()</code> call, you first specify the name of the column to use for the new column names (<code>income</code> in this example) and then specify the column to use for the cell values (<code>total_respondents</code> here).</p>
-<div class="questions">
-<p><strong>Example</strong>: Let’s try another dataset. This data contain an excerpt of the <a href="https://cran.r-project.org/web/packages/gapminder/README.html#gapminder">Gapminder data</a> on life expectancy, GDP per capita, and population by country.</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/jennybc/gapminder'>gapminder</a></span><span class='op'>)</span>
-<span class='va'>gapminder</span>
-</code></pre>
-</div>
-<pre><code># A tibble: 1,704 × 6
-   country     continent  year lifeExp      pop gdpPercap
-   &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
- 1 Afghanistan Asia       1952    28.8  8425333      779.
- 2 Afghanistan Asia       1957    30.3  9240934      821.
- 3 Afghanistan Asia       1962    32.0 10267083      853.
- 4 Afghanistan Asia       1967    34.0 11537966      836.
- 5 Afghanistan Asia       1972    36.1 13079460      740.
- 6 Afghanistan Asia       1977    38.4 14880372      786.
- 7 Afghanistan Asia       1982    39.9 12881816      978.
- 8 Afghanistan Asia       1987    40.8 13867957      852.
- 9 Afghanistan Asia       1992    41.7 16317921      649.
-10 Afghanistan Asia       1997    41.8 22227415      635.
-# … with 1,694 more rows</code></pre>
-</div>
-<p>If we wanted to make <code>lifeExp</code>, <code>pop</code> and <code>gdpPercap</code> (all measurements that we observe) go from a wide table into a long table, what would we do?</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># try it yourself</span>
-</code></pre>
-</div>
-</div>
-</div>
-<div class="questions">
-<p>One more! Try using <code>pivot_longer()</code> to convert the the following data that contains made-up revenues for three companies by quarter for years 2006 to 2009.</p>
-<p>Afterward, use <code>group_by()</code> and <code>summarize()</code> to calculate the average revenue for each company across all years and all quarters.</p>
-<p><strong>Bonus</strong>: Calculate a mean revenue for each company AND each year (averaged across all 4 quarters).</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>df</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://tibble.tidyverse.org/reference/tibble.html'>tibble</a></span><span class='op'>(</span>
-  <span class='st'>"company"</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>3</span>, each<span class='op'>=</span><span class='fl'>4</span><span class='op'>)</span>, 
-  <span class='st'>"year"</span>  <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='fl'>2006</span><span class='op'>:</span><span class='fl'>2009</span>, <span class='fl'>3</span><span class='op'>)</span>,
-  <span class='st'>"Q1"</span>    <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='fl'>0</span><span class='op'>:</span><span class='fl'>100</span>, size <span class='op'>=</span> <span class='fl'>12</span><span class='op'>)</span>,
-  <span class='st'>"Q2"</span>    <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='fl'>0</span><span class='op'>:</span><span class='fl'>100</span>, size <span class='op'>=</span> <span class='fl'>12</span><span class='op'>)</span>,
-  <span class='st'>"Q3"</span>    <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='fl'>0</span><span class='op'>:</span><span class='fl'>100</span>, size <span class='op'>=</span> <span class='fl'>12</span><span class='op'>)</span>,
-  <span class='st'>"Q4"</span>    <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='fl'>0</span><span class='op'>:</span><span class='fl'>100</span>, size <span class='op'>=</span> <span class='fl'>12</span><span class='op'>)</span>,
-<span class='op'>)</span>
-<span class='va'>df</span>
-</code></pre>
-</div>
-<pre><code># A tibble: 12 × 6
-   company  year    Q1    Q2    Q3    Q4
-     &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
- 1       1  2006   100    90    24    86
- 2       1  2007    23    29    30    67
- 3       1  2008    42    39    53    77
- 4       1  2009    98    98    60    87
- 5       2  2006     8    97    17    73
- 6       2  2007    15    83    18     8
- 7       2  2008     7    12    38    72
- 8       2  2009    22    49    99    82
- 9       3  2006    65    28    39    22
-10       3  2007    20    33    14    56
-11       3  2008    56    78    72    44
-12       3  2009    36    67    91    42</code></pre>
-</div>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># try it yourself </span>
-</code></pre>
-</div>
-</div>
-</div>
-<h3 id="separate-and-unite"><code>separate()</code> and <code>unite()</code></h3>
-<p>The same <code>tidyr</code> package also contains two useful functions:</p>
-<ul>
-<li><code>unite()</code>: combine contents of two or more columns into a single column</li>
-<li><code>separate()</code>: separate contents of a column into two or more columns</li>
-</ul>
-<p>First, we combine the first three columns into one new column using <code>unite()</code>.</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>gapminder</span> <span class='op'>%&gt;%</span> 
-  <span class='fu'><a href='https://tidyr.tidyverse.org/reference/unite.html'>unite</a></span><span class='op'>(</span>col<span class='op'>=</span><span class='st'>"country_continent_year"</span>, <span class='va'>country</span><span class='op'>:</span><span class='va'>year</span>, sep<span class='op'>=</span><span class='st'>"_"</span><span class='op'>)</span>
-</code></pre>
-</div>
-<pre><code># A tibble: 1,704 × 4
-   country_continent_year lifeExp      pop gdpPercap
-   &lt;chr&gt;                    &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
- 1 Afghanistan_Asia_1952     28.8  8425333      779.
- 2 Afghanistan_Asia_1957     30.3  9240934      821.
- 3 Afghanistan_Asia_1962     32.0 10267083      853.
- 4 Afghanistan_Asia_1967     34.0 11537966      836.
- 5 Afghanistan_Asia_1972     36.1 13079460      740.
- 6 Afghanistan_Asia_1977     38.4 14880372      786.
- 7 Afghanistan_Asia_1982     39.9 12881816      978.
- 8 Afghanistan_Asia_1987     40.8 13867957      852.
- 9 Afghanistan_Asia_1992     41.7 16317921      649.
-10 Afghanistan_Asia_1997     41.8 22227415      635.
-# … with 1,694 more rows</code></pre>
-</div>
-<p>Next, we show how to separate the columns into three separate columns using <code>separate()</code> using the <code>col</code>, <code>into</code> and <code>sep</code> arguments.</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>gapminder</span> <span class='op'>%&gt;%</span> 
-  <span class='fu'><a href='https://tidyr.tidyverse.org/reference/unite.html'>unite</a></span><span class='op'>(</span>col<span class='op'>=</span><span class='st'>"country_continent_year"</span>, <span class='va'>country</span><span class='op'>:</span><span class='va'>year</span>, sep<span class='op'>=</span><span class='st'>"_"</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
-  <span class='fu'><a href='https://tidyr.tidyverse.org/reference/separate.html'>separate</a></span><span class='op'>(</span>col<span class='op'>=</span><span class='st'>"country_continent_year"</span>, into<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"country"</span>, <span class='st'>"continent"</span>, <span class='st'>"year"</span><span class='op'>)</span>, sep<span class='op'>=</span><span class='st'>"_"</span><span class='op'>)</span>
-</code></pre>
-</div>
-<pre><code># A tibble: 1,704 × 6
-   country     continent year  lifeExp      pop gdpPercap
-   &lt;chr&gt;       &lt;chr&gt;     &lt;chr&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
- 1 Afghanistan Asia      1952     28.8  8425333      779.
- 2 Afghanistan Asia      1957     30.3  9240934      821.
- 3 Afghanistan Asia      1962     32.0 10267083      853.
- 4 Afghanistan Asia      1967     34.0 11537966      836.
- 5 Afghanistan Asia      1972     36.1 13079460      740.
- 6 Afghanistan Asia      1977     38.4 14880372      786.
- 7 Afghanistan Asia      1982     39.9 12881816      978.
- 8 Afghanistan Asia      1987     40.8 13867957      852.
- 9 Afghanistan Asia      1992     41.7 16317921      649.
-10 Afghanistan Asia      1997     41.8 22227415      635.
-# … with 1,694 more rows</code></pre>
-</div>
 <h1 id="post-lecture-materials">Post-lecture materials</h1>
 <h3 id="final-questions">Final Questions</h3>
 <p>Here are some post-lecture questions to help you think about the material discussed.</p>
 <div class="questions">
 <p><strong>Questions:</strong></p>
 <ol type="1">
-<li><p>Using prose, describe how the variables and observations are organised in a tidy dataset versus an non-tidy dataset.</p></li>
-<li><p>What do the extra and fill arguments do in <code>separate()</code>? Experiment with the various options for the following two toy datasets.</p></li>
-</ol>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://tibble.tidyverse.org/reference/tibble.html'>tibble</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"a,b,c"</span>, <span class='st'>"d,e,f,g"</span>, <span class='st'>"h,i,j"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
-  <span class='fu'><a href='https://tidyr.tidyverse.org/reference/separate.html'>separate</a></span><span class='op'>(</span><span class='va'>x</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"one"</span>, <span class='st'>"two"</span>, <span class='st'>"three"</span><span class='op'>)</span><span class='op'>)</span>
-
-<span class='fu'><a href='https://tibble.tidyverse.org/reference/tibble.html'>tibble</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"a,b,c"</span>, <span class='st'>"d,e"</span>, <span class='st'>"f,g,i"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
-  <span class='fu'><a href='https://tidyr.tidyverse.org/reference/separate.html'>separate</a></span><span class='op'>(</span><span class='va'>x</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"one"</span>, <span class='st'>"two"</span>, <span class='st'>"three"</span><span class='op'>)</span><span class='op'>)</span>
-</code></pre>
-</div>
-</div>
-<ol start="3" type="1">
-<li><p>Both <code>unite()</code> and <code>separate()</code> have a remove argument. What does it do? Why would you set it to FALSE?</p></li>
-<li><p>Compare and contrast <code>separate()</code> and <code>extract()</code>. Why are there three variations of separation (by position, by separator, and with groups), but only one <code>unite()</code>?</p></li>
+<li></li>
+<li></li>
+<li></li>
 </ol>
 </div>
 <h3 id="additional-resources">Additional Resources</h3>
 <div class="resources">
 <ul>
-<li><a href="https://www.jstatsoft.org/article/view/v059i10">Tidy Data</a> paper published in the Journal of Statistical Software</li>
-<li><a href="https://r4ds.had.co.nz/tidy-data.html" class="uri">https://r4ds.had.co.nz/tidy-data.html</a></li>
-<li><a href="http://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf">tidyr cheat sheet from RStudio</a></li>
+<li></li>
+<li></li>
+<li></li>
 </ul>
 </div>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <div class="article-footer">
   <p class="social_footer">
     <span class="disqus-comments">
       <i class="fas fa-comments"></i>
       &nbsp;
-      <span class="disqus-comment-count" data-disqus-identifier="posts/2021-09-07-tidy-data-and-the-tidyverse/">Comment on this article</span>
+      <span class="disqus-comment-count" data-disqus-identifier="posts/2021-09-14-ggplot2-plotting-system-part-2/">Comment on this article</span>
     </span>
     <span class="article-sharing">
       Share: &nbsp;
-      <a href="https://twitter.com/share?text=Tidy%20data%20and%20the%20Tidyverse&amp;url=https%3A%2F%2Fstephaniehicks.com%2Fjhustatcomputing2021%2Fposts%2F2021-09-07-tidy-data-and-the-tidyverse%2F">
+      <a href="https://twitter.com/share?text=The%20ggplot2%20plotting%20system%3A%20ggplot%28%29&amp;url=https%3A%2F%2Fstephaniehicks.com%2Fjhustatcomputing2021%2Fposts%2F2021-09-14-ggplot2-plotting-system-part-2%2F">
         <i class="fab fa-twitter"></i>
       </a>
-      <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A%2F%2Fstephaniehicks.com%2Fjhustatcomputing2021%2Fposts%2F2021-09-07-tidy-data-and-the-tidyverse%2F&amp;title=Tidy%20data%20and%20the%20Tidyverse">
+      <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A%2F%2Fstephaniehicks.com%2Fjhustatcomputing2021%2Fposts%2F2021-09-14-ggplot2-plotting-system-part-2%2F&amp;title=The%20ggplot2%20plotting%20system%3A%20ggplot%28%29">
         <i class="fab fa-linkedin"></i>
       </a>
     </span>
@@ -2709,8 +2753,8 @@ Figure 1: Artwork by Allison Horst on tidy data
   <div id="disqus_thread" class="hidden"></div>
   <script type="text/javascript" cookie-consent="functionality">
 var disqus_config = function () {
-  this.page.url = 'https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-07-tidy-data-and-the-tidyverse/';
-  this.page.identifier = 'posts/2021-09-07-tidy-data-and-the-tidyverse/';
+  this.page.url = 'https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-14-ggplot2-plotting-system-part-2/';
+  this.page.identifier = 'posts/2021-09-14-ggplot2-plotting-system-part-2/';
 };
 (function() {
   var d = document, s = d.createElement('script');
@@ -2735,12 +2779,12 @@ var disqus_config = function () {
   <p>Text and figures are licensed under Creative Commons Attribution <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>. The figures that have been reused from other sources don't fall under this license and can be recognized by a note in their caption: "Figure from ...".</p>
   <h3 id="citation">Citation</h3>
   <p>For attribution, please cite this work as</p>
-  <pre class="citation-appendix short">Hicks (2021, Sept. 9). Statistical Computing: Tidy data and the Tidyverse. Retrieved from https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-07-tidy-data-and-the-tidyverse/</pre>
+  <pre class="citation-appendix short">Hicks (2021, Sept. 14). Statistical Computing: The ggplot2 plotting system: ggplot(). Retrieved from https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-14-ggplot2-plotting-system-part-2/</pre>
   <p>BibTeX citation</p>
-  <pre class="citation-appendix long">@misc{hicks2021tidy,
+  <pre class="citation-appendix long">@misc{hicks2021the,
   author = {Hicks, Stephanie},
-  title = {Statistical Computing: Tidy data and the Tidyverse},
-  url = {https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-07-tidy-data-and-the-tidyverse/},
+  title = {Statistical Computing: The ggplot2 plotting system: ggplot()},
+  url = {https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-14-ggplot2-plotting-system-part-2/},
   year = {2021}
 }</pre>
 </div>

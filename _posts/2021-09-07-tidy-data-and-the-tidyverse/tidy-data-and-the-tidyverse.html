@@ -92,8 +92,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
   <!--  https://schema.org/Article -->
-  <meta property="article:published" itemprop="datePublished" content="2021-09-07"/>
-  <meta property="article:created" itemprop="dateCreated" content="2021-09-07"/>
+  <meta property="article:published" itemprop="datePublished" content="2021-09-09"/>
+  <meta property="article:created" itemprop="dateCreated" content="2021-09-09"/>
   <meta name="article:author" content="Stephanie Hicks"/>
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
@@ -111,7 +111,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","categories"]}},"value":[{"type":"character","attributes":{},"value":["Tidy data and the Tidyverse"]},{"type":"character","attributes":{},"value":["Introduction to tidy data and how to convert between wide and long data with the tidyr R package.\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url","affiliation","affiliation_url"]}},"value":[{"type":"character","attributes":{},"value":["Stephanie Hicks"]},{"type":"character","attributes":{},"value":["https://stephaniehicks.com/"]},{"type":"character","attributes":{},"value":["Department of Biostatistics, Johns Hopkins"]},{"type":"character","attributes":{},"value":["https://www.jhsph.edu"]}]}]},{"type":"character","attributes":{},"value":["09-07-2021"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","toc","toc_depth"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[3]}]}]},{"type":"character","attributes":{},"value":["module 1","week 2","R","Programming","tidyr","here","tidyverse"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","categories"]}},"value":[{"type":"character","attributes":{},"value":["Tidy data and the Tidyverse"]},{"type":"character","attributes":{},"value":["Introduction to tidy data and how to convert between wide and long data with the tidyr R package.\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url","affiliation","affiliation_url"]}},"value":[{"type":"character","attributes":{},"value":["Stephanie Hicks"]},{"type":"character","attributes":{},"value":["https://stephaniehicks.com/"]},{"type":"character","attributes":{},"value":["Department of Biostatistics, Johns Hopkins"]},{"type":"character","attributes":{},"value":["https://www.jhsph.edu"]}]}]},{"type":"character","attributes":{},"value":["09-09-2021"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","toc","toc_depth"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[3]}]}]},{"type":"character","attributes":{},"value":["module 1","week 2","R","Programming","tidyr","here","tidyverse"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   
@@ -1455,7 +1455,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Tidy data and the Tidyverse","description":"Introduction to tidy data and how to convert between wide and long data with the tidyr R package.","authors":[{"author":"Stephanie Hicks","authorURL":"https://stephaniehicks.com/","affiliation":"Department of Biostatistics, Johns Hopkins","affiliationURL":"https://www.jhsph.edu","orcidID":""}],"publishedDate":"2021-09-07T00:00:00.000+00:00","citationText":"Hicks, 2021"}
+{"title":"Tidy data and the Tidyverse","description":"Introduction to tidy data and how to convert between wide and long data with the tidyr R package.","authors":[{"author":"Stephanie Hicks","authorURL":"https://stephaniehicks.com/","affiliation":"Department of Biostatistics, Johns Hopkins","affiliationURL":"https://www.jhsph.edu","orcidID":""}],"publishedDate":"2021-09-09T00:00:00.000+00:00","citationText":"Hicks, 2021"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -1483,7 +1483,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <div class="d-byline">
   Stephanie Hicks <a href="https://stephaniehicks.com/" class="uri">https://stephaniehicks.com/</a> (Department of Biostatistics, Johns Hopkins)<a href="https://www.jhsph.edu" class="uri">https://www.jhsph.edu</a>
   
-<br/>09-07-2021
+<br/>09-09-2021
 </div>
 
 <div class="d-article">
@@ -1786,18 +1786,18 @@ Figure 1: Artwork by Allison Horst on tidy data
 <pre><code># A tibble: 12 × 6
    company  year    Q1    Q2    Q3    Q4
      &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
- 1       1  2006    17    14   100    86
- 2       1  2007    53    43    79    47
- 3       1  2008    43    17    59    59
- 4       1  2009    12    81    58     3
- 5       2  2006    78    19    84    63
- 6       2  2007     8    82    37    75
- 7       2  2008    86    10    61    77
- 8       2  2009    35    78    43    38
- 9       3  2006    31    11    93    13
-10       3  2007     6    65    48    10
-11       3  2008    15     3    80    64
-12       3  2009    76    87    78    95</code></pre>
+ 1       1  2006   100    90    24    86
+ 2       1  2007    23    29    30    67
+ 3       1  2008    42    39    53    77
+ 4       1  2009    98    98    60    87
+ 5       2  2006     8    97    17    73
+ 6       2  2007    15    83    18     8
+ 7       2  2008     7    12    38    72
+ 8       2  2009    22    49    99    82
+ 9       3  2006    65    28    39    22
+10       3  2007    20    33    14    56
+11       3  2008    56    78    72    44
+12       3  2009    36    67    91    42</code></pre>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">

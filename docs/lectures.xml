@@ -7,11 +7,11 @@
     <description>Course website for Statistical Computing (JHSPH Biostatistics 140.776 Fall 2021)
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Thu, 09 Sep 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 14 Sep 2021 00:00:00 +0000</lastBuildDate>
     <item>
       <title>The ggplot2 plotting system: qplot()</title>
       <dc:creator>Stephanie Hicks</dc:creator>
-      <link>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-09-ggplot2-plotting-system-part-1</link>
+      <link>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-14-ggplot2-plotting-system-part-1</link>
       <description>An overview of the ggplot2 plotting system in R with qplot().</description>
       <category>module 1</category>
       <category>week 3</category>
@@ -19,14 +19,14 @@
       <category>Programming</category>
       <category>ggplot2</category>
       <category>data viz</category>
-      <guid>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-09-ggplot2-plotting-system-part-1</guid>
-      <pubDate>Thu, 09 Sep 2021 00:00:00 +0000</pubDate>
-      <media:content url="https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-09-ggplot2-plotting-system-part-1/ggplot2-plotting-system-part-1_files/figure-html5/unnamed-chunk-1-1.png" medium="image" type="image/png" width="1248" height="960"/>
+      <guid>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-14-ggplot2-plotting-system-part-1</guid>
+      <pubDate>Tue, 14 Sep 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-14-ggplot2-plotting-system-part-1/ggplot2-plotting-system-part-1_files/figure-html5/unnamed-chunk-1-1.png" medium="image" type="image/png" width="1248" height="960"/>
     </item>
     <item>
       <title>The ggplot2 plotting system: ggplot()</title>
       <dc:creator>Stephanie Hicks</dc:creator>
-      <link>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-09-ggplot2-plotting-system-part-2</link>
+      <link>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-14-ggplot2-plotting-system-part-2</link>
       <description>An overview of the ggplot2 plotting system in R with ggplot().</description>
       <category>module 1</category>
       <category>week 3</category>
@@ -34,9 +34,9 @@
       <category>Programming</category>
       <category>ggplot2</category>
       <category>data viz</category>
-      <guid>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-09-ggplot2-plotting-system-part-2</guid>
-      <pubDate>Thu, 09 Sep 2021 00:00:00 +0000</pubDate>
-      <media:content url="https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-09-ggplot2-plotting-system-part-2/ggplot2-plotting-system-part-2_files/figure-html5/unnamed-chunk-4-1.png" medium="image" type="image/png" width="1248" height="768"/>
+      <guid>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-14-ggplot2-plotting-system-part-2</guid>
+      <pubDate>Tue, 14 Sep 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-14-ggplot2-plotting-system-part-2/ggplot2-plotting-system-part-2_files/figure-html5/unnamed-chunk-4-1.png" medium="image" type="image/png" width="1248" height="768"/>
     </item>
     <item>
       <title>Plotting Systems</title>
@@ -54,6 +54,22 @@
       <media:content url="https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-09-plotting-systems/plotting-systems_files/figure-html5/unnamed-chunk-1-1.png" medium="image" type="image/png" width="960" height="960"/>
     </item>
     <item>
+      <title>Tidy data and the Tidyverse</title>
+      <dc:creator>Stephanie Hicks</dc:creator>
+      <link>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-07-tidy-data-and-the-tidyverse</link>
+      <description>Introduction to tidy data and how to convert between wide and long data with the tidyr R package.</description>
+      <category>module 1</category>
+      <category>week 2</category>
+      <category>R</category>
+      <category>Programming</category>
+      <category>tidyr</category>
+      <category>here</category>
+      <category>tidyverse</category>
+      <guid>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-07-tidy-data-and-the-tidyverse</guid>
+      <pubDate>Thu, 09 Sep 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://github.com/allisonhorst/stats-illustrations/raw/master/rstats-artwork/tidydata_1.jpg" medium="image" type="image/jpeg"/>
+    </item>
+    <item>
       <title>Joining data in R</title>
       <dc:creator>Stephanie Hicks</dc:creator>
       <link>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-07-joining-data-in-r</link>
@@ -66,7 +82,7 @@
       <category>here</category>
       <category>tidyverse</category>
       <guid>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-07-joining-data-in-r</guid>
-      <pubDate>Tue, 07 Sep 2021 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 09 Sep 2021 00:00:00 +0000</pubDate>
     </item>
     <item>
       <title>Managing data frames with the Tidyverse</title>
@@ -100,22 +116,6 @@
       <guid>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-07-reading-and-writing-data</guid>
       <pubDate>Tue, 07 Sep 2021 00:00:00 +0000</pubDate>
       <media:content url="https://github.com/allisonhorst/stats-illustrations/raw/master/rstats-artwork/cracked_setwd.png" medium="image" type="image/png"/>
-    </item>
-    <item>
-      <title>Tidy data and the Tidyverse</title>
-      <dc:creator>Stephanie Hicks</dc:creator>
-      <link>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-07-tidy-data-and-the-tidyverse</link>
-      <description>Introduction to tidy data and how to convert between wide and long data with the tidyr R package.</description>
-      <category>module 1</category>
-      <category>week 2</category>
-      <category>R</category>
-      <category>Programming</category>
-      <category>tidyr</category>
-      <category>here</category>
-      <category>tidyverse</category>
-      <guid>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-07-tidy-data-and-the-tidyverse</guid>
-      <pubDate>Tue, 07 Sep 2021 00:00:00 +0000</pubDate>
-      <media:content url="https://github.com/allisonhorst/stats-illustrations/raw/master/rstats-artwork/tidydata_1.jpg" medium="image" type="image/jpeg"/>
     </item>
     <item>
       <title>Literate Statistical Programming</title>
