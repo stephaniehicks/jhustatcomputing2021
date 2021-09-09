@@ -39,19 +39,19 @@
       <media:content url="https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-14-ggplot2-plotting-system-part-2/ggplot2-plotting-system-part-2_files/figure-html5/unnamed-chunk-4-1.png" medium="image" type="image/png" width="1248" height="768"/>
     </item>
     <item>
-      <title>Plotting Systems</title>
+      <title>Joining data in R</title>
       <dc:creator>Stephanie Hicks</dc:creator>
-      <link>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-09-plotting-systems</link>
-      <description>Overview of three plotting systems in R</description>
+      <link>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-07-joining-data-in-r</link>
+      <description>Introduction to relational data and join functions in the dplyr R package.</description>
       <category>module 1</category>
       <category>week 2</category>
       <category>R</category>
       <category>Programming</category>
-      <category>ggplot2</category>
-      <category>data viz</category>
-      <guid>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-09-plotting-systems</guid>
+      <category>dplyr</category>
+      <category>here</category>
+      <category>tidyverse</category>
+      <guid>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-07-joining-data-in-r</guid>
       <pubDate>Thu, 09 Sep 2021 00:00:00 +0000</pubDate>
-      <media:content url="https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-09-plotting-systems/plotting-systems_files/figure-html5/unnamed-chunk-1-1.png" medium="image" type="image/png" width="960" height="960"/>
     </item>
     <item>
       <title>Tidy data and the Tidyverse</title>
@@ -70,19 +70,19 @@
       <media:content url="https://github.com/allisonhorst/stats-illustrations/raw/master/rstats-artwork/tidydata_1.jpg" medium="image" type="image/jpeg"/>
     </item>
     <item>
-      <title>Joining data in R</title>
+      <title>Plotting Systems</title>
       <dc:creator>Stephanie Hicks</dc:creator>
-      <link>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-07-joining-data-in-r</link>
-      <description>Introduction to relational data and join functions in the dplyr R package.</description>
+      <link>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-09-plotting-systems</link>
+      <description>Overview of three plotting systems in R</description>
       <category>module 1</category>
       <category>week 2</category>
       <category>R</category>
       <category>Programming</category>
-      <category>dplyr</category>
-      <category>here</category>
-      <category>tidyverse</category>
-      <guid>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-07-joining-data-in-r</guid>
+      <category>ggplot2</category>
+      <category>data viz</category>
+      <guid>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-09-plotting-systems</guid>
       <pubDate>Thu, 09 Sep 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-09-plotting-systems/plotting-systems_files/figure-html5/unnamed-chunk-1-1.png" medium="image" type="image/png" width="960" height="960"/>
     </item>
     <item>
       <title>Managing data frames with the Tidyverse</title>
