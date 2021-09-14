@@ -168,7 +168,7 @@ and then load it into R via the `library()` function.
 library(ggplot2)
 ```
 
-Superficially, the ggplot2 functions are similar to lattice, but the system isgenerally easier and more intuitive to use. The defaults used in ggplot2 make many choices for you, but you can still customize plots to your heart's desire.
+Superficially, the ggplot2 functions are similar to lattice, but the system is generally easier and more intuitive to use. The defaults used in ggplot2 make many choices for you, but you can still customize plots to your heart's desire.
 
 A typical plot with the `ggplot` package looks as follows.
 
