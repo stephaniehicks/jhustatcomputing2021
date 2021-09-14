@@ -218,7 +218,7 @@ Consider playing around with the `theme()` function to make the figure shine, in
 
 # Part 4: Make the worst plot you can! 
 
-This sounds a bit crazy I know, but I want this to try and be FUN! Instead of trying to make a "good" plot, I want you to explore your creative side and make a really awful data visualization in every way. :)
+This sounds a bit crazy I know, but I want this to be FUN! Instead of trying to make a "good" plot, I want you to explore your creative side and make a really awful data visualization in every way. :)
 
 ### Tasks
 
