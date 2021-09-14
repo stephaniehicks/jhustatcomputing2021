@@ -28,3 +28,5 @@ knitr::opts_chunk$set(echo = FALSE)
 **Due date: Oct 1 at 11:59pm**
 
 Information coming soon.
+
+Write a function to compute the standard deviation, use the four steps outlined above. Do not use the internal sd() function to check your work because it uses \( \sqrt{\frac{1}{N} \sum_{i=1}^N (x_i - \overline{x})^2} \), note the N-1 in the denominator. Your function is correct if you find a standard deviation of around 3.39.

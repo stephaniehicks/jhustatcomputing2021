@@ -28,3 +28,5 @@ knitr::opts_chunk$set(echo = FALSE)
 **Due date: Oct 22 at 11:59pm**
 
 Information coming soon.
+
+https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-10-22
