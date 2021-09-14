@@ -34,7 +34,7 @@ For Rmd files, go to the [course GitHub repository](https://github.com/stephanie
 | | | `r emojifont::emoji('bar_chart')` Plotting systems in R  [[html](posts/2021-09-09-plotting-systems/index.html)] [[Rmd](https://github.com/stephaniehicks/jhustatcomputing2021/blob/main/_posts/2021-09-09-plotting-systems/plotting-systems.Rmd)] |  | |
 | | | | | |
 |   Week 3 | Sept 14  | `r emojifont::emoji('bar_chart')` The ggplot2 plotting system: qplot() [[html](posts/2021-09-14-ggplot2-plotting-system-part-1/index.html)] [[Rmd](https://github.com/stephaniehicks/jhustatcomputing2021/blob/main/_posts/2021-09-14-ggplot2-plotting-system-part-1/ggplot2-plotting-system-part-1.Rmd)] | `r emojifont::emoji('headphones')` Data viz  | |
-| | | `r emojifont::emoji('bar_chart')` The ggplot2 plotting system: ggplot() [[html](posts/2021-09-14-2021-09-14-ggplot2-plotting-system-part-2/index.html)] [[Rmd](https://github.com/stephaniehicks/jhustatcomputing2021/blob/main/_posts/2021-09-14-ggplot2-plotting-system-part-2/ggplot2-plotting-system-part-2.Rmd)] |  | |
+| | | `r emojifont::emoji('bar_chart')` The ggplot2 plotting system: ggplot() [[html](posts/2021-09-14-ggplot2-plotting-system-part-2/index.html)] [[Rmd](https://github.com/stephaniehicks/jhustatcomputing2021/blob/main/_posts/2021-09-14-ggplot2-plotting-system-part-2/ggplot2-plotting-system-part-2.Rmd)] |  | |
 | | | |  | |
 | **Module 2** |    | **Data analysis in R** |  | |
 | | | | | |
