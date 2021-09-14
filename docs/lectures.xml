@@ -7,7 +7,31 @@
     <description>Course website for Statistical Computing (JHSPH Biostatistics 140.776 Fall 2021)
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Tue, 14 Sep 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 16 Sep 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Control Structures</title>
+      <dc:creator>Stephanie Hicks</dc:creator>
+      <link>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-16-control-structures</link>
+      <description>Introduction to control the flow of execution of a series of R expressions.</description>
+      <category>module 2</category>
+      <category>week 3</category>
+      <category>R</category>
+      <category>programming</category>
+      <guid>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-16-control-structures</guid>
+      <pubDate>Thu, 16 Sep 2021 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>R Nuts and Bolts</title>
+      <dc:creator>Stephanie Hicks</dc:creator>
+      <link>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-16-r-nuts-and-bolts</link>
+      <description>Introduction to data types and objects in R.</description>
+      <category>module 2</category>
+      <category>week 3</category>
+      <category>R</category>
+      <category>programming</category>
+      <guid>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-16-r-nuts-and-bolts</guid>
+      <pubDate>Thu, 16 Sep 2021 00:00:00 +0000</pubDate>
+    </item>
     <item>
       <title>The ggplot2 plotting system: qplot()</title>
       <dc:creator>Stephanie Hicks</dc:creator>
@@ -16,7 +40,7 @@
       <category>module 1</category>
       <category>week 3</category>
       <category>R</category>
-      <category>Programming</category>
+      <category>programming</category>
       <category>ggplot2</category>
       <category>data viz</category>
       <guid>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-14-ggplot2-plotting-system-part-1</guid>
@@ -31,7 +55,7 @@
       <category>module 1</category>
       <category>week 3</category>
       <category>R</category>
-      <category>Programming</category>
+      <category>programming</category>
       <category>ggplot2</category>
       <category>data viz</category>
       <guid>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-14-ggplot2-plotting-system-part-2</guid>

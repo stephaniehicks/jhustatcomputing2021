@@ -14,7 +14,7 @@ output:
     toc: true
     toc_depth: 3
 categories:
-  - module 1
+  - module 2
   - week 1
 ---
 

@@ -17,7 +17,7 @@ categories:
   - module 1
   - week 3
   - R
-  - Programming
+  - programming
   - ggplot2
   - data viz
 ---
