@@ -88,7 +88,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_meta_tags-->
   <title>Project 1</title>
 
-  <meta property="description" itemprop="description" content="Understanding genres using Spotify audio features"/>
+  <meta property="description" itemprop="description" content="Understanding songs and genres using Spotify audio features"/>
 
 
   <!--  https://schema.org/Article -->
@@ -99,19 +99,19 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
   <meta property="og:title" content="Project 1"/>
   <meta property="og:type" content="article"/>
-  <meta property="og:description" content="Understanding genres using Spotify audio features"/>
+  <meta property="og:description" content="Understanding songs and genres using Spotify audio features"/>
   <meta property="og:locale" content="en_US"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
   <meta property="twitter:title" content="Project 1"/>
-  <meta property="twitter:description" content="Understanding genres using Spotify audio features"/>
+  <meta property="twitter:description" content="Understanding songs and genres using Spotify audio features"/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","categories"]}},"value":[{"type":"character","attributes":{},"value":["Project 1"]},{"type":"character","attributes":{},"value":["Understanding genres using Spotify audio features \n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url","affiliation","affiliation_url"]}},"value":[{"type":"character","attributes":{},"value":["Stephanie Hicks"]},{"type":"character","attributes":{},"value":["https://stephaniehicks.com/"]},{"type":"character","attributes":{},"value":["Department of Biostatistics, Johns Hopkins"]},{"type":"character","attributes":{},"value":["https://www.jhsph.edu"]}]}]},{"type":"character","attributes":{},"value":["09-07-2021"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","toc","toc_depth"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[3]}]}]},{"type":"character","attributes":{},"value":["project 1","projects"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","categories"]}},"value":[{"type":"character","attributes":{},"value":["Project 1"]},{"type":"character","attributes":{},"value":["Understanding songs and genres using Spotify audio features \n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url","affiliation","affiliation_url"]}},"value":[{"type":"character","attributes":{},"value":["Stephanie Hicks"]},{"type":"character","attributes":{},"value":["https://stephaniehicks.com/"]},{"type":"character","attributes":{},"value":["Department of Biostatistics, Johns Hopkins"]},{"type":"character","attributes":{},"value":["https://www.jhsph.edu"]}]}]},{"type":"character","attributes":{},"value":["09-07-2021"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","toc","toc_depth"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[3]}]}]},{"type":"character","attributes":{},"value":["project 1","projects"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   
@@ -1455,7 +1455,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Project 1","description":"Understanding genres using Spotify audio features","authors":[{"author":"Stephanie Hicks","authorURL":"https://stephaniehicks.com/","affiliation":"Department of Biostatistics, Johns Hopkins","affiliationURL":"https://www.jhsph.edu","orcidID":""}],"publishedDate":"2021-09-07T00:00:00.000+00:00","citationText":"Hicks, 2021"}
+{"title":"Project 1","description":"Understanding songs and genres using Spotify audio features","authors":[{"author":"Stephanie Hicks","authorURL":"https://stephaniehicks.com/","affiliation":"Department of Biostatistics, Johns Hopkins","affiliationURL":"https://www.jhsph.edu","orcidID":""}],"publishedDate":"2021-09-07T00:00:00.000+00:00","citationText":"Hicks, 2021"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -1472,7 +1472,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <div class="dt=tag">projects</div>
 </div>
 <!--/radix_placeholder_categories-->
-<p><p>Understanding genres using Spotify audio features</p></p>
+<p><p>Understanding songs and genres using Spotify audio features</p></p>
 </div>
 
 <div class="d-byline">
@@ -1642,9 +1642,9 @@ $ duration_ms              &lt;dbl&gt; 194754, 162600, 176616, 169093, 189…</c
 <pre><code># A tibble: 3 × 1
        x
    &lt;dbl&gt;
-1 -2.56 
-2 -0.184
-3  1.42 </code></pre>
+1 0.288 
+2 0.102 
+3 0.0931</code></pre>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r">
 <span class='co'>## Create a new column that indicates whether the value of 'x' is positive or negative</span>
@@ -1656,18 +1656,18 @@ $ duration_ms              &lt;dbl&gt; 194754, 162600, 176616, 169093, 189…</c
 </code></pre>
 </div>
 <pre><code># A tibble: 100 × 2
-        x is_positive
-    &lt;dbl&gt; &lt;chr&gt;      
- 1 -2.56  No         
- 2 -0.184 No         
- 3  1.42  Yes        
- 4 -0.272 No         
- 5  1.36  Yes        
- 6 -0.246 No         
- 7  0.172 Yes        
- 8 -0.688 No         
- 9 -0.301 No         
-10  1.02  Yes        
+         x is_positive
+     &lt;dbl&gt; &lt;chr&gt;      
+ 1  0.288  Yes        
+ 2  0.102  Yes        
+ 3  0.0931 Yes        
+ 4  0.742  Yes        
+ 5  0.339  Yes        
+ 6  0.624  Yes        
+ 7 -0.0439 No         
+ 8  2.44   Yes        
+ 9 -1.34   No         
+10 -1.85   No         
 # … with 90 more rows</code></pre>
 </div>
 <div class="layout-chunk" data-layout="l-body">
@@ -1767,7 +1767,7 @@ $ duration_ms              &lt;dbl&gt; 194754, 162600, 176616, 169093, 189…</c
 </div>
 </div>
 <h1 id="part-4-make-the-worst-plot-you-can">Part 4: Make the worst plot you can!</h1>
-<p>This sounds a bit crazy I know, but I want this to try and be FUN! Instead of trying to make a “good” plot, I want you to explore your creative side and make a really awful data visualization in every way. :)</p>
+<p>This sounds a bit crazy I know, but I want this to be FUN! Instead of trying to make a “good” plot, I want you to explore your creative side and make a really awful data visualization in every way. :)</p>
 <h3 id="tasks-2">Tasks</h3>
 <p>Using the <code>spotify_songs</code> dataset (and it does not have to be the tidy dataset that we created in Part 2, it can be anything from the original dataset):</p>
 <ol type="1">

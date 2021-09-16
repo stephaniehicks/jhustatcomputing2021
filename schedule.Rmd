@@ -38,7 +38,7 @@ For Rmd files, go to the [course GitHub repository](https://github.com/stephanie
 | | | |  | |
 | **Module 2** |    | **Data analysis in R** |  | |
 | | | | | |
-|      | Sept 16      | `r emojifont::emoji('nut_and_bolt')` R Nuts and Bolts [[html](posts/2021-09-16-r-nuts-and-bolts/index.html)] [[Rmd](https://github.com/stephaniehicks/jhustatcomputing2021/blob/main/_posts/2021-09-16-r-nuts-and-bolts/r-nuts-and-bolts.Rmd)] | | `r emojifont::emoji('palm_tree')` Project 2 |
+|      | Sept 16      | `r emojifont::emoji('nut_and_bolt')` R Nuts and Bolts [[html](posts/2021-09-16-r-nuts-and-bolts/index.html)] [[Rmd](https://github.com/stephaniehicks/jhustatcomputing2021/blob/main/_posts/2021-09-16-r-nuts-and-bolts/r-nuts-and-bolts.Rmd)] | | `r emojifont::emoji('palm_tree')` Project 2 [[html](projects/2021-09-14-project-2/index.html)] [[Rmd](https://github.com/stephaniehicks/jhustatcomputing2021/blob/main/_projects/2021-09-14-project-2/project-2.Rmd)] |
 | | | `r emojifont::emoji('nut_and_bolt')` Control structures in R [[html](posts/2021-09-16-control-structures/index.html)] [[Rmd](https://github.com/stephaniehicks/jhustatcomputing2021/blob/main/_posts/2021-09-16-control-structures/control-structures.Rmd)]  | | | 
 | |  Sept 17 | | | `r emojifont::emoji('fallen_leaf')`  Project 1 due |
 | | | | | |
@@ -46,13 +46,13 @@ For Rmd files, go to the [course GitHub repository](https://github.com/stephanie
 | |  | `r emojifont::emoji('nut_and_bolt')` Loop functions  | | |
 | |  | `r emojifont::emoji('nut_and_bolt')` Functions in R   | | |
 | | | | | |
-| | Sept 23      | `r emojifont::emoji('package')` R package software development (build, doc) | | | 
-| | |  | | |
-| Week 5 | Sept 28      | `r emojifont::emoji('package')` R package software development (testing) | `r emojifont::emoji('headphones')` Data analysis | |
-| | |  | | |
-| | Sept 30      | `r emojifont::emoji('bug')` Debugging code in R | | | 
+| | Sept 23      | `r emojifont::emoji('bug')` Debugging code in R | | | 
 | | | `r emojifont::emoji('bug')` Error handling code in R  | | |
 | | | `r emojifont::emoji('bug')` Profiling R code | | |
+| | |  | | |
+| Week 5 | Sept 28      | `r emojifont::emoji('package')` R package software development (build, doc)  | `r emojifont::emoji('headphones')` Data analysis | |
+| | |  | | |
+| | Sept 30      | `r emojifont::emoji('package')` R package software development (testing)  | | | 
 | | Oct 1 | | | `r emojifont::emoji('fallen_leaf')`  Project 2 due |
 | | | | | |
 | Week 6      | Oct 5   | `r emojifont::emoji('calendar')` Working with dates and times | | `r emojifont::emoji('palm_tree')` Project 3  |

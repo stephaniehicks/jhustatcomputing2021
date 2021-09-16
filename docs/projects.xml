@@ -7,12 +7,22 @@
     <description>Course website for Statistical Computing (JHSPH Biostatistics 140.776 Fall 2021)
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Tue, 07 Sep 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 14 Sep 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Project 2</title>
+      <dc:creator>Stephanie Hicks</dc:creator>
+      <link>https://stephaniehicks.com/jhustatcomputing2021/projects/2021-09-14-project-2</link>
+      <description>Exploring temperature and rainfall in Australia</description>
+      <category>project 2</category>
+      <category>projects</category>
+      <guid>https://stephaniehicks.com/jhustatcomputing2021/projects/2021-09-14-project-2</guid>
+      <pubDate>Tue, 14 Sep 2021 00:00:00 +0000</pubDate>
+    </item>
     <item>
       <title>Project 1</title>
       <dc:creator>Stephanie Hicks</dc:creator>
       <link>https://stephaniehicks.com/jhustatcomputing2021/projects/2021-09-07-project-1</link>
-      <description>Understanding genres using Spotify audio features</description>
+      <description>Understanding songs and genres using Spotify audio features</description>
       <category>project 1</category>
       <category>projects</category>
       <guid>https://stephaniehicks.com/jhustatcomputing2021/projects/2021-09-07-project-1</guid>
