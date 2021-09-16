@@ -37,6 +37,7 @@ knitr::opts_chunk$set(echo = TRUE)
 **Before class, you can prepare by reading the following materials:**
 
 1. https://rafalab.github.io/dsbook/programming-basics.html
+2. https://r4ds.had.co.nz/iteration.html
 
 :::
 
@@ -46,6 +47,7 @@ knitr::opts_chunk$set(echo = TRUE)
 Material for this lecture was borrowed and adopted from
 
 - https://rdpeng.github.io/Biostat776/lecture-control-structures.html
+- https://r4ds.had.co.nz/iteration.html
 
 # Learning objectives
 
@@ -307,7 +309,7 @@ not commonly used in statistical or data analysis applications but
 they do have their uses. The only way to exit a `repeat` loop is to
 call `break`.
 
-One possible paradigm might be in an iterative algorith where you may
+One possible paradigm might be in an iterative algorithm where you may
 be searching for a solution and you don't want to stop until you're
 close enough to the solution. In this kind of situation, you often
 don't know in advance how many iterations it's going to take to get
@@ -391,11 +393,11 @@ Here are some post-lecture questions to help you think about the material discus
 
 **Questions:**
 
-1. 
+1. Write for loops to compute the mean of every column in `mtcars`.
 
-2. 
+2. Imagine you have a directory full of CSV files that you want to read in. You have their paths in a vector, `files <- dir("data/", pattern = "\\.csv$", full.names = TRUE)`, and now want to read each one with `read_csv()`. Write the for loop that will load them into a single data frame.
 
-3.
+3. What happens if you use `for (nm in names(x))` and `x` has no names? What if only some of the elements are named? What if the names are not unique?
 
 :::
 
@@ -406,6 +408,7 @@ Here are some post-lecture questions to help you think about the material discus
 
 - https://rdpeng.github.io/Biostat776/lecture-control-structures.html
 - https://rafalab.github.io/dsbook/programming-basics.html
+- https://r4ds.had.co.nz/iteration.html
 
 ::: 
 

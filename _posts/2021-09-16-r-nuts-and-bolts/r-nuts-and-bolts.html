@@ -1527,6 +1527,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <p><strong>Before class, you can prepare by reading the following materials:</strong></p>
 <ol type="1">
 <li><a href="https://rafalab.github.io/dsbook/r-basics.html" class="uri">https://rafalab.github.io/dsbook/r-basics.html</a></li>
+<li><a href="https://r4ds.had.co.nz/vectors.html?q=typeof#vectors" class="uri">https://r4ds.had.co.nz/vectors.html?q=typeof#vectors</a></li>
 </ol>
 </div>
 <h3 id="acknowledgements">Acknowledgements</h3>
@@ -1603,15 +1604,69 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <p>With R, it’s important that one understand that there is a difference between the actual R object and the manner in which that R object is printed to the console. Often, the printed output may have additional bells and whistles to make the output more friendly to the users. However, these bells and whistles are not inherently part of the object.</p>
 <p>Note that the <code>:</code> operator is used to create integer sequences.</p>
 <h3 id="r-objects">R Objects</h3>
-<p>R has five basic or “atomic” classes of objects:</p>
+<p>R has five basic or <a href="https://r4ds.had.co.nz/vectors.html?q=typeof#vector-basics">“atomic” classes of vector objects</a>:</p>
 <ul>
-<li><p>character</p></li>
-<li><p>numeric (real numbers)</p></li>
-<li><p>integer</p></li>
-<li><p>complex</p></li>
-<li><p>logical (True/False)</p></li>
+<li><p>logical: <code>FALSE</code>, <code>TRUE</code>, and <code>NA</code></p></li>
+<li><p>numeric: real numbers</p></li>
+<li><p>integer (and doubles): these are known collectively as numeric vectors</p></li>
+<li><p>complex: complex numbers</p></li>
+<li><p>character: the most complex type of atomic vector, because each element of a character vector is a string, and a string can contain an arbitrary amount of data.</p></li>
 </ul>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:atomic-vectors"></span>
+<img src="https://d33wubrfki0l68.cloudfront.net/1d1b4e1cf0dc5f6e80f621b0225354b0addb9578/6ee1c/diagrams/data-structures-overview.png" alt="The hierarchy of R’s vector types" width="60%" />
+<p class="caption">
+Figure 1: The hierarchy of R’s vector types
+</p>
+</div>
+</div>
+<p>[<strong>Source</strong>: <a href="https://r4ds.had.co.nz/vectors.html?q=typeof#vector-basics">R 4 Data Science</a>]</p>
+<div class="keyideas">
+<p>Integer and double vectors are known collectively as numeric vectors. In R, numbers are doubles by default. To make an integer, place an <code>L</code> after the number:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/typeof.html'>typeof</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>[1] &quot;double&quot;</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/typeof.html'>typeof</a></span><span class='op'>(</span><span class='fl'>1L</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>[1] &quot;integer&quot;</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fl'>1.5L</span>
+</code></pre>
+</div>
+<pre><code>[1] 1.5</code></pre>
+</div>
+</div>
+<div class="keyideas">
+<p>The distinction between integers and doubles is not usually important, but there are two important differences that you should be aware of:</p>
+<p>Doubles are approximations. Doubles represent floating point numbers that can not always be precisely represented with a fixed amount of memory. This means that you should consider all doubles to be approximations.</p>
+<p>For example, what is square of the square root of two?</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/MathFun.html'>sqrt</a></span><span class='op'>(</span><span class='fl'>2</span><span class='op'>)</span> <span class='op'>^</span> <span class='fl'>2</span>
+<span class='va'>x</span>
+</code></pre>
+</div>
+<pre><code>[1] 2</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>x</span> <span class='op'>-</span> <span class='fl'>2</span>
+</code></pre>
+</div>
+<pre><code>[1] 4.440892e-16</code></pre>
+</div>
+</div>
 <p>The most basic type of R object is a vector. Empty vectors can be created with the <code>vector()</code> function. There is really only one rule about vectors in R, which is that <strong>A vector can only contain objects of the same class</strong>.</p>
+<p>For example, if you run this, what happens?</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/vector.html'>vector</a></span><span class='op'>(</span><span class='st'>"a"</span>, <span class='fl'>1</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
 <p>But of course, like any good rule, there is an exception, which is a <em>list</em>, which we will get to a bit later. A list is represented as a vector but can contain objects of different classes. Indeed, that’s usually why we use them.</p>
 <p>There is also a class for “raw” objects, but they are not commonly used directly in data analysis and I won’t cover them here.</p>
 <h3 id="numbers">Numbers</h3>
@@ -1629,6 +1684,38 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <li><p>other user-defined attributes/metadata</p></li>
 </ul>
 <p>Attributes of an object (if any) can be accessed using the <code>attributes()</code> function. Not all R objects contain attributes, in which case the <code>attributes()</code> function returns <code>NULL</code>.</p>
+<p>However, every <strong>vector</strong> has two key properties:</p>
+<ol type="1">
+<li>Its <strong>type</strong>, which you can determine with <code>typeof()</code>.</li>
+</ol>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/typeof.html'>typeof</a></span><span class='op'>(</span><span class='va'>letters</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>[1] &quot;character&quot;</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/typeof.html'>typeof</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>10</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>[1] &quot;integer&quot;</code></pre>
+</div>
+<ol start="2" type="1">
+<li>Its <strong>length</strong>, which you can determine with <code>length()</code>.</li>
+</ol>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='st'>"a"</span>, <span class='st'>"b"</span>, <span class='fl'>1</span><span class='op'>:</span><span class='fl'>10</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>[1] 3</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/typeof.html'>typeof</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>[1] &quot;list&quot;</code></pre>
+</div>
 <h3 id="creating-vectors">Creating Vectors</h3>
 <p>The <code>c()</code> function can be used to create vectors of objects by concatenating things together.</p>
 <div class="layout-chunk" data-layout="l-body">
@@ -1781,7 +1868,7 @@ x    1    2    3
 y   10   11   12</code></pre>
 </div>
 <h3 id="lists">Lists</h3>
-<p>Lists are a special type of vector that can contain elements of different classes. Lists are a very important data type in R and you should get to know them well. Lists, in combination with the various “apply” functions discussed later, make for a powerful combination.</p>
+<p>Lists are a special type of <strong>vector</strong> that can contain elements of different classes. Lists are a very important data type in R and you should get to know them well. Lists, in combination with the various “apply” functions discussed later, make for a powerful combination.</p>
 <p>Lists can be explicitly created using the <code>list()</code> function, which takes an arbitrary number of arguments.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -2042,9 +2129,10 @@ z 2 4</code></pre>
 <div class="questions">
 <p><strong>Questions:</strong></p>
 <ol type="1">
-<li></li>
-<li></li>
-<li></li>
+<li><p>Describe the difference between is.finite(x) and !is.infinite(x).</p></li>
+<li><p>A logical vector can take 3 possible values. How many possible values can an integer vector take? How many possible values can a double take? Use google to do some research.</p></li>
+<li><p>What functions from the readr package allow you to turn a string into logical, integer, and double vector?</p></li>
+<li><p>Try and make a tibble that has columns with different lengths. What happens?</p></li>
 </ol>
 </div>
 <h3 id="additional-resources">Additional Resources</h3>
@@ -2052,10 +2140,10 @@ z 2 4</code></pre>
 <ul>
 <li><a href="https://rdpeng.github.io/Biostat776/lecture-r-nuts-and-bolts.html" class="uri">https://rdpeng.github.io/Biostat776/lecture-r-nuts-and-bolts.html</a></li>
 <li><a href="https://rafalab.github.io/dsbook/r-basics.html" class="uri">https://rafalab.github.io/dsbook/r-basics.html</a></li>
-<li></li>
+<li><a href="https://r4ds.had.co.nz/vectors.html?q=typeof#vectors" class="uri">https://r4ds.had.co.nz/vectors.html?q=typeof#vectors</a></li>
 </ul>
 </div>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

@@ -1519,12 +1519,14 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <p><strong>Before class, you can prepare by reading the following materials:</strong></p>
 <ol type="1">
 <li><a href="https://rafalab.github.io/dsbook/programming-basics.html" class="uri">https://rafalab.github.io/dsbook/programming-basics.html</a></li>
+<li><a href="https://r4ds.had.co.nz/iteration.html" class="uri">https://r4ds.had.co.nz/iteration.html</a></li>
 </ol>
 </div>
 <h3 id="acknowledgements">Acknowledgements</h3>
 <p>Material for this lecture was borrowed and adopted from</p>
 <ul>
 <li><a href="https://rdpeng.github.io/Biostat776/lecture-control-structures.html" class="uri">https://rdpeng.github.io/Biostat776/lecture-control-structures.html</a></li>
+<li><a href="https://r4ds.had.co.nz/iteration.html" class="uri">https://r4ds.had.co.nz/iteration.html</a></li>
 </ul>
 <h1 id="learning-objectives">Learning objectives</h1>
 <div class="keyideas">
@@ -1735,7 +1737,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <p>Conditions are always evaluated from left to right. For example, in the above code, if <code>z</code> were less than 3, the second test would not have been evaluated.</p>
 <h3 id="repeat-loops"><code>repeat</code> Loops</h3>
 <p><code>repeat</code> initiates an infinite loop right from the start. These are not commonly used in statistical or data analysis applications but they do have their uses. The only way to exit a <code>repeat</code> loop is to call <code>break</code>.</p>
-<p>One possible paradigm might be in an iterative algorith where you may be searching for a solution and you don’t want to stop until you’re close enough to the solution. In this kind of situation, you often don’t know in advance how many iterations it’s going to take to get “close enough” to the solution.</p>
+<p>One possible paradigm might be in an iterative algorithm where you may be searching for a solution and you don’t want to stop until you’re close enough to the solution. In this kind of situation, you often don’t know in advance how many iterations it’s going to take to get “close enough” to the solution.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>x0</span> <span class='op'>&lt;-</span> <span class='fl'>1</span>
@@ -1795,9 +1797,9 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <div class="questions">
 <p><strong>Questions:</strong></p>
 <ol type="1">
-<li></li>
-<li></li>
-<li></li>
+<li><p>Write for loops to compute the mean of every column in <code>mtcars</code>.</p></li>
+<li><p>Imagine you have a directory full of CSV files that you want to read in. You have their paths in a vector, <code>files &lt;- dir("data/", pattern = "\\.csv$", full.names = TRUE)</code>, and now want to read each one with <code>read_csv()</code>. Write the for loop that will load them into a single data frame.</p></li>
+<li><p>What happens if you use <code>for (nm in names(x))</code> and <code>x</code> has no names? What if only some of the elements are named? What if the names are not unique?</p></li>
 </ol>
 </div>
 <h3 id="additional-resources">Additional Resources</h3>
@@ -1805,6 +1807,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <ul>
 <li><a href="https://rdpeng.github.io/Biostat776/lecture-control-structures.html" class="uri">https://rdpeng.github.io/Biostat776/lecture-control-structures.html</a></li>
 <li><a href="https://rafalab.github.io/dsbook/programming-basics.html" class="uri">https://rafalab.github.io/dsbook/programming-basics.html</a></li>
+<li><a href="https://r4ds.had.co.nz/iteration.html" class="uri">https://r4ds.had.co.nz/iteration.html</a></li>
 </ul>
 </div>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>

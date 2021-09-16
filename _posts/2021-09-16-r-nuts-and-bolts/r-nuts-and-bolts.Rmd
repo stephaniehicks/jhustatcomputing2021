@@ -38,6 +38,7 @@ knitr::opts_chunk$set(echo = TRUE, comment = NA,
 **Before class, you can prepare by reading the following materials:**
 
 1. https://rafalab.github.io/dsbook/r-basics.html
+2. https://r4ds.had.co.nz/vectors.html?q=typeof#vectors
 
 :::
 
@@ -143,22 +144,64 @@ Note that the `:` operator is used to create integer sequences.
 
 ### R Objects
 
-R has five basic or "atomic" classes of objects:
+R has five basic or ["atomic" classes of vector objects](https://r4ds.had.co.nz/vectors.html?q=typeof#vector-basics):
 
--   character
+-   logical: `FALSE`, `TRUE`, and `NA`
 
--   numeric (real numbers)
+-   numeric: real numbers
 
--   integer
+-   integer (and doubles): these are known collectively as numeric vectors
 
--   complex
+-   complex: complex numbers
 
--   logical (True/False)
+-   character: the most complex type of atomic vector, because each element of a character vector is a string, and a string can contain an arbitrary amount of data.
+
+
+```{r atomic-vectors, echo=FALSE, fig.cap='The hierarchy of R’s vector types', out.width = '60%', fig.align='center'}
+knitr::include_graphics("https://d33wubrfki0l68.cloudfront.net/1d1b4e1cf0dc5f6e80f621b0225354b0addb9578/6ee1c/diagrams/data-structures-overview.png")
+```
+
+[**Source**: [R 4 Data Science](https://r4ds.had.co.nz/vectors.html?q=typeof#vector-basics)]
+
+:::keyideas 
+
+Integer and double vectors are known collectively as numeric vectors. In R, numbers are doubles by default. To make an integer, place an `L` after the number:
+
+```{r}
+typeof(1)
+typeof(1L)
+1.5L
+```
+
+:::
+
+:::keyideas
+
+The distinction between integers and doubles is not usually important, but there are two important differences that you should be aware of:
+
+Doubles are approximations. Doubles represent floating point numbers that can not always be precisely represented with a fixed amount of memory. This means that you should consider all doubles to be approximations. 
+
+For example, what is square of the square root of two?
+
+```{r}
+x <- sqrt(2) ^ 2
+x
+x - 2
+```
+
+:::
 
 The most basic type of R object is a vector. Empty vectors can be
 created with the `vector()` function.  There is really only one rule
 about vectors in R, which is that **A vector can only contain objects
 of the same class**.
+
+For example, if you run this, what happens? 
+
+```{r, eval=FALSE}
+vector("a", 1)
+```
+
 
 But of course, like any good rule, there is an exception, which is a
 *list*, which we will get to a bit later. A list is represented as a
@@ -213,6 +256,22 @@ Attributes of an object (if any) can be accessed using the
 `attributes()` function. Not all R objects contain attributes, in
 which case the `attributes()` function returns `NULL`.
 
+However, every **vector** has two key properties:
+
+1. Its **type**, which you can determine with `typeof()`.
+
+```{r}
+typeof(letters)
+typeof(1:10)
+```
+
+2. Its **length**, which you can determine with `length()`.
+
+```{r}
+x <- list("a", "b", 1:10)
+length(x)
+typeof(x)
+```
 
 
 ### Creating Vectors
@@ -337,7 +396,7 @@ rbind(x, y)
 
 ### Lists
 
-Lists are a special type of vector that can contain elements of
+Lists are a special type of **vector** that can contain elements of
 different classes. Lists are a very important data type in R and you
 should get to know them well. Lists, in combination with the various
 "apply" functions discussed later, make for a powerful combination.
@@ -548,11 +607,13 @@ Here are some post-lecture questions to help you think about the material discus
 
 **Questions:**
 
-1. 
+1. Describe the difference between is.finite(x) and !is.infinite(x).
 
-2. 
+2. A logical vector can take 3 possible values. How many possible values can an integer vector take? How many possible values can a double take? Use google to do some research.
 
-3.
+3. What functions from the readr package allow you to turn a string into logical, integer, and double vector?
+
+4. Try and make a tibble that has columns with different lengths. What happens?
 
 :::
 
@@ -563,7 +624,7 @@ Here are some post-lecture questions to help you think about the material discus
 
 - https://rdpeng.github.io/Biostat776/lecture-r-nuts-and-bolts.html
 - https://rafalab.github.io/dsbook/r-basics.html
-- 
+- https://r4ds.had.co.nz/vectors.html?q=typeof#vectors
 
 ::: 
 

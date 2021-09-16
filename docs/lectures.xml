@@ -31,6 +31,7 @@
       <category>programming</category>
       <guid>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-16-r-nuts-and-bolts</guid>
       <pubDate>Thu, 16 Sep 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://d33wubrfki0l68.cloudfront.net/1d1b4e1cf0dc5f6e80f621b0225354b0addb9578/6ee1c/diagrams/data-structures-overview.png" medium="image" type="image/png"/>
     </item>
     <item>
       <title>The ggplot2 plotting system: qplot()</title>
