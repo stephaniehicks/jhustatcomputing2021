@@ -1,0 +1,2333 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+  <meta name="generator" content="distill" />
+
+  <style type="text/css">
+  /* Hide doc at startup (prevent jankiness while JS renders/transforms) */
+  body {
+    visibility: hidden;
+  }
+  </style>
+
+ <!--radix_placeholder_import_source-->
+ <!--/radix_placeholder_import_source-->
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ad0000; } /* Alert */
+code span.an { color: #5e5e5e; } /* Annotation */
+code span.at { color: #20794d; } /* Attribute */
+code span.bn { color: #ad0000; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007ba5; } /* ControlFlow */
+code span.ch { color: #20794d; } /* Char */
+code span.cn { color: #8f5902; } /* Constant */
+code span.co { color: #5e5e5e; } /* Comment */
+code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+code span.dt { color: #ad0000; } /* DataType */
+code span.dv { color: #ad0000; } /* DecVal */
+code span.er { color: #ad0000; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #ad0000; } /* Float */
+code span.fu { color: #4758ab; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #5e5e5e; } /* Information */
+code span.kw { color: #007ba5; } /* Keyword */
+code span.op { color: #5e5e5e; } /* Operator */
+code span.ot { color: #007ba5; } /* Other */
+code span.pp { color: #ad0000; } /* Preprocessor */
+code span.sc { color: #20794d; } /* SpecialChar */
+code span.ss { color: #20794d; } /* SpecialString */
+code span.st { color: #20794d; } /* String */
+code span.va { color: #111111; } /* Variable */
+code span.vs { color: #20794d; } /* VerbatimString */
+code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+</style>
+
+  <!--radix_placeholder_meta_tags-->
+  <title>Loop Functions</title>
+
+  <meta property="description" itemprop="description" content="Introduction to looping in the command line."/>
+
+
+  <!--  https://schema.org/Article -->
+  <meta property="article:published" itemprop="datePublished" content="2021-09-21"/>
+  <meta property="article:created" itemprop="dateCreated" content="2021-09-21"/>
+  <meta name="article:author" content="Stephanie Hicks"/>
+
+  <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
+  <meta property="og:title" content="Loop Functions"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:description" content="Introduction to looping in the command line."/>
+  <meta property="og:locale" content="en_US"/>
+
+  <!--  https://dev.twitter.com/cards/types/summary -->
+  <meta property="twitter:card" content="summary"/>
+  <meta property="twitter:title" content="Loop Functions"/>
+  <meta property="twitter:description" content="Introduction to looping in the command line."/>
+
+  <!--/radix_placeholder_meta_tags-->
+  <!--radix_placeholder_rmarkdown_metadata-->
+
+  <script type="text/json" id="radix-rmarkdown-metadata">
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","categories"]}},"value":[{"type":"character","attributes":{},"value":["Loop Functions"]},{"type":"character","attributes":{},"value":["Introduction to looping in the command line.\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url","affiliation","affiliation_url"]}},"value":[{"type":"character","attributes":{},"value":["Stephanie Hicks"]},{"type":"character","attributes":{},"value":["https://stephaniehicks.com/"]},{"type":"character","attributes":{},"value":["Department of Biostatistics, Johns Hopkins"]},{"type":"character","attributes":{},"value":["https://www.jhsph.edu"]}]}]},{"type":"character","attributes":{},"value":["09-21-2021"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","toc","toc_depth"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[3]}]}]},{"type":"character","attributes":{},"value":["module 2","week 4","programming","functions"]}]}
+  </script>
+  <!--/radix_placeholder_rmarkdown_metadata-->
+  
+  <script type="text/json" id="radix-resource-manifest">
+  {"type":"character","attributes":{},"value":["loop-functions_files/anchor-4.2.2/anchor.min.js","loop-functions_files/bowser-1.9.3/bowser.min.js","loop-functions_files/distill-2.2.21/template.v2.js","loop-functions_files/header-attrs-2.10/header-attrs.js","loop-functions_files/jquery-1.11.3/jquery.min.js","loop-functions_files/popper-2.6.0/popper.min.js","loop-functions_files/tippy-6.2.7/tippy-bundle.umd.min.js","loop-functions_files/tippy-6.2.7/tippy-light-border.css","loop-functions_files/tippy-6.2.7/tippy.css","loop-functions_files/tippy-6.2.7/tippy.umd.min.js","loop-functions_files/webcomponents-2.0.0/webcomponents.js"]}
+  </script>
+  <!--radix_placeholder_navigation_in_header-->
+  <!--/radix_placeholder_navigation_in_header-->
+  <!--radix_placeholder_distill-->
+
+  <style type="text/css">
+
+  body {
+    background-color: white;
+  }
+
+  .pandoc-table {
+    width: 100%;
+  }
+
+  .pandoc-table>caption {
+    margin-bottom: 10px;
+  }
+
+  .pandoc-table th:not([align]) {
+    text-align: left;
+  }
+
+  .pagedtable-footer {
+    font-size: 15px;
+  }
+
+  d-byline .byline {
+    grid-template-columns: 2fr 2fr;
+  }
+
+  d-byline .byline h3 {
+    margin-block-start: 1.5em;
+  }
+
+  d-byline .byline .authors-affiliations h3 {
+    margin-block-start: 0.5em;
+  }
+
+  .authors-affiliations .orcid-id {
+    width: 16px;
+    height:16px;
+    margin-left: 4px;
+    margin-right: 4px;
+    vertical-align: middle;
+    padding-bottom: 2px;
+  }
+
+  d-title .dt-tags {
+    margin-top: 1em;
+    grid-column: text;
+  }
+
+  .dt-tags .dt-tag {
+    text-decoration: none;
+    display: inline-block;
+    color: rgba(0,0,0,0.6);
+    padding: 0em 0.4em;
+    margin-right: 0.5em;
+    margin-bottom: 0.4em;
+    font-size: 70%;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  d-article table.gt_table td,
+  d-article table.gt_table th {
+    border-bottom: none;
+  }
+
+  .html-widget {
+    margin-bottom: 2.0em;
+  }
+
+  .l-screen-inset {
+    padding-right: 16px;
+  }
+
+  .l-screen .caption {
+    margin-left: 10px;
+  }
+
+  .shaded {
+    background: rgb(247, 247, 247);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .shaded .html-widget {
+    margin-bottom: 0;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .shaded .shaded-content {
+    background: white;
+  }
+
+  .text-output {
+    margin-top: 0;
+    line-height: 1.5em;
+  }
+
+  .hidden {
+    display: none !important;
+  }
+
+  d-article {
+    padding-top: 2.5rem;
+    padding-bottom: 30px;
+  }
+
+  d-appendix {
+    padding-top: 30px;
+  }
+
+  d-article>p>img {
+    width: 100%;
+  }
+
+  d-article h2 {
+    margin: 1rem 0 1.5rem 0;
+  }
+
+  d-article h3 {
+    margin-top: 1.5rem;
+  }
+
+  d-article iframe {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    margin-bottom: 2.0em;
+    width: 100%;
+  }
+
+  /* Tweak code blocks */
+
+  d-article div.sourceCode code,
+  d-article pre code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  d-article pre,
+  d-article div.sourceCode,
+  d-article div.sourceCode pre {
+    overflow: auto;
+  }
+
+  d-article div.sourceCode {
+    background-color: white;
+  }
+
+  d-article div.sourceCode pre {
+    padding-left: 10px;
+    font-size: 12px;
+    border-left: 2px solid rgba(0,0,0,0.1);
+  }
+
+  d-article pre {
+    font-size: 12px;
+    color: black;
+    background: none;
+    margin-top: 0;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+  }
+
+  d-article pre a {
+    border-bottom: none;
+  }
+
+  d-article pre a:hover {
+    border-bottom: none;
+    text-decoration: underline;
+  }
+
+  d-article details {
+    grid-column: text;
+    margin-bottom: 0.8em;
+  }
+
+  @media(min-width: 768px) {
+
+  d-article pre,
+  d-article div.sourceCode,
+  d-article div.sourceCode pre {
+    overflow: visible !important;
+  }
+
+  d-article div.sourceCode pre {
+    padding-left: 18px;
+    font-size: 14px;
+  }
+
+  d-article pre {
+    font-size: 14px;
+  }
+
+  }
+
+  figure img.external {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+    padding: 18px;
+    box-sizing: border-box;
+  }
+
+  /* CSS for d-contents */
+
+  .d-contents {
+    grid-column: text;
+    color: rgba(0,0,0,0.8);
+    font-size: 0.9em;
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+    padding-bottom: 0.5em;
+    margin-bottom: 1em;
+    padding-left: 0.25em;
+    justify-self: start;
+  }
+
+  @media(min-width: 1000px) {
+    .d-contents.d-contents-float {
+      height: 0;
+      grid-column-start: 1;
+      grid-column-end: 4;
+      justify-self: center;
+      padding-right: 3em;
+      padding-left: 2em;
+    }
+  }
+
+  .d-contents nav h3 {
+    font-size: 18px;
+    margin-top: 0;
+    margin-bottom: 1em;
+  }
+
+  .d-contents li {
+    list-style-type: none
+  }
+
+  .d-contents nav > ul {
+    padding-left: 0;
+  }
+
+  .d-contents ul {
+    padding-left: 1em
+  }
+
+  .d-contents nav ul li {
+    margin-top: 0.6em;
+    margin-bottom: 0.2em;
+  }
+
+  .d-contents nav a {
+    font-size: 13px;
+    border-bottom: none;
+    text-decoration: none
+    color: rgba(0, 0, 0, 0.8);
+  }
+
+  .d-contents nav a:hover {
+    text-decoration: underline solid rgba(0, 0, 0, 0.6)
+  }
+
+  .d-contents nav > ul > li > a {
+    font-weight: 600;
+  }
+
+  .d-contents nav > ul > li > ul {
+    font-weight: inherit;
+  }
+
+  .d-contents nav > ul > li > ul > li {
+    margin-top: 0.2em;
+  }
+
+
+  .d-contents nav ul {
+    margin-top: 0;
+    margin-bottom: 0.25em;
+  }
+
+  .d-article-with-toc h2:nth-child(2) {
+    margin-top: 0;
+  }
+
+
+  /* Figure */
+
+  .figure {
+    position: relative;
+    margin-bottom: 2.5em;
+    margin-top: 1.5em;
+  }
+
+  .figure img {
+    width: 100%;
+  }
+
+  .figure .caption {
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 12px;
+    line-height: 1.5em;
+  }
+
+  .figure img.external {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+    padding: 18px;
+    box-sizing: border-box;
+  }
+
+  .figure .caption a {
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  .figure .caption b,
+  .figure .caption strong, {
+    font-weight: 600;
+    color: rgba(0, 0, 0, 1.0);
+  }
+
+  /* Citations */
+
+  d-article .citation {
+    color: inherit;
+    cursor: inherit;
+  }
+
+  div.hanging-indent{
+    margin-left: 1em; text-indent: -1em;
+  }
+
+  /* Citation hover box */
+
+  .tippy-box[data-theme~=light-border] {
+    background-color: rgba(250, 250, 250, 0.95);
+  }
+
+  .tippy-content > p {
+    margin-bottom: 0;
+    padding: 2px;
+  }
+
+
+  /* Tweak 1000px media break to show more text */
+
+  @media(min-width: 1000px) {
+    .base-grid,
+    distill-header,
+    d-title,
+    d-abstract,
+    d-article,
+    d-appendix,
+    distill-appendix,
+    d-byline,
+    d-footnote-list,
+    d-citation-list,
+    distill-footer {
+      grid-template-columns: [screen-start] 1fr [page-start kicker-start] 80px [middle-start] 50px [text-start kicker-end] 65px 65px 65px 65px 65px 65px 65px 65px [text-end gutter-start] 65px [middle-end] 65px [page-end gutter-end] 1fr [screen-end];
+      grid-column-gap: 16px;
+    }
+
+    .grid {
+      grid-column-gap: 16px;
+    }
+
+    d-article {
+      font-size: 1.06rem;
+      line-height: 1.7em;
+    }
+    figure .caption, .figure .caption, figure figcaption {
+      font-size: 13px;
+    }
+  }
+
+  @media(min-width: 1180px) {
+    .base-grid,
+    distill-header,
+    d-title,
+    d-abstract,
+    d-article,
+    d-appendix,
+    distill-appendix,
+    d-byline,
+    d-footnote-list,
+    d-citation-list,
+    distill-footer {
+      grid-template-columns: [screen-start] 1fr [page-start kicker-start] 60px [middle-start] 60px [text-start kicker-end] 60px 60px 60px 60px 60px 60px 60px 60px [text-end gutter-start] 60px [middle-end] 60px [page-end gutter-end] 1fr [screen-end];
+      grid-column-gap: 32px;
+    }
+
+    .grid {
+      grid-column-gap: 32px;
+    }
+  }
+
+
+  /* Get the citation styles for the appendix (not auto-injected on render since
+     we do our own rendering of the citation appendix) */
+
+  d-appendix .citation-appendix,
+  .d-appendix .citation-appendix {
+    font-size: 11px;
+    line-height: 15px;
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    padding-left: 18px;
+    border: 1px solid rgba(0,0,0,0.1);
+    background: rgba(0, 0, 0, 0.02);
+    padding: 10px 18px;
+    border-radius: 3px;
+    color: rgba(150, 150, 150, 1);
+    overflow: hidden;
+    margin-top: -12px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+
+  /* Include appendix styles here so they can be overridden */
+
+  d-appendix {
+    contain: layout style;
+    font-size: 0.8em;
+    line-height: 1.7em;
+    margin-top: 60px;
+    margin-bottom: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    color: rgba(0,0,0,0.5);
+    padding-top: 60px;
+    padding-bottom: 48px;
+  }
+
+  d-appendix h3 {
+    grid-column: page-start / text-start;
+    font-size: 15px;
+    font-weight: 500;
+    margin-top: 1em;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.65);
+  }
+
+  d-appendix h3 + * {
+    margin-top: 1em;
+  }
+
+  d-appendix ol {
+    padding: 0 0 0 15px;
+  }
+
+  @media (min-width: 768px) {
+    d-appendix ol {
+      padding: 0 0 0 30px;
+      margin-left: -30px;
+    }
+  }
+
+  d-appendix li {
+    margin-bottom: 1em;
+  }
+
+  d-appendix a {
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  d-appendix > * {
+    grid-column: text;
+  }
+
+  d-appendix > d-footnote-list,
+  d-appendix > d-citation-list,
+  d-appendix > distill-appendix {
+    grid-column: screen;
+  }
+
+  /* Include footnote styles here so they can be overridden */
+
+  d-footnote-list {
+    contain: layout style;
+  }
+
+  d-footnote-list > * {
+    grid-column: text;
+  }
+
+  d-footnote-list a.footnote-backlink {
+    color: rgba(0,0,0,0.3);
+    padding-left: 0.5em;
+  }
+
+
+
+  /* Anchor.js */
+
+  .anchorjs-link {
+    /*transition: all .25s linear; */
+    text-decoration: none;
+    border-bottom: none;
+  }
+  *:hover > .anchorjs-link {
+    margin-left: -1.125em !important;
+    text-decoration: none;
+    border-bottom: none;
+  }
+
+  /* Social footer */
+
+  .social_footer {
+    margin-top: 30px;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.67);
+  }
+
+  .disqus-comments {
+    margin-right: 30px;
+  }
+
+  .disqus-comment-count {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+  }
+
+  #disqus_thread {
+    margin-top: 30px;
+  }
+
+  .article-sharing a {
+    border-bottom: none;
+    margin-right: 8px;
+  }
+
+  .article-sharing a:hover {
+    border-bottom: none;
+  }
+
+  .sidebar-section.subscribe {
+    font-size: 12px;
+    line-height: 1.6em;
+  }
+
+  .subscribe p {
+    margin-bottom: 0.5em;
+  }
+
+
+  .article-footer .subscribe {
+    font-size: 15px;
+    margin-top: 45px;
+  }
+
+
+  .sidebar-section.custom {
+    font-size: 12px;
+    line-height: 1.6em;
+  }
+
+  .custom p {
+    margin-bottom: 0.5em;
+  }
+
+  /* Styles for listing layout (hide title) */
+  .layout-listing d-title, .layout-listing .d-title {
+    display: none;
+  }
+
+  /* Styles for posts lists (not auto-injected) */
+
+
+  .posts-with-sidebar {
+    padding-left: 45px;
+    padding-right: 45px;
+  }
+
+  .posts-list .description h2,
+  .posts-list .description p {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+  }
+
+  .posts-list .description h2 {
+    font-weight: 700;
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .posts-list h2.post-tag {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    padding-bottom: 12px;
+  }
+  .posts-list {
+    margin-top: 60px;
+    margin-bottom: 24px;
+  }
+
+  .posts-list .post-preview {
+    text-decoration: none;
+    overflow: hidden;
+    display: block;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 24px 0;
+  }
+
+  .post-preview-last {
+    border-bottom: none !important;
+  }
+
+  .posts-list .posts-list-caption {
+    grid-column: screen;
+    font-weight: 400;
+  }
+
+  .posts-list .post-preview h2 {
+    margin: 0 0 6px 0;
+    line-height: 1.2em;
+    font-style: normal;
+    font-size: 24px;
+  }
+
+  .posts-list .post-preview p {
+    margin: 0 0 12px 0;
+    line-height: 1.4em;
+    font-size: 16px;
+  }
+
+  .posts-list .post-preview .thumbnail {
+    box-sizing: border-box;
+    margin-bottom: 24px;
+    position: relative;
+    max-width: 500px;
+  }
+  .posts-list .post-preview img {
+    width: 100%;
+    display: block;
+  }
+
+  .posts-list .metadata {
+    font-size: 12px;
+    line-height: 1.4em;
+    margin-bottom: 18px;
+  }
+
+  .posts-list .metadata > * {
+    display: inline-block;
+  }
+
+  .posts-list .metadata .publishedDate {
+    margin-right: 2em;
+  }
+
+  .posts-list .metadata .dt-authors {
+    display: block;
+    margin-top: 0.3em;
+    margin-right: 2em;
+  }
+
+  .posts-list .dt-tags {
+    display: block;
+    line-height: 1em;
+  }
+
+  .posts-list .dt-tags .dt-tag {
+    display: inline-block;
+    color: rgba(0,0,0,0.6);
+    padding: 0.3em 0.4em;
+    margin-right: 0.2em;
+    margin-bottom: 0.4em;
+    font-size: 60%;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .posts-list img {
+    opacity: 1;
+  }
+
+  .posts-list img[data-src] {
+    opacity: 0;
+  }
+
+  .posts-more {
+    clear: both;
+  }
+
+
+  .posts-sidebar {
+    font-size: 16px;
+  }
+
+  .posts-sidebar h3 {
+    font-size: 16px;
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+
+  .sidebar-section {
+    margin-bottom: 30px;
+  }
+
+  .categories ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .categories li {
+    color: rgba(0, 0, 0, 0.8);
+    margin-bottom: 0;
+  }
+
+  .categories li>a {
+    border-bottom: none;
+  }
+
+  .categories li>a:hover {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  }
+
+  .categories .active {
+    font-weight: 600;
+  }
+
+  .categories .category-count {
+    color: rgba(0, 0, 0, 0.4);
+  }
+
+
+  @media(min-width: 768px) {
+    .posts-list .post-preview h2 {
+      font-size: 26px;
+    }
+    .posts-list .post-preview .thumbnail {
+      float: right;
+      width: 30%;
+      margin-bottom: 0;
+    }
+    .posts-list .post-preview .description {
+      float: left;
+      width: 45%;
+    }
+    .posts-list .post-preview .metadata {
+      float: left;
+      width: 20%;
+      margin-top: 8px;
+    }
+    .posts-list .post-preview p {
+      margin: 0 0 12px 0;
+      line-height: 1.5em;
+      font-size: 16px;
+    }
+    .posts-with-sidebar .posts-list {
+      float: left;
+      width: 75%;
+    }
+    .posts-with-sidebar .posts-sidebar {
+      float: right;
+      width: 20%;
+      margin-top: 60px;
+      padding-top: 24px;
+      padding-bottom: 24px;
+    }
+  }
+
+
+  /* Improve display for browsers without grid (IE/Edge <= 15) */
+
+  .downlevel {
+    line-height: 1.6em;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+  }
+
+  .downlevel .d-title {
+    padding-top: 6rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .downlevel .d-title h1 {
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 1.1em;
+    margin: 0 0 0.5rem;
+  }
+
+  .downlevel .d-title p {
+    font-weight: 300;
+    font-size: 1.2rem;
+    line-height: 1.55em;
+    margin-top: 0;
+  }
+
+  .downlevel .d-byline {
+    padding-top: 0.8em;
+    padding-bottom: 0.8em;
+    font-size: 0.8rem;
+    line-height: 1.8em;
+  }
+
+  .downlevel .section-separator {
+    border: none;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .downlevel .d-article {
+    font-size: 1.06rem;
+    line-height: 1.7em;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+  }
+
+
+  .downlevel .d-appendix {
+    padding-left: 0;
+    padding-right: 0;
+    max-width: none;
+    font-size: 0.8em;
+    line-height: 1.7em;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.5);
+    padding-top: 40px;
+    padding-bottom: 48px;
+  }
+
+  .downlevel .footnotes ol {
+    padding-left: 13px;
+  }
+
+  .downlevel .base-grid,
+  .downlevel .distill-header,
+  .downlevel .d-title,
+  .downlevel .d-abstract,
+  .downlevel .d-article,
+  .downlevel .d-appendix,
+  .downlevel .distill-appendix,
+  .downlevel .d-byline,
+  .downlevel .d-footnote-list,
+  .downlevel .d-citation-list,
+  .downlevel .distill-footer,
+  .downlevel .appendix-bottom,
+  .downlevel .posts-container {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  @media(min-width: 768px) {
+    .downlevel .base-grid,
+    .downlevel .distill-header,
+    .downlevel .d-title,
+    .downlevel .d-abstract,
+    .downlevel .d-article,
+    .downlevel .d-appendix,
+    .downlevel .distill-appendix,
+    .downlevel .d-byline,
+    .downlevel .d-footnote-list,
+    .downlevel .d-citation-list,
+    .downlevel .distill-footer,
+    .downlevel .appendix-bottom,
+    .downlevel .posts-container {
+    padding-left: 150px;
+    padding-right: 150px;
+    max-width: 900px;
+  }
+  }
+
+  .downlevel pre code {
+    display: block;
+    border-left: 2px solid rgba(0, 0, 0, .1);
+    padding: 0 0 0 20px;
+    font-size: 14px;
+  }
+
+  .downlevel code, .downlevel pre {
+    color: black;
+    background: none;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+  }
+
+  .downlevel .posts-list .post-preview {
+    color: inherit;
+  }
+
+
+
+  </style>
+
+  <script type="application/javascript">
+
+  function is_downlevel_browser() {
+    if (bowser.isUnsupportedBrowser({ msie: "12", msedge: "16"},
+                                   window.navigator.userAgent)) {
+      return true;
+    } else {
+      return window.load_distill_framework === undefined;
+    }
+  }
+
+  // show body when load is complete
+  function on_load_complete() {
+
+    // add anchors
+    if (window.anchors) {
+      window.anchors.options.placement = 'left';
+      window.anchors.add('d-article > h2, d-article > h3, d-article > h4, d-article > h5');
+    }
+
+
+    // set body to visible
+    document.body.style.visibility = 'visible';
+
+    // force redraw for leaflet widgets
+    if (window.HTMLWidgets) {
+      var maps = window.HTMLWidgets.findAll(".leaflet");
+      $.each(maps, function(i, el) {
+        var map = this.getMap();
+        map.invalidateSize();
+        map.eachLayer(function(layer) {
+          if (layer instanceof L.TileLayer)
+            layer.redraw();
+        });
+      });
+    }
+
+    // trigger 'shown' so htmlwidgets resize
+    $('d-article').trigger('shown');
+  }
+
+  function init_distill() {
+
+    init_common();
+
+    // create front matter
+    var front_matter = $('<d-front-matter></d-front-matter>');
+    $('#distill-front-matter').wrap(front_matter);
+
+    // create d-title
+    $('.d-title').changeElementType('d-title');
+
+    // create d-byline
+    var byline = $('<d-byline></d-byline>');
+    $('.d-byline').replaceWith(byline);
+
+    // create d-article
+    var article = $('<d-article></d-article>');
+    $('.d-article').wrap(article).children().unwrap();
+
+    // move posts container into article
+    $('.posts-container').appendTo($('d-article'));
+
+    // create d-appendix
+    $('.d-appendix').changeElementType('d-appendix');
+
+    // flag indicating that we have appendix items
+    var appendix = $('.appendix-bottom').children('h3').length > 0;
+
+    // replace footnotes with <d-footnote>
+    $('.footnote-ref').each(function(i, val) {
+      appendix = true;
+      var href = $(this).attr('href');
+      var id = href.replace('#', '');
+      var fn = $('#' + id);
+      var fn_p = $('#' + id + '>p');
+      fn_p.find('.footnote-back').remove();
+      var text = fn_p.html();
+      var dtfn = $('<d-footnote></d-footnote>');
+      dtfn.html(text);
+      $(this).replaceWith(dtfn);
+    });
+    // remove footnotes
+    $('.footnotes').remove();
+
+    // move refs into #references-listing
+    $('#references-listing').replaceWith($('#refs'));
+
+    $('h1.appendix, h2.appendix').each(function(i, val) {
+      $(this).changeElementType('h3');
+    });
+    $('h3.appendix').each(function(i, val) {
+      var id = $(this).attr('id');
+      $('.d-contents a[href="#' + id + '"]').parent().remove();
+      appendix = true;
+      $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('d-appendix'));
+    });
+
+    // show d-appendix if we have appendix content
+    $("d-appendix").css('display', appendix ? 'grid' : 'none');
+
+    // localize layout chunks to just output
+    $('.layout-chunk').each(function(i, val) {
+
+      // capture layout
+      var layout = $(this).attr('data-layout');
+
+      // apply layout to markdown level block elements
+      var elements = $(this).children().not('details, div.sourceCode, pre, script');
+      elements.each(function(i, el) {
+        var layout_div = $('<div class="' + layout + '"></div>');
+        if (layout_div.hasClass('shaded')) {
+          var shaded_content = $('<div class="shaded-content"></div>');
+          $(this).wrap(shaded_content);
+          $(this).parent().wrap(layout_div);
+        } else {
+          $(this).wrap(layout_div);
+        }
+      });
+
+
+      // unwrap the layout-chunk div
+      $(this).children().unwrap();
+    });
+
+    // remove code block used to force  highlighting css
+    $('.distill-force-highlighting-css').parent().remove();
+
+    // remove empty line numbers inserted by pandoc when using a
+    // custom syntax highlighting theme
+    $('code.sourceCode a:empty').remove();
+
+    // load distill framework
+    load_distill_framework();
+
+    // wait for window.distillRunlevel == 4 to do post processing
+    function distill_post_process() {
+
+      if (!window.distillRunlevel || window.distillRunlevel < 4)
+        return;
+
+      // hide author/affiliations entirely if we have no authors
+      var front_matter = JSON.parse($("#distill-front-matter").html());
+      var have_authors = front_matter.authors && front_matter.authors.length > 0;
+      if (!have_authors)
+        $('d-byline').addClass('hidden');
+
+      // article with toc class
+      $('.d-contents').parent().addClass('d-article-with-toc');
+
+      // strip links that point to #
+      $('.authors-affiliations').find('a[href="#"]').removeAttr('href');
+
+      // add orcid ids
+      $('.authors-affiliations').find('.author').each(function(i, el) {
+        var orcid_id = front_matter.authors[i].orcidID;
+        if (orcid_id) {
+          var a = $('<a></a>');
+          a.attr('href', 'https://orcid.org/' + orcid_id);
+          var img = $('<img></img>');
+          img.addClass('orcid-id');
+          img.attr('alt', 'ORCID ID');
+          img.attr('src','data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg==');
+          a.append(img);
+          $(this).append(a);
+        }
+      });
+
+      // hide elements of author/affiliations grid that have no value
+      function hide_byline_column(caption) {
+        $('d-byline').find('h3:contains("' + caption + '")').parent().css('visibility', 'hidden');
+      }
+
+      // affiliations
+      var have_affiliations = false;
+      for (var i = 0; i<front_matter.authors.length; ++i) {
+        var author = front_matter.authors[i];
+        if (author.affiliation !== "&nbsp;") {
+          have_affiliations = true;
+          break;
+        }
+      }
+      if (!have_affiliations)
+        $('d-byline').find('h3:contains("Affiliations")').css('visibility', 'hidden');
+
+      // published date
+      if (!front_matter.publishedDate)
+        hide_byline_column("Published");
+
+      // document object identifier
+      var doi = $('d-byline').find('h3:contains("DOI")');
+      var doi_p = doi.next().empty();
+      if (!front_matter.doi) {
+        // if we have a citation and valid citationText then link to that
+        if ($('#citation').length > 0 && front_matter.citationText) {
+          doi.html('Citation');
+          $('<a href="#citation"></a>')
+            .text(front_matter.citationText)
+            .appendTo(doi_p);
+        } else {
+          hide_byline_column("DOI");
+        }
+      } else {
+        $('<a></a>')
+           .attr('href', "https://doi.org/" + front_matter.doi)
+           .html(front_matter.doi)
+           .appendTo(doi_p);
+      }
+
+       // change plural form of authors/affiliations
+      if (front_matter.authors.length === 1) {
+        var grid = $('.authors-affiliations');
+        grid.children('h3:contains("Authors")').text('Author');
+        grid.children('h3:contains("Affiliations")').text('Affiliation');
+      }
+
+      // remove d-appendix and d-footnote-list local styles
+      $('d-appendix > style:first-child').remove();
+      $('d-footnote-list > style:first-child').remove();
+
+      // move appendix-bottom entries to the bottom
+      $('.appendix-bottom').appendTo('d-appendix').children().unwrap();
+      $('.appendix-bottom').remove();
+
+      // hoverable references
+      $('span.citation[data-cites]').each(function() {
+        var refHtml = $('#ref-' + $(this).attr('data-cites')).html();
+        window.tippy(this, {
+          allowHTML: true,
+          content: refHtml,
+          maxWidth: 500,
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start'
+        });
+      });
+
+      // clear polling timer
+      clearInterval(tid);
+
+      // show body now that everything is ready
+      on_load_complete();
+    }
+
+    var tid = setInterval(distill_post_process, 50);
+    distill_post_process();
+
+  }
+
+  function init_downlevel() {
+
+    init_common();
+
+     // insert hr after d-title
+    $('.d-title').after($('<hr class="section-separator"/>'));
+
+    // check if we have authors
+    var front_matter = JSON.parse($("#distill-front-matter").html());
+    var have_authors = front_matter.authors && front_matter.authors.length > 0;
+
+    // manage byline/border
+    if (!have_authors)
+      $('.d-byline').remove();
+    $('.d-byline').after($('<hr class="section-separator"/>'));
+    $('.d-byline a').remove();
+
+    // remove toc
+    $('.d-contents').remove();
+
+    // move appendix elements
+    $('h1.appendix, h2.appendix').each(function(i, val) {
+      $(this).changeElementType('h3');
+    });
+    $('h3.appendix').each(function(i, val) {
+      $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('.d-appendix'));
+    });
+
+
+    // inject headers into references and footnotes
+    var refs_header = $('<h3></h3>');
+    refs_header.text('References');
+    $('#refs').prepend(refs_header);
+
+    var footnotes_header = $('<h3></h3');
+    footnotes_header.text('Footnotes');
+    $('.footnotes').children('hr').first().replaceWith(footnotes_header);
+
+    // move appendix-bottom entries to the bottom
+    $('.appendix-bottom').appendTo('.d-appendix').children().unwrap();
+    $('.appendix-bottom').remove();
+
+    // remove appendix if it's empty
+    if ($('.d-appendix').children().length === 0)
+      $('.d-appendix').remove();
+
+    // prepend separator above appendix
+    $('.d-appendix').before($('<hr class="section-separator" style="clear: both"/>'));
+
+    // trim code
+    $('pre>code').each(function(i, val) {
+      $(this).html($.trim($(this).html()));
+    });
+
+    // move posts-container right before article
+    $('.posts-container').insertBefore($('.d-article'));
+
+    $('body').addClass('downlevel');
+
+    on_load_complete();
+  }
+
+
+  function init_common() {
+
+    // jquery plugin to change element types
+    (function($) {
+      $.fn.changeElementType = function(newType) {
+        var attrs = {};
+
+        $.each(this[0].attributes, function(idx, attr) {
+          attrs[attr.nodeName] = attr.nodeValue;
+        });
+
+        this.replaceWith(function() {
+          return $("<" + newType + "/>", attrs).append($(this).contents());
+        });
+      };
+    })(jQuery);
+
+    // prevent underline for linked images
+    $('a > img').parent().css({'border-bottom' : 'none'});
+
+    // mark non-body figures created by knitr chunks as 100% width
+    $('.layout-chunk').each(function(i, val) {
+      var figures = $(this).find('img, .html-widget');
+      if ($(this).attr('data-layout') !== "l-body") {
+        figures.css('width', '100%');
+      } else {
+        figures.css('max-width', '100%');
+        figures.filter("[width]").each(function(i, val) {
+          var fig = $(this);
+          fig.css('width', fig.attr('width') + 'px');
+        });
+
+      }
+    });
+
+    // auto-append index.html to post-preview links in file: protocol
+    // and in rstudio ide preview
+    $('.post-preview').each(function(i, val) {
+      if (window.location.protocol === "file:")
+        $(this).attr('href', $(this).attr('href') + "index.html");
+    });
+
+    // get rid of index.html references in header
+    if (window.location.protocol !== "file:") {
+      $('.distill-site-header a[href]').each(function(i,val) {
+        $(this).attr('href', $(this).attr('href').replace("index.html", "./"));
+      });
+    }
+
+    // add class to pandoc style tables
+    $('tr.header').parent('thead').parent('table').addClass('pandoc-table');
+    $('.kable-table').children('table').addClass('pandoc-table');
+
+    // add figcaption style to table captions
+    $('caption').parent('table').addClass("figcaption");
+
+    // initialize posts list
+    if (window.init_posts_list)
+      window.init_posts_list();
+
+    // implmement disqus comment link
+    $('.disqus-comment-count').click(function() {
+      window.headroom_prevent_pin = true;
+      $('#disqus_thread').toggleClass('hidden');
+      if (!$('#disqus_thread').hasClass('hidden')) {
+        var offset = $(this).offset();
+        $(window).resize();
+        $('html, body').animate({
+          scrollTop: offset.top - 35
+        });
+      }
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    if (is_downlevel_browser())
+      init_downlevel();
+    else
+      window.addEventListener('WebComponentsReady', init_distill);
+  });
+
+  </script>
+
+  <!--/radix_placeholder_distill-->
+  <script src="loop-functions_files/header-attrs-2.10/header-attrs.js"></script>
+  <script src="loop-functions_files/jquery-1.11.3/jquery.min.js"></script>
+  <script src="loop-functions_files/popper-2.6.0/popper.min.js"></script>
+  <link href="loop-functions_files/tippy-6.2.7/tippy.css" rel="stylesheet" />
+  <link href="loop-functions_files/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
+  <script src="loop-functions_files/tippy-6.2.7/tippy.umd.min.js"></script>
+  <script src="loop-functions_files/anchor-4.2.2/anchor.min.js"></script>
+  <script src="loop-functions_files/bowser-1.9.3/bowser.min.js"></script>
+  <script src="loop-functions_files/webcomponents-2.0.0/webcomponents.js"></script>
+  <script src="loop-functions_files/distill-2.2.21/template.v2.js"></script>
+  <!--radix_placeholder_site_in_header-->
+  <!--/radix_placeholder_site_in_header-->
+
+
+</head>
+
+<body>
+
+<!--radix_placeholder_front_matter-->
+
+<script id="distill-front-matter" type="text/json">
+{"title":"Loop Functions","description":"Introduction to looping in the command line.","authors":[{"author":"Stephanie Hicks","authorURL":"https://stephaniehicks.com/","affiliation":"Department of Biostatistics, Johns Hopkins","affiliationURL":"https://www.jhsph.edu","orcidID":""}],"publishedDate":"2021-09-21T00:00:00.000+00:00","citationText":"Hicks, 2021"}
+</script>
+
+<!--/radix_placeholder_front_matter-->
+<!--radix_placeholder_navigation_before_body-->
+<!--/radix_placeholder_navigation_before_body-->
+<!--radix_placeholder_site_before_body-->
+<!--/radix_placeholder_site_before_body-->
+
+<div class="d-title">
+<h1>Loop Functions</h1>
+<!--radix_placeholder_categories-->
+<div class="dt-tags">
+<div class="dt=tag">module 2</div>
+<div class="dt=tag">week 4</div>
+<div class="dt=tag">programming</div>
+<div class="dt=tag">functions</div>
+</div>
+<!--/radix_placeholder_categories-->
+<p><p>Introduction to looping in the command line.</p></p>
+</div>
+
+<div class="d-byline">
+  Stephanie Hicks <a href="https://stephaniehicks.com/" class="uri">https://stephaniehicks.com/</a> (Department of Biostatistics, Johns Hopkins)<a href="https://www.jhsph.edu" class="uri">https://www.jhsph.edu</a>
+  
+<br/>09-21-2021
+</div>
+
+<div class="d-article">
+<div class="d-contents d-contents-float">
+<nav class="l-text toc figcaption" id="TOC">
+<h3>Contents</h3>
+<ul>
+<li><a href="#pre-lecture-materials">Pre-lecture materials</a>
+<ul>
+<li><a href="#read-ahead">Read ahead</a></li>
+<li><a href="#acknowledgements">Acknowledgements</a></li>
+</ul></li>
+<li><a href="#learning-objectives">Learning objectives</a></li>
+<li><a href="#loop-functions">Loop Functions</a>
+<ul>
+<li><a href="#lapply"><code>lapply()</code></a></li>
+<li><a href="#sapply"><code>sapply()</code></a></li>
+<li><a href="#split"><code>split()</code></a></li>
+<li><a href="#splitting-a-data-frame">Splitting a Data Frame</a></li>
+<li><a href="#tapply">tapply</a></li>
+<li><a href="#apply"><code>apply()</code></a></li>
+<li><a href="#mapply"><code>mapply()</code></a></li>
+<li><a href="#vectorizing-a-function">Vectorizing a Function</a></li>
+</ul></li>
+<li><a href="#summary">Summary</a></li>
+<li><a href="#post-lecture-materials">Post-lecture materials</a>
+<ul>
+<li><a href="#final-questions">Final Questions</a></li>
+<li><a href="#additional-resources">Additional Resources</a></li>
+</ul></li>
+</ul>
+</nav>
+</div>
+<!-- Add interesting quote -->
+<h1 id="pre-lecture-materials">Pre-lecture materials</h1>
+<h3 id="read-ahead">Read ahead</h3>
+<div class="resources">
+<p><strong>Before class, you can prepare by reading the following materials:</strong></p>
+<ol type="1">
+<li></li>
+</ol>
+</div>
+<h3 id="acknowledgements">Acknowledgements</h3>
+<p>Material for this lecture was borrowed and adopted from</p>
+<ul>
+<li><a href="https://rdpeng.github.io/Biostat776/lecture-loop-functions.html" class="uri">https://rdpeng.github.io/Biostat776/lecture-loop-functions.html</a></li>
+<li></li>
+<li></li>
+</ul>
+<h1 id="learning-objectives">Learning objectives</h1>
+<div class="keyideas">
+<p><strong>At the end of this lesson you will:</strong></p>
+<ul>
+<li></li>
+<li></li>
+<li></li>
+</ul>
+</div>
+<h1 id="loop-functions">Loop Functions</h1>
+<p>Writing <code>for</code> and <code>while</code> loops is useful when programming but not particularly easy when working interactively on the command line. Multi-line expressions with curly braces are just not that easy to sort through when working on the command line. R has some functions which implement looping in a compact form to make your life easier.</p>
+<ul>
+<li><p><code>lapply()</code>: Loop over a list and evaluate a function on each element</p></li>
+<li><p><code>sapply()</code>: Same as <code>lapply</code> but try to simplify the result</p></li>
+<li><p><code>apply()</code>: Apply a function over the margins of an array</p></li>
+<li><p><code>tapply()</code>: Apply a function over subsets of a vector</p></li>
+<li><p><code>mapply()</code>: Multivariate version of <code>lapply</code></p></li>
+</ul>
+<p>An auxiliary function <code>split</code> is also useful, particularly in conjunction with <code>lapply</code>.</p>
+<h3 id="lapply"><code>lapply()</code></h3>
+<p>The <code>lapply()</code> function does the following simple series of operations:</p>
+<ol type="1">
+<li>it loops over a list, iterating over each element in that list</li>
+<li>it applies a <em>function</em> to each element of the list (a function that you specify)</li>
+<li>and returns a list (the <code>l</code> is for “list”).</li>
+</ol>
+<p>This function takes three arguments: (1) a list <code>X</code>; (2) a function (or the name of a function) <code>FUN</code>; (3) other arguments via its <code>...</code> argument. If <code>X</code> is not a list, it will be coerced to a list using <code>as.list()</code>.</p>
+<p>The body of the <code>lapply()</code> function can be seen here.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>lapply</span>
+</code></pre>
+</div>
+<pre><code>function (X, FUN, ...) 
+{
+    FUN &lt;- match.fun(FUN)
+    if (!is.vector(X) || is.object(X)) 
+        X &lt;- as.list(X)
+    .Internal(lapply(X, FUN))
+}
+&lt;bytecode: 0x7fbefa85afa0&gt;
+&lt;environment: namespace:base&gt;</code></pre>
+</div>
+<p>Note that the actual looping is done internally in C code for efficiency reasons.</p>
+<p>It’s important to remember that <code>lapply()</code> always returns a list, regardless of the class of the input.</p>
+<p>Here’s an example of applying the <code>mean()</code> function to all elements of a list. If the original list has names, the the names will be preserved in the output.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>a <span class='op'>=</span> <span class='fl'>1</span><span class='op'>:</span><span class='fl'>5</span>, b <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='fl'>10</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/lapply.html'>lapply</a></span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>mean</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>$a
+[1] 3
+
+$b
+[1] 0.1322028</code></pre>
+</div>
+<p>Notice that here we are passing the <code>mean()</code> function as an argument to the <code>lapply()</code> function. Functions in R can be used this way and can be passed back and forth as arguments just like any other object. When you pass a function to another function, you do not need to include the open and closed parentheses <code>()</code> like you do when you are <em>calling</em> a function.</p>
+<p>Here is another example of using <code>lapply()</code>.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>a <span class='op'>=</span> <span class='fl'>1</span><span class='op'>:</span><span class='fl'>4</span>, b <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='fl'>10</span><span class='op'>)</span>, c <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='fl'>20</span>, <span class='fl'>1</span><span class='op'>)</span>, d <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='fl'>100</span>, <span class='fl'>5</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/lapply.html'>lapply</a></span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>mean</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>$a
+[1] 2.5
+
+$b
+[1] 0.248845
+
+$c
+[1] 0.9935285
+
+$d
+[1] 5.051388</code></pre>
+</div>
+<p>You can use <code>lapply()</code> to evaluate a function multiple times each with a different argument. Below, is an example where I call the <code>runif()</code> function (to generate uniformly distributed random variables) four times, each time generating a different number of random numbers.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fl'>1</span><span class='op'>:</span><span class='fl'>4</span>
+<span class='fu'><a href='https://rdrr.io/r/base/lapply.html'>lapply</a></span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>runif</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>[[1]]
+[1] 0.02778712
+
+[[2]]
+[1] 0.5273108 0.8803191
+
+[[3]]
+[1] 0.37306337 0.04795913 0.13862825
+
+[[4]]
+[1] 0.3214921 0.1548316 0.1322282 0.2213059</code></pre>
+</div>
+<p>When you pass a function to <code>lapply()</code>, <code>lapply()</code> takes elements of the list and passes them as the <em>first argument</em> of the function you are applying. In the above example, the first argument of <code>runif()</code> is <code>n</code>, and so the elements of the sequence <code>1:4</code> all got passed to the <code>n</code> argument of <code>runif()</code>.</p>
+<p>Functions that you pass to <code>lapply()</code> may have other arguments. For example, the <code>runif()</code> function has a <code>min</code> and <code>max</code> argument too. In the example above I used the default values for <code>min</code> and <code>max</code>. How would you be able to specify different values for that in the context of <code>lapply()</code>?</p>
+<p>Here is where the <code>...</code> argument to <code>lapply()</code> comes into play. Any arguments that you place in the <code>...</code> argument will get passed down to the function being applied to the elements of the list.</p>
+<p>Here, the <code>min = 0</code> and <code>max = 10</code> arguments are passed down to <code>runif()</code> every time it gets called.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fl'>1</span><span class='op'>:</span><span class='fl'>4</span>
+<span class='fu'><a href='https://rdrr.io/r/base/lapply.html'>lapply</a></span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>runif</span>, min <span class='op'>=</span> <span class='fl'>0</span>, max <span class='op'>=</span> <span class='fl'>10</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>[[1]]
+[1] 2.263808
+
+[[2]]
+[1] 1.314165 9.815635
+
+[[3]]
+[1] 3.270137 5.069395 6.814425
+
+[[4]]
+[1] 0.9916910 1.1890256 0.5043966 9.2925392</code></pre>
+</div>
+<p>So now, instead of the random numbers being between 0 and 1 (the default), the are all between 0 and 10.</p>
+<p>The <code>lapply()</code> function and its friends make heavy use of <em>anonymous</em> functions. Anonymous functions are like members of <a href="http://en.wikipedia.org/wiki/Fight_Club">Project Mayhem</a>—they have no names. These are functions are generated “on the fly” as you are using <code>lapply()</code>. Once the call to <code>lapply()</code> is finished, the function disappears and does not appear in the workspace.</p>
+<p>Here I am creating a list that contains two matrices.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>a <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>4</span>, <span class='fl'>2</span>, <span class='fl'>2</span><span class='op'>)</span>, b <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>6</span>, <span class='fl'>3</span>, <span class='fl'>2</span><span class='op'>)</span><span class='op'>)</span> 
+<span class='va'>x</span>
+</code></pre>
+</div>
+<pre><code>$a
+     [,1] [,2]
+[1,]    1    3
+[2,]    2    4
+
+$b
+     [,1] [,2]
+[1,]    1    4
+[2,]    2    5
+[3,]    3    6</code></pre>
+</div>
+<p>Suppose I wanted to extract the first column of each matrix in the list. I could write an anonymous function for extracting the first column of each matrix.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/lapply.html'>lapply</a></span><span class='op'>(</span><span class='va'>x</span>, <span class='kw'>function</span><span class='op'>(</span><span class='va'>elt</span><span class='op'>)</span> <span class='op'>{</span> <span class='va'>elt</span><span class='op'>[</span>,<span class='fl'>1</span><span class='op'>]</span> <span class='op'>}</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>$a
+[1] 1 2
+
+$b
+[1] 1 2 3</code></pre>
+</div>
+<p>Notice that I put the <code>function()</code> definition right in the call to <code>lapply()</code>. This is perfectly legal and acceptable. You can put an arbitrarily complicated function definition inside <code>lapply()</code>, but if it’s going to be more complicated, it’s probably a better idea to define the function separately.</p>
+<p>For example, I could have done the following.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>f</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>elt</span><span class='op'>)</span> <span class='op'>{</span>
+        <span class='va'>elt</span><span class='op'>[</span>, <span class='fl'>1</span><span class='op'>]</span>
+<span class='op'>}</span>
+<span class='fu'><a href='https://rdrr.io/r/base/lapply.html'>lapply</a></span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>f</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>$a
+[1] 1 2
+
+$b
+[1] 1 2 3</code></pre>
+</div>
+<p>Now the function is no longer anonymous; it’s name is <code>f</code>. Whether you use an anonymous function or you define a function first depends on your context. If you think the function <code>f</code> is something you’re going to need a lot in other parts of your code, you might want to define it separately. But if you’re just going to use it for this call to <code>lapply()</code>, then it’s probably simpler to use an anonymous function.</p>
+<h3 id="sapply"><code>sapply()</code></h3>
+<p>The <code>sapply()</code> function behaves similarly to <code>lapply()</code>; the only real difference is in the return value. <code>sapply()</code> will try to simplify the result of <code>lapply()</code> if possible. Essentially, <code>sapply()</code> calls <code>lapply()</code> on its input and then applies the following algorithm:</p>
+<ul>
+<li><p>If the result is a list where every element is length 1, then a vector is returned</p></li>
+<li><p>If the result is a list where every element is a vector of the same length (&gt; 1), a matrix is returned.</p></li>
+<li><p>If it can’t figure things out, a list is returned</p></li>
+</ul>
+<p>Here’s the result of calling <code>lapply()</code>.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>a <span class='op'>=</span> <span class='fl'>1</span><span class='op'>:</span><span class='fl'>4</span>, b <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='fl'>10</span><span class='op'>)</span>, c <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='fl'>20</span>, <span class='fl'>1</span><span class='op'>)</span>, d <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='fl'>100</span>, <span class='fl'>5</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/lapply.html'>lapply</a></span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>mean</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>$a
+[1] 2.5
+
+$b
+[1] -0.251483
+
+$c
+[1] 1.481246
+
+$d
+[1] 4.968715</code></pre>
+</div>
+<p>Notice that <code>lapply()</code> returns a list (as usual), but that each element of the list has length 1.</p>
+<p>Here’s the result of calling <code>sapply()</code> on the same list.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/lapply.html'>sapply</a></span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>mean</span><span class='op'>)</span> 
+</code></pre>
+</div>
+<pre><code>        a         b         c         d 
+ 2.500000 -0.251483  1.481246  4.968715 </code></pre>
+</div>
+<p>Because the result of <code>lapply()</code> was a list where each element had length 1, <code>sapply()</code> collapsed the output into a numeric vector, which is often more useful than a list.</p>
+<h3 id="split"><code>split()</code></h3>
+<p>The <code>split()</code> function takes a vector or other objects and splits it into groups determined by a factor or list of factors.</p>
+<p>The arguments to <code>split()</code> are</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/utils/str.html'>str</a></span><span class='op'>(</span><span class='va'>split</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>function (x, f, drop = FALSE, ...)  </code></pre>
+</div>
+<p>where</p>
+<ul>
+<li><code>x</code> is a vector (or list) or data frame</li>
+<li><code>f</code> is a factor (or coerced to one) or a list of factors</li>
+<li><code>drop</code> indicates whether empty factors levels should be dropped</li>
+</ul>
+<p>The combination of <code>split()</code> and a function like <code>lapply()</code> or <code>sapply()</code> is a common paradigm in R. The basic idea is that you can take a data structure, split it into subsets defined by another variable, and apply a function over those subsets. The results of applying tha function over the subsets are then collated and returned as an object. This sequence of operations is sometimes referred to as “map-reduce” in other contexts.</p>
+<p>Here we simulate some data and split it according to a factor variable. Note that we use the <code>gl()</code> function to “generate levels” in a factor variable.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='fl'>10</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/stats/Uniform.html'>runif</a></span><span class='op'>(</span><span class='fl'>10</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='fl'>10</span>, <span class='fl'>1</span><span class='op'>)</span><span class='op'>)</span>
+<span class='va'>f</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/gl.html'>gl</a></span><span class='op'>(</span><span class='fl'>3</span>, <span class='fl'>10</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/split.html'>split</a></span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>f</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>$`1`
+ [1]  0.3981302 -0.4075286  1.3242586 -0.7012317 -0.5806143 -1.0010722
+ [7] -0.6681786  0.9451850  0.4337021  1.0051592
+
+$`2`
+ [1] 0.34822440 0.94893818 0.64667919 0.03527777 0.59644846 0.41531800
+ [7] 0.07689704 0.52804888 0.96233331 0.70874005
+
+$`3`
+ [1]  1.13444766  1.76559900  1.95513668  0.94943430  0.69418458
+ [6]  1.89367370 -0.04729815  2.97133739  0.61636789  2.65414530</code></pre>
+</div>
+<p>A common idiom is <code>split</code> followed by an <code>lapply</code>.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/lapply.html'>lapply</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/split.html'>split</a></span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>f</span><span class='op'>)</span>, <span class='va'>mean</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>$`1`
+[1] 0.07478098
+
+$`2`
+[1] 0.5266905
+
+$`3`
+[1] 1.458703</code></pre>
+</div>
+<h3 id="splitting-a-data-frame">Splitting a Data Frame</h3>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'>datasets</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>airquality</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>  Ozone Solar.R Wind Temp Month Day
+1    41     190  7.4   67     5   1
+2    36     118  8.0   72     5   2
+3    12     149 12.6   74     5   3
+4    18     313 11.5   62     5   4
+5    NA      NA 14.3   56     5   5
+6    28      NA 14.9   66     5   6</code></pre>
+</div>
+<p>We can split the <code>airquality</code> data frame by the <code>Month</code> variable so that we have separate sub-data frames for each month.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>s</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/split.html'>split</a></span><span class='op'>(</span><span class='va'>airquality</span>, <span class='va'>airquality</span><span class='op'>$</span><span class='va'>Month</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/utils/str.html'>str</a></span><span class='op'>(</span><span class='va'>s</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>List of 5
+ $ 5:&#39;data.frame&#39;:  31 obs. of  6 variables:
+  ..$ Ozone  : int [1:31] 41 36 12 18 NA 28 23 19 8 NA ...
+  ..$ Solar.R: int [1:31] 190 118 149 313 NA NA 299 99 19 194 ...
+  ..$ Wind   : num [1:31] 7.4 8 12.6 11.5 14.3 14.9 8.6 13.8 20.1 8.6 ...
+  ..$ Temp   : int [1:31] 67 72 74 62 56 66 65 59 61 69 ...
+  ..$ Month  : int [1:31] 5 5 5 5 5 5 5 5 5 5 ...
+  ..$ Day    : int [1:31] 1 2 3 4 5 6 7 8 9 10 ...
+ $ 6:&#39;data.frame&#39;:  30 obs. of  6 variables:
+  ..$ Ozone  : int [1:30] NA NA NA NA NA NA 29 NA 71 39 ...
+  ..$ Solar.R: int [1:30] 286 287 242 186 220 264 127 273 291 323 ...
+  ..$ Wind   : num [1:30] 8.6 9.7 16.1 9.2 8.6 14.3 9.7 6.9 13.8 11.5 ...
+  ..$ Temp   : int [1:30] 78 74 67 84 85 79 82 87 90 87 ...
+  ..$ Month  : int [1:30] 6 6 6 6 6 6 6 6 6 6 ...
+  ..$ Day    : int [1:30] 1 2 3 4 5 6 7 8 9 10 ...
+ $ 7:&#39;data.frame&#39;:  31 obs. of  6 variables:
+  ..$ Ozone  : int [1:31] 135 49 32 NA 64 40 77 97 97 85 ...
+  ..$ Solar.R: int [1:31] 269 248 236 101 175 314 276 267 272 175 ...
+  ..$ Wind   : num [1:31] 4.1 9.2 9.2 10.9 4.6 10.9 5.1 6.3 5.7 7.4 ...
+  ..$ Temp   : int [1:31] 84 85 81 84 83 83 88 92 92 89 ...
+  ..$ Month  : int [1:31] 7 7 7 7 7 7 7 7 7 7 ...
+  ..$ Day    : int [1:31] 1 2 3 4 5 6 7 8 9 10 ...
+ $ 8:&#39;data.frame&#39;:  31 obs. of  6 variables:
+  ..$ Ozone  : int [1:31] 39 9 16 78 35 66 122 89 110 NA ...
+  ..$ Solar.R: int [1:31] 83 24 77 NA NA NA 255 229 207 222 ...
+  ..$ Wind   : num [1:31] 6.9 13.8 7.4 6.9 7.4 4.6 4 10.3 8 8.6 ...
+  ..$ Temp   : int [1:31] 81 81 82 86 85 87 89 90 90 92 ...
+  ..$ Month  : int [1:31] 8 8 8 8 8 8 8 8 8 8 ...
+  ..$ Day    : int [1:31] 1 2 3 4 5 6 7 8 9 10 ...
+ $ 9:&#39;data.frame&#39;:  30 obs. of  6 variables:
+  ..$ Ozone  : int [1:30] 96 78 73 91 47 32 20 23 21 24 ...
+  ..$ Solar.R: int [1:30] 167 197 183 189 95 92 252 220 230 259 ...
+  ..$ Wind   : num [1:30] 6.9 5.1 2.8 4.6 7.4 15.5 10.9 10.3 10.9 9.7 ...
+  ..$ Temp   : int [1:30] 91 92 93 93 87 84 80 78 75 73 ...
+  ..$ Month  : int [1:30] 9 9 9 9 9 9 9 9 9 9 ...
+  ..$ Day    : int [1:30] 1 2 3 4 5 6 7 8 9 10 ...</code></pre>
+</div>
+<p>Then we can take the column means for <code>Ozone</code>, <code>Solar.R</code>, and <code>Wind</code> for each sub-data frame.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/lapply.html'>lapply</a></span><span class='op'>(</span><span class='va'>s</span>, <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='op'>{</span>
+        <span class='fu'><a href='https://rdrr.io/r/base/colSums.html'>colMeans</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>[</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Ozone"</span>, <span class='st'>"Solar.R"</span>, <span class='st'>"Wind"</span><span class='op'>)</span><span class='op'>]</span><span class='op'>)</span>
+<span class='op'>}</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>$`5`
+   Ozone  Solar.R     Wind 
+      NA       NA 11.62258 
+
+$`6`
+    Ozone   Solar.R      Wind 
+       NA 190.16667  10.26667 
+
+$`7`
+     Ozone    Solar.R       Wind 
+        NA 216.483871   8.941935 
+
+$`8`
+   Ozone  Solar.R     Wind 
+      NA       NA 8.793548 
+
+$`9`
+   Ozone  Solar.R     Wind 
+      NA 167.4333  10.1800 </code></pre>
+</div>
+<p>Using <code>sapply()</code> might be better here for a more readable output.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/lapply.html'>sapply</a></span><span class='op'>(</span><span class='va'>s</span>, <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='op'>{</span>
+        <span class='fu'><a href='https://rdrr.io/r/base/colSums.html'>colMeans</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>[</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Ozone"</span>, <span class='st'>"Solar.R"</span>, <span class='st'>"Wind"</span><span class='op'>)</span><span class='op'>]</span><span class='op'>)</span>
+<span class='op'>}</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>               5         6          7        8        9
+Ozone         NA        NA         NA       NA       NA
+Solar.R       NA 190.16667 216.483871       NA 167.4333
+Wind    11.62258  10.26667   8.941935 8.793548  10.1800</code></pre>
+</div>
+<p>Unfortunately, there are <code>NA</code>s in the data so we cannot simply take the means of those variables. However, we can tell the <code>colMeans</code> function to remove the <code>NA</code>s before computing the mean.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/lapply.html'>sapply</a></span><span class='op'>(</span><span class='va'>s</span>, <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='op'>{</span>
+        <span class='fu'><a href='https://rdrr.io/r/base/colSums.html'>colMeans</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>[</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Ozone"</span>, <span class='st'>"Solar.R"</span>, <span class='st'>"Wind"</span><span class='op'>)</span><span class='op'>]</span>, 
+                 na.rm <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
+<span class='op'>}</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>                5         6          7          8         9
+Ozone    23.61538  29.44444  59.115385  59.961538  31.44828
+Solar.R 181.29630 190.16667 216.483871 171.857143 167.43333
+Wind     11.62258  10.26667   8.941935   8.793548  10.18000</code></pre>
+</div>
+<p>Occasionally, we may want to split an R object according to levels defined in more than one variable. We can do this by creating an interaction of the variables with the <code>interaction()</code> function.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='fl'>10</span><span class='op'>)</span>
+<span class='va'>f1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/gl.html'>gl</a></span><span class='op'>(</span><span class='fl'>2</span>, <span class='fl'>5</span><span class='op'>)</span>
+<span class='va'>f2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/gl.html'>gl</a></span><span class='op'>(</span><span class='fl'>5</span>, <span class='fl'>2</span><span class='op'>)</span>
+<span class='va'>f1</span>
+</code></pre>
+</div>
+<pre><code> [1] 1 1 1 1 1 2 2 2 2 2
+Levels: 1 2</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>f2</span>
+</code></pre>
+</div>
+<pre><code> [1] 1 1 2 2 3 3 4 4 5 5
+Levels: 1 2 3 4 5</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'>## Create interaction of two factors</span>
+<span class='fu'><a href='https://rdrr.io/r/base/interaction.html'>interaction</a></span><span class='op'>(</span><span class='va'>f1</span>, <span class='va'>f2</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code> [1] 1.1 1.1 1.2 1.2 1.3 2.3 2.4 2.4 2.5 2.5
+Levels: 1.1 2.1 1.2 2.2 1.3 2.3 1.4 2.4 1.5 2.5</code></pre>
+</div>
+<p>With multiple factors and many levels, creating an interaction can result in many levels that are empty.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/utils/str.html'>str</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/split.html'>split</a></span><span class='op'>(</span><span class='va'>x</span>, <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='va'>f1</span>, <span class='va'>f2</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>List of 10
+ $ 1.1: num [1:2] 1.512 0.083
+ $ 2.1: num(0) 
+ $ 1.2: num [1:2] 0.567 -1.025
+ $ 2.2: num(0) 
+ $ 1.3: num 0.323
+ $ 2.3: num 1.04
+ $ 1.4: num(0) 
+ $ 2.4: num [1:2] 0.0991 -0.4541
+ $ 1.5: num(0) 
+ $ 2.5: num [1:2] -0.6558 -0.0359</code></pre>
+</div>
+<p>Notice that there are 4 categories with no data. But we can drop empty levels when we call the <code>split()</code> function.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/utils/str.html'>str</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/split.html'>split</a></span><span class='op'>(</span><span class='va'>x</span>, <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='va'>f1</span>, <span class='va'>f2</span><span class='op'>)</span>, drop <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>List of 6
+ $ 1.1: num [1:2] 1.512 0.083
+ $ 1.2: num [1:2] 0.567 -1.025
+ $ 1.3: num 0.323
+ $ 2.3: num 1.04
+ $ 2.4: num [1:2] 0.0991 -0.4541
+ $ 2.5: num [1:2] -0.6558 -0.0359</code></pre>
+</div>
+<h3 id="tapply">tapply</h3>
+<p><code>tapply()</code> is used to apply a function over subsets of a vector. It can be thought of as a combination of <code>split()</code> and <code>sapply()</code> for vectors only. I’ve been told that the “t” in <code>tapply()</code> refers to “table”, but that is unconfirmed.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/utils/str.html'>str</a></span><span class='op'>(</span><span class='va'>tapply</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>function (X, INDEX, FUN = NULL, ..., default = NA, simplify = TRUE)  </code></pre>
+</div>
+<p>The arguments to <code>tapply()</code> are as follows:</p>
+<ul>
+<li><code>X</code> is a vector</li>
+<li><code>INDEX</code> is a factor or a list of factors (or else they are coerced to factors)</li>
+<li><code>FUN</code> is a function to be applied</li>
+<li>… contains other arguments to be passed <code>FUN</code></li>
+<li><code>simplify</code>, should we simplify the result?</li>
+</ul>
+<p>Given a vector of numbers, one simple operation is to take group means.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'>## Simulate some data</span>
+<span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='fl'>10</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/stats/Uniform.html'>runif</a></span><span class='op'>(</span><span class='fl'>10</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='fl'>10</span>, <span class='fl'>1</span><span class='op'>)</span><span class='op'>)</span>
+<span class='co'>## Define some groups with a factor variable</span>
+<span class='va'>f</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/gl.html'>gl</a></span><span class='op'>(</span><span class='fl'>3</span>, <span class='fl'>10</span><span class='op'>)</span>   
+<span class='va'>f</span>
+</code></pre>
+</div>
+<pre><code> [1] 1 1 1 1 1 1 1 1 1 1 2 2 2 2 2 2 2 2 2 2 3 3 3 3 3 3 3 3 3 3
+Levels: 1 2 3</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/tapply.html'>tapply</a></span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>f</span>, <span class='va'>mean</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>        1         2         3 
+0.1896235 0.5336667 0.9568236 </code></pre>
+</div>
+<p>We can also take the group means without simplifying the result, which will give us a list. For functions that return a single value, usually, this is not what we want, but it can be done.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/tapply.html'>tapply</a></span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>f</span>, <span class='va'>mean</span>, simplify <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>$`1`
+[1] 0.1896235
+
+$`2`
+[1] 0.5336667
+
+$`3`
+[1] 0.9568236</code></pre>
+</div>
+<p>We can also apply functions that return more than a single value. In this case, <code>tapply()</code> will not simplify the result and will return a list. Here’s an example of finding the range of each sub-group.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/tapply.html'>tapply</a></span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>f</span>, <span class='va'>range</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>$`1`
+[1] -1.869789  1.497041
+
+$`2`
+[1] 0.09515213 0.86723879
+
+$`3`
+[1] -0.5690822  2.3644349</code></pre>
+</div>
+<h3 id="apply"><code>apply()</code></h3>
+<p>The <code>apply()</code> function is used to a evaluate a function (often an anonymous one) over the margins of an array. It is most often used to apply a function to the rows or columns of a matrix (which is just a 2-dimensional array). However, it can be used with general arrays, for example, to take the average of an array of matrices. Using <code>apply()</code> is not really faster than writing a loop, but it works in one line and is highly compact.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/utils/str.html'>str</a></span><span class='op'>(</span><span class='va'>apply</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>function (X, MARGIN, FUN, ..., simplify = TRUE)  </code></pre>
+</div>
+<p>The arguments to <code>apply()</code> are</p>
+<ul>
+<li><code>X</code> is an array</li>
+<li><code>MARGIN</code> is an integer vector indicating which margins should be “retained”.</li>
+<li><code>FUN</code> is a function to be applied</li>
+<li><code>...</code> is for other arguments to be passed to <code>FUN</code></li>
+</ul>
+<p>Here I create a 20 by 10 matrix of Normal random numbers. I then compute the mean of each column.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='fl'>200</span><span class='op'>)</span>, <span class='fl'>20</span>, <span class='fl'>10</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/apply.html'>apply</a></span><span class='op'>(</span><span class='va'>x</span>, <span class='fl'>2</span>, <span class='va'>mean</span><span class='op'>)</span>  <span class='co'>## Take the mean of each column</span>
+</code></pre>
+</div>
+<pre><code> [1]  0.02218266 -0.15932850  0.09021391  0.14723035 -0.22431309
+ [6] -0.49657847  0.30095015  0.07703985 -0.20818099  0.06809774</code></pre>
+</div>
+<p>I can also compute the sum of each row.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/apply.html'>apply</a></span><span class='op'>(</span><span class='va'>x</span>, <span class='fl'>1</span>, <span class='va'>sum</span><span class='op'>)</span>   <span class='co'>## Take the mean of each row</span>
+</code></pre>
+</div>
+<pre><code> [1] -0.48483448  5.33222301 -3.33862932 -1.39998450  2.37859098
+ [6]  0.01082604 -6.29457190 -0.26287700  0.71133578 -3.38125293
+[11] -4.67522818  3.01900232 -2.39466347 -2.16004389  5.33063755
+[16] -2.92024635  3.52026401 -1.84880901 -4.10213912  5.30667310</code></pre>
+</div>
+<p>Note that in both calls to <code>apply()</code>, the return value was a vector of numbers.</p>
+<p>You’ve probably noticed that the second argument is either a 1 or a 2, depending on whether we want row statistics or column statistics. What exactly <em>is</em> the second argument to <code>apply()</code>?</p>
+<p>The <code>MARGIN</code> argument essentially indicates to <code>apply()</code> which dimension of the array you want to preserve or retain. So when taking the mean of each column, I specify</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/apply.html'>apply</a></span><span class='op'>(</span><span class='va'>x</span>, <span class='fl'>2</span>, <span class='va'>mean</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<p>because I want to collapse the first dimension (the rows) by taking the mean and I want to preserve the number of columns. Similarly, when I want the row sums, I run</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/apply.html'>apply</a></span><span class='op'>(</span><span class='va'>x</span>, <span class='fl'>1</span>, <span class='va'>mean</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<p>because I want to collapse the columns (the second dimension) and preserve the number of rows (the first dimension).</p>
+<h4 id="colrow-sums-and-means">Col/Row Sums and Means</h4>
+<p>For the special case of column/row sums and column/row means of matrices, we have some useful shortcuts.</p>
+<ul>
+<li><code>rowSums</code> = <code>apply(x, 1, sum)</code></li>
+<li><code>rowMeans</code> = <code>apply(x, 1, mean)</code></li>
+<li><code>colSums</code> = <code>apply(x, 2, sum)</code></li>
+<li><code>colMeans</code> = <code>apply(x, 2, mean)</code></li>
+</ul>
+<p>The shortcut functions are heavily optimized and hence are <em>much</em> faster, but you probably won’t notice unless you’re using a large matrix. Another nice aspect of these functions is that they are a bit more descriptive. It’s arguably more clear to write <code>colMeans(x)</code> in your code than <code>apply(x, 2, mean)</code>.</p>
+<h4 id="other-ways-to-apply">Other Ways to Apply</h4>
+<p>You can do more than take sums and means with the <code>apply()</code> function. For example, you can compute quantiles of the rows of a matrix using the <code>quantile()</code> function.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='fl'>200</span><span class='op'>)</span>, <span class='fl'>20</span>, <span class='fl'>10</span><span class='op'>)</span>
+<span class='co'>## Get row quantiles</span>
+<span class='fu'><a href='https://rdrr.io/r/base/apply.html'>apply</a></span><span class='op'>(</span><span class='va'>x</span>, <span class='fl'>1</span>, <span class='va'>quantile</span>, probs <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0.25</span>, <span class='fl'>0.75</span><span class='op'>)</span><span class='op'>)</span>    
+</code></pre>
+</div>
+<pre><code>          [,1]       [,2]      [,3]       [,4]       [,5]        [,6]
+25% -1.0884151 -0.6693040 0.2908481 -0.4602083 -1.0432010 -1.12773555
+75%  0.1843547  0.8210295 1.3667301  0.4424153  0.3571219  0.03653687
+          [,7]       [,8]       [,9]     [,10]      [,11]      [,12]
+25% -1.4571706 -0.2406991 -0.3226845 -0.329898 -0.8677524 -0.2023664
+75% -0.1705336  0.6504486  1.1460854  1.247092  0.4138139  0.9145331
+         [,13]      [,14]      [,15]        [,16]      [,17]
+25% -0.9796050 -1.3551031 -0.1823252 -1.260911898 -0.9954289
+75%  0.5448777 -0.5396766  0.7795571  0.002908451  0.4323192
+         [,18]      [,19]      [,20]
+25% -0.3767354 -0.8557544 -0.7000363
+75%  0.7542638  0.5440158  0.5432995</code></pre>
+</div>
+<p>Notice that I had to pass the <code>probs = c(0.25, 0.75)</code> argument to <code>quantile()</code> via the <code>...</code> argument to <code>apply()</code>.</p>
+<p>For a higher dimensional example, I can create an array of <span class="math inline">\(2\times2\)</span> matrices and the compute the average of the matrices in the array.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>a</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/array.html'>array</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='fl'>2</span> <span class='op'>*</span> <span class='fl'>2</span> <span class='op'>*</span> <span class='fl'>10</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>2</span>, <span class='fl'>2</span>, <span class='fl'>10</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/apply.html'>apply</a></span><span class='op'>(</span><span class='va'>a</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>2</span><span class='op'>)</span>, <span class='va'>mean</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>          [,1]       [,2]
+[1,] 0.1681387 -0.1039673
+[2,] 0.3519741 -0.4029737</code></pre>
+</div>
+<p>In the call to <code>apply()</code> here, I indicated via the <code>MARGIN</code> argument that I wanted to preserve the first and second dimensions and to collapse the third dimension by taking the mean.</p>
+<p>There is a faster way to do this specific operation via the <code>colMeans()</code> function.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/colSums.html'>rowMeans</a></span><span class='op'>(</span><span class='va'>a</span>, dims <span class='op'>=</span> <span class='fl'>2</span><span class='op'>)</span>    <span class='co'>## Faster</span>
+</code></pre>
+</div>
+<pre><code>          [,1]       [,2]
+[1,] 0.1681387 -0.1039673
+[2,] 0.3519741 -0.4029737</code></pre>
+</div>
+<p>In this situation, I might argue that the use of <code>rowMeans()</code> is less readable, but it is substantially faster with large arrays.</p>
+<h3 id="mapply"><code>mapply()</code></h3>
+<p>The <code>mapply()</code> function is a multivariate apply of sorts which applies a function in parallel over a set of arguments. Recall that <code>lapply()</code> and friends only iterate over a single R object. What if you want to iterate over multiple R objects in parallel? This is what <code>mapply()</code> is for.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/utils/str.html'>str</a></span><span class='op'>(</span><span class='va'>mapply</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>function (FUN, ..., MoreArgs = NULL, SIMPLIFY = TRUE, USE.NAMES = TRUE)  </code></pre>
+</div>
+<p>The arguments to <code>mapply()</code> are</p>
+<ul>
+<li><code>FUN</code> is a function to apply</li>
+<li><code>...</code> contains R objects to apply over</li>
+<li><code>MoreArgs</code> is a list of other arguments to <code>FUN</code>.</li>
+<li><code>SIMPLIFY</code> indicates whether the result should be simplified</li>
+</ul>
+<p>The <code>mapply()</code> function has a different argument order from <code>lapply()</code> because the function to apply comes first rather than the object to iterate over. The R objects over which we apply the function are given in the <code>...</code> argument because we can apply over an arbitrary number of R objects.</p>
+<p>For example, the following is tedious to type</p>
+<p><code>list(rep(1, 4), rep(2, 3), rep(3, 2), rep(4, 1))</code></p>
+<p>With <code>mapply()</code>, instead we can do</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"> <span class='fu'><a href='https://rdrr.io/r/base/mapply.html'>mapply</a></span><span class='op'>(</span><span class='va'>rep</span>, <span class='fl'>1</span><span class='op'>:</span><span class='fl'>4</span>, <span class='fl'>4</span><span class='op'>:</span><span class='fl'>1</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>[[1]]
+[1] 1 1 1 1
+
+[[2]]
+[1] 2 2 2
+
+[[3]]
+[1] 3 3
+
+[[4]]
+[1] 4</code></pre>
+</div>
+<p>This passes the sequence <code>1:4</code> to the first argument of <code>rep()</code> and the sequence <code>4:1</code> to the second argument.</p>
+<p>Here’s another example for simulating randon Normal variables.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>noise</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>n</span>, <span class='va'>mean</span>, <span class='va'>sd</span><span class='op'>)</span> <span class='op'>{</span>
+      <span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='va'>n</span>, <span class='va'>mean</span>, <span class='va'>sd</span><span class='op'>)</span>
+<span class='op'>}</span>
+<span class='co'>## Simulate 5 randon numbers</span>
+<span class='fu'>noise</span><span class='op'>(</span><span class='fl'>5</span>, <span class='fl'>1</span>, <span class='fl'>2</span><span class='op'>)</span>        
+</code></pre>
+</div>
+<pre><code>[1] -0.5196913  3.2979182 -0.6849525  1.7828267  2.7827545</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r">
+<span class='co'>## This only simulates 1 set of numbers, not 5</span>
+<span class='fu'>noise</span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>5</span>, <span class='fl'>1</span><span class='op'>:</span><span class='fl'>5</span>, <span class='fl'>2</span><span class='op'>)</span>    
+</code></pre>
+</div>
+<pre><code>[1] -1.670517  2.796247  2.776826  5.351488  3.422804</code></pre>
+</div>
+<p>Here we can use <code>mapply()</code> to pass the sequence <code>1:5</code> separately to the <code>noise()</code> function so that we can get 5 sets of random numbers, each with a different length and mean.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/mapply.html'>mapply</a></span><span class='op'>(</span><span class='va'>noise</span>, <span class='fl'>1</span><span class='op'>:</span><span class='fl'>5</span>, <span class='fl'>1</span><span class='op'>:</span><span class='fl'>5</span>, <span class='fl'>2</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>[[1]]
+[1] 0.8260273
+
+[[2]]
+[1] 4.764568 2.336980
+
+[[3]]
+[1] 4.6463819 2.5582108 0.9412167
+
+[[4]]
+[1]  3.978149  1.550018 -1.192223  6.338245
+
+[[5]]
+[1] 2.826182 1.347834 6.990564 4.976276 3.800743</code></pre>
+</div>
+<p>The above call to <code>mapply()</code> is the same as</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='fu'>noise</span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>2</span><span class='op'>)</span>, <span class='fu'>noise</span><span class='op'>(</span><span class='fl'>2</span>, <span class='fl'>2</span>, <span class='fl'>2</span><span class='op'>)</span>,
+     <span class='fu'>noise</span><span class='op'>(</span><span class='fl'>3</span>, <span class='fl'>3</span>, <span class='fl'>2</span><span class='op'>)</span>, <span class='fu'>noise</span><span class='op'>(</span><span class='fl'>4</span>, <span class='fl'>4</span>, <span class='fl'>2</span><span class='op'>)</span>,
+     <span class='fu'>noise</span><span class='op'>(</span><span class='fl'>5</span>, <span class='fl'>5</span>, <span class='fl'>2</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>[[1]]
+[1] 0.644104
+
+[[2]]
+[1] 1.148037 3.993318
+
+[[3]]
+[1]  4.4553214 -0.4532612  3.7067970
+
+[[4]]
+[1]  5.4536273  5.3365220 -0.8486346  3.5292851
+
+[[5]]
+[1] 8.959267 6.593589 1.581448 1.672663 5.982219</code></pre>
+</div>
+<h3 id="vectorizing-a-function">Vectorizing a Function</h3>
+<p>The <code>mapply()</code> function can be use to automatically “vectorize” a function. What this means is that it can be used to take a function that typically only takes single arguments and create a new function that can take vector arguments. This is often needed when you want to plot functions.</p>
+<p>Here’s an example of a function that computes the sum of squares given some data, a mean parameter and a standard deviation. The formula is <span class="math inline">\(\sum_{i=1}^n(x_i-\mu)^2/\sigma^2\)</span>.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>sumsq</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>mu</span>, <span class='va'>sigma</span>, <span class='va'>x</span><span class='op'>)</span> <span class='op'>{</span>
+        <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='op'>(</span><span class='op'>(</span><span class='va'>x</span> <span class='op'>-</span> <span class='va'>mu</span><span class='op'>)</span> <span class='op'>/</span> <span class='va'>sigma</span><span class='op'>)</span><span class='op'>^</span><span class='fl'>2</span><span class='op'>)</span>
+<span class='op'>}</span>
+</code></pre>
+</div>
+</div>
+<p>This function takes a mean <code>mu</code>, a standard deviation <code>sigma</code>, and some data in a vector <code>x</code>.</p>
+<p>In many statistical applications, we want to minimize the sum of squares to find the optimal <code>mu</code> and <code>sigma</code>. Before we do that, we may want to evaluate or plot the function for many different values of <code>mu</code> or <code>sigma</code>. However, passing a vector of <code>mu</code>s or <code>sigma</code>s won’t work with this function because it’s not vectorized.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='fl'>100</span><span class='op'>)</span>       <span class='co'>## Generate some data</span>
+<span class='fu'>sumsq</span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>10</span>, <span class='fl'>1</span><span class='op'>:</span><span class='fl'>10</span>, <span class='va'>x</span><span class='op'>)</span>  <span class='co'>## This is not what we want</span>
+</code></pre>
+</div>
+<pre><code>[1] 110.2594</code></pre>
+</div>
+<p>Note that the call to <code>sumsq()</code> only produced one value instead of 10 values.</p>
+<p>However, we can do what we want to do by using <code>mapply()</code>.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/mapply.html'>mapply</a></span><span class='op'>(</span><span class='va'>sumsq</span>, <span class='fl'>1</span><span class='op'>:</span><span class='fl'>10</span>, <span class='fl'>1</span><span class='op'>:</span><span class='fl'>10</span>, MoreArgs <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>x</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code> [1] 196.2289 121.4765 108.3981 104.0788 102.1975 101.2393 100.6998
+ [8] 100.3745 100.1685 100.0332</code></pre>
+</div>
+<p>There’s even a function in R called <code>Vectorize()</code> that automatically can create a vectorized version of your function. So we could create a <code>vsumsq()</code> function that is fully vectorized as follows.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>vsumsq</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/Vectorize.html'>Vectorize</a></span><span class='op'>(</span><span class='va'>sumsq</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"mu"</span>, <span class='st'>"sigma"</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'>vsumsq</span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>10</span>, <span class='fl'>1</span><span class='op'>:</span><span class='fl'>10</span>, <span class='va'>x</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code> [1] 196.2289 121.4765 108.3981 104.0788 102.1975 101.2393 100.6998
+ [8] 100.3745 100.1685 100.0332</code></pre>
+</div>
+<p>Pretty cool, right?</p>
+<h1 id="summary">Summary</h1>
+<ul>
+<li><p>The loop functions in R are very powerful because they allow you to conduct a series of operations on data using a compact form</p></li>
+<li><p>The operation of a loop function involves iterating over an R object (e.g. a list or vector or matrix), applying a function to each element of the object, and the collating the results and returning the collated results.</p></li>
+<li><p>Loop functions make heavy use of anonymous functions, which exist for the life of the loop function but are not stored anywhere</p></li>
+<li><p>The <code>split()</code> function can be used to divide an R object in to subsets determined by another variable which can subsequently be looped over using loop functions.</p></li>
+</ul>
+<h1 id="post-lecture-materials">Post-lecture materials</h1>
+<h3 id="final-questions">Final Questions</h3>
+<p>Here are some post-lecture questions to help you think about the material discussed.</p>
+<div class="questions">
+<p><strong>Questions:</strong></p>
+<ol type="1">
+<li></li>
+<li></li>
+<li></li>
+</ol>
+</div>
+<h3 id="additional-resources">Additional Resources</h3>
+<div class="resources">
+<ul>
+<li><a href="https://rdpeng.github.io/Biostat776/lecture-loop-functions.html" class="uri">https://rdpeng.github.io/Biostat776/lecture-loop-functions.html</a></li>
+<li></li>
+<li></li>
+</ul>
+</div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<!--radix_placeholder_article_footer-->
+<!--/radix_placeholder_article_footer-->
+</div>
+
+<div class="d-appendix">
+</div>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+<!--radix_placeholder_site_after_body-->
+<!--/radix_placeholder_site_after_body-->
+<!--radix_placeholder_appendices-->
+<div class="appendix-bottom"></div>
+<!--/radix_placeholder_appendices-->
+<!--radix_placeholder_navigation_after_body-->
+<!--/radix_placeholder_navigation_after_body-->
+
+</body>
+
+</html>

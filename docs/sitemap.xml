@@ -18,11 +18,31 @@
   </url>
   <url>
     <loc>https://stephaniehicks.com/jhustatcomputing2021/schedule.html</loc>
-    <lastmod>2021-09-16T07:56:00-04:00</lastmod>
+    <lastmod>2021-09-17T16:03:02-04:00</lastmod>
   </url>
   <url>
     <loc>https://stephaniehicks.com/jhustatcomputing2021/syllabus.html</loc>
     <lastmod>2021-08-31T23:14:10-04:00</lastmod>
+  </url>
+  <url>
+    <loc>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-23-debugging-r-code/</loc>
+    <lastmod>2021-09-17T16:29:15-04:00</lastmod>
+  </url>
+  <url>
+    <loc>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-23-error-handling-and-generation/</loc>
+    <lastmod>2021-09-17T16:29:20-04:00</lastmod>
+  </url>
+  <url>
+    <loc>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-23-profiling-r-code/</loc>
+    <lastmod>2021-09-17T16:29:25-04:00</lastmod>
+  </url>
+  <url>
+    <loc>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-21-functions/</loc>
+    <lastmod>2021-09-17T16:28:04-04:00</lastmod>
+  </url>
+  <url>
+    <loc>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-21-loop-functions/</loc>
+    <lastmod>2021-09-17T16:28:56-04:00</lastmod>
   </url>
   <url>
     <loc>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-16-control-structures/</loc>

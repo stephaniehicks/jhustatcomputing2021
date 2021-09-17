@@ -86,380 +86,39 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
 
   <!--radix_placeholder_meta_tags-->
-  <title>Statistical Computing: Schedule</title>
+  <title>Error Handling and Generation</title>
 
-  <meta property="description" itemprop="description" content="Schedule and course materials for Statistical Computing (JHSPH Biostatistics 140.776 Fall 2021)."/>
+  <meta property="description" itemprop="description" content="Implement exception handling routines in R functions"/>
 
-  <link rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"/>
 
+  <!--  https://schema.org/Article -->
+  <meta property="article:published" itemprop="datePublished" content="2021-09-23"/>
+  <meta property="article:created" itemprop="dateCreated" content="2021-09-23"/>
+  <meta name="article:author" content="Stephanie Hicks"/>
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="Statistical Computing: Schedule"/>
+  <meta property="og:title" content="Error Handling and Generation"/>
   <meta property="og:type" content="article"/>
-  <meta property="og:description" content="Schedule and course materials for Statistical Computing (JHSPH Biostatistics 140.776 Fall 2021)."/>
+  <meta property="og:description" content="Implement exception handling routines in R functions"/>
   <meta property="og:locale" content="en_US"/>
-  <meta property="og:site_name" content="Statistical Computing"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="Statistical Computing: Schedule"/>
-  <meta property="twitter:description" content="Schedule and course materials for Statistical Computing (JHSPH Biostatistics 140.776 Fall 2021)."/>
+  <meta property="twitter:title" content="Error Handling and Generation"/>
+  <meta property="twitter:description" content="Implement exception handling routines in R functions"/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description"]}},"value":[{"type":"character","attributes":{},"value":["Schedule"]},{"type":"character","attributes":{},"value":["Schedule and course materials for Statistical Computing (JHSPH Biostatistics 140.776 Fall 2021)."]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","categories"]}},"value":[{"type":"character","attributes":{},"value":["Error Handling and Generation"]},{"type":"character","attributes":{},"value":["Implement exception handling routines in R functions\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url","affiliation","affiliation_url"]}},"value":[{"type":"character","attributes":{},"value":["Stephanie Hicks"]},{"type":"character","attributes":{},"value":["https://stephaniehicks.com/"]},{"type":"character","attributes":{},"value":["Department of Biostatistics, Johns Hopkins"]},{"type":"character","attributes":{},"value":["https://www.jhsph.edu"]}]}]},{"type":"character","attributes":{},"value":["09-23-2021"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","toc","toc_depth"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[3]}]}]},{"type":"character","attributes":{},"value":["module 2","week 4","programming","debugging"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
-  <!--radix_placeholder_navigation_in_header-->
-  <meta name="distill:offset" content=""/>
-
-  <script type="application/javascript">
-
-    window.headroom_prevent_pin = false;
-
-    window.document.addEventListener("DOMContentLoaded", function (event) {
-
-      // initialize headroom for banner
-      var header = $('header').get(0);
-      var headerHeight = header.offsetHeight;
-      var headroom = new Headroom(header, {
-        tolerance: 5,
-        onPin : function() {
-          if (window.headroom_prevent_pin) {
-            window.headroom_prevent_pin = false;
-            headroom.unpin();
-          }
-        }
-      });
-      headroom.init();
-      if(window.location.hash)
-        headroom.unpin();
-      $(header).addClass('headroom--transition');
-
-      // offset scroll location for banner on hash change
-      // (see: https://github.com/WickyNilliams/headroom.js/issues/38)
-      window.addEventListener("hashchange", function(event) {
-        window.scrollTo(0, window.pageYOffset - (headerHeight + 25));
-      });
-
-      // responsive menu
-      $('.distill-site-header').each(function(i, val) {
-        var topnav = $(this);
-        var toggle = topnav.find('.nav-toggle');
-        toggle.on('click', function() {
-          topnav.toggleClass('responsive');
-        });
-      });
-
-      // nav dropdowns
-      $('.nav-dropbtn').click(function(e) {
-        $(this).next('.nav-dropdown-content').toggleClass('nav-dropdown-active');
-        $(this).parent().siblings('.nav-dropdown')
-           .children('.nav-dropdown-content').removeClass('nav-dropdown-active');
-      });
-      $("body").click(function(e){
-        $('.nav-dropdown-content').removeClass('nav-dropdown-active');
-      });
-      $(".nav-dropdown").click(function(e){
-        e.stopPropagation();
-      });
-    });
+  
+  <script type="text/json" id="radix-resource-manifest">
+  {"type":"character","attributes":{},"value":["error-handling-and-generation_files/anchor-4.2.2/anchor.min.js","error-handling-and-generation_files/bowser-1.9.3/bowser.min.js","error-handling-and-generation_files/distill-2.2.21/template.v2.js","error-handling-and-generation_files/header-attrs-2.10/header-attrs.js","error-handling-and-generation_files/jquery-1.11.3/jquery.min.js","error-handling-and-generation_files/popper-2.6.0/popper.min.js","error-handling-and-generation_files/tippy-6.2.7/tippy-bundle.umd.min.js","error-handling-and-generation_files/tippy-6.2.7/tippy-light-border.css","error-handling-and-generation_files/tippy-6.2.7/tippy.css","error-handling-and-generation_files/tippy-6.2.7/tippy.umd.min.js","error-handling-and-generation_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
-
-  <style type="text/css">
-
-  /* Theme (user-documented overrideables for nav appearance) */
-
-  .distill-site-nav {
-    color: rgba(255, 255, 255, 0.8);
-    background-color: #0F2E3D;
-    font-size: 15px;
-    font-weight: 300;
-  }
-
-  .distill-site-nav a {
-    color: inherit;
-    text-decoration: none;
-  }
-
-  .distill-site-nav a:hover {
-    color: white;
-  }
-
-  @media print {
-    .distill-site-nav {
-      display: none;
-    }
-  }
-
-  .distill-site-header {
-
-  }
-
-  .distill-site-footer {
-
-  }
-
-
-  /* Site Header */
-
-  .distill-site-header {
-    width: 100%;
-    box-sizing: border-box;
-    z-index: 3;
-  }
-
-  .distill-site-header .nav-left {
-    display: inline-block;
-    margin-left: 8px;
-  }
-
-  @media screen and (max-width: 768px) {
-    .distill-site-header .nav-left {
-      margin-left: 0;
-    }
-  }
-
-
-  .distill-site-header .nav-right {
-    float: right;
-    margin-right: 8px;
-  }
-
-  .distill-site-header a,
-  .distill-site-header .title {
-    display: inline-block;
-    text-align: center;
-    padding: 14px 10px 14px 10px;
-  }
-
-  .distill-site-header .title {
-    font-size: 18px;
-    min-width: 150px;
-  }
-
-  .distill-site-header .logo {
-    padding: 0;
-  }
-
-  .distill-site-header .logo img {
-    display: none;
-    max-height: 20px;
-    width: auto;
-    margin-bottom: -4px;
-  }
-
-  .distill-site-header .nav-image img {
-    max-height: 18px;
-    width: auto;
-    display: inline-block;
-    margin-bottom: -3px;
-  }
-
-
-
-  @media screen and (min-width: 1000px) {
-    .distill-site-header .logo img {
-      display: inline-block;
-    }
-    .distill-site-header .nav-left {
-      margin-left: 20px;
-    }
-    .distill-site-header .nav-right {
-      margin-right: 20px;
-    }
-    .distill-site-header .title {
-      padding-left: 12px;
-    }
-  }
-
-
-  .distill-site-header .nav-toggle {
-    display: none;
-  }
-
-  .nav-dropdown {
-    display: inline-block;
-    position: relative;
-  }
-
-  .nav-dropdown .nav-dropbtn {
-    border: none;
-    outline: none;
-    color: rgba(255, 255, 255, 0.8);
-    padding: 16px 10px;
-    background-color: transparent;
-    font-family: inherit;
-    font-size: inherit;
-    font-weight: inherit;
-    margin: 0;
-    margin-top: 1px;
-    z-index: 2;
-  }
-
-  .nav-dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: white;
-    min-width: 200px;
-    border: 1px solid rgba(0,0,0,0.15);
-    border-radius: 4px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
-    z-index: 1;
-    margin-top: 2px;
-    white-space: nowrap;
-    padding-top: 4px;
-    padding-bottom: 4px;
-  }
-
-  .nav-dropdown-content hr {
-    margin-top: 4px;
-    margin-bottom: 4px;
-    border: none;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  }
-
-  .nav-dropdown-active {
-    display: block;
-  }
-
-  .nav-dropdown-content a, .nav-dropdown-content .nav-dropdown-header {
-    color: black;
-    padding: 6px 24px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
-  }
-
-  .nav-dropdown-content .nav-dropdown-header {
-    display: block;
-    padding: 5px 24px;
-    padding-bottom: 0;
-    text-transform: uppercase;
-    font-size: 14px;
-    color: #999999;
-    white-space: nowrap;
-  }
-
-  .nav-dropdown:hover .nav-dropbtn {
-    color: white;
-  }
-
-  .nav-dropdown-content a:hover {
-    background-color: #ddd;
-    color: black;
-  }
-
-  .nav-right .nav-dropdown-content {
-    margin-left: -45%;
-    right: 0;
-  }
-
-  @media screen and (max-width: 768px) {
-    .distill-site-header a, .distill-site-header .nav-dropdown  {display: none;}
-    .distill-site-header a.nav-toggle {
-      float: right;
-      display: block;
-    }
-    .distill-site-header .title {
-      margin-left: 0;
-    }
-    .distill-site-header .nav-right {
-      margin-right: 0;
-    }
-    .distill-site-header {
-      overflow: hidden;
-    }
-    .nav-right .nav-dropdown-content {
-      margin-left: 0;
-    }
-  }
-
-
-  @media screen and (max-width: 768px) {
-    .distill-site-header.responsive {position: relative; min-height: 500px; }
-    .distill-site-header.responsive a.nav-toggle {
-      position: absolute;
-      right: 0;
-      top: 0;
-    }
-    .distill-site-header.responsive a,
-    .distill-site-header.responsive .nav-dropdown {
-      display: block;
-      text-align: left;
-    }
-    .distill-site-header.responsive .nav-left,
-    .distill-site-header.responsive .nav-right {
-      width: 100%;
-    }
-    .distill-site-header.responsive .nav-dropdown {float: none;}
-    .distill-site-header.responsive .nav-dropdown-content {position: relative;}
-    .distill-site-header.responsive .nav-dropdown .nav-dropbtn {
-      display: block;
-      width: 100%;
-      text-align: left;
-    }
-  }
-
-  /* Site Footer */
-
-  .distill-site-footer {
-    width: 100%;
-    overflow: hidden;
-    box-sizing: border-box;
-    z-index: 3;
-    margin-top: 30px;
-    padding-top: 30px;
-    padding-bottom: 30px;
-    text-align: center;
-  }
-
-  /* Headroom */
-
-  d-title {
-    padding-top: 6rem;
-  }
-
-  @media print {
-    d-title {
-      padding-top: 4rem;
-    }
-  }
-
-  .headroom {
-    z-index: 1000;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-  }
-
-  .headroom--transition {
-    transition: all .4s ease-in-out;
-  }
-
-  .headroom--unpinned {
-    top: -100px;
-  }
-
-  .headroom--pinned {
-    top: 0;
-  }
-
-  /* adjust viewport for navbar height */
-  /* helps vertically center bootstrap (non-distill) content */
-  .min-vh-100 {
-    min-height: calc(100vh - 100px) !important;
-  }
-
-  </style>
-
-  <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
-  <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet"/>
-  <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet"/>
-  <script src="site_libs/headroom-0.9.4/headroom.min.js"></script>
+  <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
   <!--radix_placeholder_distill-->
 
@@ -1774,410 +1433,17 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
   </script>
 
-  <style type="text/css">
-  /* base variables */
-
-  /* Edit the CSS properties in this file to create a custom
-     Distill theme. Only edit values in the right column
-     for each row; values shown are the CSS defaults.
-     To return any property to the default,
-     you may set its value to: unset
-     All rows must end with a semi-colon.                      */
-
-  /* Optional: embed custom fonts here with `@import`          */
-  /* This must remain at the top of this file.                 */
-
-
-
-  html {
-    /*-- Main font sizes --*/
-    --title-size:      50px;
-    --body-size:       1.06rem;
-    --code-size:       14px;
-    --aside-size:      12px;
-    --fig-cap-size:    13px;
-    /*-- Main font colors --*/
-    --title-color:     #000000;
-    --header-color:    rgba(0, 0, 0, 0.8);
-    --body-color:      rgba(0, 0, 0, 0.8);
-    --aside-color:     rgba(0, 0, 0, 0.6);
-    --fig-cap-color:   rgba(0, 0, 0, 0.6);
-    /*-- Specify custom fonts ~~~ must be imported above   --*/
-    --heading-font:    sans-serif;
-    --mono-font:       monospace;
-    --body-font:       sans-serif;
-    --navbar-font:     sans-serif;  /* websites + blogs only */
-  }
-
-  /*-- ARTICLE METADATA --*/
-  d-byline {
-    --heading-size:    0.6rem;
-    --heading-color:   rgba(0, 0, 0, 0.5);
-    --body-size:       0.8rem;
-    --body-color:      rgba(0, 0, 0, 0.8);
-  }
-
-  /*-- ARTICLE TABLE OF CONTENTS --*/
-  .d-contents {
-    --heading-size:    18px;
-    --contents-size:   13px;
-  }
-
-  /*-- ARTICLE APPENDIX --*/
-  d-appendix {
-    --heading-size:    15px;
-    --heading-color:   rgba(0, 0, 0, 0.65);
-    --text-size:       0.8em;
-    --text-color:      rgba(0, 0, 0, 0.5);
-  }
-
-  /*-- WEBSITE HEADER + FOOTER --*/
-  /* These properties only apply to Distill sites and blogs  */
-
-  .distill-site-header {
-    --title-size:       18px;
-    --text-color:       rgba(255, 255, 255, 0.8);
-    --text-size:        15px;
-    --hover-color:      white;
-    --bkgd-color:       #0F2E3D;
-  }
-
-  .distill-site-footer {
-    --text-color:       rgba(255, 255, 255, 0.8);
-    --text-size:        15px;
-    --hover-color:      white;
-    --bkgd-color:       #0F2E3D;
-  }
-
-  /*-- Additional custom styles --*/
-  /* Add any additional CSS rules below                      */
-  </style>
-  <style type="text/css">
-  /* base variables */
-
-  /* Edit the CSS properties in this file to create a custom
-     Distill theme. Only edit values in the right column
-     for each row; values shown are the CSS defaults.
-     To return any property to the default,
-     you may set its value to: unset
-     All rows must end with a semi-colon.                      */
-
-  /* Optional: embed custom fonts here with `@import`          */
-  /* This must remain at the top of this file.                 */
-
-
-
-  html {
-    /*-- Main font sizes --*/
-    --title-size:      50px;
-    --body-size:       1.06rem;
-    --code-size:       14px;
-    --aside-size:      12px;
-    --fig-cap-size:    13px;
-    /*-- Main font colors --*/
-    --title-color:     #000000;
-    --header-color:    rgba(0, 0, 0, 0.8);
-    --body-color:      rgba(0, 0, 0, 0.8);
-    --aside-color:     rgba(0, 0, 0, 0.6);
-    --fig-cap-color:   rgba(0, 0, 0, 0.6);
-    /*-- Specify custom fonts ~~~ must be imported above   --*/
-    --heading-font:    sans-serif;
-    --mono-font:       monospace;
-    --body-font:       sans-serif;
-    --navbar-font:     sans-serif;  /* websites + blogs only */
-  }
-
-  /*-- ARTICLE METADATA --*/
-  d-byline {
-    --heading-size:    0.6rem;
-    --heading-color:   rgba(0, 0, 0, 0.5);
-    --body-size:       0.8rem;
-    --body-color:      rgba(0, 0, 0, 0.8);
-  }
-
-  /*-- ARTICLE TABLE OF CONTENTS --*/
-  .d-contents {
-    --heading-size:    18px;
-    --contents-size:   13px;
-  }
-
-  /*-- ARTICLE APPENDIX --*/
-  d-appendix {
-    --heading-size:    15px;
-    --heading-color:   rgba(0, 0, 0, 0.65);
-    --text-size:       0.8em;
-    --text-color:      rgba(0, 0, 0, 0.5);
-  }
-
-  /*-- WEBSITE HEADER + FOOTER --*/
-  /* These properties only apply to Distill sites and blogs  */
-
-  .distill-site-header {
-    --title-size:       18px;
-    --text-color:       rgba(255, 255, 255, 0.8);
-    --text-size:        15px;
-    --hover-color:      white;
-    --bkgd-color:       #2B3851FF; /* #0F2E3D; */
-  }
-
-  .distill-site-footer {
-    --text-color:       rgba(255, 255, 255, 0.8);
-    --text-size:        15px;
-    --hover-color:      white;
-    --bkgd-color:       #2B3851FF; /* #0F2E3D; */
-  }
-
-  /*-- Additional custom styles --*/
-  /* Add any additional CSS rules below                      */
-
-
-
-
-  /* -----------div tips------------- */
-
-
-    div.puzzle, div.fyi, div.demo, div.note {
-      padding: 1em;
-      margin: 1em 0;
-      padding-left: 100px;
-      background-size: 70px;
-      background-repeat: no-repeat;
-      background-position: 15px center;
-      min-height: 120px;
-      color: #1f5386;
-      background-color: #bed3ec;
-      border: solid 5px #dfedff;
-    }
-    
-  div.puzzle {
-    background-image: url("Your-turn.png");
-  }
-
-  div.fyi {
-   background-image: url("images/fyi.png");
-  }
-
-  div.demo {
-    background-image: url("images/Live-code.png");
-  }
-
-  div.note {
-    background-image: url("images/lightbulb.png");
-  }
-
-    .questions {
-      padding: 1em;
-      margin: 1em 0;
-      padding-left: 100px;
-      background-size: 70px;
-      background-repeat: no-repeat;
-      background-position: 15px center;
-      min-height: 50px;
-      color: #000000 ;
-      background-color: #9BB1BBFF;
-      border: solid 5px #000000;
-      background-image: url("images/study.png");
-    }
-    
-    
-     .resources {
-      padding: 1em;
-      margin: 1em 0;
-      padding-left: 100px;
-      background-size: 70px;
-      background-repeat: no-repeat;
-      background-position: 15px center;
-      min-height: 50px;
-      color: #000000;
-      background-color: #ECBD95FF; /* #e5d468; */
-      border: solid 5px #000000;
-      background-image: url("images/list.png");
-    }
-
-  .keyideas{
-      padding: 1em;
-      margin: 1em 0;
-      padding-left: 100px;
-      background-size: 70px;
-      background-repeat: no-repeat;
-      background-position: 15px center;
-      min-height: 120px;
-      color: #441F29;
-      background-color: #E56889;
-      border: solid 5px #441F29;
-      background-image: url('images/important.png') ;
-  }
-
-  .center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-  }</style>
-  <style type="text/css">
-  /* base style */
-
-  /* FONT FAMILIES */
-
-  :root {
-    --heading-default: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
-    --mono-default: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-    --body-default: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
-  }
-
-  body,
-  .posts-list .post-preview p,
-  .posts-list .description p {
-    font-family: var(--body-font), var(--body-default);
-  }
-
-  h1, h2, h3, h4, h5, h6,
-  .posts-list .post-preview h2,
-  .posts-list .description h2 {
-    font-family: var(--heading-font), var(--heading-default);
-  }
-
-  d-article div.sourceCode code,
-  d-article pre code {
-    font-family: var(--mono-font), var(--mono-default);
-  }
-
-
-  /*-- TITLE --*/
-  d-title h1,
-  .posts-list > h1 {
-    color: var(--title-color, black);
-  }
-
-  d-title h1 {
-    font-size: var(--title-size, 50px);
-  }
-
-  /*-- HEADERS --*/
-  d-article h1,
-  d-article h2,
-  d-article h3,
-  d-article h4,
-  d-article h5,
-  d-article h6 {
-    color: var(--header-color, rgba(0, 0, 0, 0.8));
-  }
-
-  /*-- BODY --*/
-  d-article > p,  /* only text inside of <p> tags */
-  d-article > ul, /* lists */
-  d-article > ol {
-    color: var(--body-color, rgba(0, 0, 0, 0.8));
-    font-size: var(--body-size, 1.06rem);
-  }
-
-
-  /*-- CODE --*/
-  d-article div.sourceCode code,
-  d-article pre code {
-    font-size: var(--code-size, 14px);
-  }
-
-  /*-- ASIDE --*/
-  d-article aside {
-    font-size: var(--aside-size, 12px);
-    color: var(--aside-color, rgba(0, 0, 0, 0.6));
-  }
-
-  /*-- FIGURE CAPTIONS --*/
-  figure .caption,
-  figure figcaption,
-  .figure .caption {
-    font-size: var(--fig-cap-size, 13px);
-    color: var(--fig-cap-color, rgba(0, 0, 0, 0.6));
-  }
-
-  /*-- METADATA --*/
-  d-byline h3 {
-    font-size: var(--heading-size, 0.6rem);
-    color: var(--heading-color, rgba(0, 0, 0, 0.5));
-  }
-
-  d-byline {
-    font-size: var(--body-size, 0.8rem);
-    color: var(--body-color, rgba(0, 0, 0, 0.8));
-  }
-
-  d-byline a,
-  d-article d-byline a {
-    color: var(--body-color, rgba(0, 0, 0, 0.8));
-  }
-
-  /*-- TABLE OF CONTENTS --*/
-  .d-contents nav h3 {
-    font-size: var(--heading-size, 18px);
-  }
-
-  .d-contents nav a {
-    font-size: var(--contents-size, 13px);
-  }
-
-  /*-- APPENDIX --*/
-  d-appendix h3 {
-    font-size: var(--heading-size, 15px);
-    color: var(--heading-color, rgba(0, 0, 0, 0.65));
-  }
-
-  d-appendix {
-    font-size: var(--text-size, 0.8em);
-    color: var(--text-color, rgba(0, 0, 0, 0.5));
-  }
-
-  d-appendix d-footnote-list a.footnote-backlink {
-    color: var(--text-color, rgba(0, 0, 0, 0.5));
-  }
-
-  /*-- WEBSITE HEADER + FOOTER --*/
-  .distill-site-header .title {
-    font-size: var(--title-size, 18px);
-    font-family: var(--navbar-font), var(--heading-default);
-  }
-
-  .distill-site-header a,
-  .nav-dropdown .nav-dropbtn {
-    font-family: var(--navbar-font), var(--heading-default);
-  }
-
-  .nav-dropdown .nav-dropbtn {
-    color: var(--text-color, rgba(255, 255, 255, 0.8));
-    font-size: var(--text-size, 15px);
-  }
-
-  .distill-site-header a:hover,
-  .nav-dropdown:hover .nav-dropbtn {
-    color: var(--hover-color, white);
-  }
-
-  .distill-site-header {
-    font-size: var(--text-size, 15px);
-    color: var(--text-color, rgba(255, 255, 255, 0.8));
-    background-color: var(--bkgd-color, #0F2E3D);
-  }
-
-  .distill-site-footer {
-    font-size: var(--text-size, 15px);
-    color: var(--text-color, rgba(255, 255, 255, 0.8));
-    background-color: var(--bkgd-color, #0F2E3D);
-  }
-
-  .distill-site-footer a:hover {
-    color: var(--hover-color, white);
-  }</style>
   <!--/radix_placeholder_distill-->
-  <script src="site_libs/header-attrs-2.10/header-attrs.js"></script>
-  <script src="site_libs/popper-2.6.0/popper.min.js"></script>
-  <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
-  <link href="site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
-  <script src="site_libs/tippy-6.2.7/tippy.umd.min.js"></script>
-  <script src="site_libs/anchor-4.2.2/anchor.min.js"></script>
-  <script src="site_libs/bowser-1.9.3/bowser.min.js"></script>
-  <script src="site_libs/webcomponents-2.0.0/webcomponents.js"></script>
-  <script src="site_libs/distill-2.2.21/template.v2.js"></script>
+  <script src="error-handling-and-generation_files/header-attrs-2.10/header-attrs.js"></script>
+  <script src="error-handling-and-generation_files/jquery-1.11.3/jquery.min.js"></script>
+  <script src="error-handling-and-generation_files/popper-2.6.0/popper.min.js"></script>
+  <link href="error-handling-and-generation_files/tippy-6.2.7/tippy.css" rel="stylesheet" />
+  <link href="error-handling-and-generation_files/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
+  <script src="error-handling-and-generation_files/tippy-6.2.7/tippy.umd.min.js"></script>
+  <script src="error-handling-and-generation_files/anchor-4.2.2/anchor.min.js"></script>
+  <script src="error-handling-and-generation_files/bowser-1.9.3/bowser.min.js"></script>
+  <script src="error-handling-and-generation_files/webcomponents-2.0.0/webcomponents.js"></script>
+  <script src="error-handling-and-generation_files/distill-2.2.21/template.v2.js"></script>
   <!--radix_placeholder_site_in_header-->
   <!--/radix_placeholder_site_in_header-->
 
@@ -2189,477 +1455,338 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Schedule","description":"Schedule and course materials for Statistical Computing (JHSPH Biostatistics 140.776 Fall 2021).","authors":[]}
+{"title":"Error Handling and Generation","description":"Implement exception handling routines in R functions","authors":[{"author":"Stephanie Hicks","authorURL":"https://stephaniehicks.com/","affiliation":"Department of Biostatistics, Johns Hopkins","affiliationURL":"https://www.jhsph.edu","orcidID":""}],"publishedDate":"2021-09-23T00:00:00.000+00:00","citationText":"Hicks, 2021"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
 <!--radix_placeholder_navigation_before_body-->
-<header class="header header--fixed" role="banner">
-<nav class="distill-site-nav distill-site-header">
-<div class="nav-left">
-<a class="logo" href="https://stephaniehicks.com/jhustatcomputing2021">
-<img src="images/ads2020-small.png" alt="Logo"/>
-</a>
-<a href="index.html" class="title">Statistical Computing</a>
-</div>
-<div class="nav-right">
-<a href="index.html">Home</a>
-<div class="nav-dropdown">
-<button class="nav-dropbtn">
-General Information
- 
-<span class="down-arrow">&#x25BE;</span>
-</button>
-<div class="nav-dropdown-content">
-<a href="syllabus.html">Syllabus</a>
-<a href="schedule.html">Schedule</a>
-</div>
-</div>
-<div class="nav-dropdown">
-<button class="nav-dropbtn">
-Course Materials
- 
-<span class="down-arrow">&#x25BE;</span>
-</button>
-<div class="nav-dropdown-content">
-<a href="lectures.html">Lectures</a>
-<a href="projects.html">Projects</a>
-<a href="resources.html">Resources</a>
-</div>
-</div>
-<a href="index.xml">
-<i class="fa fa-rss" aria-hidden="true"></i>
-</a>
-<a href="https://github.com/stephaniehicks/jhustatcomputing2021" aria-label="Link to source">
-<i class="fab fa-github" aria-hidden="true"></i>
-</a>
-<a href="javascript:void(0);" class="nav-toggle">&#9776;</a>
-</div>
-</nav>
-</header>
 <!--/radix_placeholder_navigation_before_body-->
 <!--radix_placeholder_site_before_body-->
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>Schedule</h1>
+<h1>Error Handling and Generation</h1>
 <!--radix_placeholder_categories-->
+<div class="dt-tags">
+<div class="dt=tag">module 2</div>
+<div class="dt=tag">week 4</div>
+<div class="dt=tag">programming</div>
+<div class="dt=tag">debugging</div>
+</div>
 <!--/radix_placeholder_categories-->
-<p><p>Schedule and course materials for Statistical Computing (JHSPH Biostatistics 140.776 Fall 2021).</p></p>
+<p><p>Implement exception handling routines in R functions</p></p>
 </div>
 
+<div class="d-byline">
+  Stephanie Hicks <a href="https://stephaniehicks.com/" class="uri">https://stephaniehicks.com/</a> (Department of Biostatistics, Johns Hopkins)<a href="https://www.jhsph.edu" class="uri">https://www.jhsph.edu</a>
+  
+<br/>09-23-2021
+</div>
 
 <div class="d-article">
-<h2 id="schedule-and-course-materials">Schedule and course materials</h2>
-<p>For Rmd files, go to the <a href="https://github.com/stephaniehicks/jhustatcomputing2021">course GitHub repository</a> and navigate the directories, or best of all to clone the repo and navigate within RStudio.</p>
-<div class="l-body-outset">
-<table>
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 12%" />
-<col style="width: 41%" />
-<col style="width: 17%" />
-<col style="width: 17%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Week</th>
-<th>Dates</th>
-<th>Topics</th>
-<th>Podcast</th>
-<th>Projects</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>Module 1</strong></td>
-<td></td>
-<td><strong>Statistical and computational tools for scientific and reproducible research</strong></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Week 1</td>
-<td>Aug 31</td>
-<td>👋 Course introduction [<a href="posts/welcome/index.html">html</a>] [<a href="https://github.com/stephaniehicks/jhustatcomputing2021/blob/main/_posts/welcome/welcome.Rmd">Rmd</a>]</td>
-<td></td>
-<td>🌴 Project 0 [<a href="projects/2021-08-31-project-0/index.html">html</a>]</td>
-</tr>
-<tr class="even">
-<td></td>
-<td></td>
-<td>👩‍💻 Introduction to R and RStudio [<a href="posts/2021-08-31-introduction-to-r-and-rstudio/index.html">html</a>] [<a href="https://github.com/stephaniehicks/jhustatcomputing2021/blob/main/_posts/2021-08-31-introduction-to-r-and-rstudio/introduction-to-r-and-rstudio.Rmd">Rmd</a>]</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td></td>
-<td>🐙 Introduction to git/GitHub [<a href="posts/2021-08-31-introduction-to-gitgithub/index.html">html</a>] [<a href="https://github.com/stephaniehicks/jhustatcomputing2021/blob/main/_posts/2021-08-31-introduction-to-gitgithub/introduction-to-gitgithub.Rmd">Rmd</a>]</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>Sept 2</td>
-<td>🔬 Reproducible Research [<a href="posts/2021-09-02-reproducible-research/index.html">html</a>] [<a href="https://github.com/stephaniehicks/jhustatcomputing2021/blob/main/_posts/2021-09-02-reproducible-research/reproducible-research.Rmd">Rmd</a>]</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td></td>
-<td>👓 Literate programming [<a href="posts/2021-09-02-literate-programming/index.html">html</a>] [<a href="https://github.com/stephaniehicks/jhustatcomputing2021/blob/main/_posts/2021-09-02-literate-programming/literate-programming.Rmd">Rmd</a>]</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td></td>
-<td>🆒 Reference management [<a href="posts/2021-09-02-reference-management/index.html">html</a>] [<a href="https://github.com/stephaniehicks/jhustatcomputing2021/blob/main/_posts/2021-09-02-reference-management/reference-management.Rmd">Rmd</a>]</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Week 2</td>
-<td>Sept 7</td>
-<td>🚧 Getting and cleaning data [<a href="posts/2021-09-07-reading-and-writing-data/index.html">html</a>] [<a href="https://github.com/stephaniehicks/jhustatcomputing2021/blob/main/_posts/2021-09-07-reading-and-writing-data/reading-and-writing-data.Rmd">Rmd</a>]</td>
-<td></td>
-<td>🌴 Project 1 [<a href="projects/2021-09-07-project-1/index.html">html</a>] [<a href="https://github.com/stephaniehicks/jhustatcomputing2021/blob/main/_projects/2021-09-07-project-1/project-1.Rmd">Rmd</a>]</td>
-</tr>
-<tr class="even">
-<td></td>
-<td></td>
-<td>✂️ Managing data frames with Tidyverse [<a href="posts/2021-09-07-managing-data-frames-with-tidyverse/index.html">html</a>] [<a href="https://github.com/stephaniehicks/jhustatcomputing2021/blob/main/_posts/2021-09-07-managing-data-frames-with-tidyverse/managing-data-frames-with-tidyverse.Rmd">Rmd</a>]</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>Sept 9</td>
-<td>😻 Tidy data and the Tidyverse [<a href="posts/2021-09-07-tidy-data-and-the-tidyverse/index.html">html</a>] [<a href="https://github.com/stephaniehicks/jhustatcomputing2021/blob/main/_posts/2021-09-07-tidy-data-and-the-tidyverse/tidy-data-and-the-tidyverse.Rmd">Rmd</a>]</td>
-<td></td>
-<td>🍂 Project 0 due</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td></td>
-<td>🤝 Joining data in R: Basics [<a href="posts/2021-09-07-joining-data-in-r/index.html">html</a>] [<a href="https://github.com/stephaniehicks/jhustatcomputing2021/blob/main/_posts/2021-09-07-joining-data-in-r/joining-data-in-r.Rmd">Rmd</a>]</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td></td>
-<td>📊 Plotting systems in R [<a href="posts/2021-09-09-plotting-systems/index.html">html</a>] [<a href="https://github.com/stephaniehicks/jhustatcomputing2021/blob/main/_posts/2021-09-09-plotting-systems/plotting-systems.Rmd">Rmd</a>]</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Week 3</td>
-<td>Sept 14</td>
-<td>📊 The ggplot2 plotting system: qplot() [<a href="posts/2021-09-14-ggplot2-plotting-system-part-1/index.html">html</a>] [<a href="https://github.com/stephaniehicks/jhustatcomputing2021/blob/main/_posts/2021-09-14-ggplot2-plotting-system-part-1/ggplot2-plotting-system-part-1.Rmd">Rmd</a>]</td>
-<td>🎧 Data viz</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td></td>
-<td>📊 The ggplot2 plotting system: ggplot() [<a href="posts/2021-09-14-ggplot2-plotting-system-part-2/index.html">html</a>] [<a href="https://github.com/stephaniehicks/jhustatcomputing2021/blob/main/_posts/2021-09-14-ggplot2-plotting-system-part-2/ggplot2-plotting-system-part-2.Rmd">Rmd</a>]</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td><strong>Module 2</strong></td>
-<td></td>
-<td><strong>Data analysis in R</strong></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>Sept 16</td>
-<td>🔩 R Nuts and Bolts [<a href="posts/2021-09-16-r-nuts-and-bolts/index.html">html</a>] [<a href="https://github.com/stephaniehicks/jhustatcomputing2021/blob/main/_posts/2021-09-16-r-nuts-and-bolts/r-nuts-and-bolts.Rmd">Rmd</a>]</td>
-<td></td>
-<td>🌴 Project 2 [<a href="projects/2021-09-14-project-2/index.html">html</a>] [<a href="https://github.com/stephaniehicks/jhustatcomputing2021/blob/main/_projects/2021-09-14-project-2/project-2.Rmd">Rmd</a>]</td>
-</tr>
-<tr class="even">
-<td></td>
-<td></td>
-<td>🔩 Control structures in R [<a href="posts/2021-09-16-control-structures/index.html">html</a>] [<a href="https://github.com/stephaniehicks/jhustatcomputing2021/blob/main/_posts/2021-09-16-control-structures/control-structures.Rmd">Rmd</a>]</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>Sept 17</td>
-<td></td>
-<td></td>
-<td>🍂 Project 1 due</td>
-</tr>
-<tr class="even">
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Week 4</td>
-<td>Sept 21</td>
-<td>🔩 Functions in R [<a href="posts/2021-09-21-functions/index.html">html</a>] [<a href="https://github.com/stephaniehicks/jhustatcomputing2021/blob/main/_posts/2021-09-21-functions/functions.Rmd">Rmd</a>]</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td></td>
-<td>🔩 Loop functions [<a href="posts/2021-09-21-loop-functions/index.html">html</a>] [<a href="https://github.com/stephaniehicks/jhustatcomputing2021/blob/main/_posts/2021-09-21-loop-functions/loop-functions.Rmd">Rmd</a>]</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>Sept 23</td>
-<td>🐛 Debugging code in R [<a href="posts/2021-09-23-debugging-r-code/index.html">html</a>] [<a href="https://github.com/stephaniehicks/jhustatcomputing2021/blob/main/_posts/2021-09-23-debugging-r-code/debugging-r-code.Rmd">Rmd</a>]</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td></td>
-<td>🐛 Error handling code in R [<a href="posts/2021-09-23-error-handling-and-generation/index.html">html</a>] [<a href="https://github.com/stephaniehicks/jhustatcomputing2021/blob/main/_posts/2021-09-23-error-handling-and-generation/error-handling-and-generation.Rmd">Rmd</a>]</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td></td>
-<td>🐛 Profiling R code [<a href="posts/2021-09-23-profiling-r-code/index.html">html</a>] [<a href="https://github.com/stephaniehicks/jhustatcomputing2021/blob/main/_posts/2021-09-23-profiling-r-code/profiling-r-code.Rmd">Rmd</a>]</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Week 5</td>
-<td>Sept 28</td>
-<td>📦 R package software development (build, doc)</td>
-<td>🎧 Data analysis</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>Sept 30</td>
-<td>📦 R package software development (testing)</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>Oct 1</td>
-<td></td>
-<td></td>
-<td>🍂 Project 2 due</td>
-</tr>
-<tr class="even">
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Week 6</td>
-<td>Oct 5</td>
-<td>📆 Working with dates and times</td>
-<td></td>
-<td>🌴 Project 3</td>
-</tr>
-<tr class="even">
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>Oct 7</td>
-<td>✨ Regular expressions</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Week 7</td>
-<td>Oct 12</td>
-<td>🌋 Dealing with large data; parallel computing</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>Oct 14</td>
-<td>🐍 Leveraging Python within R</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td><strong>Module 3</strong></td>
-<td></td>
-<td><strong>Basic algorithms for optimization and estimation </strong></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Week 8</td>
-<td>Oct 19</td>
-<td>Basic statistical computing algorithms</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td><strong>Module 4</strong></td>
-<td></td>
-<td><strong>Machine Learning Essentials</strong></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>Oct 21</td>
-<td>Machine learning essentials</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>Oct 22</td>
-<td></td>
-<td></td>
-<td>🍂 Project 3 due</td>
-</tr>
-</tbody>
-</table>
+<div class="d-contents d-contents-float">
+<nav class="l-text toc figcaption" id="TOC">
+<h3>Contents</h3>
+<ul>
+<li><a href="#pre-lecture-materials">Pre-lecture materials</a>
+<ul>
+<li><a href="#read-ahead">Read ahead</a></li>
+<li><a href="#acknowledgements">Acknowledgements</a></li>
+</ul></li>
+<li><a href="#learning-objectives">Learning objectives</a></li>
+<li><a href="#error-handling-and-generation">Error Handling and Generation</a>
+<ul>
+<li><a href="#what-is-an-error">What is an error?</a></li>
+<li><a href="#generating-errors">Generating Errors</a></li>
+<li><a href="#when-to-generate-errors-or-warnings">When to generate errors or warnings</a></li>
+<li><a href="#how-should-errors-be-handled">How should errors be handled?</a></li>
+</ul></li>
+<li><a href="#summary">Summary</a></li>
+<li><a href="#post-lecture-materials">Post-lecture materials</a>
+<ul>
+<li><a href="#final-questions">Final Questions</a></li>
+<li><a href="#additional-resources">Additional Resources</a></li>
+</ul></li>
+</ul>
+</nav>
 </div>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<!-- Add interesting quote -->
+<h1 id="pre-lecture-materials">Pre-lecture materials</h1>
+<h3 id="read-ahead">Read ahead</h3>
+<div class="resources">
+<p><strong>Before class, you can prepare by reading the following materials:</strong></p>
+<ol type="1">
+<li></li>
+</ol>
+</div>
+<h3 id="acknowledgements">Acknowledgements</h3>
+<p>Material for this lecture was borrowed and adopted from</p>
+<ul>
+<li><a href="https://rdpeng.github.io/Biostat776/lecture-error-handling-and-generation.html" class="uri">https://rdpeng.github.io/Biostat776/lecture-error-handling-and-generation.html</a></li>
+<li></li>
+<li></li>
+</ul>
+<h1 id="learning-objectives">Learning objectives</h1>
+<div class="keyideas">
+<p><strong>At the end of this lesson you will:</strong></p>
+<ul>
+<li>Implement exception handling routines in R functions</li>
+<li></li>
+<li></li>
+</ul>
+</div>
+<h1 id="error-handling-and-generation">Error Handling and Generation</h1>
+<h3 id="what-is-an-error">What is an error?</h3>
+<p>Errors most often occur when code is used in a way that it is not intended to be used. For example adding two strings together produces the following error:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='st'>"hello"</span> <span class='op'>+</span> <span class='st'>"world"</span>
+</code></pre>
+</div>
+<pre><code>Error in &quot;hello&quot; + &quot;world&quot;: non-numeric argument to binary operator</code></pre>
+</div>
+<p>The <code>+</code> operator is essentially a function that takes two numbers as arguments and finds their sum. Since neither <code>"hello"</code> nor <code>"world"</code> are numbers, the R interpreter produces an error. Errors will stop the execution of your program, and they will (hopefully) print an error message to the R console.</p>
+<p>In R there are two other constructs which are related to errors: warnings and messages. Warnings are meant to indicate that something seems to have gone wrong in your program that should be inspected. Here’s a simple example of a warning being generated:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/numeric.html'>as.numeric</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"5"</span>, <span class='st'>"6"</span>, <span class='st'>"seven"</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>Warning: NAs introduced by coercion</code></pre>
+<pre><code>[1]  5  6 NA</code></pre>
+</div>
+<p>The <code>as.numeric()</code> function attempts to convert each string in <code>c("5", "6", "seven")</code> into a number, however it is impossible to convert <code>"seven"</code>, so a warning is generated. Execution of the code is not halted, and an <code>NA</code> is produced for <code>"seven"</code> instead of a number.</p>
+<p>Messages simply print to the R console, though they are generated by an underlying mechanism that is similar to how errors and warning are generated. Here’s a small function that will generate a message:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>f</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='op'>)</span><span class='op'>{</span>
+  <span class='fu'><a href='https://rdrr.io/r/base/message.html'>message</a></span><span class='op'>(</span><span class='st'>"This is a message."</span><span class='op'>)</span>
+<span class='op'>}</span>
+
+<span class='fu'>f</span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>This is a message.</code></pre>
+</div>
+<h3 id="generating-errors">Generating Errors</h3>
+<p>There are a few essential functions for generating errors, warnings, and messages in R. The <code>stop()</code> function will generate an error. Let’s generate an error:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/stop.html'>stop</a></span><span class='op'>(</span><span class='st'>"Something erroneous has occurred!"</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>Error<span class="sc">:</span> Something erroneous has occurred<span class="sc">!</span></span></code></pre></div>
+</div>
+<p>If an error occurs inside of a function then the name of that function will appear in the error message:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>name_of_function</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='op'>)</span><span class='op'>{</span>
+  <span class='kw'><a href='https://rdrr.io/r/base/stop.html'>stop</a></span><span class='op'>(</span><span class='st'>"Something bad happened."</span><span class='op'>)</span>
+<span class='op'>}</span>
+
+<span class='fu'>name_of_function</span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>Error in name_of_function(): Something bad happened.</code></pre>
+</div>
+<p>The <code>stopifnot()</code> function takes a series of logical expressions as arguments and if any of them are false an error is generated specifying which expression is false. Let’s take a look at an example:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>error_if_n_is_greater_than_zero</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>n</span><span class='op'>)</span><span class='op'>{</span>
+  <span class='fu'><a href='https://rdrr.io/r/base/stopifnot.html'>stopifnot</a></span><span class='op'>(</span><span class='va'>n</span> <span class='op'>&lt;=</span> <span class='fl'>0</span><span class='op'>)</span>
+  <span class='va'>n</span>
+<span class='op'>}</span>
+
+<span class='fu'>error_if_n_is_greater_than_zero</span><span class='op'>(</span><span class='fl'>5</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>Error in error_if_n_is_greater_than_zero(5): n &lt;= 0 is not TRUE</code></pre>
+</div>
+<p>The <code>warning()</code> function creates a warning, and the function itself is very similar to the <code>stop()</code> function. Remember that a warning does not stop the execution of a program (unlike an error.)</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/warning.html'>warning</a></span><span class='op'>(</span><span class='st'>"Consider yourself warned!"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>Warning: Consider yourself warned!</code></pre>
+</div>
+<p>Just like errors, a warning generated inside of a function will include the name of the function in which it was generated:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>make_NA</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span><span class='op'>{</span>
+  <span class='kw'><a href='https://rdrr.io/r/base/warning.html'>warning</a></span><span class='op'>(</span><span class='st'>"Generating an NA."</span><span class='op'>)</span>
+  <span class='cn'>NA</span>
+<span class='op'>}</span>
+
+<span class='fu'>make_NA</span><span class='op'>(</span><span class='st'>"Sodium"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>Warning in make_NA(&quot;Sodium&quot;): Generating an NA.</code></pre>
+<pre><code>[1] NA</code></pre>
+</div>
+<p>Messages are simpler than errors or warnings; they just print strings to the R console. You can issue a message with the <code>message()</code> function:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/message.html'>message</a></span><span class='op'>(</span><span class='st'>"In a bottle."</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<h3 id="when-to-generate-errors-or-warnings">When to generate errors or warnings</h3>
+<p>Stopping the execution of your program with <code>stop()</code> should only happen in the event of a catastrophe - meaning only if it is impossible for your program to continue. If there are conditions that you can anticipate that would cause your program to create an error then you should document those conditions so whoever uses your software is aware. Common failure conditions like providing invalid arguments to a function should be checked at the beginning of your program so that the user can quickly realize something has gone wrong. Checking function inputs is a typical use of the <code>stopifnot()</code> function.</p>
+<p>You can think of a function as kind of contract between you and the user: if the user provides specified arguments, your program will provide predictable results. Of course it’s impossible for you to anticipate all of the potential uses of your program, so the results of executing a function can only be predictable with regard to the type of the result. It’s appropriate to create a warning when this contract between you and the user is violated. A perfect example of this situation is the result of <code>as.numeric(c("5", "6", "seven"))</code>, which we saw before. The user expects a vector of numbers to be returned as the result of <code>as.numeric()</code> but <code>"seven"</code> is coerced into being NA, which is not completely intuitive.</p>
+<p>R has largely been developed according to the <a href="https://en.wikipedia.org/wiki/Unix_philosophy">Unix Philosophy</a>, which generally discourages printing text to the console unless something unexpected has occurred. Languages that commonly run on Unix systems like C, C++, and Go are rarely used interactively, meaning that they usually underpin computer infrastructure (computers “talking” to other computers). Messages printed to the console are therefore not very useful since nobody will ever read them and it’s not straightforward for other programs to capture and interpret them. In contrast R code is frequently executed by human beings in the R console, which serves as an interactive environment between the computer and person at the keyboard. If you think your program should produce a message, make sure that the output of the message is primarily meant for a human to read. You should avoid signaling a condition or the result of your program to another program by creating a message.</p>
+<h3 id="how-should-errors-be-handled">How should errors be handled?</h3>
+<p>Imagine writing a program that will take a long time to complete because of a complex calculation or because you’re handling a large amount of data. If an error occurs during this computation then you’re liable to lose all of the results that were calculated before the error, or your program may not finish a critical task that a program further down your pipeline is depending on. If you anticipate the possibility of errors occurring during the execution of your program then you can design your program to handle them appropriately.</p>
+<p>The <code>tryCatch()</code> function is the workhorse of handling errors and warnings in R. The first argument of this function is any R expression, followed by conditions which specify how to handle an error or a warning. The last argument, <code>finally</code>, specifies a function or expression that will be executed after the expression no matter what, even in the event of an error or a warning.</p>
+<p>Let’s construct a simple function I’m going to call <a href="https://en.wikipedia.org/wiki/Yogi_Berra"><code>beera</code></a> that catches errors and warnings gracefully.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>beera</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>expr</span><span class='op'>)</span><span class='op'>{</span>
+  <span class='kw'><a href='https://rdrr.io/r/base/conditions.html'>tryCatch</a></span><span class='op'>(</span><span class='va'>expr</span>,
+         error <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>e</span><span class='op'>)</span><span class='op'>{</span>
+           <span class='fu'><a href='https://rdrr.io/r/base/message.html'>message</a></span><span class='op'>(</span><span class='st'>"An error occurred:\n"</span>, <span class='va'>e</span><span class='op'>)</span>
+         <span class='op'>}</span>,
+         warning <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>w</span><span class='op'>)</span><span class='op'>{</span>
+           <span class='fu'><a href='https://rdrr.io/r/base/message.html'>message</a></span><span class='op'>(</span><span class='st'>"A warning occured:\n"</span>, <span class='va'>w</span><span class='op'>)</span>
+         <span class='op'>}</span>,
+         finally <span class='op'>=</span> <span class='op'>{</span>
+           <span class='fu'><a href='https://rdrr.io/r/base/message.html'>message</a></span><span class='op'>(</span><span class='st'>"Finally done!"</span><span class='op'>)</span>
+         <span class='op'>}</span><span class='op'>)</span>
+<span class='op'>}</span>
+</code></pre>
+</div>
+</div>
+<p>This function takes an expression as an argument and tries to evaluate it. If the expression can be evaluated without any errors or warnings then the result of the expression is returned and the message <code>Finally done!</code> is printed to the R console. If an error or warning is generated then the functions that are provided to the <code>error</code> or <code>warning</code> arguments are printed. Let’s try this function out with a few examples.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>beera</span><span class='op'>(</span><span class='op'>{</span>
+  <span class='fl'>2</span> <span class='op'>+</span> <span class='fl'>2</span>
+<span class='op'>}</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>[1] 4</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>beera</span><span class='op'>(</span><span class='op'>{</span>
+  <span class='st'>"two"</span> <span class='op'>+</span> <span class='fl'>2</span>
+<span class='op'>}</span><span class='op'>)</span>
+
+<span class='fu'>beera</span><span class='op'>(</span><span class='op'>{</span>
+  <span class='fu'><a href='https://rdrr.io/r/base/numeric.html'>as.numeric</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='st'>"two"</span>, <span class='fl'>3</span><span class='op'>)</span><span class='op'>)</span>
+<span class='op'>}</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<p>Notice that we’ve effectively transformed errors and warnings into messages.</p>
+<p>Now that you know the basics of generating and catching errors you’ll need to decide when your program should generate an error. My advice to you is to limit the number of errors your program generates as much as possible. Even if you design your program so that it’s able to catch and handle errors, the error handling process slows down your program by orders of magnitude. Imagine you wanted to write a simple function that checks if an argument is an even number. You might write the following:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>is_even</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>n</span><span class='op'>)</span><span class='op'>{</span>
+  <span class='va'>n</span> <span class='op'>%%</span> <span class='fl'>2</span> <span class='op'>==</span> <span class='fl'>0</span>
+<span class='op'>}</span>
+
+<span class='fu'>is_even</span><span class='op'>(</span><span class='fl'>768</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>[1] TRUE</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>is_even</span><span class='op'>(</span><span class='st'>"two"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>Error in n%%2: non-numeric argument to binary operator</code></pre>
+</div>
+<p>You can see that providing a string causes this function to raise an error. You could imagine though that you want to use this function across a list of different data types, and you only want to know which elements of that list are even numbers. You might think to write the following:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>is_even_error</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>n</span><span class='op'>)</span><span class='op'>{</span>
+  <span class='kw'><a href='https://rdrr.io/r/base/conditions.html'>tryCatch</a></span><span class='op'>(</span><span class='va'>n</span> <span class='op'>%%</span> <span class='fl'>2</span> <span class='op'>==</span> <span class='fl'>0</span>,
+           error <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>e</span><span class='op'>)</span><span class='op'>{</span>
+             <span class='cn'>FALSE</span>
+           <span class='op'>}</span><span class='op'>)</span>
+<span class='op'>}</span>
+
+<span class='fu'>is_even_error</span><span class='op'>(</span><span class='fl'>714</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>[1] TRUE</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>is_even_error</span><span class='op'>(</span><span class='st'>"eight"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>[1] FALSE</code></pre>
+</div>
+<p>This appears to be working the way you intended, however when applied to more data this function will be seriously slow compared to alternatives. For example I could check that <code>n</code> is numeric before treating <code>n</code> like a number:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>is_even_check</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>n</span><span class='op'>)</span><span class='op'>{</span>
+  <span class='fu'><a href='https://rdrr.io/r/base/numeric.html'>is.numeric</a></span><span class='op'>(</span><span class='va'>n</span><span class='op'>)</span> <span class='op'>&amp;&amp;</span> <span class='va'>n</span> <span class='op'>%%</span> <span class='fl'>2</span> <span class='op'>==</span> <span class='fl'>0</span>
+<span class='op'>}</span>
+
+<span class='fu'>is_even_check</span><span class='op'>(</span><span class='fl'>1876</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>[1] TRUE</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>is_even_check</span><span class='op'>(</span><span class='st'>"twelve"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>[1] FALSE</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="rmdnote">
+<p>
+Notice that by using <code>is.numeric()</code> before the “AND” operator (<code>&amp;&amp;</code>) the expression <code>n %% 2 == 0</code> is never evaluated. This is a programming language design feature called “short circuiting.” The expression can never evaluate to <code>TRUE</code> if the left hand side of <code>&amp;&amp;</code> evaluates to <code>FALSE</code>, so the right hand side is ignored.
+</p>
+</div>
+</div>
+<p>To demonstrate the difference in the speed of the code we’ll use the <code>microbenchmark</code> package to measure how long it takes for each function to be applied to the same data.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'>microbenchmark</span><span class='op'>)</span>
+<span class='fu'>microbenchmark</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/lapply.html'>sapply</a></span><span class='op'>(</span><span class='va'>letters</span>, <span class='va'>is_even_check</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<pre><code>Unit: microseconds
+                           expr    min      lq     mean  median      uq     max neval
+ sapply(letters, is_even_check) 46.224 47.7975 61.43616 48.6445 58.4755 167.091   100</code></pre>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>microbenchmark</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/lapply.html'>sapply</a></span><span class='op'>(</span><span class='va'>letters</span>, <span class='va'>is_even_error</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<pre><code>Unit: microseconds
+                           expr     min       lq     mean   median       uq      max neval
+ sapply(letters, is_even_error) 640.067 678.0285 906.3037 784.4315 1044.501 2308.931   100</code></pre>
+<p>The error catching approach is nearly 15 times slower!</p>
+<p>Proper error handling is an essential tool for any software developer so that you can design programs that are error tolerant. Creating clear and informative error messages is essential for building quality software. One closing tip I recommend is to put documentation for your software online, including the meaning of the errors that your software can potentially throw. Often a user’s first instinct when encountering an error is to search online for that error message, which should lead them to your documentation!</p>
+<h1 id="summary">Summary</h1>
+<ul>
+<li><p>Errors, warnings, and messages can be generated within R code using the functions <code>stop</code>, <code>stopifnot</code>, <code>warning</code>, and <code>message</code>.</p></li>
+<li><p>Catching errors, and providing useful error messaging, can improve user experience with functions but can also slow down code substantially.</p></li>
+</ul>
+<h1 id="post-lecture-materials">Post-lecture materials</h1>
+<h3 id="final-questions">Final Questions</h3>
+<p>Here are some post-lecture questions to help you think about the material discussed.</p>
+<div class="questions">
+<p><strong>Questions:</strong></p>
+<ol type="1">
+<li></li>
+<li></li>
+<li></li>
+</ol>
+</div>
+<h3 id="additional-resources">Additional Resources</h3>
+<div class="resources">
+<ul>
+<li><a href="https://rdpeng.github.io/Biostat776/lecture-error-handling-and-generation.html" class="uri">https://rdpeng.github.io/Biostat776/lecture-error-handling-and-generation.html</a></li>
+<li></li>
+<li></li>
+</ul>
+</div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
@@ -2671,10 +1798,7 @@ Course Materials
 <!--radix_placeholder_site_after_body-->
 <!--/radix_placeholder_site_after_body-->
 <!--radix_placeholder_appendices-->
-<div class="appendix-bottom">
-<h3 id="reuse">Reuse</h3>
-<p>Text and figures are licensed under Creative Commons Attribution <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>. The figures that have been reused from other sources don't fall under this license and can be recognized by a note in their caption: "Figure from ...".</p>
-</div>
+<div class="appendix-bottom"></div>
 <!--/radix_placeholder_appendices-->
 <!--radix_placeholder_navigation_after_body-->
 <!--/radix_placeholder_navigation_after_body-->

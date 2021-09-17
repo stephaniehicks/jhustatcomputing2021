@@ -7,7 +7,67 @@
     <description>Course website for Statistical Computing (JHSPH Biostatistics 140.776 Fall 2021)
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Thu, 16 Sep 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 23 Sep 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Debugging R Code</title>
+      <dc:creator>Stephanie Hicks</dc:creator>
+      <link>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-23-debugging-r-code</link>
+      <description>Help! What's wrong with my code???</description>
+      <category>module 2</category>
+      <category>week 4</category>
+      <category>programming</category>
+      <category>debugging</category>
+      <guid>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-23-debugging-r-code</guid>
+      <pubDate>Thu, 23 Sep 2021 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Error Handling and Generation</title>
+      <dc:creator>Stephanie Hicks</dc:creator>
+      <link>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-23-error-handling-and-generation</link>
+      <description>Implement exception handling routines in R functions</description>
+      <category>module 2</category>
+      <category>week 4</category>
+      <category>programming</category>
+      <category>debugging</category>
+      <guid>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-23-error-handling-and-generation</guid>
+      <pubDate>Thu, 23 Sep 2021 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Profiling R Code</title>
+      <dc:creator>Stephanie Hicks</dc:creator>
+      <link>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-23-profiling-r-code</link>
+      <description>Introduction to understand how much time is spent on different parts of your R code (i.e. profiling).</description>
+      <category>module 2</category>
+      <category>week 4</category>
+      <category>programming</category>
+      <category>profiling</category>
+      <guid>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-23-profiling-r-code</guid>
+      <pubDate>Thu, 23 Sep 2021 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Functions</title>
+      <dc:creator>Stephanie Hicks</dc:creator>
+      <link>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-21-functions</link>
+      <description>Introduction to writing functions in R.</description>
+      <category>module 2</category>
+      <category>week 4</category>
+      <category>programming</category>
+      <category>functions</category>
+      <guid>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-21-functions</guid>
+      <pubDate>Tue, 21 Sep 2021 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Loop Functions</title>
+      <dc:creator>Stephanie Hicks</dc:creator>
+      <link>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-21-loop-functions</link>
+      <description>Introduction to looping in the command line.</description>
+      <category>module 2</category>
+      <category>week 4</category>
+      <category>programming</category>
+      <category>functions</category>
+      <guid>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-21-loop-functions</guid>
+      <pubDate>Tue, 21 Sep 2021 00:00:00 +0000</pubDate>
+    </item>
     <item>
       <title>Control Structures</title>
       <dc:creator>Stephanie Hicks</dc:creator>

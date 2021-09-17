@@ -1,0 +1,2056 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+  <meta name="generator" content="distill" />
+
+  <style type="text/css">
+  /* Hide doc at startup (prevent jankiness while JS renders/transforms) */
+  body {
+    visibility: hidden;
+  }
+  </style>
+
+ <!--radix_placeholder_import_source-->
+ <!--/radix_placeholder_import_source-->
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ad0000; } /* Alert */
+code span.an { color: #5e5e5e; } /* Annotation */
+code span.at { color: #20794d; } /* Attribute */
+code span.bn { color: #ad0000; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007ba5; } /* ControlFlow */
+code span.ch { color: #20794d; } /* Char */
+code span.cn { color: #8f5902; } /* Constant */
+code span.co { color: #5e5e5e; } /* Comment */
+code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+code span.dt { color: #ad0000; } /* DataType */
+code span.dv { color: #ad0000; } /* DecVal */
+code span.er { color: #ad0000; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #ad0000; } /* Float */
+code span.fu { color: #4758ab; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #5e5e5e; } /* Information */
+code span.kw { color: #007ba5; } /* Keyword */
+code span.op { color: #5e5e5e; } /* Operator */
+code span.ot { color: #007ba5; } /* Other */
+code span.pp { color: #ad0000; } /* Preprocessor */
+code span.sc { color: #20794d; } /* SpecialChar */
+code span.ss { color: #20794d; } /* SpecialString */
+code span.st { color: #20794d; } /* String */
+code span.va { color: #111111; } /* Variable */
+code span.vs { color: #20794d; } /* VerbatimString */
+code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+</style>
+
+  <!--radix_placeholder_meta_tags-->
+  <title>Functions</title>
+
+  <meta property="description" itemprop="description" content="Introduction to writing functions in R."/>
+
+
+  <!--  https://schema.org/Article -->
+  <meta property="article:published" itemprop="datePublished" content="2021-09-21"/>
+  <meta property="article:created" itemprop="dateCreated" content="2021-09-21"/>
+  <meta name="article:author" content="Stephanie Hicks"/>
+
+  <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
+  <meta property="og:title" content="Functions"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:description" content="Introduction to writing functions in R."/>
+  <meta property="og:locale" content="en_US"/>
+
+  <!--  https://dev.twitter.com/cards/types/summary -->
+  <meta property="twitter:card" content="summary"/>
+  <meta property="twitter:title" content="Functions"/>
+  <meta property="twitter:description" content="Introduction to writing functions in R."/>
+
+  <!--/radix_placeholder_meta_tags-->
+  <!--radix_placeholder_rmarkdown_metadata-->
+
+  <script type="text/json" id="radix-rmarkdown-metadata">
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","categories"]}},"value":[{"type":"character","attributes":{},"value":["Functions"]},{"type":"character","attributes":{},"value":["Introduction to writing functions in R.\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url","affiliation","affiliation_url"]}},"value":[{"type":"character","attributes":{},"value":["Stephanie Hicks"]},{"type":"character","attributes":{},"value":["https://stephaniehicks.com/"]},{"type":"character","attributes":{},"value":["Department of Biostatistics, Johns Hopkins"]},{"type":"character","attributes":{},"value":["https://www.jhsph.edu"]}]}]},{"type":"character","attributes":{},"value":["09-21-2021"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","toc","toc_depth"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[3]}]}]},{"type":"character","attributes":{},"value":["module 2","week 4","programming","functions"]}]}
+  </script>
+  <!--/radix_placeholder_rmarkdown_metadata-->
+  
+  <script type="text/json" id="radix-resource-manifest">
+  {"type":"character","attributes":{},"value":["functions_files/anchor-4.2.2/anchor.min.js","functions_files/bowser-1.9.3/bowser.min.js","functions_files/distill-2.2.21/template.v2.js","functions_files/header-attrs-2.10/header-attrs.js","functions_files/jquery-1.11.3/jquery.min.js","functions_files/popper-2.6.0/popper.min.js","functions_files/tippy-6.2.7/tippy-bundle.umd.min.js","functions_files/tippy-6.2.7/tippy-light-border.css","functions_files/tippy-6.2.7/tippy.css","functions_files/tippy-6.2.7/tippy.umd.min.js","functions_files/webcomponents-2.0.0/webcomponents.js"]}
+  </script>
+  <!--radix_placeholder_navigation_in_header-->
+  <!--/radix_placeholder_navigation_in_header-->
+  <!--radix_placeholder_distill-->
+
+  <style type="text/css">
+
+  body {
+    background-color: white;
+  }
+
+  .pandoc-table {
+    width: 100%;
+  }
+
+  .pandoc-table>caption {
+    margin-bottom: 10px;
+  }
+
+  .pandoc-table th:not([align]) {
+    text-align: left;
+  }
+
+  .pagedtable-footer {
+    font-size: 15px;
+  }
+
+  d-byline .byline {
+    grid-template-columns: 2fr 2fr;
+  }
+
+  d-byline .byline h3 {
+    margin-block-start: 1.5em;
+  }
+
+  d-byline .byline .authors-affiliations h3 {
+    margin-block-start: 0.5em;
+  }
+
+  .authors-affiliations .orcid-id {
+    width: 16px;
+    height:16px;
+    margin-left: 4px;
+    margin-right: 4px;
+    vertical-align: middle;
+    padding-bottom: 2px;
+  }
+
+  d-title .dt-tags {
+    margin-top: 1em;
+    grid-column: text;
+  }
+
+  .dt-tags .dt-tag {
+    text-decoration: none;
+    display: inline-block;
+    color: rgba(0,0,0,0.6);
+    padding: 0em 0.4em;
+    margin-right: 0.5em;
+    margin-bottom: 0.4em;
+    font-size: 70%;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  d-article table.gt_table td,
+  d-article table.gt_table th {
+    border-bottom: none;
+  }
+
+  .html-widget {
+    margin-bottom: 2.0em;
+  }
+
+  .l-screen-inset {
+    padding-right: 16px;
+  }
+
+  .l-screen .caption {
+    margin-left: 10px;
+  }
+
+  .shaded {
+    background: rgb(247, 247, 247);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .shaded .html-widget {
+    margin-bottom: 0;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .shaded .shaded-content {
+    background: white;
+  }
+
+  .text-output {
+    margin-top: 0;
+    line-height: 1.5em;
+  }
+
+  .hidden {
+    display: none !important;
+  }
+
+  d-article {
+    padding-top: 2.5rem;
+    padding-bottom: 30px;
+  }
+
+  d-appendix {
+    padding-top: 30px;
+  }
+
+  d-article>p>img {
+    width: 100%;
+  }
+
+  d-article h2 {
+    margin: 1rem 0 1.5rem 0;
+  }
+
+  d-article h3 {
+    margin-top: 1.5rem;
+  }
+
+  d-article iframe {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    margin-bottom: 2.0em;
+    width: 100%;
+  }
+
+  /* Tweak code blocks */
+
+  d-article div.sourceCode code,
+  d-article pre code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  d-article pre,
+  d-article div.sourceCode,
+  d-article div.sourceCode pre {
+    overflow: auto;
+  }
+
+  d-article div.sourceCode {
+    background-color: white;
+  }
+
+  d-article div.sourceCode pre {
+    padding-left: 10px;
+    font-size: 12px;
+    border-left: 2px solid rgba(0,0,0,0.1);
+  }
+
+  d-article pre {
+    font-size: 12px;
+    color: black;
+    background: none;
+    margin-top: 0;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+  }
+
+  d-article pre a {
+    border-bottom: none;
+  }
+
+  d-article pre a:hover {
+    border-bottom: none;
+    text-decoration: underline;
+  }
+
+  d-article details {
+    grid-column: text;
+    margin-bottom: 0.8em;
+  }
+
+  @media(min-width: 768px) {
+
+  d-article pre,
+  d-article div.sourceCode,
+  d-article div.sourceCode pre {
+    overflow: visible !important;
+  }
+
+  d-article div.sourceCode pre {
+    padding-left: 18px;
+    font-size: 14px;
+  }
+
+  d-article pre {
+    font-size: 14px;
+  }
+
+  }
+
+  figure img.external {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+    padding: 18px;
+    box-sizing: border-box;
+  }
+
+  /* CSS for d-contents */
+
+  .d-contents {
+    grid-column: text;
+    color: rgba(0,0,0,0.8);
+    font-size: 0.9em;
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+    padding-bottom: 0.5em;
+    margin-bottom: 1em;
+    padding-left: 0.25em;
+    justify-self: start;
+  }
+
+  @media(min-width: 1000px) {
+    .d-contents.d-contents-float {
+      height: 0;
+      grid-column-start: 1;
+      grid-column-end: 4;
+      justify-self: center;
+      padding-right: 3em;
+      padding-left: 2em;
+    }
+  }
+
+  .d-contents nav h3 {
+    font-size: 18px;
+    margin-top: 0;
+    margin-bottom: 1em;
+  }
+
+  .d-contents li {
+    list-style-type: none
+  }
+
+  .d-contents nav > ul {
+    padding-left: 0;
+  }
+
+  .d-contents ul {
+    padding-left: 1em
+  }
+
+  .d-contents nav ul li {
+    margin-top: 0.6em;
+    margin-bottom: 0.2em;
+  }
+
+  .d-contents nav a {
+    font-size: 13px;
+    border-bottom: none;
+    text-decoration: none
+    color: rgba(0, 0, 0, 0.8);
+  }
+
+  .d-contents nav a:hover {
+    text-decoration: underline solid rgba(0, 0, 0, 0.6)
+  }
+
+  .d-contents nav > ul > li > a {
+    font-weight: 600;
+  }
+
+  .d-contents nav > ul > li > ul {
+    font-weight: inherit;
+  }
+
+  .d-contents nav > ul > li > ul > li {
+    margin-top: 0.2em;
+  }
+
+
+  .d-contents nav ul {
+    margin-top: 0;
+    margin-bottom: 0.25em;
+  }
+
+  .d-article-with-toc h2:nth-child(2) {
+    margin-top: 0;
+  }
+
+
+  /* Figure */
+
+  .figure {
+    position: relative;
+    margin-bottom: 2.5em;
+    margin-top: 1.5em;
+  }
+
+  .figure img {
+    width: 100%;
+  }
+
+  .figure .caption {
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 12px;
+    line-height: 1.5em;
+  }
+
+  .figure img.external {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+    padding: 18px;
+    box-sizing: border-box;
+  }
+
+  .figure .caption a {
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  .figure .caption b,
+  .figure .caption strong, {
+    font-weight: 600;
+    color: rgba(0, 0, 0, 1.0);
+  }
+
+  /* Citations */
+
+  d-article .citation {
+    color: inherit;
+    cursor: inherit;
+  }
+
+  div.hanging-indent{
+    margin-left: 1em; text-indent: -1em;
+  }
+
+  /* Citation hover box */
+
+  .tippy-box[data-theme~=light-border] {
+    background-color: rgba(250, 250, 250, 0.95);
+  }
+
+  .tippy-content > p {
+    margin-bottom: 0;
+    padding: 2px;
+  }
+
+
+  /* Tweak 1000px media break to show more text */
+
+  @media(min-width: 1000px) {
+    .base-grid,
+    distill-header,
+    d-title,
+    d-abstract,
+    d-article,
+    d-appendix,
+    distill-appendix,
+    d-byline,
+    d-footnote-list,
+    d-citation-list,
+    distill-footer {
+      grid-template-columns: [screen-start] 1fr [page-start kicker-start] 80px [middle-start] 50px [text-start kicker-end] 65px 65px 65px 65px 65px 65px 65px 65px [text-end gutter-start] 65px [middle-end] 65px [page-end gutter-end] 1fr [screen-end];
+      grid-column-gap: 16px;
+    }
+
+    .grid {
+      grid-column-gap: 16px;
+    }
+
+    d-article {
+      font-size: 1.06rem;
+      line-height: 1.7em;
+    }
+    figure .caption, .figure .caption, figure figcaption {
+      font-size: 13px;
+    }
+  }
+
+  @media(min-width: 1180px) {
+    .base-grid,
+    distill-header,
+    d-title,
+    d-abstract,
+    d-article,
+    d-appendix,
+    distill-appendix,
+    d-byline,
+    d-footnote-list,
+    d-citation-list,
+    distill-footer {
+      grid-template-columns: [screen-start] 1fr [page-start kicker-start] 60px [middle-start] 60px [text-start kicker-end] 60px 60px 60px 60px 60px 60px 60px 60px [text-end gutter-start] 60px [middle-end] 60px [page-end gutter-end] 1fr [screen-end];
+      grid-column-gap: 32px;
+    }
+
+    .grid {
+      grid-column-gap: 32px;
+    }
+  }
+
+
+  /* Get the citation styles for the appendix (not auto-injected on render since
+     we do our own rendering of the citation appendix) */
+
+  d-appendix .citation-appendix,
+  .d-appendix .citation-appendix {
+    font-size: 11px;
+    line-height: 15px;
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    padding-left: 18px;
+    border: 1px solid rgba(0,0,0,0.1);
+    background: rgba(0, 0, 0, 0.02);
+    padding: 10px 18px;
+    border-radius: 3px;
+    color: rgba(150, 150, 150, 1);
+    overflow: hidden;
+    margin-top: -12px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+
+  /* Include appendix styles here so they can be overridden */
+
+  d-appendix {
+    contain: layout style;
+    font-size: 0.8em;
+    line-height: 1.7em;
+    margin-top: 60px;
+    margin-bottom: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    color: rgba(0,0,0,0.5);
+    padding-top: 60px;
+    padding-bottom: 48px;
+  }
+
+  d-appendix h3 {
+    grid-column: page-start / text-start;
+    font-size: 15px;
+    font-weight: 500;
+    margin-top: 1em;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.65);
+  }
+
+  d-appendix h3 + * {
+    margin-top: 1em;
+  }
+
+  d-appendix ol {
+    padding: 0 0 0 15px;
+  }
+
+  @media (min-width: 768px) {
+    d-appendix ol {
+      padding: 0 0 0 30px;
+      margin-left: -30px;
+    }
+  }
+
+  d-appendix li {
+    margin-bottom: 1em;
+  }
+
+  d-appendix a {
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  d-appendix > * {
+    grid-column: text;
+  }
+
+  d-appendix > d-footnote-list,
+  d-appendix > d-citation-list,
+  d-appendix > distill-appendix {
+    grid-column: screen;
+  }
+
+  /* Include footnote styles here so they can be overridden */
+
+  d-footnote-list {
+    contain: layout style;
+  }
+
+  d-footnote-list > * {
+    grid-column: text;
+  }
+
+  d-footnote-list a.footnote-backlink {
+    color: rgba(0,0,0,0.3);
+    padding-left: 0.5em;
+  }
+
+
+
+  /* Anchor.js */
+
+  .anchorjs-link {
+    /*transition: all .25s linear; */
+    text-decoration: none;
+    border-bottom: none;
+  }
+  *:hover > .anchorjs-link {
+    margin-left: -1.125em !important;
+    text-decoration: none;
+    border-bottom: none;
+  }
+
+  /* Social footer */
+
+  .social_footer {
+    margin-top: 30px;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.67);
+  }
+
+  .disqus-comments {
+    margin-right: 30px;
+  }
+
+  .disqus-comment-count {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+  }
+
+  #disqus_thread {
+    margin-top: 30px;
+  }
+
+  .article-sharing a {
+    border-bottom: none;
+    margin-right: 8px;
+  }
+
+  .article-sharing a:hover {
+    border-bottom: none;
+  }
+
+  .sidebar-section.subscribe {
+    font-size: 12px;
+    line-height: 1.6em;
+  }
+
+  .subscribe p {
+    margin-bottom: 0.5em;
+  }
+
+
+  .article-footer .subscribe {
+    font-size: 15px;
+    margin-top: 45px;
+  }
+
+
+  .sidebar-section.custom {
+    font-size: 12px;
+    line-height: 1.6em;
+  }
+
+  .custom p {
+    margin-bottom: 0.5em;
+  }
+
+  /* Styles for listing layout (hide title) */
+  .layout-listing d-title, .layout-listing .d-title {
+    display: none;
+  }
+
+  /* Styles for posts lists (not auto-injected) */
+
+
+  .posts-with-sidebar {
+    padding-left: 45px;
+    padding-right: 45px;
+  }
+
+  .posts-list .description h2,
+  .posts-list .description p {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+  }
+
+  .posts-list .description h2 {
+    font-weight: 700;
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .posts-list h2.post-tag {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    padding-bottom: 12px;
+  }
+  .posts-list {
+    margin-top: 60px;
+    margin-bottom: 24px;
+  }
+
+  .posts-list .post-preview {
+    text-decoration: none;
+    overflow: hidden;
+    display: block;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 24px 0;
+  }
+
+  .post-preview-last {
+    border-bottom: none !important;
+  }
+
+  .posts-list .posts-list-caption {
+    grid-column: screen;
+    font-weight: 400;
+  }
+
+  .posts-list .post-preview h2 {
+    margin: 0 0 6px 0;
+    line-height: 1.2em;
+    font-style: normal;
+    font-size: 24px;
+  }
+
+  .posts-list .post-preview p {
+    margin: 0 0 12px 0;
+    line-height: 1.4em;
+    font-size: 16px;
+  }
+
+  .posts-list .post-preview .thumbnail {
+    box-sizing: border-box;
+    margin-bottom: 24px;
+    position: relative;
+    max-width: 500px;
+  }
+  .posts-list .post-preview img {
+    width: 100%;
+    display: block;
+  }
+
+  .posts-list .metadata {
+    font-size: 12px;
+    line-height: 1.4em;
+    margin-bottom: 18px;
+  }
+
+  .posts-list .metadata > * {
+    display: inline-block;
+  }
+
+  .posts-list .metadata .publishedDate {
+    margin-right: 2em;
+  }
+
+  .posts-list .metadata .dt-authors {
+    display: block;
+    margin-top: 0.3em;
+    margin-right: 2em;
+  }
+
+  .posts-list .dt-tags {
+    display: block;
+    line-height: 1em;
+  }
+
+  .posts-list .dt-tags .dt-tag {
+    display: inline-block;
+    color: rgba(0,0,0,0.6);
+    padding: 0.3em 0.4em;
+    margin-right: 0.2em;
+    margin-bottom: 0.4em;
+    font-size: 60%;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .posts-list img {
+    opacity: 1;
+  }
+
+  .posts-list img[data-src] {
+    opacity: 0;
+  }
+
+  .posts-more {
+    clear: both;
+  }
+
+
+  .posts-sidebar {
+    font-size: 16px;
+  }
+
+  .posts-sidebar h3 {
+    font-size: 16px;
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+
+  .sidebar-section {
+    margin-bottom: 30px;
+  }
+
+  .categories ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .categories li {
+    color: rgba(0, 0, 0, 0.8);
+    margin-bottom: 0;
+  }
+
+  .categories li>a {
+    border-bottom: none;
+  }
+
+  .categories li>a:hover {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  }
+
+  .categories .active {
+    font-weight: 600;
+  }
+
+  .categories .category-count {
+    color: rgba(0, 0, 0, 0.4);
+  }
+
+
+  @media(min-width: 768px) {
+    .posts-list .post-preview h2 {
+      font-size: 26px;
+    }
+    .posts-list .post-preview .thumbnail {
+      float: right;
+      width: 30%;
+      margin-bottom: 0;
+    }
+    .posts-list .post-preview .description {
+      float: left;
+      width: 45%;
+    }
+    .posts-list .post-preview .metadata {
+      float: left;
+      width: 20%;
+      margin-top: 8px;
+    }
+    .posts-list .post-preview p {
+      margin: 0 0 12px 0;
+      line-height: 1.5em;
+      font-size: 16px;
+    }
+    .posts-with-sidebar .posts-list {
+      float: left;
+      width: 75%;
+    }
+    .posts-with-sidebar .posts-sidebar {
+      float: right;
+      width: 20%;
+      margin-top: 60px;
+      padding-top: 24px;
+      padding-bottom: 24px;
+    }
+  }
+
+
+  /* Improve display for browsers without grid (IE/Edge <= 15) */
+
+  .downlevel {
+    line-height: 1.6em;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+  }
+
+  .downlevel .d-title {
+    padding-top: 6rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .downlevel .d-title h1 {
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 1.1em;
+    margin: 0 0 0.5rem;
+  }
+
+  .downlevel .d-title p {
+    font-weight: 300;
+    font-size: 1.2rem;
+    line-height: 1.55em;
+    margin-top: 0;
+  }
+
+  .downlevel .d-byline {
+    padding-top: 0.8em;
+    padding-bottom: 0.8em;
+    font-size: 0.8rem;
+    line-height: 1.8em;
+  }
+
+  .downlevel .section-separator {
+    border: none;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .downlevel .d-article {
+    font-size: 1.06rem;
+    line-height: 1.7em;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+  }
+
+
+  .downlevel .d-appendix {
+    padding-left: 0;
+    padding-right: 0;
+    max-width: none;
+    font-size: 0.8em;
+    line-height: 1.7em;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.5);
+    padding-top: 40px;
+    padding-bottom: 48px;
+  }
+
+  .downlevel .footnotes ol {
+    padding-left: 13px;
+  }
+
+  .downlevel .base-grid,
+  .downlevel .distill-header,
+  .downlevel .d-title,
+  .downlevel .d-abstract,
+  .downlevel .d-article,
+  .downlevel .d-appendix,
+  .downlevel .distill-appendix,
+  .downlevel .d-byline,
+  .downlevel .d-footnote-list,
+  .downlevel .d-citation-list,
+  .downlevel .distill-footer,
+  .downlevel .appendix-bottom,
+  .downlevel .posts-container {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  @media(min-width: 768px) {
+    .downlevel .base-grid,
+    .downlevel .distill-header,
+    .downlevel .d-title,
+    .downlevel .d-abstract,
+    .downlevel .d-article,
+    .downlevel .d-appendix,
+    .downlevel .distill-appendix,
+    .downlevel .d-byline,
+    .downlevel .d-footnote-list,
+    .downlevel .d-citation-list,
+    .downlevel .distill-footer,
+    .downlevel .appendix-bottom,
+    .downlevel .posts-container {
+    padding-left: 150px;
+    padding-right: 150px;
+    max-width: 900px;
+  }
+  }
+
+  .downlevel pre code {
+    display: block;
+    border-left: 2px solid rgba(0, 0, 0, .1);
+    padding: 0 0 0 20px;
+    font-size: 14px;
+  }
+
+  .downlevel code, .downlevel pre {
+    color: black;
+    background: none;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+  }
+
+  .downlevel .posts-list .post-preview {
+    color: inherit;
+  }
+
+
+
+  </style>
+
+  <script type="application/javascript">
+
+  function is_downlevel_browser() {
+    if (bowser.isUnsupportedBrowser({ msie: "12", msedge: "16"},
+                                   window.navigator.userAgent)) {
+      return true;
+    } else {
+      return window.load_distill_framework === undefined;
+    }
+  }
+
+  // show body when load is complete
+  function on_load_complete() {
+
+    // add anchors
+    if (window.anchors) {
+      window.anchors.options.placement = 'left';
+      window.anchors.add('d-article > h2, d-article > h3, d-article > h4, d-article > h5');
+    }
+
+
+    // set body to visible
+    document.body.style.visibility = 'visible';
+
+    // force redraw for leaflet widgets
+    if (window.HTMLWidgets) {
+      var maps = window.HTMLWidgets.findAll(".leaflet");
+      $.each(maps, function(i, el) {
+        var map = this.getMap();
+        map.invalidateSize();
+        map.eachLayer(function(layer) {
+          if (layer instanceof L.TileLayer)
+            layer.redraw();
+        });
+      });
+    }
+
+    // trigger 'shown' so htmlwidgets resize
+    $('d-article').trigger('shown');
+  }
+
+  function init_distill() {
+
+    init_common();
+
+    // create front matter
+    var front_matter = $('<d-front-matter></d-front-matter>');
+    $('#distill-front-matter').wrap(front_matter);
+
+    // create d-title
+    $('.d-title').changeElementType('d-title');
+
+    // create d-byline
+    var byline = $('<d-byline></d-byline>');
+    $('.d-byline').replaceWith(byline);
+
+    // create d-article
+    var article = $('<d-article></d-article>');
+    $('.d-article').wrap(article).children().unwrap();
+
+    // move posts container into article
+    $('.posts-container').appendTo($('d-article'));
+
+    // create d-appendix
+    $('.d-appendix').changeElementType('d-appendix');
+
+    // flag indicating that we have appendix items
+    var appendix = $('.appendix-bottom').children('h3').length > 0;
+
+    // replace footnotes with <d-footnote>
+    $('.footnote-ref').each(function(i, val) {
+      appendix = true;
+      var href = $(this).attr('href');
+      var id = href.replace('#', '');
+      var fn = $('#' + id);
+      var fn_p = $('#' + id + '>p');
+      fn_p.find('.footnote-back').remove();
+      var text = fn_p.html();
+      var dtfn = $('<d-footnote></d-footnote>');
+      dtfn.html(text);
+      $(this).replaceWith(dtfn);
+    });
+    // remove footnotes
+    $('.footnotes').remove();
+
+    // move refs into #references-listing
+    $('#references-listing').replaceWith($('#refs'));
+
+    $('h1.appendix, h2.appendix').each(function(i, val) {
+      $(this).changeElementType('h3');
+    });
+    $('h3.appendix').each(function(i, val) {
+      var id = $(this).attr('id');
+      $('.d-contents a[href="#' + id + '"]').parent().remove();
+      appendix = true;
+      $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('d-appendix'));
+    });
+
+    // show d-appendix if we have appendix content
+    $("d-appendix").css('display', appendix ? 'grid' : 'none');
+
+    // localize layout chunks to just output
+    $('.layout-chunk').each(function(i, val) {
+
+      // capture layout
+      var layout = $(this).attr('data-layout');
+
+      // apply layout to markdown level block elements
+      var elements = $(this).children().not('details, div.sourceCode, pre, script');
+      elements.each(function(i, el) {
+        var layout_div = $('<div class="' + layout + '"></div>');
+        if (layout_div.hasClass('shaded')) {
+          var shaded_content = $('<div class="shaded-content"></div>');
+          $(this).wrap(shaded_content);
+          $(this).parent().wrap(layout_div);
+        } else {
+          $(this).wrap(layout_div);
+        }
+      });
+
+
+      // unwrap the layout-chunk div
+      $(this).children().unwrap();
+    });
+
+    // remove code block used to force  highlighting css
+    $('.distill-force-highlighting-css').parent().remove();
+
+    // remove empty line numbers inserted by pandoc when using a
+    // custom syntax highlighting theme
+    $('code.sourceCode a:empty').remove();
+
+    // load distill framework
+    load_distill_framework();
+
+    // wait for window.distillRunlevel == 4 to do post processing
+    function distill_post_process() {
+
+      if (!window.distillRunlevel || window.distillRunlevel < 4)
+        return;
+
+      // hide author/affiliations entirely if we have no authors
+      var front_matter = JSON.parse($("#distill-front-matter").html());
+      var have_authors = front_matter.authors && front_matter.authors.length > 0;
+      if (!have_authors)
+        $('d-byline').addClass('hidden');
+
+      // article with toc class
+      $('.d-contents').parent().addClass('d-article-with-toc');
+
+      // strip links that point to #
+      $('.authors-affiliations').find('a[href="#"]').removeAttr('href');
+
+      // add orcid ids
+      $('.authors-affiliations').find('.author').each(function(i, el) {
+        var orcid_id = front_matter.authors[i].orcidID;
+        if (orcid_id) {
+          var a = $('<a></a>');
+          a.attr('href', 'https://orcid.org/' + orcid_id);
+          var img = $('<img></img>');
+          img.addClass('orcid-id');
+          img.attr('alt', 'ORCID ID');
+          img.attr('src','data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg==');
+          a.append(img);
+          $(this).append(a);
+        }
+      });
+
+      // hide elements of author/affiliations grid that have no value
+      function hide_byline_column(caption) {
+        $('d-byline').find('h3:contains("' + caption + '")').parent().css('visibility', 'hidden');
+      }
+
+      // affiliations
+      var have_affiliations = false;
+      for (var i = 0; i<front_matter.authors.length; ++i) {
+        var author = front_matter.authors[i];
+        if (author.affiliation !== "&nbsp;") {
+          have_affiliations = true;
+          break;
+        }
+      }
+      if (!have_affiliations)
+        $('d-byline').find('h3:contains("Affiliations")').css('visibility', 'hidden');
+
+      // published date
+      if (!front_matter.publishedDate)
+        hide_byline_column("Published");
+
+      // document object identifier
+      var doi = $('d-byline').find('h3:contains("DOI")');
+      var doi_p = doi.next().empty();
+      if (!front_matter.doi) {
+        // if we have a citation and valid citationText then link to that
+        if ($('#citation').length > 0 && front_matter.citationText) {
+          doi.html('Citation');
+          $('<a href="#citation"></a>')
+            .text(front_matter.citationText)
+            .appendTo(doi_p);
+        } else {
+          hide_byline_column("DOI");
+        }
+      } else {
+        $('<a></a>')
+           .attr('href', "https://doi.org/" + front_matter.doi)
+           .html(front_matter.doi)
+           .appendTo(doi_p);
+      }
+
+       // change plural form of authors/affiliations
+      if (front_matter.authors.length === 1) {
+        var grid = $('.authors-affiliations');
+        grid.children('h3:contains("Authors")').text('Author');
+        grid.children('h3:contains("Affiliations")').text('Affiliation');
+      }
+
+      // remove d-appendix and d-footnote-list local styles
+      $('d-appendix > style:first-child').remove();
+      $('d-footnote-list > style:first-child').remove();
+
+      // move appendix-bottom entries to the bottom
+      $('.appendix-bottom').appendTo('d-appendix').children().unwrap();
+      $('.appendix-bottom').remove();
+
+      // hoverable references
+      $('span.citation[data-cites]').each(function() {
+        var refHtml = $('#ref-' + $(this).attr('data-cites')).html();
+        window.tippy(this, {
+          allowHTML: true,
+          content: refHtml,
+          maxWidth: 500,
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start'
+        });
+      });
+
+      // clear polling timer
+      clearInterval(tid);
+
+      // show body now that everything is ready
+      on_load_complete();
+    }
+
+    var tid = setInterval(distill_post_process, 50);
+    distill_post_process();
+
+  }
+
+  function init_downlevel() {
+
+    init_common();
+
+     // insert hr after d-title
+    $('.d-title').after($('<hr class="section-separator"/>'));
+
+    // check if we have authors
+    var front_matter = JSON.parse($("#distill-front-matter").html());
+    var have_authors = front_matter.authors && front_matter.authors.length > 0;
+
+    // manage byline/border
+    if (!have_authors)
+      $('.d-byline').remove();
+    $('.d-byline').after($('<hr class="section-separator"/>'));
+    $('.d-byline a').remove();
+
+    // remove toc
+    $('.d-contents').remove();
+
+    // move appendix elements
+    $('h1.appendix, h2.appendix').each(function(i, val) {
+      $(this).changeElementType('h3');
+    });
+    $('h3.appendix').each(function(i, val) {
+      $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('.d-appendix'));
+    });
+
+
+    // inject headers into references and footnotes
+    var refs_header = $('<h3></h3>');
+    refs_header.text('References');
+    $('#refs').prepend(refs_header);
+
+    var footnotes_header = $('<h3></h3');
+    footnotes_header.text('Footnotes');
+    $('.footnotes').children('hr').first().replaceWith(footnotes_header);
+
+    // move appendix-bottom entries to the bottom
+    $('.appendix-bottom').appendTo('.d-appendix').children().unwrap();
+    $('.appendix-bottom').remove();
+
+    // remove appendix if it's empty
+    if ($('.d-appendix').children().length === 0)
+      $('.d-appendix').remove();
+
+    // prepend separator above appendix
+    $('.d-appendix').before($('<hr class="section-separator" style="clear: both"/>'));
+
+    // trim code
+    $('pre>code').each(function(i, val) {
+      $(this).html($.trim($(this).html()));
+    });
+
+    // move posts-container right before article
+    $('.posts-container').insertBefore($('.d-article'));
+
+    $('body').addClass('downlevel');
+
+    on_load_complete();
+  }
+
+
+  function init_common() {
+
+    // jquery plugin to change element types
+    (function($) {
+      $.fn.changeElementType = function(newType) {
+        var attrs = {};
+
+        $.each(this[0].attributes, function(idx, attr) {
+          attrs[attr.nodeName] = attr.nodeValue;
+        });
+
+        this.replaceWith(function() {
+          return $("<" + newType + "/>", attrs).append($(this).contents());
+        });
+      };
+    })(jQuery);
+
+    // prevent underline for linked images
+    $('a > img').parent().css({'border-bottom' : 'none'});
+
+    // mark non-body figures created by knitr chunks as 100% width
+    $('.layout-chunk').each(function(i, val) {
+      var figures = $(this).find('img, .html-widget');
+      if ($(this).attr('data-layout') !== "l-body") {
+        figures.css('width', '100%');
+      } else {
+        figures.css('max-width', '100%');
+        figures.filter("[width]").each(function(i, val) {
+          var fig = $(this);
+          fig.css('width', fig.attr('width') + 'px');
+        });
+
+      }
+    });
+
+    // auto-append index.html to post-preview links in file: protocol
+    // and in rstudio ide preview
+    $('.post-preview').each(function(i, val) {
+      if (window.location.protocol === "file:")
+        $(this).attr('href', $(this).attr('href') + "index.html");
+    });
+
+    // get rid of index.html references in header
+    if (window.location.protocol !== "file:") {
+      $('.distill-site-header a[href]').each(function(i,val) {
+        $(this).attr('href', $(this).attr('href').replace("index.html", "./"));
+      });
+    }
+
+    // add class to pandoc style tables
+    $('tr.header').parent('thead').parent('table').addClass('pandoc-table');
+    $('.kable-table').children('table').addClass('pandoc-table');
+
+    // add figcaption style to table captions
+    $('caption').parent('table').addClass("figcaption");
+
+    // initialize posts list
+    if (window.init_posts_list)
+      window.init_posts_list();
+
+    // implmement disqus comment link
+    $('.disqus-comment-count').click(function() {
+      window.headroom_prevent_pin = true;
+      $('#disqus_thread').toggleClass('hidden');
+      if (!$('#disqus_thread').hasClass('hidden')) {
+        var offset = $(this).offset();
+        $(window).resize();
+        $('html, body').animate({
+          scrollTop: offset.top - 35
+        });
+      }
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    if (is_downlevel_browser())
+      init_downlevel();
+    else
+      window.addEventListener('WebComponentsReady', init_distill);
+  });
+
+  </script>
+
+  <!--/radix_placeholder_distill-->
+  <script src="functions_files/header-attrs-2.10/header-attrs.js"></script>
+  <script src="functions_files/jquery-1.11.3/jquery.min.js"></script>
+  <script src="functions_files/popper-2.6.0/popper.min.js"></script>
+  <link href="functions_files/tippy-6.2.7/tippy.css" rel="stylesheet" />
+  <link href="functions_files/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
+  <script src="functions_files/tippy-6.2.7/tippy.umd.min.js"></script>
+  <script src="functions_files/anchor-4.2.2/anchor.min.js"></script>
+  <script src="functions_files/bowser-1.9.3/bowser.min.js"></script>
+  <script src="functions_files/webcomponents-2.0.0/webcomponents.js"></script>
+  <script src="functions_files/distill-2.2.21/template.v2.js"></script>
+  <!--radix_placeholder_site_in_header-->
+  <!--/radix_placeholder_site_in_header-->
+
+
+</head>
+
+<body>
+
+<!--radix_placeholder_front_matter-->
+
+<script id="distill-front-matter" type="text/json">
+{"title":"Functions","description":"Introduction to writing functions in R.","authors":[{"author":"Stephanie Hicks","authorURL":"https://stephaniehicks.com/","affiliation":"Department of Biostatistics, Johns Hopkins","affiliationURL":"https://www.jhsph.edu","orcidID":""}],"publishedDate":"2021-09-21T00:00:00.000+00:00","citationText":"Hicks, 2021"}
+</script>
+
+<!--/radix_placeholder_front_matter-->
+<!--radix_placeholder_navigation_before_body-->
+<!--/radix_placeholder_navigation_before_body-->
+<!--radix_placeholder_site_before_body-->
+<!--/radix_placeholder_site_before_body-->
+
+<div class="d-title">
+<h1>Functions</h1>
+<!--radix_placeholder_categories-->
+<div class="dt-tags">
+<div class="dt=tag">module 2</div>
+<div class="dt=tag">week 4</div>
+<div class="dt=tag">programming</div>
+<div class="dt=tag">functions</div>
+</div>
+<!--/radix_placeholder_categories-->
+<p><p>Introduction to writing functions in R.</p></p>
+</div>
+
+<div class="d-byline">
+  Stephanie Hicks <a href="https://stephaniehicks.com/" class="uri">https://stephaniehicks.com/</a> (Department of Biostatistics, Johns Hopkins)<a href="https://www.jhsph.edu" class="uri">https://www.jhsph.edu</a>
+  
+<br/>09-21-2021
+</div>
+
+<div class="d-article">
+<div class="d-contents d-contents-float">
+<nav class="l-text toc figcaption" id="TOC">
+<h3>Contents</h3>
+<ul>
+<li><a href="#pre-lecture-materials">Pre-lecture materials</a>
+<ul>
+<li><a href="#read-ahead">Read ahead</a></li>
+<li><a href="#acknowledgements">Acknowledgements</a></li>
+</ul></li>
+<li><a href="#learning-objectives">Learning objectives</a></li>
+<li><a href="#introduction">Introduction</a>
+<ul>
+<li><a href="#functions-in-r">Functions in R</a></li>
+<li><a href="#your-first-function">Your First Function</a></li>
+</ul></li>
+<li><a href="#arguments">Arguments</a>
+<ul>
+<li><a href="#named-arguments">Named arguments</a></li>
+<li><a href="#argument-matching">Argument matching</a></li>
+<li><a href="#lazy-evaluation">Lazy Evaluation</a></li>
+<li><a href="#the-...-argument">The <code>...</code> Argument</a></li>
+<li><a href="#arguments-coming-after-the-...-argument">Arguments Coming After the <code>...</code> Argument</a></li>
+</ul></li>
+<li><a href="#functions-are-for-humans-and-computers">Functions are for humans and computers</a></li>
+<li><a href="#environment">Environment</a></li>
+<li><a href="#summary-1">Summary</a></li>
+<li><a href="#post-lecture-materials">Post-lecture materials</a>
+<ul>
+<li><a href="#final-questions">Final Questions</a></li>
+<li><a href="#additional-resources">Additional Resources</a></li>
+</ul></li>
+</ul>
+</nav>
+</div>
+<!-- Add interesting quote -->
+<h1 id="pre-lecture-materials">Pre-lecture materials</h1>
+<h3 id="read-ahead">Read ahead</h3>
+<div class="resources">
+<p><strong>Before class, you can prepare by reading the following materials:</strong></p>
+<ol type="1">
+<li><a href="https://r4ds.had.co.nz/functions.html" class="uri">https://r4ds.had.co.nz/functions.html</a></li>
+<li><a href="https://adv-r.hadley.nz/functions.html?#functions" class="uri">https://adv-r.hadley.nz/functions.html?#functions</a></li>
+<li><a href="https://swcarpentry.github.io/r-novice-inflammation/02-func-R/" class="uri">https://swcarpentry.github.io/r-novice-inflammation/02-func-R/</a></li>
+</ol>
+</div>
+<h3 id="acknowledgements">Acknowledgements</h3>
+<p>Material for this lecture was borrowed and adopted from</p>
+<ul>
+<li><a href="https://rdpeng.github.io/Biostat776/lecture-functions.html" class="uri">https://rdpeng.github.io/Biostat776/lecture-functions.html</a></li>
+<li><a href="https://rdpeng.github.io/Biostat776/lecture-scoping-rules-of-r.html" class="uri">https://rdpeng.github.io/Biostat776/lecture-scoping-rules-of-r.html</a></li>
+<li><a href="https://r4ds.had.co.nz/functions.html" class="uri">https://r4ds.had.co.nz/functions.html</a></li>
+<li><a href="https://r4ds.had.co.nz/functions.html#environment" class="uri">https://r4ds.had.co.nz/functions.html#environment</a></li>
+</ul>
+<h1 id="learning-objectives">Learning objectives</h1>
+<div class="keyideas">
+<p><strong>At the end of this lesson you will:</strong></p>
+<ul>
+<li>Know how to create a function using <code>function()</code> in R</li>
+<li>Know how to define named arguments inside a function with default values</li>
+<li>Be able to use named matching or positional matching in the argument list</li>
+<li>Understand what is lazy evaluation</li>
+<li>Understand the the special <code>...</code> argument in a function definition</li>
+<li></li>
+</ul>
+</div>
+<h1 id="introduction">Introduction</h1>
+<p>Writing functions is a <strong>core activity</strong> of an R programmer. It represents the key step of the transition from a mere “user” to a developer who creates new functionality for R. Functions are often used to encapsulate a sequence of expressions that need to be executed numerous times, perhaps under slightly different conditions. Functions are also often written when code must be shared with others or the public.</p>
+<p>The writing of a function allows a developer to create an interface to the code, that is explicitly specified with a set of <strong>arguments</strong> (or parameters). This interface provides an abstraction of the code to potential users. This abstraction simplifies the users’ lives because it relieves them from having to know every detail of how the code operates. In addition, the creation of an interface allows the developer to communicate to the user the aspects of the code that are important or are most relevant.</p>
+<h3 id="functions-in-r">Functions in R</h3>
+<p>Functions in R are “first class objects”, which means that they can be treated much like any other R object.</p>
+<p><strong>Important facts about R functions</strong>:</p>
+<ul>
+<li><p>Functions can be passed as arguments to other functions. This is very handy for the various apply functions, like <code>lapply()</code> and <code>sapply()</code>.</p></li>
+<li><p>Functions can be nested, so that you can define a function inside of another function</p></li>
+</ul>
+<p>If you are familiar with common language like C, these features might appear a bit strange. However, they are really important in R and can be useful for data analysis.</p>
+<h3 id="your-first-function">Your First Function</h3>
+<p>Functions are defined using the <code>function()</code> directive and are stored as R objects just like anything else. In particular, they are R objects of class “function”.</p>
+<p>Here’s a simple function that takes no arguments and does nothing.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>f</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>{</span>
+        <span class='co'>## This is an empty function</span>
+<span class='op'>}</span>
+<span class='co'>## Functions have their own class</span>
+<span class='fu'><a href='https://rdrr.io/r/base/class.html'>class</a></span><span class='op'>(</span><span class='va'>f</span><span class='op'>)</span>  
+</code></pre>
+</div>
+<pre><code>[1] &quot;function&quot;</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'>## Execute this function</span>
+<span class='fu'>f</span><span class='op'>(</span><span class='op'>)</span>       
+</code></pre>
+</div>
+<pre><code>NULL</code></pre>
+</div>
+<p>Not very interesting, but it is a start. The next thing we can do is create a function that actually has a non-trivial <strong>function body</strong>.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>f</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>{</span>
+        <span class='co'># this is the function body</span>
+        <span class='fu'><a href='https://rdrr.io/r/base/cat.html'>cat</a></span><span class='op'>(</span><span class='st'>"Hello, world!\n"</span><span class='op'>)</span> 
+<span class='op'>}</span>
+<span class='fu'>f</span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>Hello, world!</code></pre>
+</div>
+<p>The last aspect of a basic function is the <strong>function arguments</strong>. These are the options that you can specify to the user that the user may explicitly set. For this basic function, we can add an argument that determines how many times “Hello, world!” is printed to the console.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>f</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>num</span><span class='op'>)</span> <span class='op'>{</span>
+        <span class='kw'>for</span><span class='op'>(</span><span class='va'>i</span> <span class='kw'>in</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq_len</a></span><span class='op'>(</span><span class='va'>num</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span>
+                <span class='fu'><a href='https://rdrr.io/r/base/cat.html'>cat</a></span><span class='op'>(</span><span class='st'>"Hello, world!\n"</span><span class='op'>)</span>
+        <span class='op'>}</span>
+<span class='op'>}</span>
+<span class='fu'>f</span><span class='op'>(</span><span class='fl'>3</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>Hello, world!
+Hello, world!
+Hello, world!</code></pre>
+</div>
+<p>Obviously, we could have just cut-and-pasted the <code>cat("Hello, world!\n")</code> code three times to achieve the same effect, but then we wouldn’t be programming, would we? Also, it would be un-neighborly of you to give your code to someone else and force them to cut-and-paste the code however many times the need to see “Hello, world!”.</p>
+<div class="keyideas">
+<p><strong>Pro tip</strong>: if you find yourself doing a lot of cutting and pasting, that’s usually a good sign that you might need to write a function.</p>
+</div>
+<p>Finally, the function above doesn’t <strong>return</strong> anything. It just prints “Hello, world!” to the console <code>num</code> number of times and then exits. But often it is useful if a function returns something that perhaps can be fed into another section of code.</p>
+<p>This next function returns the total number of characters printed to the console.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>f</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>num</span><span class='op'>)</span> <span class='op'>{</span>
+        <span class='va'>hello</span> <span class='op'>&lt;-</span> <span class='st'>"Hello, world!\n"</span>
+        <span class='kw'>for</span><span class='op'>(</span><span class='va'>i</span> <span class='kw'>in</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq_len</a></span><span class='op'>(</span><span class='va'>num</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span>
+                <span class='fu'><a href='https://rdrr.io/r/base/cat.html'>cat</a></span><span class='op'>(</span><span class='va'>hello</span><span class='op'>)</span>
+        <span class='op'>}</span>
+        <span class='va'>chars</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/nchar.html'>nchar</a></span><span class='op'>(</span><span class='va'>hello</span><span class='op'>)</span> <span class='op'>*</span> <span class='va'>num</span>
+        <span class='va'>chars</span>
+<span class='op'>}</span>
+<span class='va'>meaningoflife</span> <span class='op'>&lt;-</span> <span class='fu'>f</span><span class='op'>(</span><span class='fl'>3</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>Hello, world!
+Hello, world!
+Hello, world!</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>meaningoflife</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>[1] 42</code></pre>
+</div>
+<p>In the above function, we did not have to indicate anything special in order for the function to return the number of characters. In R, the return value of a function is always the very last expression that is evaluated. Because the <code>chars</code> variable is the last expression that is evaluated in this function, that becomes the return value of the function.</p>
+<p>Note that there is a <code>return()</code> function that can be used to return an explicitly value from a function, but it is rarely used in R (we will discuss it a bit later in this lesson).</p>
+<p>Finally, in the above function, the user must specify the value of the argument <code>num</code>. If it is not specified by the user, R will throw an error.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>f</span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>Error in f(): argument &quot;num&quot; is missing, with no default</code></pre>
+</div>
+<p>We can modify this behavior by setting a <em>default value</em> for the argument <code>num</code>. Any function argument can have a default value, if you wish to specify it. Sometimes, argument values are rarely modified (except in special cases) and it makes sense to set a default value for that argument. This relieves the user from having to specify the value of that argument every single time the function is called.</p>
+<p>Here, for example, we could set the default value for <code>num</code> to be 1, so that if the function is called without the <code>num</code> argument being explicitly specified, then it will print “Hello, world!” to the console once.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>f</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>num</span> <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span> <span class='op'>{</span>
+        <span class='va'>hello</span> <span class='op'>&lt;-</span> <span class='st'>"Hello, world!\n"</span>
+        <span class='kw'>for</span><span class='op'>(</span><span class='va'>i</span> <span class='kw'>in</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq_len</a></span><span class='op'>(</span><span class='va'>num</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span>
+                <span class='fu'><a href='https://rdrr.io/r/base/cat.html'>cat</a></span><span class='op'>(</span><span class='va'>hello</span><span class='op'>)</span>
+        <span class='op'>}</span>
+        <span class='va'>chars</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/nchar.html'>nchar</a></span><span class='op'>(</span><span class='va'>hello</span><span class='op'>)</span> <span class='op'>*</span> <span class='va'>num</span>
+        <span class='va'>chars</span>
+<span class='op'>}</span>
+<span class='fu'>f</span><span class='op'>(</span><span class='op'>)</span>    <span class='co'>## Use default value for 'num'</span>
+</code></pre>
+</div>
+<pre><code>Hello, world!
+[1] 14</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>f</span><span class='op'>(</span><span class='fl'>2</span><span class='op'>)</span>   <span class='co'>## Use user-specified value</span>
+</code></pre>
+</div>
+<pre><code>Hello, world!
+Hello, world!
+[1] 28</code></pre>
+</div>
+<p>Remember that the function still returns the number of characters printed to the console.</p>
+<div class="keyideas">
+<strong>Pro tip</strong>: The <code>formals()</code> function returns a list of all the formal arguments of a function
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/formals.html'>formals</a></span><span class='op'>(</span><span class='va'>f</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>$num
+[1] 1</code></pre>
+</div>
+</div>
+<h4 id="summary">Summary</h4>
+<p>We have written a function that</p>
+<ul>
+<li><p>has one <em>formal argument</em> named <code>num</code> with a <em>default value</em> of 1. The <em>formal arguments</em> are the arguments included in the function definition.</p></li>
+<li><p>prints the message “Hello, world!” to the console a number of times indicated by the argument <code>num</code></p></li>
+<li><p><em>returns</em> the number of characters printed to the console</p></li>
+</ul>
+<h1 id="arguments">Arguments</h1>
+<h3 id="named-arguments">Named arguments</h3>
+<p>Functions have <strong>named arguments</strong>, which can optionally have default values. Because all function arguments have names, they can be specified using their name.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>f</span><span class='op'>(</span>num <span class='op'>=</span> <span class='fl'>2</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>Hello, world!
+Hello, world!
+[1] 28</code></pre>
+</div>
+<p>Specifying an argument by its name is sometimes useful if a function has many arguments and it may not always be clear which argument is being specified. Here, our function only has one argument so there’s no confusion.</p>
+<h3 id="argument-matching">Argument matching</h3>
+<p>Calling an R function with arguments can be done in a variety of ways. This may be confusing at first, but it’s really handy when doing interactive work at the command line. R functions arguments can be matched <em>positionally</em> or by name. Positional matching just means that R assigns the first value to the first argument, the second value to second argument, etc. So in the following call to <code>rnorm()</code></p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/utils/str.html'>str</a></span><span class='op'>(</span><span class='va'>rnorm</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>function (n, mean = 0, sd = 1)  </code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>mydata</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='fl'>100</span>, <span class='fl'>2</span>, <span class='fl'>1</span><span class='op'>)</span>              <span class='co'>## Generate some data</span>
+</code></pre>
+</div>
+</div>
+<p>100 is assigned to the <code>n</code> argument, 2 is assigned to the <code>mean</code> argument, and 1 is assigned to the <code>sd</code> argument, all by positional matching.</p>
+<p>The following calls to the <code>sd()</code> function (which computes the empirical standard deviation of a vector of numbers) are all equivalent. Note that <code>sd()</code> has two arguments: <code>x</code> indicates the vector of numbers and <code>na.rm</code> is a logical indicating whether missing values should be removed or not.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'>## Positional match first argument, default for 'na.rm'</span>
+<span class='fu'><a href='https://rdrr.io/r/stats/sd.html'>sd</a></span><span class='op'>(</span><span class='va'>mydata</span><span class='op'>)</span>                     
+</code></pre>
+</div>
+<pre><code>[1] 0.930533</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'>## Specify 'x' argument by name, default for 'na.rm'</span>
+<span class='fu'><a href='https://rdrr.io/r/stats/sd.html'>sd</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>mydata</span><span class='op'>)</span>                 
+</code></pre>
+</div>
+<pre><code>[1] 0.930533</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'>## Specify both arguments by name</span>
+<span class='fu'><a href='https://rdrr.io/r/stats/sd.html'>sd</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>mydata</span>, na.rm <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>  
+</code></pre>
+</div>
+<pre><code>[1] 0.930533</code></pre>
+</div>
+<p>When specifying the function arguments by name, it doesn’t matter in what order you specify them. In the example below, we specify the <code>na.rm</code> argument first, followed by <code>x</code>, even though <code>x</code> is the first argument defined in the function definition.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'>## Specify both arguments by name</span>
+<span class='fu'><a href='https://rdrr.io/r/stats/sd.html'>sd</a></span><span class='op'>(</span>na.rm <span class='op'>=</span> <span class='cn'>FALSE</span>, x <span class='op'>=</span> <span class='va'>mydata</span><span class='op'>)</span>     
+</code></pre>
+</div>
+<pre><code>[1] 0.930533</code></pre>
+</div>
+<p>You can mix positional matching with matching by name. When an argument is matched by name, it is “taken out” of the argument list and the remaining unnamed arguments are matched in the order that they are listed in the function definition.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/stats/sd.html'>sd</a></span><span class='op'>(</span>na.rm <span class='op'>=</span> <span class='cn'>FALSE</span>, <span class='va'>mydata</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>[1] 0.930533</code></pre>
+</div>
+<p>Here, the <code>mydata</code> object is assigned to the <code>x</code> argument, because it’s the only argument not yet specified.</p>
+<div class="keyideas">
+<p><strong>Pro tip</strong>: The <code>args()</code> function displays the argument names and corresponding default values of a function</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/args.html'>args</a></span><span class='op'>(</span><span class='va'>f</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>function (num = 1) 
+NULL</code></pre>
+</div>
+</div>
+<p>Below is the argument list for the <code>lm()</code> function, which fits linear models to a dataset.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/args.html'>args</a></span><span class='op'>(</span><span class='va'>lm</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>function (formula, data, subset, weights, na.action, method = &quot;qr&quot;, 
+    model = TRUE, x = FALSE, y = FALSE, qr = TRUE, singular.ok = TRUE, 
+    contrasts = NULL, offset, ...) 
+NULL</code></pre>
+</div>
+<p>The following two calls are equivalent.</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(<span class="at">data =</span> mydata, y <span class="sc">~</span> x, <span class="at">model =</span> <span class="cn">FALSE</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(y <span class="sc">~</span> x, mydata, <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>, <span class="at">model =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<p>Even though it’s legal, I don’t recommend messing around with the order of the arguments too much, since it can lead to some confusion.</p>
+<p>Most of the time, named arguments are useful on the command line when you have a long argument list and you want to use the defaults for everything except for an argument near the end of the list. Named arguments also help if you can remember the name of the argument and not its position on the argument list. For example, plotting functions often have a lot of options to allow for customization, but this makes it difficult to remember exactly the position of every argument on the argument list.</p>
+<p>Function arguments can also be <em>partially</em> matched, which is useful for interactive work. The order of operations when given an argument is</p>
+<ol type="1">
+<li>Check for exact match for a named argument</li>
+<li>Check for a partial match</li>
+<li>Check for a positional match</li>
+</ol>
+<p>Partial matching should be avoided when writing longer code or programs, because it may lead to confusion if someone is reading the code. However, partial matching is very useful when calling functions interactively that have very long argument names.</p>
+<h3 id="lazy-evaluation">Lazy Evaluation</h3>
+<p>Arguments to functions are evaluated <em>lazily</em>, so they are evaluated only as needed in the body of the function.</p>
+<p>In this example, the function <code>f()</code> has two arguments: <code>a</code> and <code>b</code>.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>f</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>a</span>, <span class='va'>b</span><span class='op'>)</span> <span class='op'>{</span>
+        <span class='va'>a</span><span class='op'>^</span><span class='fl'>2</span>
+<span class='op'>}</span> 
+<span class='fu'>f</span><span class='op'>(</span><span class='fl'>2</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>[1] 4</code></pre>
+</div>
+<p>This function never actually uses the argument <code>b</code>, so calling <code>f(2)</code> will not produce an error because the 2 gets positionally matched to <code>a</code>. This behavior can be good or bad. It’s common to write a function that doesn’t use an argument and not notice it simply because R never throws an error.</p>
+<p>This example also shows lazy evaluation at work, but does eventually result in an error.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>f</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>a</span>, <span class='va'>b</span><span class='op'>)</span> <span class='op'>{</span>
+        <span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>a</span><span class='op'>)</span>
+        <span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>b</span><span class='op'>)</span>
+<span class='op'>}</span>
+<span class='fu'>f</span><span class='op'>(</span><span class='fl'>45</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>[1] 45
+Error in print(b): argument &quot;b&quot; is missing, with no default</code></pre>
+</div>
+<p>Notice that “45” got printed first before the error was triggered. This is because <code>b</code> did not have to be evaluated until after <code>print(a)</code>. Once the function tried to evaluate <code>print(b)</code> the function had to throw an error.</p>
+<h3 id="the-...-argument">The <code>...</code> Argument</h3>
+<p>There is a special argument in R known as the <code>...</code> argument, which indicates a variable number of arguments that are usually passed on to other functions. The <code>...</code> argument is often used when extending another function and you don’t want to copy the entire argument list of the original function</p>
+<p>For example, a custom plotting function may want to make use of the default <code>plot()</code> function along with its entire argument list. The function below changes the default for the <code>type</code> argument to the value <code>type = "l"</code> (the original default was <code>type = "p"</code>).</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>myplot <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, ...) {</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>        <span class="fu">plot</span>(x, y, <span class="at">type =</span> type, ...)         <span class="do">## Pass &#39;...&#39; to &#39;plot&#39; function</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>Generic functions use <code>...</code> so that extra arguments can be passed to methods.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>mean</span>
+</code></pre>
+</div>
+<pre><code>function (x, ...) 
+UseMethod(&quot;mean&quot;)
+&lt;bytecode: 0x7fc9dc00bc48&gt;
+&lt;environment: namespace:base&gt;</code></pre>
+</div>
+<p>The <code>...</code> argument is necessary when the number of arguments passed to the function cannot be known in advance. This is clear in functions like <code>paste()</code> and <code>cat()</code>.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/args.html'>args</a></span><span class='op'>(</span><span class='va'>paste</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>function (..., sep = &quot; &quot;, collapse = NULL, recycle0 = FALSE) 
+NULL</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/args.html'>args</a></span><span class='op'>(</span><span class='va'>cat</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>function (..., file = &quot;&quot;, sep = &quot; &quot;, fill = FALSE, labels = NULL, 
+    append = FALSE) 
+NULL</code></pre>
+</div>
+<p>Because both <code>paste()</code> and <code>cat()</code> print out text to the console by combining multiple character vectors together, it is impossible for those functions to know in advance how many character vectors will be passed to the function by the user. So the first argument to either function is <code>...</code>.</p>
+<h3 id="arguments-coming-after-the-...-argument">Arguments Coming After the <code>...</code> Argument</h3>
+<p>One catch with <code>...</code> is that any arguments that appear <em>after</em> <code>...</code> on the argument list must be named explicitly and cannot be partially matched or matched positionally.</p>
+<p>Take a look at the arguments to the <code>paste()</code> function.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/args.html'>args</a></span><span class='op'>(</span><span class='va'>paste</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>function (..., sep = &quot; &quot;, collapse = NULL, recycle0 = FALSE) 
+NULL</code></pre>
+</div>
+<p>With the <code>paste()</code> function, the arguments <code>sep</code> and <code>collapse</code> must be named explicitly and in full if the default values are not going to be used.</p>
+<p>Here I specify that I want “a” and “b” to be pasted together and separated by a colon.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span><span class='op'>(</span><span class='st'>"a"</span>, <span class='st'>"b"</span>, sep <span class='op'>=</span> <span class='st'>":"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>[1] &quot;a:b&quot;</code></pre>
+</div>
+<p>If I don’t specify the <code>sep</code> argument in full and attempt to rely on partial matching, I don’t get the expected result.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span><span class='op'>(</span><span class='st'>"a"</span>, <span class='st'>"b"</span>, se <span class='op'>=</span> <span class='st'>":"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>[1] &quot;a b :&quot;</code></pre>
+</div>
+<h1 id="functions-are-for-humans-and-computers">Functions are for humans and computers</h1>
+<p>As you start to write your own functions, it’s important to keep in mind that functions are not just for the computer, but are also for humans. Technically, R does not care what your function is called, or what comments it contains, but these are important for <strong>human readers</strong>. This section discusses some things that you should bear in mind when writing functions that humans can understand.</p>
+<p><strong>The name of a function is important</strong>. In an ideal world, you want the name of your function to be short but clearly describe what the function does. This is not always easy, but here are some tips.</p>
+<p>The <strong>function names</strong> should be <strong>verbs</strong>, and <strong>arguments</strong> should be <strong>nouns</strong>.</p>
+<p>There are some exceptions: nouns are ok if the function computes a very well known noun (i.e. <code>mean()</code> is better than <code>compute_mean()</code>). A good sign that a noun might be a better choice is if you are using a very broad verb like “get”, “compute”, “calculate”, or “determine”. Use your best judgement and do not be afraid to rename a function if you figure out a better name later.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># Too short</span>
+<span class='fu'>f</span><span class='op'>(</span><span class='op'>)</span>
+
+<span class='co'># Not a verb, or descriptive</span>
+<span class='fu'>my_awesome_function</span><span class='op'>(</span><span class='op'>)</span>
+
+<span class='co'># Long, but clear</span>
+<span class='fu'>impute_missing</span><span class='op'>(</span><span class='op'>)</span>
+<span class='fu'>collapse_years</span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<p>If your function name is composed of multiple words, use “snake_case”, where each lowercase word is separated by an underscore. “camelCase” is a popular alternative. It does not really matter which one you pick, the important thing is to be consistent: pick one or the other and stick with it. R itself is not very consistent, but there is nothing you can do about that. Make sure you do not fall into the same trap by making your code as consistent as possible.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># Never do this!</span>
+<span class='va'>col_mins</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>y</span><span class='op'>)</span> <span class='op'>{</span><span class='op'>}</span>
+<span class='va'>rowMaxes</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>y</span>, <span class='va'>x</span><span class='op'>)</span> <span class='op'>{</span><span class='op'>}</span>
+</code></pre>
+</div>
+</div>
+<p>If you have a family of functions that do similar things, make sure they have consistent names and arguments. Use a common prefix to indicate that they are connected. That is better than a common suffix because autocomplete allows you to type the prefix and see all the members of the family.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># Good</span>
+<span class='fu'>input_select</span><span class='op'>(</span><span class='op'>)</span>
+<span class='fu'>input_checkbox</span><span class='op'>(</span><span class='op'>)</span>
+<span class='fu'>input_text</span><span class='op'>(</span><span class='op'>)</span>
+
+<span class='co'># Not so good</span>
+<span class='fu'>select_input</span><span class='op'>(</span><span class='op'>)</span>
+<span class='fu'>checkbox_input</span><span class='op'>(</span><span class='op'>)</span>
+<span class='fu'>text_input</span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<p>Where possible, avoid overriding existing functions and variables. It is impossible to do in general because so many good names are already taken by other packages, but avoiding the most common names from base R will avoid confusion.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># Don't do this!</span>
+<span class='cn'>T</span> <span class='op'>&lt;-</span> <span class='cn'>FALSE</span>
+<span class='va'>c</span> <span class='op'>&lt;-</span> <span class='fl'>10</span>
+<span class='va'>mean</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<p>Use comments, lines starting with #, to explain the “why” of your code. You generally should avoid comments that explain the “what” or the “how”. If you can’t understand what the code does from reading it, you should think about how to rewrite it to be more clear.</p>
+<p>Do you need to add some intermediate variables with useful names? Do you need to break out a subcomponent of a large function so you can name it? However, your code can never capture the reasoning behind your decisions: why did you choose this approach instead of an alternative? What else did you try that didn’t work? It’s a great idea to capture that sort of thinking in a comment.</p>
+<h1 id="environment">Environment</h1>
+<p>The last component of a function is its <strong>environment</strong>. This is not something you need to understand deeply when you first start writing functions. However, it’s important to know a little bit about environments because they are crucial to how functions work.</p>
+<p>The <strong>environment of a function</strong> controls how R finds the value associated with a name.</p>
+<p>For example, take this function:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>f</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='op'>{</span>
+  <span class='va'>x</span> <span class='op'>+</span> <span class='va'>y</span>
+<span class='op'>}</span> 
+</code></pre>
+</div>
+</div>
+<p>In many programming languages, this would be an error, because 1y1 is not defined inside the function. In R, this is valid code because R uses rules called <strong>lexical scoping</strong> to find the value associated with a name. Since <code>y</code> is not defined inside the function, R will look in the environment where the function was defined:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>y</span> <span class='op'>&lt;-</span> <span class='fl'>100</span>
+<span class='fu'>f</span><span class='op'>(</span><span class='fl'>10</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>[1] 110</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r">
+<span class='va'>y</span> <span class='op'>&lt;-</span> <span class='fl'>1000</span>
+<span class='fu'>f</span><span class='op'>(</span><span class='fl'>10</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>[1] 1010</code></pre>
+</div>
+<p>This behavior seems like a recipe for bugs, and indeed you should avoid creating functions like this deliberately, but by and large it does not cause too many problems (especially if you regularly restart R to get to a clean slate).</p>
+<p>The advantage of this behavior is that from a language standpoint it allows R to be very consistent. Every name is looked up using the same set of rules. For <code>f()</code> that includes the behavior of two things that you might not expect: <code>{</code> and <code>+</code>. This allows you to do devious things like:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>`+`</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>y</span><span class='op'>)</span> <span class='op'>{</span>
+  <span class='kw'>if</span> <span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/Uniform.html'>runif</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>)</span> <span class='op'>&lt;</span> <span class='fl'>0.1</span><span class='op'>)</span> <span class='op'>{</span>
+    <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>y</span><span class='op'>)</span>
+  <span class='op'>}</span> <span class='kw'>else</span> <span class='op'>{</span>
+    <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>y</span><span class='op'>)</span> <span class='op'>*</span> <span class='fl'>1.1</span>
+  <span class='op'>}</span>
+<span class='op'>}</span>
+<span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/lapply.html'>replicate</a></span><span class='op'>(</span><span class='fl'>1000</span>, <span class='fl'>1</span> <span class='op'>+</span> <span class='fl'>2</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>
+  3 3.3 
+ 97 903 </code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/rm.html'>rm</a></span><span class='op'>(</span><span class='va'>`+`</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<p>This is a common phenomenon in R. R places few limits on your power. You can do many things that you can’t do in other programming languages. You can do many things that 99% of the time are extremely ill-advised (like overriding how addition works!). But this power and flexibility is what makes tools like <code>ggplot2</code> and <code>dplyr</code> possible.</p>
+<div class="resources">
+<p><strong>Pro tip</strong>: If you are interested in learning more about scoping, check out</p>
+<ul>
+<li><a href="https://adv-r.hadley.nz/functions.html?#lexical-scoping" class="uri">https://adv-r.hadley.nz/functions.html?#lexical-scoping</a></li>
+<li><a href="https://rdpeng.github.io/Biostat776/lecture-scoping-rules-of-r.html" class="uri">https://rdpeng.github.io/Biostat776/lecture-scoping-rules-of-r.html</a></li>
+</ul>
+</div>
+<h1 id="summary-1">Summary</h1>
+<ul>
+<li><p>Functions can be defined using the <code>function()</code> directive and are assigned to R objects just like any other R object</p></li>
+<li><p>Functions have can be defined with named arguments; these function arguments can have default values</p></li>
+<li><p>Functions arguments can be specified by name or by position in the argument list</p></li>
+<li><p>Functions always return the last expression evaluated in the function body</p></li>
+<li><p>A variable number of arguments can be specified using the special <code>...</code> argument in a function definition.</p></li>
+</ul>
+<h1 id="post-lecture-materials">Post-lecture materials</h1>
+<h3 id="final-questions">Final Questions</h3>
+<p>Here are some post-lecture questions to help you think about the material discussed.</p>
+<div class="questions">
+<p><strong>Questions:</strong></p>
+<ol type="1">
+<li>Practice turning the following code snippets into functions. Think about what each function does. What would you call it? How many arguments does it need? Can you rewrite it to be more expressive or less duplicative?</li>
+</ol>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/NA.html'>is.na</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span><span class='op'>)</span>
+
+<span class='va'>x</span> <span class='op'>/</span> <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>x</span>, na.rm <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<ol start="2" type="1">
+<li><p>Read the <a href="https://en.wikipedia.org/wiki/Little_Bunny_Foo_Foo">complete lyrics</a> to “Little Bunny Foo Foo”. There is a lot of duplication in this song. Extend the initial piping example to recreate the complete song, and use functions to reduce the duplication.</p></li>
+<li><p>Take a function that you’ve written recently and spend 5 minutes brainstorming a better name for it and its arguments.</p></li>
+<li><p>What does the <code>trim</code> argument to <code>mean()</code> do? When might you use it?</p></li>
+<li><p>The default value for the method argument to <code>cor()</code> is <code>c("pearson", "kendall", "spearman")</code>. What does that mean? What value is used by default?</p></li>
+</ol>
+</div>
+<h3 id="additional-resources">Additional Resources</h3>
+<div class="resources">
+<ul>
+<li><a href="https://rdpeng.github.io/Biostat776/lecture-functions.html" class="uri">https://rdpeng.github.io/Biostat776/lecture-functions.html</a></li>
+<li><a href="https://rdpeng.github.io/Biostat776/lecture-scoping-rules-of-r.html" class="uri">https://rdpeng.github.io/Biostat776/lecture-scoping-rules-of-r.html</a></li>
+<li><a href="https://r4ds.had.co.nz/functions.html" class="uri">https://r4ds.had.co.nz/functions.html</a></li>
+<li><a href="https://r4ds.had.co.nz/functions.html#environment" class="uri">https://r4ds.had.co.nz/functions.html#environment</a></li>
+</ul>
+</div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<!--radix_placeholder_article_footer-->
+<!--/radix_placeholder_article_footer-->
+</div>
+
+<div class="d-appendix">
+</div>
+
+
+<!--radix_placeholder_site_after_body-->
+<!--/radix_placeholder_site_after_body-->
+<!--radix_placeholder_appendices-->
+<div class="appendix-bottom"></div>
+<!--/radix_placeholder_appendices-->
+<!--radix_placeholder_navigation_after_body-->
+<!--/radix_placeholder_navigation_after_body-->
+
+</body>
+
+</html>

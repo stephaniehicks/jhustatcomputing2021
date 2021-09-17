@@ -42,13 +42,12 @@ For Rmd files, go to the [course GitHub repository](https://github.com/stephanie
 | | | `r emojifont::emoji('nut_and_bolt')` Control structures in R [[html](posts/2021-09-16-control-structures/index.html)] [[Rmd](https://github.com/stephaniehicks/jhustatcomputing2021/blob/main/_posts/2021-09-16-control-structures/control-structures.Rmd)]  | | | 
 | |  Sept 17 | | | `r emojifont::emoji('fallen_leaf')`  Project 1 due |
 | | | | | |
-| Week 4  | Sept 21 | `r emojifont::emoji('nut_and_bolt')` Scoping rules of R  |  | |
-| |  | `r emojifont::emoji('nut_and_bolt')` Loop functions  | | |
-| |  | `r emojifont::emoji('nut_and_bolt')` Functions in R   | | |
+| Week 4  | Sept 21 | `r emojifont::emoji('nut_and_bolt')` Functions in R [[html](posts/2021-09-21-functions/index.html)] [[Rmd](https://github.com/stephaniehicks/jhustatcomputing2021/blob/main/_posts/2021-09-21-functions/functions.Rmd)] |  | |
+| |  | `r emojifont::emoji('nut_and_bolt')` Loop functions [[html](posts/2021-09-21-loop-functions/index.html)] [[Rmd](https://github.com/stephaniehicks/jhustatcomputing2021/blob/main/_posts/2021-09-21-loop-functions/loop-functions.Rmd)]  | | |
 | | | | | |
-| | Sept 23      | `r emojifont::emoji('bug')` Debugging code in R | | | 
-| | | `r emojifont::emoji('bug')` Error handling code in R  | | |
-| | | `r emojifont::emoji('bug')` Profiling R code | | |
+| | Sept 23      | `r emojifont::emoji('bug')` Debugging code in R [[html](posts/2021-09-23-debugging-r-code/index.html)] [[Rmd](https://github.com/stephaniehicks/jhustatcomputing2021/blob/main/_posts/2021-09-23-debugging-r-code/debugging-r-code.Rmd)]  | | | 
+| | | `r emojifont::emoji('bug')` Error handling code in R [[html](posts/2021-09-23-error-handling-and-generation/index.html)] [[Rmd](https://github.com/stephaniehicks/jhustatcomputing2021/blob/main/_posts/2021-09-23-error-handling-and-generation/error-handling-and-generation.Rmd)]  | | |
+| | | `r emojifont::emoji('bug')` Profiling R code [[html](posts/2021-09-23-profiling-r-code/index.html)] [[Rmd](https://github.com/stephaniehicks/jhustatcomputing2021/blob/main/_posts/2021-09-23-profiling-r-code/profiling-r-code.Rmd)] | | |
 | | |  | | |
 | Week 5 | Sept 28      | `r emojifont::emoji('package')` R package software development (build, doc)  | `r emojifont::emoji('headphones')` Data analysis | |
 | | |  | | |
