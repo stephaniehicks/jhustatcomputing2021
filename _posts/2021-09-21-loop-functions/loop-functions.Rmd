@@ -1,7 +1,7 @@
 ---
-title: "Loop Functions"
+title: "Vectorization and loop functionals"
 description: |
-  Introduction to looping in the command line.
+  Introduction to vectorization and loop functionals.
 author:
   - name: Stephanie Hicks
     url: https://stephaniehicks.com/
@@ -37,7 +37,8 @@ set.seed(1)
 
 **Before class, you can prepare by reading the following materials:**
 
-1. 
+1. https://rafalab.github.io/dsbook/programming-basics.html#vectorization
+2. 
 
 :::
 
@@ -47,8 +48,7 @@ set.seed(1)
 Material for this lecture was borrowed and adopted from
 
 - https://rdpeng.github.io/Biostat776/lecture-loop-functions.html
-- 
-- 
+- https://rafalab.github.io/dsbook/programming-basics.html#vectorization
 
 # Learning objectives
 
@@ -63,12 +63,63 @@ Material for this lecture was borrowed and adopted from
 :::
 
 
-# Loop Functions
+# Vectorization 
 
-Writing `for` and `while` loops is useful when programming but not
-particularly easy when working interactively on the command
-line. Multi-line expressions with curly braces are just not that easy to sort through when working on the command line. R has some functions which implement looping in a compact form to make your life
-easier.
+Writing `for` and `while` loops are useful and easy to understand, but in R we rarely use them.
+As you learn more R, you will realize that **vectorization** is preferred over for-loops since it results in shorter and clearer code.
+
+
+### Vector arithmetics
+
+#### Rescaling a vector
+
+In R, arithmetic operations on **vectors occur element-wise**. For a quick example, suppose we have height in inches:
+
+```{r}
+inches <- c(69, 62, 66, 70, 70, 73, 67, 73, 67, 70)
+```
+
+and want to convert to centimeters. Notice what happens when we multiply inches by 2.54:
+
+```{r}
+inches * 2.54
+```
+
+In the line above, we multiplied each element by 2.54. Similarly, if for each entry we want to compute how many inches taller or shorter than 69 inches (the average height for males), we can subtract it from every entry like this:
+
+```{r}
+inches - 69
+```
+
+#### Two vectors
+
+If we have two vectors of the same length, and we sum them in R, they will be added entry by entry as follows:
+
+```{r}
+x <- 1:10
+y <- 1:10 
+x + y
+```
+
+The same holds for other mathematical operations, such as `-`, `*` and `/`.
+
+
+```{r}
+x <- 1:10
+sqrt(x)
+```
+
+```{r}
+y <- 1:10
+x*y
+```
+
+
+# Functional loops
+
+While `for` loops are perfectly valid, when you use vectorization in an element-wise fashion, there is no need for `for` loops because we can apply what are called functional loops.  
+
+**Functional loops** are functions that help us apply the same function to each entry in a vector, matrix, data frame, or list. Here are a list of them: 
 
 - `lapply()`: Loop over a list and evaluate a function on each element 
 
@@ -80,7 +131,7 @@ easier.
 
 - `mapply()`: Multivariate version of `lapply`
 
-An auxiliary function `split` is also useful, particularly in conjunction with `lapply`.
+An auxiliary function `split()` is also useful, particularly in conjunction with `lapply()`.
 
 
 ### `lapply()`
@@ -89,7 +140,7 @@ The `lapply()` function does the following simple series of operations:
 
 1. it loops over a list, iterating over each element in that list
 2. it applies a *function* to each element of the list (a function that you specify)
-3. and returns a list (the `l` is for "list"). 
+3. and returns a list (the `l` in `lapply()` is for "list"). 
 
 This function takes three arguments: (1) a list `X`; (2) a function (or the name of a function) `FUN`; (3) other arguments via its `...` argument. If `X` is not a list, it will be coerced to a list using `as.list()`.
 
@@ -99,9 +150,9 @@ The body of the `lapply()` function can be seen here.
 lapply
 ```
 
-Note that the actual looping is done internally in C code for efficiency reasons. 
+**Note**: the actual looping is done internally in C code for efficiency reasons. 
 
-It's important to remember that `lapply()` always returns a list, regardless of the class of the input.
+It is important to remember that `lapply()` always returns a list, regardless of the class of the input.
 
 Here's an example of applying the `mean()` function to all elements of a list. If the original list has names, the the names will be preserved in the output.
 
@@ -114,7 +165,6 @@ lapply(x, mean)
 Notice that here we are passing the `mean()` function as an argument to the `lapply()` function. Functions in R can be used this way and can be passed back and forth as arguments just like any other object. When you pass a function to another function, you do not need to include the open and closed parentheses `()` like you do when you are *calling* a function.
 
 Here is another example of using `lapply()`.
-
 
 ```{r}
 x <- list(a = 1:4, b = rnorm(10), c = rnorm(20, 1), d = rnorm(100, 5))
@@ -144,7 +194,7 @@ lapply(x, runif, min = 0, max = 10)
 
 So now, instead of the random numbers being between 0 and 1 (the default), the are all between 0 and 10.
 
-The `lapply()` function and its friends make heavy use of _anonymous_ functions. Anonymous functions are like members of [Project Mayhem](http://en.wikipedia.org/wiki/Fight_Club)---they have no names. These are functions are generated "on the fly" as you are using `lapply()`. Once the call to `lapply()` is finished, the function disappears and does not appear in the workspace.
+The `lapply()` function (and its friends) makes heavy use of _anonymous_ functions. Anonymous functions are like members of [Project Mayhem](http://en.wikipedia.org/wiki/Fight_Club)---they have no names. These are functions are generated "on the fly" as you are using `lapply()`. Once the call to `lapply()` is finished, the function disappears and does not appear in the workspace.
 
 Here I am creating a list that contains two matrices.
 
@@ -171,7 +221,7 @@ f <- function(elt) {
 lapply(x, f)
 ```
 
-Now the function is no longer anonymous; it's name is `f`. Whether you use an anonymous function or you define a function first depends on your context. If you think the function `f` is something you're going to need a lot in other parts of your code, you might want to define it separately. But if you're just going to use it for this call to `lapply()`, then it's probably simpler to use an anonymous function.
+Now the function is no longer anonymous; its name is `f`. Whether you use an anonymous function or you define a function first depends on your context. If you think the function `f` is something you are going to need a lot in other parts of your code, you might want to define it separately. But if you are just going to use it for this call to `lapply()`, then it is probably simpler to use an anonymous function.
 
 
 ### `sapply()`
@@ -182,7 +232,7 @@ The `sapply()` function behaves similarly to `lapply()`; the only real differenc
 
 - If the result is a list where every element is a vector of the same length (> 1), a matrix is returned.
 
-- If it can’t figure things out, a list is returned
+- If it can't figure things out, a list is returned
 
 Here's the result of calling `lapply()`.
 
@@ -200,8 +250,6 @@ sapply(x, mean)
 ```
 
 Because the result of `lapply()` was a list where each element had length 1, `sapply()` collapsed the output into a numeric vector, which is often more useful than a list.
-
-
 
 ### `split()`
 
@@ -550,11 +598,19 @@ Here are some post-lecture questions to help you think about the material discus
 
 **Questions:**
 
-1. 
+1. Write a function `compute_s_n()` that for any given `n` computes the sum  
 
-2. 
+$$
+S_n = 1^2 + 2^2 + 3^2 + \ldots + n^2
+$$
 
-3.
+Report the value of the sume when $n$ = 10. 
+
+2. Define an empty numerical vector `s_n` of size 25 using `s_n <- vector("numeric", 25)` and store in the results of $S_1, S_2, \ldots, S_n$ using a for-loop.
+
+3. Repeat Q3, but this time use `sapply()`.
+
+4. Plot `S_n` versus `n`. Use points defined by $n= 1, \ldots, 25$
 
 :::
 
@@ -564,7 +620,6 @@ Here are some post-lecture questions to help you think about the material discus
 :::resources 
 
 - https://rdpeng.github.io/Biostat776/lecture-loop-functions.html
-- 
-- 
+- https://rafalab.github.io/dsbook/programming-basics.html#vectorization
 
 ::: 

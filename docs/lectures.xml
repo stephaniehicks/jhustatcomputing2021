@@ -57,10 +57,10 @@
       <pubDate>Tue, 21 Sep 2021 00:00:00 +0000</pubDate>
     </item>
     <item>
-      <title>Loop Functions</title>
+      <title>Vectorization and loop functionals</title>
       <dc:creator>Stephanie Hicks</dc:creator>
       <link>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-21-loop-functions</link>
-      <description>Introduction to looping in the command line.</description>
+      <description>Introduction to vectorization and loop functionals.</description>
       <category>module 2</category>
       <category>week 4</category>
       <category>programming</category>

@@ -86,9 +86,9 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
 
   <!--radix_placeholder_meta_tags-->
-  <title>Loop Functions</title>
+  <title>Vectorization and loop functionals</title>
 
-  <meta property="description" itemprop="description" content="Introduction to looping in the command line."/>
+  <meta property="description" itemprop="description" content="Introduction to vectorization and loop functionals."/>
 
 
   <!--  https://schema.org/Article -->
@@ -97,21 +97,21 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <meta name="article:author" content="Stephanie Hicks"/>
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="Loop Functions"/>
+  <meta property="og:title" content="Vectorization and loop functionals"/>
   <meta property="og:type" content="article"/>
-  <meta property="og:description" content="Introduction to looping in the command line."/>
+  <meta property="og:description" content="Introduction to vectorization and loop functionals."/>
   <meta property="og:locale" content="en_US"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="Loop Functions"/>
-  <meta property="twitter:description" content="Introduction to looping in the command line."/>
+  <meta property="twitter:title" content="Vectorization and loop functionals"/>
+  <meta property="twitter:description" content="Introduction to vectorization and loop functionals."/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","categories"]}},"value":[{"type":"character","attributes":{},"value":["Loop Functions"]},{"type":"character","attributes":{},"value":["Introduction to looping in the command line.\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url","affiliation","affiliation_url"]}},"value":[{"type":"character","attributes":{},"value":["Stephanie Hicks"]},{"type":"character","attributes":{},"value":["https://stephaniehicks.com/"]},{"type":"character","attributes":{},"value":["Department of Biostatistics, Johns Hopkins"]},{"type":"character","attributes":{},"value":["https://www.jhsph.edu"]}]}]},{"type":"character","attributes":{},"value":["09-21-2021"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","toc","toc_depth"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[3]}]}]},{"type":"character","attributes":{},"value":["module 2","week 4","programming","functions"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","categories"]}},"value":[{"type":"character","attributes":{},"value":["Vectorization and loop functionals"]},{"type":"character","attributes":{},"value":["Introduction to vectorization and loop functionals.\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url","affiliation","affiliation_url"]}},"value":[{"type":"character","attributes":{},"value":["Stephanie Hicks"]},{"type":"character","attributes":{},"value":["https://stephaniehicks.com/"]},{"type":"character","attributes":{},"value":["Department of Biostatistics, Johns Hopkins"]},{"type":"character","attributes":{},"value":["https://www.jhsph.edu"]}]}]},{"type":"character","attributes":{},"value":["09-21-2021"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","toc","toc_depth"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[3]}]}]},{"type":"character","attributes":{},"value":["module 2","week 4","programming","functions"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   
@@ -1455,7 +1455,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Loop Functions","description":"Introduction to looping in the command line.","authors":[{"author":"Stephanie Hicks","authorURL":"https://stephaniehicks.com/","affiliation":"Department of Biostatistics, Johns Hopkins","affiliationURL":"https://www.jhsph.edu","orcidID":""}],"publishedDate":"2021-09-21T00:00:00.000+00:00","citationText":"Hicks, 2021"}
+{"title":"Vectorization and loop functionals","description":"Introduction to vectorization and loop functionals.","authors":[{"author":"Stephanie Hicks","authorURL":"https://stephaniehicks.com/","affiliation":"Department of Biostatistics, Johns Hopkins","affiliationURL":"https://www.jhsph.edu","orcidID":""}],"publishedDate":"2021-09-21T00:00:00.000+00:00","citationText":"Hicks, 2021"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -1465,7 +1465,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>Loop Functions</h1>
+<h1>Vectorization and loop functionals</h1>
 <!--radix_placeholder_categories-->
 <div class="dt-tags">
 <div class="dt=tag">module 2</div>
@@ -1474,7 +1474,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <div class="dt=tag">functions</div>
 </div>
 <!--/radix_placeholder_categories-->
-<p><p>Introduction to looping in the command line.</p></p>
+<p><p>Introduction to vectorization and loop functionals.</p></p>
 </div>
 
 <div class="d-byline">
@@ -1494,7 +1494,11 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <li><a href="#acknowledgements">Acknowledgements</a></li>
 </ul></li>
 <li><a href="#learning-objectives">Learning objectives</a></li>
-<li><a href="#loop-functions">Loop Functions</a>
+<li><a href="#vectorization">Vectorization</a>
+<ul>
+<li><a href="#vector-arithmetics">Vector arithmetics</a></li>
+</ul></li>
+<li><a href="#functional-loops">Functional loops</a>
 <ul>
 <li><a href="#lapply"><code>lapply()</code></a></li>
 <li><a href="#sapply"><code>sapply()</code></a></li>
@@ -1527,7 +1531,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <p>Material for this lecture was borrowed and adopted from</p>
 <ul>
 <li><a href="https://rdpeng.github.io/Biostat776/lecture-loop-functions.html" class="uri">https://rdpeng.github.io/Biostat776/lecture-loop-functions.html</a></li>
-<li></li>
+<li><a href="https://rafalab.github.io/dsbook/programming-basics.html#vectorization" class="uri">https://rafalab.github.io/dsbook/programming-basics.html#vectorization</a></li>
 <li></li>
 </ul>
 <h1 id="learning-objectives">Learning objectives</h1>
@@ -1539,8 +1543,66 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <li></li>
 </ul>
 </div>
-<h1 id="loop-functions">Loop Functions</h1>
-<p>Writing <code>for</code> and <code>while</code> loops is useful when programming but not particularly easy when working interactively on the command line. Multi-line expressions with curly braces are just not that easy to sort through when working on the command line. R has some functions which implement looping in a compact form to make your life easier.</p>
+<h1 id="vectorization">Vectorization</h1>
+<p>Writing <code>for</code> and <code>while</code> loops are useful and easy to understand, but in R we rarely use them. As you learn more R, you will realize that <strong>vectorization</strong> is preferred over for-loops since it results in shorter and clearer code.</p>
+<h3 id="vector-arithmetics">Vector arithmetics</h3>
+<h4 id="rescaling-a-vector">Rescaling a vector</h4>
+<p>In R, arithmetic operations on <strong>vectors occur element-wise</strong>. For a quick example, suppose we have height in inches:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>inches</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>69</span>, <span class='fl'>62</span>, <span class='fl'>66</span>, <span class='fl'>70</span>, <span class='fl'>70</span>, <span class='fl'>73</span>, <span class='fl'>67</span>, <span class='fl'>73</span>, <span class='fl'>67</span>, <span class='fl'>70</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<p>and want to convert to centimeters. Notice what happens when we multiply inches by 2.54:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>inches</span> <span class='op'>*</span> <span class='fl'>2.54</span>
+</code></pre>
+</div>
+<pre><code> [1] 175.26 157.48 167.64 177.80 177.80 185.42 170.18 185.42 170.18
+[10] 177.80</code></pre>
+</div>
+<p>In the line above, we multiplied each element by 2.54. Similarly, if for each entry we want to compute how many inches taller or shorter than 69 inches (the average height for males), we can subtract it from every entry like this:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>inches</span> <span class='op'>-</span> <span class='fl'>69</span>
+</code></pre>
+</div>
+<pre><code> [1]  0 -7 -3  1  1  4 -2  4 -2  1</code></pre>
+</div>
+<h4 id="two-vectors">Two vectors</h4>
+<p>If we have two vectors of the same length, and we sum them in R, they will be added entry by entry as follows:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fl'>1</span><span class='op'>:</span><span class='fl'>10</span>
+<span class='va'>y</span> <span class='op'>&lt;-</span> <span class='fl'>1</span><span class='op'>:</span><span class='fl'>10</span> 
+<span class='va'>x</span> <span class='op'>+</span> <span class='va'>y</span>
+</code></pre>
+</div>
+<pre><code> [1]  2  4  6  8 10 12 14 16 18 20</code></pre>
+</div>
+<p>The same holds for other mathematical operations, such as <code>-</code>, <code>*</code> and <code>/</code>.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fl'>1</span><span class='op'>:</span><span class='fl'>10</span>
+<span class='fu'><a href='https://rdrr.io/r/base/MathFun.html'>sqrt</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code> [1] 1.000000 1.414214 1.732051 2.000000 2.236068 2.449490 2.645751
+ [8] 2.828427 3.000000 3.162278</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>y</span> <span class='op'>&lt;-</span> <span class='fl'>1</span><span class='op'>:</span><span class='fl'>10</span>
+<span class='va'>x</span><span class='op'>*</span><span class='va'>y</span>
+</code></pre>
+</div>
+<pre><code> [1]   1   4   9  16  25  36  49  64  81 100</code></pre>
+</div>
+<h1 id="functional-loops">Functional loops</h1>
+<p>While <code>for</code> loops are perfectly valid, when you use vectorization in an element-wise fashion, there is no need for <code>for</code> loops because we can apply what are called functional loops.</p>
+<p><strong>Functional loops</strong> are functions that help us apply the same function to each entry in a vector, matrix, data frame, or list. Here are a list of them:</p>
 <ul>
 <li><p><code>lapply()</code>: Loop over a list and evaluate a function on each element</p></li>
 <li><p><code>sapply()</code>: Same as <code>lapply</code> but try to simplify the result</p></li>
@@ -1548,13 +1610,13 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <li><p><code>tapply()</code>: Apply a function over subsets of a vector</p></li>
 <li><p><code>mapply()</code>: Multivariate version of <code>lapply</code></p></li>
 </ul>
-<p>An auxiliary function <code>split</code> is also useful, particularly in conjunction with <code>lapply</code>.</p>
+<p>An auxiliary function <code>split()</code> is also useful, particularly in conjunction with <code>lapply()</code>.</p>
 <h3 id="lapply"><code>lapply()</code></h3>
 <p>The <code>lapply()</code> function does the following simple series of operations:</p>
 <ol type="1">
 <li>it loops over a list, iterating over each element in that list</li>
 <li>it applies a <em>function</em> to each element of the list (a function that you specify)</li>
-<li>and returns a list (the <code>l</code> is for “list”).</li>
+<li>and returns a list (the <code>l</code> in <code>lapply()</code> is for “list”).</li>
 </ol>
 <p>This function takes three arguments: (1) a list <code>X</code>; (2) a function (or the name of a function) <code>FUN</code>; (3) other arguments via its <code>...</code> argument. If <code>X</code> is not a list, it will be coerced to a list using <code>as.list()</code>.</p>
 <p>The body of the <code>lapply()</code> function can be seen here.</p>
@@ -1570,11 +1632,11 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
         X &lt;- as.list(X)
     .Internal(lapply(X, FUN))
 }
-&lt;bytecode: 0x7fbefa85afa0&gt;
+&lt;bytecode: 0x7faf410451a0&gt;
 &lt;environment: namespace:base&gt;</code></pre>
 </div>
-<p>Note that the actual looping is done internally in C code for efficiency reasons.</p>
-<p>It’s important to remember that <code>lapply()</code> always returns a list, regardless of the class of the input.</p>
+<p><strong>Note</strong>: the actual looping is done internally in C code for efficiency reasons.</p>
+<p>It is important to remember that <code>lapply()</code> always returns a list, regardless of the class of the input.</p>
 <p>Here’s an example of applying the <code>mean()</code> function to all elements of a list. If the original list has names, the the names will be preserved in the output.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -1650,7 +1712,7 @@ $d
 [1] 0.9916910 1.1890256 0.5043966 9.2925392</code></pre>
 </div>
 <p>So now, instead of the random numbers being between 0 and 1 (the default), the are all between 0 and 10.</p>
-<p>The <code>lapply()</code> function and its friends make heavy use of <em>anonymous</em> functions. Anonymous functions are like members of <a href="http://en.wikipedia.org/wiki/Fight_Club">Project Mayhem</a>—they have no names. These are functions are generated “on the fly” as you are using <code>lapply()</code>. Once the call to <code>lapply()</code> is finished, the function disappears and does not appear in the workspace.</p>
+<p>The <code>lapply()</code> function (and its friends) makes heavy use of <em>anonymous</em> functions. Anonymous functions are like members of <a href="http://en.wikipedia.org/wiki/Fight_Club">Project Mayhem</a>—they have no names. These are functions are generated “on the fly” as you are using <code>lapply()</code>. Once the call to <code>lapply()</code> is finished, the function disappears and does not appear in the workspace.</p>
 <p>Here I am creating a list that contains two matrices.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -1697,7 +1759,7 @@ $b
 $b
 [1] 1 2 3</code></pre>
 </div>
-<p>Now the function is no longer anonymous; it’s name is <code>f</code>. Whether you use an anonymous function or you define a function first depends on your context. If you think the function <code>f</code> is something you’re going to need a lot in other parts of your code, you might want to define it separately. But if you’re just going to use it for this call to <code>lapply()</code>, then it’s probably simpler to use an anonymous function.</p>
+<p>Now the function is no longer anonymous; its name is <code>f</code>. Whether you use an anonymous function or you define a function first depends on your context. If you think the function <code>f</code> is something you are going to need a lot in other parts of your code, you might want to define it separately. But if you are just going to use it for this call to <code>lapply()</code>, then it is probably simpler to use an anonymous function.</p>
 <h3 id="sapply"><code>sapply()</code></h3>
 <p>The <code>sapply()</code> function behaves similarly to <code>lapply()</code>; the only real difference is in the return value. <code>sapply()</code> will try to simplify the result of <code>lapply()</code> if possible. Essentially, <code>sapply()</code> calls <code>lapply()</code> on its input and then applies the following algorithm:</p>
 <ul>
@@ -2289,20 +2351,27 @@ $`3`
 <div class="questions">
 <p><strong>Questions:</strong></p>
 <ol type="1">
-<li></li>
-<li></li>
-<li></li>
+<li>Write a function <code>compute_s_n()</code> that for any given <code>n</code> computes the sum</li>
+</ol>
+<p><span class="math display">\[
+S_n = 1^2 + 2^2 + 3^2 + \ldots + n^2
+\]</span></p>
+<p>Report the value of the sume when <span class="math inline">\(n\)</span> = 10.</p>
+<ol start="2" type="1">
+<li><p>Define an empty numerical vector <code>s_n</code> of size 25 using <code>s_n &lt;- vector("numeric", 25)</code> and store in the results of <span class="math inline">\(S_1, S_2, \ldots, S_n\)</span> using a for-loop.</p></li>
+<li><p>Repeat Q3, but this time use <code>sapply()</code>.</p></li>
+<li><p>Plot <code>S_n</code> versus <code>n</code>. Use points defined by <span class="math inline">\(n= 1, \ldots, 25\)</span></p></li>
 </ol>
 </div>
 <h3 id="additional-resources">Additional Resources</h3>
 <div class="resources">
 <ul>
 <li><a href="https://rdpeng.github.io/Biostat776/lecture-loop-functions.html" class="uri">https://rdpeng.github.io/Biostat776/lecture-loop-functions.html</a></li>
-<li></li>
+<li><a href="https://rafalab.github.io/dsbook/programming-basics.html#vectorization" class="uri">https://rafalab.github.io/dsbook/programming-basics.html#vectorization</a></li>
 <li></li>
 </ul>
 </div>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
