@@ -38,7 +38,6 @@ set.seed(1)
 **Before class, you can prepare by reading the following materials:**
 
 1. https://rafalab.github.io/dsbook/programming-basics.html#vectorization
-2. 
 
 :::
 
@@ -56,9 +55,8 @@ Material for this lecture was borrowed and adopted from
 
 **At the end of this lesson you will:**
 
-- 
-- 
-- 
+- Understand how to perform vector arithmetics in R
+- Implement the 5 functional loops in R (vs e.g. for loops) in R
 
 :::
 
@@ -273,7 +271,7 @@ Here we simulate some data and split it according to a factor variable. Note tha
 
 ```{r}
 x <- c(rnorm(10), runif(10), rnorm(10, 1))
-f <- gl(3, 10)
+f <- gl(3, 10) # generate factor levels
 split(x, f)
 ```
 

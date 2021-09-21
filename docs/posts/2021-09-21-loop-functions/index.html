@@ -2321,7 +2321,7 @@ Course Materials
 <div class="resources">
 <p><strong>Before class, you can prepare by reading the following materials:</strong></p>
 <ol type="1">
-<li></li>
+<li><a href="https://rafalab.github.io/dsbook/programming-basics.html#vectorization" class="uri">https://rafalab.github.io/dsbook/programming-basics.html#vectorization</a></li>
 </ol>
 </div>
 <h3 id="acknowledgements">Acknowledgements</h3>
@@ -2329,15 +2329,13 @@ Course Materials
 <ul>
 <li><a href="https://rdpeng.github.io/Biostat776/lecture-loop-functions.html" class="uri">https://rdpeng.github.io/Biostat776/lecture-loop-functions.html</a></li>
 <li><a href="https://rafalab.github.io/dsbook/programming-basics.html#vectorization" class="uri">https://rafalab.github.io/dsbook/programming-basics.html#vectorization</a></li>
-<li></li>
 </ul>
 <h1 id="learning-objectives">Learning objectives</h1>
 <div class="keyideas">
 <p><strong>At the end of this lesson you will:</strong></p>
 <ul>
-<li></li>
-<li></li>
-<li></li>
+<li>Understand how to perform vector arithmetics in R</li>
+<li>Implement the 5 functional loops in R (vs e.g. for loops) in R</li>
 </ul>
 </div>
 <h1 id="vectorization">Vectorization</h1>
@@ -2429,7 +2427,7 @@ Course Materials
         X &lt;- as.list(X)
     .Internal(lapply(X, FUN))
 }
-&lt;bytecode: 0x7faf410451a0&gt;
+&lt;bytecode: 0x7fdb4391a5a0&gt;
 &lt;environment: namespace:base&gt;</code></pre>
 </div>
 <p><strong>Note</strong>: the actual looping is done internally in C code for efficiency reasons.</p>
@@ -2615,7 +2613,7 @@ $d
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='fl'>10</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/stats/Uniform.html'>runif</a></span><span class='op'>(</span><span class='fl'>10</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='fl'>10</span>, <span class='fl'>1</span><span class='op'>)</span><span class='op'>)</span>
-<span class='va'>f</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/gl.html'>gl</a></span><span class='op'>(</span><span class='fl'>3</span>, <span class='fl'>10</span><span class='op'>)</span>
+<span class='va'>f</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/gl.html'>gl</a></span><span class='op'>(</span><span class='fl'>3</span>, <span class='fl'>10</span><span class='op'>)</span> <span class='co'># generate factor levels</span>
 <span class='fu'><a href='https://rdrr.io/r/base/split.html'>split</a></span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>f</span><span class='op'>)</span>
 </code></pre>
 </div>
@@ -3165,7 +3163,6 @@ S_n = 1^2 + 2^2 + 3^2 + \ldots + n^2
 <ul>
 <li><a href="https://rdpeng.github.io/Biostat776/lecture-loop-functions.html" class="uri">https://rdpeng.github.io/Biostat776/lecture-loop-functions.html</a></li>
 <li><a href="https://rafalab.github.io/dsbook/programming-basics.html#vectorization" class="uri">https://rafalab.github.io/dsbook/programming-basics.html#vectorization</a></li>
-<li></li>
 </ul>
 </div>
 <div class="sourceCode" id="cb49"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
