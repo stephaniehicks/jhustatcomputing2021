@@ -2293,6 +2293,7 @@ Course Materials
 <li><a href="#learning-objectives">Learning objectives</a></li>
 <li><a href="#profiling-r-code">Profiling R Code</a>
 <ul>
+<li><a href="#profiling-in-r">Profiling in R</a></li>
 <li><a href="#using-system.time">Using <code>system.time()</code></a></li>
 <li><a href="#timing-longer-expressions">Timing Longer Expressions</a></li>
 <li><a href="#the-r-profiler">The R Profiler</a></li>
@@ -2315,55 +2316,60 @@ Course Materials
 <div class="resources">
 <p><strong>Before class, you can prepare by reading the following materials:</strong></p>
 <ol type="1">
-<li></li>
+<li><a href="https://adv-r.hadley.nz/perf-measure.html" class="uri">https://adv-r.hadley.nz/perf-measure.html</a></li>
 </ol>
 </div>
 <h3 id="acknowledgements">Acknowledgements</h3>
 <p>Material for this lecture was borrowed and adopted from</p>
 <ul>
 <li><a href="https://rdpeng.github.io/Biostat776/lecture-profiling-r-code.html" class="uri">https://rdpeng.github.io/Biostat776/lecture-profiling-r-code.html</a></li>
-<li></li>
-<li></li>
 </ul>
 <h1 id="learning-objectives">Learning objectives</h1>
 <div class="keyideas">
 <p><strong>At the end of this lesson you will:</strong></p>
 <ul>
-<li></li>
-<li></li>
-<li></li>
+<li>Know how to profile R code with the <code>Rprof()</code> function</li>
+<li>Know how to summarize profiled R code using <code>summaryRprof()</code></li>
 </ul>
 </div>
 <h1 id="profiling-r-code">Profiling R Code</h1>
-<p>R comes with a profiler to help you optimize your code and improve its performance. In general, it’s usually a bad idea to focus on optimizing your code at the very beginning of development. Rather, in the beginning it’s better to focus on translating your ideas into code and writing code that’s coherent and readable. The problem is that heavily optimized code tends to be obscure and difficult to read, making it harder to debug and revise. Better to get all the bugs out first, then focus on optimizing.</p>
-<p>Of course, when it comes to optimizing code, the question is what should you optimize? Well, clearly should optimize the parts of your code that are running slowly, but how do we know what parts those are?</p>
+<p>Before you can make your code faster, you first need to figure out what is making it slow. This sounds easy, but it is not. Even experienced programmers have a hard time identifying bottlenecks in their code. So instead of relying on your intuition, you should <strong>profile your code</strong>: measure the run-time of each line of code using realistic inputs.</p>
+<p>Once you have identified bottlenecks you will need to carefully experiment with alternatives to find faster code that is still equivalent.</p>
+<h3 id="profiling-in-r">Profiling in R</h3>
+<p>R comes with a profiler to help you optimize your code and improve its performance. In general, it is usually a bad idea to focus on optimizing your code at the very beginning of development. Rather, in the beginning it is better to focus on translating your ideas into code and writing code that is coherent and readable. The problem is that heavily optimized code tends to be obscure and difficult to read, making it harder to debug and revise. Better to get all the bugs out first, then focus on optimizing.</p>
+<p>Of course, when it comes to optimizing code, the question is</p>
+<blockquote>
+<p>What should I optimize?</p>
+</blockquote>
+<p>Well, clearly should optimize the parts of your code that are running slowly, but how do we know what parts those are?</p>
 <p>This is what the profiler is for. Profiling is a systematic way to examine how much time is spent in different parts of a program.</p>
-<p>Sometimes profiling becomes necessary as a project grows and layers of code are placed on top of each other. Often you might write some code that runs fine once. But then later, you might put that same code in a big loop that runs 1,000 times. Now the original code that took 1 second to run is taking 1,000 seconds to run! Getting that little piece of original code to run faster will help the entire loop.</p>
-<p>It’s tempting to think you just <em>know</em> where the bottlenecks in your code are. I mean, after all, you write it! But trust me, I can’t tell you how many times I’ve been surprised at where exactly my code is spending all its time. The reality is that <em>profiling is better than guessing</em>. Better to collect some data than to go on hunches alone. Ultimately, getting the biggest impact on speeding up code depends on knowing where the code spends most of its time. This cannot be done without some sort of rigorous performance analysis or profiling.</p>
+<p>Sometimes profiling becomes necessary as a project grows and layers of code are placed on top of each other. Often you might write some code that runs fine once. But then later, you might put that same code in a big loop that runs 1,000 times. Now, the original code that took 1 second to run is taking 1,000 seconds to run! Getting that little piece of original code to run faster will help the entire loop.</p>
+<p>It’s tempting to think you just <em>know</em> where the bottlenecks in your code are. I mean, after all, you write it! But trust me, I can’t tell you how many times I have been surprised at where exactly my code is spending all its time. The reality is that <strong>profiling is better than guessing</strong>. Better to collect some data than to go on hunches alone. Ultimately, getting the biggest impact on speeding up code depends on knowing where the code spends most of its time. This cannot be done without some sort of rigorous performance analysis or profiling.</p>
 <blockquote>
 <p>We should forget about small efficiencies, say about 97% of the time: premature optimization is the root of all evil —<em>Donald Knuth</em></p>
 </blockquote>
 <p>The basic principles of optimizing your code are:</p>
 <ul>
 <li><p>Design first, then optimize</p></li>
-<li><p>Remember: Premature optimization is the root of all evil</p></li>
-<li><p>Measure (collect data), don’t guess.</p></li>
-<li><p>If you’re going to be scientist, you need to apply the same principles here!</p></li>
+<li><p>Remember: Premature optimization (spending a lot of time on something that you may not actually need) is the root of all evil</p></li>
+<li><p>Measure (collect data), do not guess.</p></li>
+<li><p>If you are going to be scientist, you need to apply the same principles here!</p></li>
 </ul>
 <h3 id="using-system.time">Using <code>system.time()</code></h3>
-<p>They <code>system.time()</code> function takes an arbitrary R expression as input (can be wrapped in curly braces) and returns the amount of time taken to evaluate the expression. The <code>system.time()</code> function computes the time (in seconds) needed to execute an expression and if there’s an error, gives the time until the error occurred. The function returns an object of class <code>proc_time</code> which contains two useful bits of information:</p>
+<p>They <code>system.time()</code> function takes an arbitrary R expression as input (can be wrapped in curly braces) and returns the amount of time taken to evaluate the expression. The <code>system.time()</code> function computes the time (in seconds) needed to execute an expression and if there is an error, gives the time until the error occurred. The function returns an object of class <code>proc_time</code> which contains two useful bits of information:</p>
 <ul>
-<li><em>user time</em>: time charged to the CPU(s) for this expression</li>
-<li><em>elapsed time</em>: “wall clock” time, the amount of time that passes for <em>you</em> as you’re sitting there</li>
+<li><strong>user time</strong>: time charged to the CPU(s) for this expression</li>
+<li><strong>elapsed time</strong>: “wall clock” time, the amount of time that passes for <em>you</em> as you are sitting there at your computer</li>
 </ul>
-<p>Usually, the user time and elapsed time are relatively close, for straight computing tasks. But there are a few situations where the two can diverge, sometimes dramatically. The elapsed time may be <em>greater than</em> the user time if the CPU spends a lot of time waiting around. This commonly happens if your R expression involes some input or output, which depends on the activity of the file system and the disk (or the Internet, if using a network connection).</p>
-<p>The elapsed time may be <em>smaller than</em> the user time if your machine has multiple cores/processors (and is capable of using them). For example, multi-threaded BLAS libraries (vecLib/Accelerate, ATLAS, ACML, MKL) can greatly speed up linear algebra calculations and are commonly installed on even desktop systems these days. Also, parallel processing done via something like the <code>parallell</code> package can make the elapsed time smaller than the user time. When you have multiple processors/cores/machines working in parallel, the amount of time that the collection of CPUs spends working on a problem is the same as with a single CPU, but because they are operating in parallel, there is a savings in elapsed time.</p>
+<p>Usually, the user time and elapsed time are relatively close, for straight computing tasks. But there are a few situations where the two can diverge, sometimes dramatically.</p>
+<p>The elapsed time may be <strong>greater than</strong> the user time if the CPU spends a lot of time waiting around. This commonly happens if your R expression involves some input or output, which depends on the activity of the file system and the disk (or the Internet, if using a network connection).</p>
+<p>The elapsed time may be <strong>smaller than</strong> the user time if your machine has multiple cores/processors (and is capable of using them). For example, multi-threaded BLAS libraries (vecLib/Accelerate, ATLAS, ACML, MKL) can greatly speed up linear algebra calculations and are commonly installed on even desktop systems these days. Also, parallel processing done via something like the <code>parallel</code> package can make the elapsed time smaller than the user time. When you have multiple processors/cores/machines working in parallel, the amount of time that the collection of CPUs spends working on a problem is the same as with a single CPU, but because they are operating in parallel, there is a savings in elapsed time.</p>
 <p>Here’s an example of where the elapsed time is greater than the user time.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Elapsed time &gt; user time</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">system.time</span>(<span class="fu">readLines</span>(<span class="st">&quot;http://www.jhsph.edu&quot;</span>))</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">system.time</span>(<span class="fu">readLines</span>(<span class="st">&quot;https://publichealth.jhu.edu&quot;</span>))</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>   user  system elapsed </span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fl">0.004</span>   <span class="fl">0.002</span>   <span class="fl">0.431</span> </span></code></pre></div>
-<p>Most of the time in this expression is spent waiting for the connection to the web server and waiting for the data to travel back to my computer. This doesn’t involve the CPU and so the CPU simply waits around for things to get done. Hence, the user time is small.</p>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fl">0.024</span>   <span class="fl">0.025</span>   <span class="fl">0.366</span> </span></code></pre></div>
+<p>Most of the time in this expression is spent waiting for the connection to the web server and waiting for the data to travel back to my computer. This does not involve the CPU and so the CPU simply waits around for things to get done. Hence, the user time is small.</p>
 <p>In this example, the elapsed time is smaller than the user time.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Elapsed time &lt; user time</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> hilbert <span class="ot">&lt;-</span> <span class="cf">function</span>(n) { </span>
@@ -2390,12 +2396,12 @@ Course Materials
 </code></pre>
 </div>
 <pre><code>   user  system elapsed 
-  0.092   0.004   0.099 </code></pre>
+  0.099   0.007   0.107 </code></pre>
 </div>
-<p>If your expression is getting pretty long (more than 2 or 3 lines), it might be better to either break it into smaller pieces or to use the profiler. The problem is that if the expression is too long, you won’t be able to identify which part of the code is causing the bottleneck.</p>
+<p>If your expression is getting pretty long (more than 2 or 3 lines), it might be better to either break it into smaller pieces or to use the profiler. The problem is that if the expression is too long, you will not be able to identify which part of the code is causing the bottleneck.</p>
 <h3 id="the-r-profiler">The R Profiler</h3>
 <p>Using <code>system.time()</code> allows you to test certain functions or code blocks to see if they are taking excessive amounts of time. However, this approach assumes that you already know where the problem is and can call <code>system.time()</code> on it that piece of code. What if you don’t know where to start?</p>
-<p>This is where the profiler comes in handy. The <code>Rprof()</code> function starts the profiler in R. Note that R must be compiled with profiler support (but this is usually the case). In conjunction with <code>Rprof()</code>, we will use the <code>summaryRprof()</code> function which summarizes the output from <code>Rprof()</code> (otherwise it’s not really readable). Note that you should NOT use <code>system.time()</code> and <code>Rprof()</code> together, or you will be sad.</p>
+<p>This is where the profiler comes in handy. The <code>Rprof()</code> function starts the profiler in R. Note that R must be compiled with profiler support (but this is usually the case). In conjunction with <code>Rprof()</code>, we will use the <code>summaryRprof()</code> function, which summarizes the output from <code>Rprof()</code> (otherwise it’s not really readable).</p>
 <p><code>Rprof()</code> keeps track of the function call stack at regularly sampled intervals and tabulates how much time is spent inside each function. By default, the profiler samples the function call stack every 0.02 seconds. This means that if your code runs very quickly (say, under 0.02 seconds), the profiler is not useful. But of your code runs that fast, you probably don’t need the profiler.</p>
 <p>The profiler is started by calling the <code>Rprof()</code> function.</p>
 <div class="layout-chunk" data-layout="l-body">
@@ -2404,8 +2410,8 @@ Course Materials
 </code></pre>
 </div>
 </div>
-<p>You don’t need any other arguments. By default it will write its output to a file called <code>Rprof.out</code>. You can specify the name of the output file if you don’t want to use this default.</p>
-<p>Once you call the <code>Rprof()</code> function, everything that you do from then on will be measured by the profiler. Therefore, you usually only want to run a single R function or expression once you turn on the profiler and then immediately turn it off. The reason is that if you mix too many function calls together when running the profiler, all of the results will be mixed together and you won’t be able to sort out where the bottlenecks are. In reality, I usually only run a single function with the profiler on.</p>
+<p>You do not need any other arguments. By default, it will write its output to a file called <code>Rprof.out</code>. You can specify the name of the output file if you do not want to use this default.</p>
+<p>Once you call the <code>Rprof()</code> function, everything that you do from then on will be measured by the profiler. Therefore, you usually only want to run a single R function or expression once you turn on the profiler and then immediately turn it off. The reason is that if you mix too many function calls together when running the profiler, all of the results will be mixed together and you will not be able to sort out where the bottlenecks are. In reality, I usually only run a single function with the profiler on.</p>
 <p>The profiler can be turned off by passing <code>NULL</code> to <code>Rprof()</code>.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -2490,16 +2496,14 @@ Course Materials
 <div class="questions">
 <p><strong>Questions:</strong></p>
 <ol type="1">
-<li></li>
-<li></li>
-<li></li>
+<li>Why is it a bad idea to use <code>system.time()</code> and <code>Rprof()</code> together?</li>
 </ol>
 </div>
 <h3 id="additional-resources">Additional Resources</h3>
 <div class="resources">
 <ul>
 <li><a href="https://rdpeng.github.io/Biostat776/lecture-profiling-r-code.html" class="uri">https://rdpeng.github.io/Biostat776/lecture-profiling-r-code.html</a></li>
-<li></li>
+<li><a href="https://adv-r.hadley.nz/perf-measure.html" class="uri">https://adv-r.hadley.nz/perf-measure.html</a></li>
 <li></li>
 </ul>
 </div>

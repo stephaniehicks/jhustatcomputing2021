@@ -1496,8 +1496,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <li><a href="#learning-objectives">Learning objectives</a></li>
 <li><a href="#debugging-r-code">Debugging R Code</a>
 <ul>
+<li><a href="#overall-approach">Overall approach</a></li>
 <li><a href="#somethings-wrong">Something’s Wrong!</a></li>
-<li><a href="#figuring-out-whats-wrong">Figuring Out What’s Wrong</a></li>
 </ul></li>
 <li><a href="#debugging-tools-in-r">Debugging Tools in R</a>
 <ul>
@@ -1520,28 +1520,42 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <div class="resources">
 <p><strong>Before class, you can prepare by reading the following materials:</strong></p>
 <ol type="1">
-<li></li>
+<li><a href="https://adv-r.hadley.nz/debugging.html" class="uri">https://adv-r.hadley.nz/debugging.html</a></li>
+<li><a href="https://rstats.wtf/debugging-r-code.html" class="uri">https://rstats.wtf/debugging-r-code.html</a></li>
 </ol>
 </div>
 <h3 id="acknowledgements">Acknowledgements</h3>
 <p>Material for this lecture was borrowed and adopted from</p>
 <ul>
 <li><a href="https://rdpeng.github.io/Biostat776/lecture-debugging-r-code.html" class="uri">https://rdpeng.github.io/Biostat776/lecture-debugging-r-code.html</a></li>
-<li></li>
-<li></li>
+<li><a href="https://adv-r.hadley.nz/debugging.html" class="uri">https://adv-r.hadley.nz/debugging.html</a></li>
 </ul>
 <h1 id="learning-objectives">Learning objectives</h1>
 <div class="keyideas">
 <p><strong>At the end of this lesson you will:</strong></p>
 <ul>
-<li></li>
-<li></li>
-<li></li>
+<li>Discuss and overall approach to debugging code in R</li>
+<li>Recognize the three main indications of a problem/condition (<code>message</code>, <code>warning</code>, <code>error</code>) and a fatal problem (<code>error</code>)</li>
+<li>Understand the importance of reproduce the problem when debugging a function or piece of code</li>
+<li>Learn how to use interactive debugging tools <code>traceback</code>, <code>debug</code>, <code>recover</code>, <code>browser</code>, <code>trace</code>, and can be used to find problematic code in functions</li>
 </ul>
 </div>
 <h1 id="debugging-r-code">Debugging R Code</h1>
+<h3 id="overall-approach">Overall approach</h3>
+<p>Finding the root cause of a problem is always challenging. Most bugs are subtle and hard to find because if they were obvious, you would have avoided them in the first place. A good strategy helps. Below I outline a four step process that I have found useful:</p>
+<h4 id="google">Google!</h4>
+<p>Whenever you see an error message, start by googling it. If you are lucky, you will discover that it’s a common error with a known solution. When googling, improve your chances of a good match by removing any variable names or values that are specific to your problem.</p>
+<h4 id="make-it-repeatable">Make it repeatable</h4>
+<p>To find the root cause of an error, you are going to need to execute the code many times as you consider and reject hypotheses. To make that iteration as quick possible, it’s worth some upfront investment to make the problem both easy and fast to reproduce.</p>
+<p>Start by creating a <strong>rep</strong>roducible <strong>ex</strong>ample (reprex). This will help others help you, and often leads to a solution without asking others, because in the course of making the problem reproducible you often figure out the root cause. Next, make the example minimal by removing code and simplifying data. As you do this, you may discover inputs that do not trigger the error. Make note of them: they will be helpful when diagnosing the root cause.</p>
+<h4 id="figure-out-where-it-is">Figure out where it is</h4>
+<p>It’s a great idea to adopt the scientific method here. Generate hypotheses, design experiments to test them, and record your results. This may seem like a lot of work, but a systematic approach will end up saving you time. Often a lot of time can be wasted relying on my intuition to solve a bug (“oh, it must be an off-by-one error, so I’ll just subtract 1 here”), when I would have been better off taking a systematic approach.</p>
+<p>If this fails, you might need to ask help from someone else. If you have followed the previous step, you will have a small example that is easy to share with others. That makes it much easier for other people to look at the problem, and more likely to help you find a solution.</p>
+<h4 id="fix-it-and-test-it">Fix it and test it</h4>
+<p>Once you have found the bug, you need to figure out how to fix it and to check that the fix actually worked. Again, it is very useful to have automated tests in place. Not only does this help to ensure that you have actually fixed the bug, it also helps to ensure you have not introduced any new bugs in the process. In the absence of automated tests, make sure to carefully record the correct output, and check against the inputs that previously failed.</p>
 <h3 id="somethings-wrong">Something’s Wrong!</h3>
-<p>R has a number of ways to indicate to you that something’s not right. There are different levels of indication that can be used, ranging from mere notification to fatal error. Executing any function in R may result in the following <em>conditions</em>.</p>
+<p>Once you have made the error repeatable, the next step is to figure out where it comes from.</p>
+<p>R has a number of ways to indicate to you that something is not right. There are different levels of indication that can be used, ranging from mere notification to fatal error. Executing any function in R may result in the following <em>conditions</em>.</p>
 <ul>
 <li><code>message</code>: A generic notification/diagnostic message produced by the <code>message()</code> function; execution of the function continues</li>
 <li><code>warning</code>: An indication that something is wrong but not necessarily fatal; execution of the function continues. Warnings are generated by the <code>warning()</code> function</li>
@@ -1671,7 +1685,8 @@ will be used
 [1] &quot;x is greater than zero&quot;</code></pre>
 </div>
 <p>You can see now that the correct messages are printed without any warning or error. Note that I stored the return value of <code>printmessage4()</code> in a separate R object called <code>out</code>. This is because when I use the <code>Vectorize()</code> function it no longer preserves the invisibility of the return value.</p>
-<h3 id="figuring-out-whats-wrong">Figuring Out What’s Wrong</h3>
+<div class="keyideas">
+<p><strong>Helpful tips</strong></p>
 <p>The primary task of debugging any R code is correctly diagnosing what the problem is. When diagnosing a problem with your code (or somebody else’s), it’s important first understand what you were expecting to occur. Then you need to idenfity what <em>did</em> occur and how did it deviate from your expectations. Some basic questions you need to ask are</p>
 <ul>
 <li>What was your input? How did you call the function?</li>
@@ -1682,6 +1697,7 @@ will be used
 <li>Can you reproduce the problem (exactly)?</li>
 </ul>
 <p>Being able to answer these questions is important not just for your own sake, but in situations where you may need to ask someone else for help with debugging the problem. Seasoned programmers will be asking you these exact questions.</p>
+</div>
 <h1 id="debugging-tools-in-r">Debugging Tools in R</h1>
 <p>R provides a number of tools to help you with debugging your code. The primary tools for debugging functions in R are</p>
 <ul>
@@ -1691,10 +1707,8 @@ will be used
 <li><code>trace()</code>: allows you to insert debugging code into a function a specific places</li>
 <li><code>recover()</code>: allows you to modify the error behavior so that you can browse the function call stack</li>
 </ul>
-<p>These functions are interactive tools specifically designed to allow you to pick through a function. There’s also the more blunt technique of inserting <code>print()</code> or <code>cat()</code> statements in the function.</p>
+<p>These functions are interactive tools specifically designed to allow you to pick through a function. There is also the more blunt technique of inserting <code>print()</code> or <code>cat()</code> statements in the function.</p>
 <h3 id="using-traceback">Using <code>traceback()</code></h3>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/VT9ZxCp6o-I" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-</iframe>
 <p>The <code>traceback()</code> function prints out the <em>function call stack</em> after an error has occurred. The function call stack is the sequence of functions that was called before the error occurred.</p>
 <p>For example, you may have a function <code>a()</code> which subsequently calls function <code>b()</code> which calls <code>c()</code> and then <code>d()</code>. If an error occurs, it may not be immediately clear in which function the error occurred. The <code>traceback()</code> function shows you how many levels deep you were when the error occurred.</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">mean</span>(x)</span>
@@ -1717,6 +1731,10 @@ will be used
 <p>You can see now that the error did not get thrown until the 7th level of the function call stack, in which case the <code>eval()</code> function tried to evaluate the formula <code>y ~ x</code> and realized the object <code>y</code> did not exist.</p>
 <p>Looking at the traceback is useful for figuring out roughly where an error occurred but it’s not useful for more detailed debugging. For that you might turn to the <code>debug()</code> function.</p>
 <h3 id="using-debug">Using <code>debug()</code></h3>
+<details>
+<summary>
+Click here for how to use <code>debug()</code> with an interactive browser.
+</summary>
 <p>The <code>debug()</code> function initiates an interactive debugger (also known as the “browser” in R) for a function. With the debugger, you can step through an R function one expression at a time to pinpoint exactly where an error occurs.</p>
 <p>The <code>debug()</code> function takes a function as its first argument. Here is an example of debugging the <code>lm()</code> function.</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">debug</span>(lm)      <span class="do">## Flag the &#39;lm()&#39; function for interactive debugging</span></span>
@@ -1754,7 +1772,12 @@ will be used
 <p>While you are in the browser you can execute any other R function that might be available to you in a regular session. In particular, you can use <code>ls()</code> to see what is in your current environment (the function environment) and <code>print()</code> to print out the values of R objects in the function environment.</p>
 <p>You can turn off interactive debugging with the <code>undebug()</code> function.</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">undebug</span>(lm)    <span class="do">## Unflag the &#39;lm()&#39; function for debugging</span></span></code></pre></div>
+</details>
 <h3 id="using-recover">Using <code>recover()</code></h3>
+<details>
+<summary>
+Click here for how to use <code>recover()</code> with an interactive browser.
+</summary>
 <p>The <code>recover()</code> function can be used to modify the error behavior of R when an error occurs. Normally, when an error occurs in a function, R will print out an error message, exit out of the function, and return you to your workspace to await further commands.</p>
 <p>With <code>recover()</code> you can tell R that when an error occurs, it should halt execution at the exact point at which the error occurred. That can give you the opportunity to poke around in the environment in which the error occurred. This can be useful to see if there are any R objects or data that have been corrupted or mistakenly modified.</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">options</span>(<span class="at">error =</span> recover)    <span class="do">## Change default R error behavior</span></span>
@@ -1772,11 +1795,12 @@ will be used
 <span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>Selection<span class="sc">:</span></span></code></pre></div>
 <p>The <code>recover()</code> function will first print out the function call stack when an error occurrs. Then, you can choose to jump around the call stack and investigate the problem. When you choose a frame number, you will be put in the browser (just like the interactive debugger triggered with <code>debug()</code>) and will have the ability to poke around.</p>
+</details>
 <h1 id="summary">Summary</h1>
 <ul>
 <li>There are three main indications of a problem/condition: <code>message</code>, <code>warning</code>, <code>error</code>; only an <code>error</code> is fatal</li>
 <li>When analyzing a function with a problem, make sure you can reproduce the problem, clearly state your expectations and how the output differs from your expectation</li>
-<li>Interactive debugging tools <code>traceback</code>, <code>debug</code>, <code>browser</code>, <code>trace</code>, and <code>recover</code> can be used to find problematic code in functions</li>
+<li>Interactive debugging tools <code>traceback</code>, <code>debug</code>, <code>recover</code>, <code>browser</code>, <code>trace</code>, and can be used to find problematic code in functions</li>
 <li>Debugging tools are not a substitute for thinking!</li>
 </ul>
 <h1 id="post-lecture-materials">Post-lecture materials</h1>
@@ -1785,20 +1809,35 @@ will be used
 <div class="questions">
 <p><strong>Questions:</strong></p>
 <ol type="1">
-<li></li>
-<li></li>
-<li></li>
+<li>Try using <code>traceback()</code> to debug this piece of code:</li>
 </ol>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>f</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>a</span><span class='op'>)</span> <span class='fu'>g</span><span class='op'>(</span><span class='va'>a</span><span class='op'>)</span>
+<span class='va'>g</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>b</span><span class='op'>)</span> <span class='fu'>h</span><span class='op'>(</span><span class='va'>b</span><span class='op'>)</span>
+<span class='va'>h</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>c</span><span class='op'>)</span> <span class='fu'>i</span><span class='op'>(</span><span class='va'>c</span><span class='op'>)</span>
+<span class='va'>i</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>d</span><span class='op'>)</span> <span class='op'>{</span>
+  <span class='kw'>if</span> <span class='op'>(</span><span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/numeric.html'>is.numeric</a></span><span class='op'>(</span><span class='va'>d</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span>
+    <span class='kw'><a href='https://rdrr.io/r/base/stop.html'>stop</a></span><span class='op'>(</span><span class='st'>"`d` must be numeric"</span>, call. <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
+  <span class='op'>}</span>
+  <span class='va'>d</span> <span class='op'>+</span> <span class='fl'>10</span>
+<span class='op'>}</span>
+<span class='fu'>f</span><span class='op'>(</span><span class='st'>"a"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>Error: `d` must be numeric</code></pre>
+</div>
+<p>Describe in words what is happening above?</p>
 </div>
 <h3 id="additional-resources">Additional Resources</h3>
 <div class="resources">
 <ul>
 <li><a href="https://rdpeng.github.io/Biostat776/lecture-debugging-r-code.html" class="uri">https://rdpeng.github.io/Biostat776/lecture-debugging-r-code.html</a></li>
-<li></li>
-<li></li>
+<li><a href="https://adv-r.hadley.nz/debugging.html" class="uri">https://adv-r.hadley.nz/debugging.html</a></li>
+<li><a href="https://rstats.wtf/debugging-r-code.html" class="uri">https://rstats.wtf/debugging-r-code.html</a></li>
 </ul>
 </div>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

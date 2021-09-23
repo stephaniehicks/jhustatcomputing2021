@@ -7,18 +7,7 @@
     <description>Course website for Statistical Computing (JHSPH Biostatistics 140.776 Fall 2021)
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Tue, 05 Oct 2021 00:00:00 +0000</lastBuildDate>
-    <item>
-      <title>Working with dates and times</title>
-      <dc:creator>Stephanie Hicks</dc:creator>
-      <link>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-10-05-working-with-dates-and-times</link>
-      <description>Introduction to lubridate for dates and times in R.</description>
-      <category>module 2</category>
-      <category>week 6</category>
-      <guid>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-10-05-working-with-dates-and-times</guid>
-      <pubDate>Tue, 05 Oct 2021 00:00:00 +0000</pubDate>
-      <media:content url="https://stephaniehicks.com/jhustatcomputing2021/posts/2021-10-05-working-with-dates-and-times/working-with-dates-and-times_files/figure-html5/unnamed-chunk-20-1.png" medium="image" type="image/png" width="1248" height="768"/>
-    </item>
+    <lastBuildDate>Thu, 23 Sep 2021 00:00:00 +0000</lastBuildDate>
     <item>
       <title>Debugging R Code</title>
       <dc:creator>Stephanie Hicks</dc:creator>

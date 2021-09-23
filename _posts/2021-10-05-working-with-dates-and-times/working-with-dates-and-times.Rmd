@@ -16,6 +16,7 @@ output:
 categories:
   - module 2
   - week 6
+draft: TRUE
 ---
 
 
