@@ -62,13 +62,11 @@ For Rmd files, go to the [course GitHub repository](https://github.com/stephanie
 | | | | | |
 | | Oct 14 | `r emojifont::emoji('snake')` Leveraging Python within R | | |
 | | | | | |
-| **Module 3** |    | **Basic algorithms for optimization and estimation ** | |
+| **Module 3** |    | **Machine Learning Essentials** | |
 | | | | | |
-| Week 8      | Oct 19       | Basic statistical computing algorithms | |
+| Week 8      | Oct 19       | Machine learning essentials | |
 | | | | | |
-| **Module 4** |    | **Machine Learning Essentials** | |
-| | | | | |
-| | Oct 21 |   Machine learning essentials | | |
+| | Oct 21 |   Machine learning essentials  | | |
 | | | | | |
 | |  Oct 22 | | | `r emojifont::emoji('fallen_leaf')`  Project 3 due |
 :::
