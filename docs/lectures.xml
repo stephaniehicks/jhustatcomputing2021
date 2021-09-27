@@ -7,7 +7,24 @@
     <description>Course website for Statistical Computing (JHSPH Biostatistics 140.776 Fall 2021)
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Thu, 23 Sep 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 28 Sep 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Building R Packages</title>
+      <dc:creator>Stephanie Hicks</dc:creator>
+      <link>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-28-building-r-packages</link>
+      <description>Introduction to building and documenting R packages.</description>
+      <category>module 2</category>
+      <category>week 5</category>
+      <category>programming</category>
+      <category>R</category>
+      <category>R package</category>
+      <category>RStudio</category>
+      <category>functions</category>
+      <category>data viz</category>
+      <guid>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-28-building-r-packages</guid>
+      <pubDate>Tue, 28 Sep 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-28-building-r-packages/building-r-packages_files/figure-html5/unnamed-chunk-2-1.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
     <item>
       <title>Debugging R Code</title>
       <dc:creator>Stephanie Hicks</dc:creator>

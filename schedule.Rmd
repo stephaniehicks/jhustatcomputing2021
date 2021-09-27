@@ -49,7 +49,7 @@ For Rmd files, go to the [course GitHub repository](https://github.com/stephanie
 | | | `r emojifont::emoji('bug')` Error handling code in R [[html](posts/2021-09-23-error-handling-and-generation/index.html)] [[Rmd](https://github.com/stephaniehicks/jhustatcomputing2021/blob/main/_posts/2021-09-23-error-handling-and-generation/error-handling-and-generation.Rmd)]  | | |
 | | | `r emojifont::emoji('bug')` Profiling R code [[html](posts/2021-09-23-profiling-r-code/index.html)] [[Rmd](https://github.com/stephaniehicks/jhustatcomputing2021/blob/main/_posts/2021-09-23-profiling-r-code/profiling-r-code.Rmd)] | | |
 | | |  | | |
-| Week 5 | Sept 28      | `r emojifont::emoji('package')` R package software development (build, doc)  | `r emojifont::emoji('headphones')` Data analysis | |
+| Week 5 | Sept 28      | `r emojifont::emoji('package')` R package software development [[html](posts/2021-09-28-building-r-packages/index.html)] [[Rmd](https://github.com/stephaniehicks/jhustatcomputing2021/blob/main/_posts/2021-09-28-building-r-packages/building-r-packages.Rmd)] | `r emojifont::emoji('headphones')` Data analysis | |
 | | |  | | |
 | | Sept 30      | `r emojifont::emoji('package')` R package software development (testing)  | | | 
 | | Oct 1 | | | `r emojifont::emoji('fallen_leaf')`  Project 2 due |
