@@ -7,7 +7,20 @@
     <description>Course website for Statistical Computing (JHSPH Biostatistics 140.776 Fall 2021)
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Tue, 28 Sep 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 30 Sep 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Object Oriented Programming</title>
+      <dc:creator>Stephanie Hicks</dc:creator>
+      <link>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-30-object-oriented-programming</link>
+      <description>Introduction to S3, S4, or reference class with generics and methods.</description>
+      <category>module 2</category>
+      <category>week 5</category>
+      <category>programming</category>
+      <category>R</category>
+      <category>functions</category>
+      <guid>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-09-30-object-oriented-programming</guid>
+      <pubDate>Thu, 30 Sep 2021 00:00:00 +0000</pubDate>
+    </item>
     <item>
       <title>Building R Packages</title>
       <dc:creator>Stephanie Hicks</dc:creator>
