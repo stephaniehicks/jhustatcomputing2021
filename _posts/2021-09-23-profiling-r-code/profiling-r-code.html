@@ -1547,7 +1547,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <p>Well, clearly should optimize the parts of your code that are running slowly, but how do we know what parts those are?</p>
 <p>This is what the profiler is for. Profiling is a systematic way to examine how much time is spent in different parts of a program.</p>
 <p>Sometimes profiling becomes necessary as a project grows and layers of code are placed on top of each other. Often you might write some code that runs fine once. But then later, you might put that same code in a big loop that runs 1,000 times. Now, the original code that took 1 second to run is taking 1,000 seconds to run! Getting that little piece of original code to run faster will help the entire loop.</p>
-<p>It’s tempting to think you just <em>know</em> where the bottlenecks in your code are. I mean, after all, you write it! But trust me, I can’t tell you how many times I have been surprised at where exactly my code is spending all its time. The reality is that <strong>profiling is better than guessing</strong>. Better to collect some data than to go on hunches alone. Ultimately, getting the biggest impact on speeding up code depends on knowing where the code spends most of its time. This cannot be done without some sort of rigorous performance analysis or profiling.</p>
+<p>It’s tempting to think you just <em>know</em> where the bottlenecks in your code are. I mean, after all, you wrote it! But trust me, I can’t tell you how many times I have been surprised at where exactly my code is spending all its time. The reality is that <strong>profiling is better than guessing</strong>. Better to collect some data than to go on hunches alone. Ultimately, getting the biggest impact on speeding up code depends on knowing where the code spends most of its time. This cannot be done without some sort of rigorous performance analysis or profiling.</p>
 <blockquote>
 <p>We should forget about small efficiencies, say about 97% of the time: premature optimization is the root of all evil —<em>Donald Knuth</em></p>
 </blockquote>
@@ -1599,13 +1599,13 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </code></pre>
 </div>
 <pre><code>   user  system elapsed 
-  0.099   0.007   0.107 </code></pre>
+  0.088   0.005   0.095 </code></pre>
 </div>
 <p>If your expression is getting pretty long (more than 2 or 3 lines), it might be better to either break it into smaller pieces or to use the profiler. The problem is that if the expression is too long, you will not be able to identify which part of the code is causing the bottleneck.</p>
 <h3 id="the-r-profiler">The R Profiler</h3>
 <p>Using <code>system.time()</code> allows you to test certain functions or code blocks to see if they are taking excessive amounts of time. However, this approach assumes that you already know where the problem is and can call <code>system.time()</code> on it that piece of code. What if you don’t know where to start?</p>
 <p>This is where the profiler comes in handy. The <code>Rprof()</code> function starts the profiler in R. Note that R must be compiled with profiler support (but this is usually the case). In conjunction with <code>Rprof()</code>, we will use the <code>summaryRprof()</code> function, which summarizes the output from <code>Rprof()</code> (otherwise it’s not really readable).</p>
-<p><code>Rprof()</code> keeps track of the function call stack at regularly sampled intervals and tabulates how much time is spent inside each function. By default, the profiler samples the function call stack every 0.02 seconds. This means that if your code runs very quickly (say, under 0.02 seconds), the profiler is not useful. But of your code runs that fast, you probably don’t need the profiler.</p>
+<p><code>Rprof()</code> keeps track of the function call stack at regularly sampled intervals and tabulates how much time is spent inside each function. By default, the profiler samples the function call stack every 0.02 seconds. This means that if your code runs very quickly (say, under 0.02 seconds), the profiler is not useful. But if your code runs that fast, you probably don’t need the profiler.</p>
 <p>The profiler is started by calling the <code>Rprof()</code> function.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">

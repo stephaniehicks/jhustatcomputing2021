@@ -2331,10 +2331,10 @@ Course Materials
 <div class="keyideas">
 <p><strong>At the end of this lesson you will:</strong></p>
 <ul>
-<li>Discuss and overall approach to debugging code in R</li>
+<li>Discuss an overall approach to debugging code in R</li>
 <li>Recognize the three main indications of a problem/condition (<code>message</code>, <code>warning</code>, <code>error</code>) and a fatal problem (<code>error</code>)</li>
-<li>Understand the importance of reproduce the problem when debugging a function or piece of code</li>
-<li>Learn how to use interactive debugging tools <code>traceback</code>, <code>debug</code>, <code>recover</code>, <code>browser</code>, <code>trace</code>, and can be used to find problematic code in functions</li>
+<li>Understand the importance of reproducing the problem when debugging a function or piece of code</li>
+<li>Learn how to use interactive debugging tools <code>traceback</code>, <code>debug</code>, <code>recover</code>, <code>browser</code>, and <code>trace</code> can be used to find problematic code in functions</li>
 </ul>
 </div>
 <h1 id="debugging-r-code">Debugging R Code</h1>
@@ -2501,7 +2501,7 @@ will be used
 <li><code>traceback()</code>: prints out the function call stack after an error occurs; does nothing if there’s no error</li>
 <li><code>debug()</code>: flags a function for “debug” mode which allows you to step through execution of a function one line at a time</li>
 <li><code>browser()</code>: suspends the execution of a function wherever it is called and puts the function in debug mode</li>
-<li><code>trace()</code>: allows you to insert debugging code into a function a specific places</li>
+<li><code>trace()</code>: allows you to insert debugging code into a function at specific places</li>
 <li><code>recover()</code>: allows you to modify the error behavior so that you can browse the function call stack</li>
 </ul>
 <p>These functions are interactive tools specifically designed to allow you to pick through a function. There is also the more blunt technique of inserting <code>print()</code> or <code>cat()</code> statements in the function.</p>
@@ -2597,7 +2597,7 @@ Click here for how to use <code>recover()</code> with an interactive browser.
 <ul>
 <li>There are three main indications of a problem/condition: <code>message</code>, <code>warning</code>, <code>error</code>; only an <code>error</code> is fatal</li>
 <li>When analyzing a function with a problem, make sure you can reproduce the problem, clearly state your expectations and how the output differs from your expectation</li>
-<li>Interactive debugging tools <code>traceback</code>, <code>debug</code>, <code>recover</code>, <code>browser</code>, <code>trace</code>, and can be used to find problematic code in functions</li>
+<li>Interactive debugging tools <code>traceback</code>, <code>debug</code>, <code>recover</code>, <code>browser</code>, and <code>trace</code> can be used to find problematic code in functions</li>
 <li>Debugging tools are not a substitute for thinking!</li>
 </ul>
 <h1 id="post-lecture-materials">Post-lecture materials</h1>

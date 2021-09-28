@@ -2427,7 +2427,7 @@ Course Materials
         X &lt;- as.list(X)
     .Internal(lapply(X, FUN))
 }
-&lt;bytecode: 0x7fdb4391a5a0&gt;
+&lt;bytecode: 0x7f9a1c0461a0&gt;
 &lt;environment: namespace:base&gt;</code></pre>
 </div>
 <p><strong>Note</strong>: the actual looping is done internally in C code for efficiency reasons.</p>
@@ -2507,7 +2507,7 @@ $d
 [1] 0.9916910 1.1890256 0.5043966 9.2925392</code></pre>
 </div>
 <p>So now, instead of the random numbers being between 0 and 1 (the default), the are all between 0 and 10.</p>
-<p>The <code>lapply()</code> function (and its friends) makes heavy use of <em>anonymous</em> functions. Anonymous functions are like members of <a href="http://en.wikipedia.org/wiki/Fight_Club">Project Mayhem</a>—they have no names. These are functions are generated “on the fly” as you are using <code>lapply()</code>. Once the call to <code>lapply()</code> is finished, the function disappears and does not appear in the workspace.</p>
+<p>The <code>lapply()</code> function (and its friends) makes heavy use of <em>anonymous</em> functions. Anonymous functions are like members of <a href="http://en.wikipedia.org/wiki/Fight_Club">Project Mayhem</a>—they have no names. These functions are generated “on the fly” as you are using <code>lapply()</code>. Once the call to <code>lapply()</code> is finished, the function disappears and does not appear in the workspace.</p>
 <p>Here I am creating a list that contains two matrices.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -2608,7 +2608,7 @@ $d
 <li><code>f</code> is a factor (or coerced to one) or a list of factors</li>
 <li><code>drop</code> indicates whether empty factors levels should be dropped</li>
 </ul>
-<p>The combination of <code>split()</code> and a function like <code>lapply()</code> or <code>sapply()</code> is a common paradigm in R. The basic idea is that you can take a data structure, split it into subsets defined by another variable, and apply a function over those subsets. The results of applying tha function over the subsets are then collated and returned as an object. This sequence of operations is sometimes referred to as “map-reduce” in other contexts.</p>
+<p>The combination of <code>split()</code> and a function like <code>lapply()</code> or <code>sapply()</code> is a common paradigm in R. The basic idea is that you can take a data structure, split it into subsets defined by another variable, and apply a function over those subsets. The results of applying that function over the subsets are then collated and returned as an object. This sequence of operations is sometimes referred to as “map-reduce” in other contexts.</p>
 <p>Here we simulate some data and split it according to a factor variable. Note that we use the <code>gl()</code> function to “generate levels” in a factor variable.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -2967,7 +2967,7 @@ $`3`
 75%  0.7542638  0.5440158  0.5432995</code></pre>
 </div>
 <p>Notice that I had to pass the <code>probs = c(0.25, 0.75)</code> argument to <code>quantile()</code> via the <code>...</code> argument to <code>apply()</code>.</p>
-<p>For a higher dimensional example, I can create an array of <span class="math inline">\(2\times2\)</span> matrices and the compute the average of the matrices in the array.</p>
+<p>For a higher dimensional example, I can create an array of <span class="math inline">\(2\times2\)</span> matrices and then compute the average of the matrices in the array.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>a</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/array.html'>array</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='fl'>2</span> <span class='op'>*</span> <span class='fl'>2</span> <span class='op'>*</span> <span class='fl'>10</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>2</span>, <span class='fl'>2</span>, <span class='fl'>10</span><span class='op'>)</span><span class='op'>)</span>
@@ -3028,13 +3028,13 @@ $`3`
 [1] 4</code></pre>
 </div>
 <p>This passes the sequence <code>1:4</code> to the first argument of <code>rep()</code> and the sequence <code>4:1</code> to the second argument.</p>
-<p>Here’s another example for simulating randon Normal variables.</p>
+<p>Here’s another example for simulating random Normal variables.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>noise</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>n</span>, <span class='va'>mean</span>, <span class='va'>sd</span><span class='op'>)</span> <span class='op'>{</span>
       <span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='va'>n</span>, <span class='va'>mean</span>, <span class='va'>sd</span><span class='op'>)</span>
 <span class='op'>}</span>
-<span class='co'>## Simulate 5 randon numbers</span>
+<span class='co'>## Simulate 5 random numbers</span>
 <span class='fu'>noise</span><span class='op'>(</span><span class='fl'>5</span>, <span class='fl'>1</span>, <span class='fl'>2</span><span class='op'>)</span>        
 </code></pre>
 </div>
@@ -3151,11 +3151,11 @@ $`3`
 <p><span class="math display">\[
 S_n = 1^2 + 2^2 + 3^2 + \ldots + n^2
 \]</span></p>
-<p>Report the value of the sume when <span class="math inline">\(n\)</span> = 10.</p>
+<p>Report the value of the sum when <span class="math inline">\(n\)</span> = 10.</p>
 <ol start="2" type="1">
 <li><p>Define an empty numerical vector <code>s_n</code> of size 25 using <code>s_n &lt;- vector("numeric", 25)</code> and store in the results of <span class="math inline">\(S_1, S_2, \ldots, S_n\)</span> using a for-loop.</p></li>
 <li><p>Repeat Q3, but this time use <code>sapply()</code>.</p></li>
-<li><p>Plot <code>S_n</code> versus <code>n</code>. Use points defined by <span class="math inline">\(n= 1, \ldots, 25\)</span></p></li>
+<li><p>Plot <code>s_n</code> versus <code>n</code>. Use points defined by <span class="math inline">\(n= 1, \ldots, 25\)</span></p></li>
 </ol>
 </div>
 <h3 id="additional-resources">Additional Resources</h3>
