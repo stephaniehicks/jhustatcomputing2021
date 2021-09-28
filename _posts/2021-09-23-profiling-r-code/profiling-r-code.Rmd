@@ -90,7 +90,7 @@ This is what the profiler is for. Profiling is a systematic way to examine how m
 
 Sometimes profiling becomes necessary as a project grows and layers of code are placed on top of each other. Often you might write some code that runs fine once. But then later, you might put that same code in a big loop that runs 1,000 times. Now, the original code that took 1 second to run is taking 1,000 seconds to run! Getting that little piece of original code to run faster will help the entire loop.
 
-It's tempting to think you just *know* where the bottlenecks in your code are. I mean, after all, you write it! But trust me, I can't tell you how many times I have been surprised at where exactly my code is spending all its time. The reality is that **profiling is better than guessing**. Better to collect some data than to go on hunches alone. Ultimately, getting the biggest impact on speeding up code depends on knowing where
+It's tempting to think you just *know* where the bottlenecks in your code are. I mean, after all, you wrote it! But trust me, I can't tell you how many times I have been surprised at where exactly my code is spending all its time. The reality is that **profiling is better than guessing**. Better to collect some data than to go on hunches alone. Ultimately, getting the biggest impact on speeding up code depends on knowing where
 the code spends most of its time. This cannot be done without some sort of rigorous performance analysis or profiling.
 
 > We should forget about small efficiencies, say about 97% of the time: premature optimization is the root of all evil
@@ -171,7 +171,7 @@ Using `system.time()` allows you to test certain functions or code blocks to see
 
 This is where the profiler comes in handy. The `Rprof()` function starts the profiler in R. Note that R must be compiled with profiler support (but this is usually the case). In conjunction with `Rprof()`, we will use the `summaryRprof()` function, which summarizes the output from `Rprof()` (otherwise it’s not really readable).
 
-`Rprof()` keeps track of the function call stack at regularly sampled intervals and tabulates how much time is spent inside each function. By default, the profiler samples the function call stack every 0.02 seconds. This means that if your code runs very quickly (say, under 0.02 seconds), the profiler is not useful. But of your code runs that fast, you probably don't need the profiler.
+`Rprof()` keeps track of the function call stack at regularly sampled intervals and tabulates how much time is spent inside each function. By default, the profiler samples the function call stack every 0.02 seconds. This means that if your code runs very quickly (say, under 0.02 seconds), the profiler is not useful. But if your code runs that fast, you probably don't need the profiler.
 
 The profiler is started by calling the `Rprof()` function.
 
