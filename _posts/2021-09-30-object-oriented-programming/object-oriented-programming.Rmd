@@ -55,7 +55,9 @@ Material for this lecture was borrowed and adopted from
 
 **At the end of this lesson you will:**
 
-- Design and Implement a new S3, S4, or reference class with generics and methods
+- Recognize the primary object-oriented systems in R: S3, S4, and Reference Classes (RC). 
+- Understand the terminology of a **class**, **object**, **method**, **constructor** and **generic**.
+- Be able to create a new S3, S4 or reference class with generics and methods
 
 :::
 
@@ -64,13 +66,13 @@ Material for this lecture was borrowed and adopted from
 
 Object oriented programming is one of the most successful and widespread
 philosophies of programming and is a cornerstone of many programming languages
-including Java, Ruby, Python, and C++. R has three object oriented systems
-because the roots of R date back to 1976, when the idea of object orientiented
+including Java, Ruby, Python, and C++. Base R has three object oriented systems
+because the roots of R date back to 1976, when the idea of object orientated
 programming was barely [four years old](https://en.wikipedia.org/wiki/Smalltalk).
 New object oriented paradigms were added to R as they were invented, so some of
 the ideas in R about object oriented programming have gone stale in the years
-since. It's still important to understand these older systems since a huge
-amount of R code is written with them, and they're still useful and interesting!
+since. It is still important to understand these older systems since a huge
+amount of R code is written with them, and they are still useful and interesting!
 Long time object oriented programmers reading this book may find these old ideas
 refreshing.
 
@@ -80,25 +82,25 @@ already familiar with object oriented programming will feel at home using RC.
 
 ### Object Oriented Principles
 
-There a several key principles in object oriented programming which span across
+There a several key principles in object oriented programming, which span across
 R's object systems and other programming languages. The first are the ideas of a
 **class** and an **object**. The world is made up of physical objects - the chair you're
 sitting in, the clock next to your bed, the bus you ride every day, etc. Just
 like the world is full of physical objects, your programs can be made of objects
 as well. A class is a blueprint for an object: it describes the parts of an
 object, how to make an object, and what the object is able to do. If you were to
-think about a class for a bus (as in the public buses that roam the roads) this
+think about a class for a bus (as in the public buses that roam the roads), this
 class would describe attributes for the bus like the number of seats on the bus,
 the number of windows, the top speed of the bus, and the maximum distance the
 bus can drive on one tank of gas. 
 
-Buses in general can perform the same actions,
+Buses, in general, can perform the same actions,
 and these actions are also described in the class: a bus can open and close its
 doors, the bus can steer, and the accelerator or the brake can be used to slow
-down or speed up the bus. Each of these actions can be described as a **method**
-which is a **function** that is associated with a particular class. We'll be
+down or speed up the bus. Each of these actions can be described as a **method**,
+which is a **function** that is associated with a particular class. We will be
 using this class in order to create individual bus objects, so we should
-provide a **constructor** which is a method where we can specify attributes of
+provide a **constructor**, which is a method where we can specify attributes of
 the bus as arguments. This constructor method will then return an individual bus
 object with the attributes that we specified.
 
@@ -128,7 +130,7 @@ class("is in session.")
 class(class)
 ```
 
-Now it's time to wade into some of the quirks of R's object oriented systems. In
+Now it is time to wade into some of the quirks of R's object oriented systems. In
 the S3 system you can arbitrarily assign a class to any object, which goes
 against most of what we discussed in the *Object Oriented Principles* section.
 Class assignments can be made using the `structure()` function, or you can
@@ -160,7 +162,7 @@ triangle_3 <- shape_s3(c(3, 3, 3))
 class(triangle_3)
 ```
 
-We've now made two shape_S3 objects: `square_4` and `triangle_3`, which are both
+We have now made two shape_S3 objects: `square_4` and `triangle_3`, which are both
 instantiations of the shape_S3 class. Imagine that you wanted to create a method
 that would return `TRUE` if a shape_S3 object was a square, `FALSE` if a
 shape_S3 object was not a square, and `NA` if the object providied as an
@@ -192,8 +194,8 @@ is_square <- function(x) UseMethod("is_square")
 
 Now we can add the actual function definition for detecting whether or not a
 shape is a square by specifying `is_square.shape_S3`. By putting a dot (`.`)
-and then the name of the class after `is_squre`, we can create a method that
-associates `is_squre` with the `shape_S3` class:
+and then the name of the class after `is_square`, we can create a method that
+associates `is_square` with the `shape_S3` class:
 
 ```{r}
 is_square.shape_S3 <- function(x){
@@ -242,7 +244,7 @@ print.shape_S3 <- function(x){
             x$side_lengths[2], x$side_lengths[3], "and", x$side_lengths[4])
     }
   } else {
-    paste("A shape with", length(x$side_lengths), "slides.")
+    paste("A shape with", length(x$side_lengths), "sides.")
   }
 }
 
@@ -308,13 +310,39 @@ make_poly <- function(x, y) {
 
 Now that we have a class definition, we can develop some methods for operating on objects from that class. 
 
-The first method we'll define is the `print()` method. The `print()` method should just show some simple information about the object and should not be too verbose---just enough information that the user knows what the object is. 
+The first method that we will define is the `print()` method. The `print()` method should just show some simple information about the object and should not be too verbose---just enough information that the user knows what the object is. 
 
-Here the `print()` method just shows the user how many vertices the polygon has. It is a convention for `print()` methods to return the object `x` invisibly.
+Here the `print()` method just shows the user how many vertices the polygon has. It is a convention for `print()` methods to return the object `x` invisibly using the `invisible()` function.
+
+:::keyideas
+
+The `invisible()` function is useful when it is desired to have functions return values which can be assigned, but which do not print when they are not assigned.
+
+```{r}
+# These functions both return their argument
+
+f1 <- function(x) x
+f2 <- function(x) invisible(x)
+
+f1(1)  # prints
+f2(1)  # does not
+```
+
+However, when you assign the `f2()` function to an object, it does return the value
+
+```{r}
+z <- f2(1)
+z
+```
+
+:::
+
+OK back to the print method for the polygon class: 
 
 ```{r}
 ## Print method for polygon objects
 ## x an object of class "polygon"
+
 print.polygon <- function(x, ...) {
         cat("a polygon with", length(x$xcoord), 
             "vertices\n")
@@ -394,7 +422,7 @@ ways. To create a new class in S4 you need to use the `setClass()` function.
 You need to specify two or three arguments for this function: `Class` which
 is the name of the class as a string, `slots`, which is a named list of
 attributes for the class with the class of those attributes specified, and
-optionally `contains` which includes the super-class of they class you're
+optionally `contains` which includes the super-class of they class you are
 specifying (if there is a super-class). Take look at the class definition for
 a `bus_S4` and a `party_bus_S4` below:
 
@@ -414,7 +442,7 @@ setClass("party_bus_S4",
          contains = "bus_S4")
 ```
 
-Now that we've created the `bus_S4` and the `party_bus_S4` classes we can
+Now that we have created the `bus_S4` and the `party_bus_S4` classes we can
 create bus objects using the `new()` function. The `new()` function's arguments
 are the name of the class and values for each "slot" in our S4 object.
 
@@ -457,9 +485,9 @@ setGeneric("is_bus_moving", function(x){
 })
 ```
 
-Now we need to actually define the function which we can to with
+Now we need to actually define the function, which we can to with
 `setMethod()`. The `setMethod()` functions takes as arguments the name of the
-method as a stirng, the method signature which specifies the class of each
+method as a string, the method signature which specifies the class of each
 argument for the method, and then the function definition of the method:
 
 ```{r}
@@ -496,6 +524,8 @@ print(my_party_bus)
 
 # Reference Classes
 
+<details> <summary> Click here to learn about reference classes (RC).</summary>
+
 With reference classes we leave the world of R's old object oriented systems
 and enter the philosophies of other prominent object oriented programming
 languages. We can use the `setRefClass()` function to define a class' fields,
@@ -522,26 +552,26 @@ Student <- setRefClass("Student",
                       ))
 ```
 
-To recap: we've created a class definition called `Student` which defines the
+To recap: we have created a class definition called `Student`, which defines the
 student class. This class has five fields and three methods. To create a Student
 object use the `new()` method:
 
 ```{r}
 brooke <- Student$new(name = "Brooke", grad_year = 2019, credits = 40,
                     id = "ba123", courses = list("Ecology", "Calculus III"))
-roger <- Student$new(name = "Roger", grad_year = 2020, credits = 10,
-                    id = "rp456", courses = list("Puppetry", "Elementary Algebra"))
+stephanie <- Student$new(name = "Stephanie", grad_year = 2021, credits = 10,
+                    id = "shicks456", courses = list("Puppetry", "Elementary Algebra"))
 ```
 
 You can access the fields and methods of each object using the `$` operator:
 
 ```{r}
 brooke$credits
-roger$hello()
-roger$get_email()
+stephanie$hello()
+stephanie$get_email()
 ```
 
-Methods can change the state of an object, for instanct in the case of the
+Methods can change the state of an object, for instance in the case of the
 `add_credits()` function:
 
 ```{r}
@@ -555,7 +585,7 @@ operator (`<<-`). You need to use this operator if you want to modify one
 of the fields of an object with a method. You'll learn more about this operator
 in the Expressions & Environments section.
 
-Reference classes can inheret from other classes by specifying the `contains`
+Reference classes can inherit from other classes by specifying the `contains`
 argument when they're defined. Let's create a sub-class of Student called
 Grad_Student which includes a few extra features:
 
@@ -577,6 +607,8 @@ jeff <- Grad_Student$new(name = "Jeff", grad_year = 2021, credits = 8,
 jeff$defend()
 ```
 
+</details>
+
 # Summary
 
 - R has three object oriented systems: S3, S4, and Reference Classes. 
@@ -584,7 +616,7 @@ jeff$defend()
 programming languages.
 - Classes are blueprints for an object.
 - Objects are individual instances of a class.
-- Methods are functions that are associaed with a particular class.
+- Methods are functions that are associated with a particular class.
 - Constructors are methods that create objects.
 - Everything in R is an object.
 - S3 is a liberal object oriented system that allows you to assign a class to

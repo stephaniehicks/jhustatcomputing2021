@@ -60,7 +60,7 @@ For Rmd files, go to the [course GitHub repository](https://github.com/stephanie
 | | | | | |
 | Week 7      | Oct 12        | `r emojifont::emoji('volcano')` Dealing with large data; parallel computing  | | |
 | | | | | |
-| | Oct 14 | `r emojifont::emoji('snake')` Leveraging Python within R | | |
+| | Oct 14 | `r emojifont::emoji('snake')` Leveraging Python within R | `r emojifont::emoji('headphones')` R package dev | |
 | | | | | |
 | **Module 3** |    | **Machine Learning Essentials** | |
 | | | | | |
