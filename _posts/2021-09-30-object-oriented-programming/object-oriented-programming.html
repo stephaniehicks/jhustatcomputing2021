@@ -1511,7 +1511,6 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <li><a href="#summary">Summary</a></li>
 <li><a href="#post-lecture-materials">Post-lecture materials</a>
 <ul>
-<li><a href="#final-questions">Final Questions</a></li>
 <li><a href="#additional-resources">Additional Resources</a></li>
 </ul></li>
 </ul>
@@ -1544,7 +1543,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </div>
 <h1 id="introduction">Introduction</h1>
 <p>Object oriented programming is one of the most successful and widespread philosophies of programming and is a cornerstone of many programming languages including Java, Ruby, Python, and C++.</p>
-<p>At it’s core, <strong>object oriented programming</strong> (OOP) is a paradigm that is made upf of <strong>classes</strong> and <strong>objects</strong>.</p>
+<p>At it’s core, <strong>object oriented programming</strong> (OOP) is a paradigm that is made up of <strong>classes</strong> and <strong>objects</strong>.</p>
 <p>At a high-level, we use OOP to structure software programs into small, reusable pieces of code blueprints (i.e. <strong>classes</strong>), which are used to create instances of concrete <strong>objects</strong>.</p>
 <p>The blueprint (or <strong>class</strong>) typically represents broad categories, e.g. <code>bus</code> or <code>car</code> that share <strong>attributes</strong> (e.g. color). The classes specify what attributes you want, but not the actual values for a particular object. However, when you create instances with objects, you are specifying the attributes (e.g. a blue car, a red car, etc).</p>
 <p>In addition, classes can also contain functions, called <strong>methods</strong> available only to objects of that type. These functions are defined within the class and perform some action helpful to that specific type of object. For example, our <code>car</code> class may have a method <code>repaint</code> that changes the color attribute of our car. This function is only helpful to objects of type <code>car</code>, so we declare it within the <code>car</code> class thus making it a method.</p>
@@ -1552,6 +1551,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <p>Base R has three object oriented systems because the roots of R date back to 1976, when the idea of object orientated programming was barely <a href="https://en.wikipedia.org/wiki/Smalltalk">four years old</a>.</p>
 <p>New object oriented paradigms were added to R as they were invented, so some of the ideas in R about OOP have gone stale in the years since. It is still important to understand these older systems since a huge amount of R code is written with them, and they are still useful and interesting! Long time object oriented programmers reading this book may find these old ideas refreshing.</p>
 <p>The two older object oriented systems in R are called S3 and S4, and the modern system is called RC which stands for “reference classes.” Programmers who are already familiar with object oriented programming will feel at home using RC.</p>
+<p>Today we are going to focus on S3 and S4, but we leave RC for you to review, if you wish.</p>
 <p>In general, you should know and use S3 and this is also the OOP system that is most widely used in R. However, there are different R communities that prioritize other OOP systems (e.g. Bioconductor uses mostly S4).</p>
 <h3 id="object-oriented-principles">Object Oriented Principles</h3>
 <p>Ok let’s talk about some OOP principles. The first is is the idea of a <strong>class</strong> and an <strong>object</strong>.</p>
@@ -1825,7 +1825,7 @@ attr(,&quot;class&quot;)
 </div>
 <pre><code>[1] &quot;A quadrilateral with side lengths of 2 3 4 and 5&quot;</code></pre>
 </div>
-<p>Since printing an object to the console is one of the most common things to do in R, nearly every class has an assocaited print method! To see all of the methods associated with a generic like <code>print()</code> use the <code>methods()</code> function:</p>
+<p>Since printing an object to the console is one of the most common things to do in R, nearly every class has an associated print method! To see all of the methods associated with a generic like <code>print()</code> use the <code>methods()</code> function:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/utils/methods.html'>methods</a></span><span class='op'>(</span><span class='va'>print</span><span class='op'>)</span>, <span class='fl'>10</span><span class='op'>)</span>
@@ -1896,7 +1896,7 @@ attr(,&quot;class&quot;)
 </div>
 </div>
 <div class="keyideas">
-<p>The <code>invisible()</code> function is useful when it is desired to have functions return values which can be assigned, but which do not print when they are not assigned.</p>
+<p><strong>Pro tip</strong>: The <code>invisible()</code> function is useful when it is desired to have functions return values which can be assigned, but which do not print when they are not assigned.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='co'># These functions both return their argument</span>
@@ -1944,7 +1944,8 @@ attr(,&quot;class&quot;)
 </code></pre>
 </div>
 </div>
-<p>Note that it simply returns an object of class <code>summary_polygon</code>. Now the corresponding <code>print()</code> method.</p>
+<p>Note that it simply returns an object of class <code>summary_polygon</code>.</p>
+<p>Now the corresponding <code>print()</code> method:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='co'>## Print method for summary.polygon objects</span>
@@ -1962,8 +1963,14 @@ attr(,&quot;class&quot;)
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='co'>## Construct a new "polygon" object</span>
 <span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fu'>make_poly</span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>4</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>5</span>, <span class='fl'>2</span>, <span class='fl'>1</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/attributes.html'>attributes</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
 </code></pre>
 </div>
+<pre><code>$names
+[1] &quot;xcoord&quot; &quot;ycoord&quot;
+
+$class
+[1] &quot;polygon&quot;</code></pre>
 </div>
 <p>We can use the <code>print()</code> to see what the object is.</p>
 <div class="layout-chunk" data-layout="l-body">
@@ -2005,12 +2012,12 @@ y: 1 --&gt; 5 </code></pre>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'>setClass</span><span class='op'>(</span><span class='st'>"bus_S4"</span>,
+<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'>setClass</span><span class='op'>(</span>Class <span class='op'>=</span> <span class='st'>"bus_S4"</span>,
          slots <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>n_seats <span class='op'>=</span> <span class='st'>"numeric"</span>, 
                       top_speed <span class='op'>=</span> <span class='st'>"numeric"</span>,
                       current_speed <span class='op'>=</span> <span class='st'>"numeric"</span>,
                       brand <span class='op'>=</span> <span class='st'>"character"</span><span class='op'>)</span><span class='op'>)</span>
-<span class='kw'>setClass</span><span class='op'>(</span><span class='st'>"party_bus_S4"</span>,
+<span class='kw'>setClass</span><span class='op'>(</span>Class <span class='op'>=</span> <span class='st'>"party_bus_S4"</span>,
          slots <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>n_subwoofers <span class='op'>=</span> <span class='st'>"numeric"</span>,
                       smoke_machine_on <span class='op'>=</span> <span class='st'>"logical"</span><span class='op'>)</span>,
          contains <span class='op'>=</span> <span class='st'>"bus_S4"</span><span class='op'>)</span>
@@ -2091,14 +2098,15 @@ Slot &quot;brand&quot;:
 </div>
 <pre><code>[1] &quot;is_bus_moving&quot;</code></pre>
 </div>
-<p>Now we need to actually define the function, which we can to with <code>setMethod()</code>. The <code>setMethod()</code> functions takes as arguments the name of the method as a string, the method signature which specifies the class of each argument for the method, and then the function definition of the method:</p>
+<p>Now we need to actually define the function, which we can to with <code>setMethod()</code>. The <code>setMethod()</code> functions takes as arguments the name of the method as a string (or <code>f</code>), the method signature (<code>signature</code>), which specifies the class of each argument for the method, and then the function definition of the method:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'>setMethod</span><span class='op'>(</span><span class='st'>"is_bus_moving"</span>,
-          <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='st'>"bus_S4"</span><span class='op'>)</span>,
-          <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span><span class='op'>{</span>
-            <span class='va'>x</span><span class='op'>@</span><span class='va'>current_speed</span> <span class='op'>&gt;</span> <span class='fl'>0</span>
-          <span class='op'>}</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'>setMethod</span><span class='op'>(</span>f <span class='op'>=</span> <span class='st'>"is_bus_moving"</span>,
+          signature <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='st'>"bus_S4"</span><span class='op'>)</span>,
+          definition <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span><span class='op'>{</span>
+                          <span class='va'>x</span><span class='op'>@</span><span class='va'>current_speed</span> <span class='op'>&gt;</span> <span class='fl'>0</span>
+                      <span class='op'>}</span>
+          <span class='op'>)</span>
 
 <span class='fu'>is_bus_moving</span><span class='op'>(</span><span class='va'>my_bus</span><span class='op'>)</span>
 </code></pre>
@@ -2111,7 +2119,8 @@ Slot &quot;brand&quot;:
 </div>
 <pre><code>[1] TRUE</code></pre>
 </div>
-<p>In addition to creating your own generic methods, you can also create a method for your new class from an existing generic. First use the <code>setGeneric()</code> function with the name of the existing method you want to use with your class, and then use the <code>setMethod()</code> function like in the previous example. Let’s make a <code>print()</code> method for the bus_S4 class:</p>
+<p>In addition to creating your own generic methods, you can also create a method for your new class from an existing generic.</p>
+<p>First, use the <code>setGeneric()</code> function with the name of the existing method you want to use with your class, and then use the <code>setMethod()</code> function like in the previous example. Let’s make a <code>print()</code> method for the bus_S4 class:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='kw'>setGeneric</span><span class='op'>(</span><span class='st'>"print"</span><span class='op'>)</span>
@@ -2119,9 +2128,9 @@ Slot &quot;brand&quot;:
 </div>
 <pre><code>[1] &quot;print&quot;</code></pre>
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'>setMethod</span><span class='op'>(</span><span class='st'>"print"</span>,
-          <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='st'>"bus_S4"</span><span class='op'>)</span>,
-          <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span><span class='op'>{</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'>setMethod</span><span class='op'>(</span>f <span class='op'>=</span> <span class='st'>"print"</span>,
+          signature <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='st'>"bus_S4"</span><span class='op'>)</span>,
+          definition <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span><span class='op'>{</span>
             <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span><span class='op'>(</span><span class='st'>"This"</span>, <span class='va'>x</span><span class='op'>@</span><span class='va'>brand</span>, <span class='st'>"bus is traveling at a speed of"</span>, <span class='va'>x</span><span class='op'>@</span><span class='va'>current_speed</span><span class='op'>)</span>
           <span class='op'>}</span><span class='op'>)</span>
 
@@ -2243,16 +2252,6 @@ Click here to learn about reference classes (RC).
 <li>Reference Classes are a modern object oriented system that is similar to Java, C++, Python, or Ruby.</li>
 </ul>
 <h1 id="post-lecture-materials">Post-lecture materials</h1>
-<h3 id="final-questions">Final Questions</h3>
-<p>Here are some post-lecture questions to help you think about the material discussed.</p>
-<div class="questions">
-<p><strong>Questions:</strong></p>
-<ol type="1">
-<li></li>
-<li></li>
-<li></li>
-</ol>
-</div>
 <h3 id="additional-resources">Additional Resources</h3>
 <div class="resources">
 <ul>
@@ -2260,7 +2259,7 @@ Click here to learn about reference classes (RC).
 <li><a href="https://rdpeng.github.io/Biostat776/lecture-object-oriented-programming.html" class="uri">https://rdpeng.github.io/Biostat776/lecture-object-oriented-programming.html</a></li>
 </ul>
 </div>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

@@ -69,7 +69,7 @@ Object oriented programming is one of the most successful and widespread
 philosophies of programming and is a cornerstone of many programming languages
 including Java, Ruby, Python, and C++. 
 
-At it's core, **object oriented programming** (OOP) is a paradigm that is made upf of **classes** and **objects**. 
+At it's core, **object oriented programming** (OOP) is a paradigm that is made up of **classes** and **objects**. 
 
 At a high-level, we use OOP to structure software programs into small, reusable pieces of code blueprints (i.e. **classes**), which are used to create instances of concrete **objects**.
 
@@ -94,6 +94,8 @@ refreshing.
 The two older object oriented systems in R are called S3 and S4, and the modern
 system is called RC which stands for "reference classes." Programmers who are
 already familiar with object oriented programming will feel at home using RC.
+
+Today we are going to focus on S3 and S4, but we leave RC for you to review, if you wish. 
 
 In general, you should know and use S3 and this is also the OOP system that is 
 most widely used in R. However, there are different R communities that prioritize 
@@ -356,7 +358,7 @@ print(shape_s3(c(2, 3, 4, 5)))
 ```
 
 Since printing an object to the console is one of the most common things to do
-in R, nearly every class has an assocaited print method! To see all of the
+in R, nearly every class has an associated print method! To see all of the
 methods associated with a generic like `print()` use the `methods()` function:
 
 ```{r}
@@ -428,7 +430,7 @@ print.polygon <- function(x, ...) {
 
 :::keyideas
 
-The `invisible()` function is useful when it is desired to have functions return values which can be assigned, but which do not print when they are not assigned.
+**Pro tip**: The `invisible()` function is useful when it is desired to have functions return values which can be assigned, but which do not print when they are not assigned.
 
 ```{r}
 # These functions both return their argument
@@ -472,7 +474,9 @@ summary.polygon <- function(object, ...) {
 }
 ```
 
-Note that it simply returns an object of class `summary_polygon`. Now the corresponding `print()` method.
+Note that it simply returns an object of class `summary_polygon`. 
+
+Now the corresponding `print()` method:
 
 ```{r}
 ## Print method for summary.polygon objects
@@ -489,6 +493,7 @@ Now we can make use of our new class and methods.
 ```{r}
 ## Construct a new "polygon" object
 x <- make_poly(1:4, c(1, 5, 2, 1))
+attributes(x)
 ```
 
 We can use the `print()` to see what the object is.
@@ -530,12 +535,12 @@ library(methods)
 ```
 
 ```{r}
-setClass("bus_S4",
+setClass(Class = "bus_S4",
          slots = list(n_seats = "numeric", 
                       top_speed = "numeric",
                       current_speed = "numeric",
                       brand = "character"))
-setClass("party_bus_S4",
+setClass(Class = "party_bus_S4",
          slots = list(n_subwoofers = "numeric",
                       smoke_machine_on = "logical"),
          contains = "bus_S4")
@@ -586,15 +591,17 @@ setGeneric("is_bus_moving", function(x){
 
 Now we need to actually define the function, which we can to with
 `setMethod()`. The `setMethod()` functions takes as arguments the name of the
-method as a string, the method signature which specifies the class of each
-argument for the method, and then the function definition of the method:
+method as a string (or `f`), the method signature (`signature`),
+which specifies the class of each argument for the method, 
+and then the function definition of the method:
 
 ```{r}
-setMethod("is_bus_moving",
-          c(x = "bus_S4"),
-          function(x){
-            x@current_speed > 0
-          })
+setMethod(f = "is_bus_moving",
+          signature = c(x = "bus_S4"),
+          definition = function(x){
+                          x@current_speed > 0
+                      }
+          )
 
 is_bus_moving(my_bus)
 my_bus@current_speed <- 1
@@ -602,17 +609,19 @@ is_bus_moving(my_bus)
 ```
 
 In addition to creating your own generic methods, you can also create a method
-for your new class from an existing generic. First use the `setGeneric()`
-function with the name of the existing method you want to use with your class, 
+for your new class from an existing generic. 
+
+First, use the `setGeneric()` function with the name of the existing method 
+you want to use with your class, 
 and then use the `setMethod()` function like in the previous example. Let's
 make a `print()` method for the bus_S4 class:
 
 ```{r}
 setGeneric("print")
 
-setMethod("print",
-          c(x = "bus_S4"),
-          function(x){
+setMethod(f = "print",
+          signature = c(x = "bus_S4"),
+          definition = function(x){
             paste("This", x@brand, "bus is traveling at a speed of", x@current_speed)
           })
 
@@ -726,23 +735,6 @@ C++, Python, or Ruby.
 
 
 # Post-lecture materials
-
-### Final Questions 
-
-Here are some post-lecture questions to help you think about the material discussed.
-
-:::questions
-
-**Questions:**
-
-1. 
-
-2. 
-
-3.
-
-:::
-
 
 ### Additional Resources 
 
