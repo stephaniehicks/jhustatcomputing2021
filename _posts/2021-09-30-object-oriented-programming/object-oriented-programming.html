@@ -1497,10 +1497,13 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <li><a href="#learning-objectives">Learning objectives</a></li>
 <li><a href="#introduction">Introduction</a>
 <ul>
+<li><a href="#oop-in-r">OOP in R</a></li>
 <li><a href="#object-oriented-principles">Object Oriented Principles</a></li>
 </ul></li>
 <li><a href="#s3">S3</a>
 <ul>
+<li><a href="#base-types">Base types</a></li>
+<li><a href="#oo-objects">OO objects</a></li>
 <li><a href="#example-s3-classmethods-for-polygons">Example: S3 Class/Methods for Polygons</a></li>
 </ul></li>
 <li><a href="#s4">S4</a></li>
@@ -1528,6 +1531,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <ul>
 <li><a href="https://rdpeng.github.io/Biostat776/lecture-object-oriented-programming.html" class="uri">https://rdpeng.github.io/Biostat776/lecture-object-oriented-programming.html</a></li>
 <li><a href="https://adv-r.hadley.nz/oo.html" class="uri">https://adv-r.hadley.nz/oo.html</a></li>
+<li><a href="https://www.educative.io/blog/object-oriented-programming" class="uri">https://www.educative.io/blog/object-oriented-programming</a></li>
 </ul>
 <h1 id="learning-objectives">Learning objectives</h1>
 <div class="keyideas">
@@ -1539,20 +1543,73 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </ul>
 </div>
 <h1 id="introduction">Introduction</h1>
-<p>Object oriented programming is one of the most successful and widespread philosophies of programming and is a cornerstone of many programming languages including Java, Ruby, Python, and C++. Base R has three object oriented systems because the roots of R date back to 1976, when the idea of object orientated programming was barely <a href="https://en.wikipedia.org/wiki/Smalltalk">four years old</a>. New object oriented paradigms were added to R as they were invented, so some of the ideas in R about object oriented programming have gone stale in the years since. It is still important to understand these older systems since a huge amount of R code is written with them, and they are still useful and interesting! Long time object oriented programmers reading this book may find these old ideas refreshing.</p>
+<p>Object oriented programming is one of the most successful and widespread philosophies of programming and is a cornerstone of many programming languages including Java, Ruby, Python, and C++.</p>
+<p>At it’s core, <strong>object oriented programming</strong> (OOP) is a paradigm that is made upf of <strong>classes</strong> and <strong>objects</strong>.</p>
+<p>At a high-level, we use OOP to structure software programs into small, reusable pieces of code blueprints (i.e. <strong>classes</strong>), which are used to create instances of concrete <strong>objects</strong>.</p>
+<p>The blueprint (or <strong>class</strong>) typically represents broad categories, e.g. <code>bus</code> or <code>car</code> that share <strong>attributes</strong> (e.g. color). The classes specify what attributes you want, but not the actual values for a particular object. However, when you create instances with objects, you are specifying the attributes (e.g. a blue car, a red car, etc).</p>
+<p>In addition, classes can also contain functions, called <strong>methods</strong> available only to objects of that type. These functions are defined within the class and perform some action helpful to that specific type of object. For example, our <code>car</code> class may have a method <code>repaint</code> that changes the color attribute of our car. This function is only helpful to objects of type <code>car</code>, so we declare it within the <code>car</code> class thus making it a method.</p>
+<h3 id="oop-in-r">OOP in R</h3>
+<p>Base R has three object oriented systems because the roots of R date back to 1976, when the idea of object orientated programming was barely <a href="https://en.wikipedia.org/wiki/Smalltalk">four years old</a>.</p>
+<p>New object oriented paradigms were added to R as they were invented, so some of the ideas in R about OOP have gone stale in the years since. It is still important to understand these older systems since a huge amount of R code is written with them, and they are still useful and interesting! Long time object oriented programmers reading this book may find these old ideas refreshing.</p>
 <p>The two older object oriented systems in R are called S3 and S4, and the modern system is called RC which stands for “reference classes.” Programmers who are already familiar with object oriented programming will feel at home using RC.</p>
+<p>In general, you should know and use S3 and this is also the OOP system that is most widely used in R. However, there are different R communities that prioritize other OOP systems (e.g. Bioconductor uses mostly S4).</p>
 <h3 id="object-oriented-principles">Object Oriented Principles</h3>
-<p>There a several key principles in object oriented programming, which span across R’s object systems and other programming languages. The first are the ideas of a <strong>class</strong> and an <strong>object</strong>. The world is made up of physical objects - the chair you’re sitting in, the clock next to your bed, the bus you ride every day, etc. Just like the world is full of physical objects, your programs can be made of objects as well. A class is a blueprint for an object: it describes the parts of an object, how to make an object, and what the object is able to do. If you were to think about a class for a bus (as in the public buses that roam the roads), this class would describe attributes for the bus like the number of seats on the bus, the number of windows, the top speed of the bus, and the maximum distance the bus can drive on one tank of gas.</p>
-<p>Buses, in general, can perform the same actions, and these actions are also described in the class: a bus can open and close its doors, the bus can steer, and the accelerator or the brake can be used to slow down or speed up the bus. Each of these actions can be described as a <strong>method</strong>, which is a <strong>function</strong> that is associated with a particular class. We will be using this class in order to create individual bus objects, so we should provide a <strong>constructor</strong>, which is a method where we can specify attributes of the bus as arguments. This constructor method will then return an individual bus object with the attributes that we specified.</p>
-<p>You could also imagine that after making the bus class you might want to make a special kind of class for a <a href="https://en.wikipedia.org/wiki/Party_bus">party bus</a>. Party buses have all of the same attributes and methods as our bus class, but they also have additional attributes and methods like the number of refrigerators, window blinds that can be opened and closed, and smoke machines that can be turned on and off. Instead of rewriting the entire bus class and then adding new attributes and methods, it is possible for the party bus class to <strong>inherit</strong> all of the attributes and methods from the bus class. In this framework of inheritance, we talk about the bus class as the super-class of the party bus, and the party bus is the sub-class of the bus. What this relationship means is that the party bus has all of the same attributes and methods as the bus class plus additional attributes and methods.</p>
+<p>Ok let’s talk about some OOP principles. The first is is the idea of a <strong>class</strong> and an <strong>object</strong>.</p>
+<p>The world is made up of physical objects - the chair you are sitting in, the clock next to your bed, the bus you ride every day, etc. Just like the world is full of physical objects, your programs can be made of objects as well.</p>
+<p>A <strong>class is a blueprint for an object</strong>: it describes the parts of an object, how to make an object, and what the object is able to do. If you were to think about a class for a bus (as in the public buses that roam the roads), this class would describe attributes for the bus like the number of seats on the bus, the number of windows, the color of the bus, the top speed of the bus, and the maximum distance the bus can drive on one tank of gas.</p>
+<p>Buses, in general, can perform the same actions, and these actions are also described in the class: a bus can open and close its doors, the bus can steer, and the accelerator or the brake can be used to slow down or speed up the bus. Each of these actions can be described as a <strong>method</strong>, which is a <strong>function</strong> that is associated with a particular class.</p>
+<p>We will be using this class in order to create individual bus objects, so we should provide a <strong>constructor</strong>, which is a method where we can specify attributes of the bus as arguments. This constructor method will then return an individual bus object with the attributes that we specified.</p>
+<p>You could also imagine that after making the bus class you might want to make a special kind of class for a <a href="https://en.wikipedia.org/wiki/Party_bus">party bus</a>. Party buses have all of the same attributes and methods as our bus class, but they also have additional attributes and methods like the number of refrigerators, window blinds that can be opened and closed, and smoke machines that can be turned on and off.</p>
+<p>Instead of rewriting the entire bus class and then adding new attributes and methods, it is possible for the party bus class to <strong>inherit</strong> all of the attributes and methods from the bus class. In this framework of inheritance, we talk about the bus class as the super-class of the party bus, and the party bus is the sub-class of the bus. What this relationship means is that the party bus has all of the same attributes and methods as the bus class plus additional attributes and methods.</p>
 <h1 id="s3">S3</h1>
-<p>Conveniently everything in R is an object. By “everything” I mean every single “thing” in R including numbers, functions, strings, data frames, lists, etc. If you want to know the class of an object in R you can simply use the <code>class()</code> function:</p>
+<p>Conveniently everything in R is an <strong>object</strong>. By “everything” I mean every single “thing” in R including numbers, functions, strings, data frames, lists, etc.</p>
+<p>And while everything in R is an object, not everything is <strong>object-oriented</strong>.</p>
+<p>This confusion arises because the base objects come from S, and were developed before anyone thought that S might need an OOP system. The tools and nomenclature evolved organically over many years without a single guiding principle.</p>
+<p>Most of the time, the distinction between objects and object-oriented objects is not important. But here we need to get into the nitty gritty details so we will use the terms base objects and OO objects to distinguish them.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:atomic-vectors"></span>
+<img src="https://d33wubrfki0l68.cloudfront.net/5d6b4926530f3da70f16b54dcdf1a55eb8fa3d71/703e0/diagrams/oo-venn.png" alt="Everything in R is an object!" width="60%" />
+<p class="caption">
+Figure 1: Everything in R is an object!
+</p>
+</div>
+</div>
+<p>[<a href="https://adv-r.hadley.nz/base-types.html#introduction-11">Source</a>]</p>
+<p>To tell the difference between a base and OO object, use <code>is.object()</code></p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/class.html'>class</a></span><span class='op'>(</span><span class='fl'>2</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># A base object:</span>
+<span class='fu'><a href='https://rdrr.io/r/base/is.object.html'>is.object</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>10</span><span class='op'>)</span>
 </code></pre>
 </div>
-<pre><code>[1] &quot;numeric&quot;</code></pre>
+<pre><code>[1] FALSE</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># An OO object</span>
+<span class='fu'><a href='https://rdrr.io/r/base/is.object.html'>is.object</a></span><span class='op'>(</span><span class='va'>airquality</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>[1] TRUE</code></pre>
+</div>
+<p>Technically, the difference between base and OO objects is that OO objects have a “class” attribute:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/attr.html'>attr</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>10</span>, <span class='st'>"class"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>NULL</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/attr.html'>attr</a></span><span class='op'>(</span><span class='va'>airquality</span>, <span class='st'>"class"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>[1] &quot;data.frame&quot;</code></pre>
+</div>
+<p>This can be slightly confusing, but important to note: you can find out the class of an object in R using the <code>class()</code> function, but this may or may not have a class attribute.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/class.html'>class</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>10</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>[1] &quot;integer&quot;</code></pre>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/class.html'>class</a></span><span class='op'>(</span><span class='st'>"is in session."</span><span class='op'>)</span>
 </code></pre>
@@ -1564,7 +1621,58 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </div>
 <pre><code>[1] &quot;function&quot;</code></pre>
 </div>
-<p>Now it is time to wade into some of the quirks of R’s object oriented systems. In the S3 system you can arbitrarily assign a class to any object, which goes against most of what we discussed in the <em>Object Oriented Principles</em> section. Class assignments can be made using the <code>structure()</code> function, or you can assign the class using <code>class()</code> and <code>&lt;-</code>:</p>
+<h3 id="base-types">Base types</h3>
+<p>While only OO objects have a class attribute, every object has a base type:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/typeof.html'>typeof</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>10</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>[1] &quot;integer&quot;</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/typeof.html'>typeof</a></span><span class='op'>(</span><span class='va'>mtcars</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>[1] &quot;list&quot;</code></pre>
+</div>
+<p>Base types do not form an OOP system because functions that behave differently for different base types are primarily written in C code that uses switch statements.</p>
+<p>This means that only the R-core team can create new types, and creating a new type is a lot of work because every switch statement needs to be modified to handle a new case. As a consequence, new base types are rarely added. In total, there are <a href="https://adv-r.hadley.nz/base-types.html#base-types-2">25 different base types</a>.</p>
+<p>Here are two more base types we have already learned about:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/typeof.html'>typeof</a></span><span class='op'>(</span><span class='fl'>1L</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>[1] &quot;integer&quot;</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/typeof.html'>typeof</a></span><span class='op'>(</span><span class='fl'>1i</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>[1] &quot;complex&quot;</code></pre>
+</div>
+<h3 id="oo-objects">OO objects</h3>
+<p>At a high-level, an S3 object is a <strong>base type</strong> with at least a <strong>class</strong> attribute.</p>
+<p>For example, take the <code>factor</code>. Its base type is the <code>integer</code> vector, it has a <code>class</code> attribute of “factor”, and a <code>levels</code> attribute that stores the possible levels:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>f</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"a"</span>, <span class='st'>"b"</span>, <span class='st'>"c"</span><span class='op'>)</span><span class='op'>)</span>
+
+<span class='fu'><a href='https://rdrr.io/r/base/typeof.html'>typeof</a></span><span class='op'>(</span><span class='va'>f</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>[1] &quot;integer&quot;</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/attributes.html'>attributes</a></span><span class='op'>(</span><span class='va'>f</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>$levels
+[1] &quot;a&quot; &quot;b&quot; &quot;c&quot;
+
+$class
+[1] &quot;factor&quot;</code></pre>
+</div>
+<p>Cool. Let’s try creating a new class in the S3 system.</p>
+<p>In the S3 system you can arbitrarily assign a class to any object. Class assignments can be made using the <code>structure()</code> function, or you can assign the class using <code>class()</code> and <code>&lt;-</code>:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>special_num_1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/structure.html'>structure</a></span><span class='op'>(</span><span class='fl'>1</span>, class <span class='op'>=</span> <span class='st'>"special_number"</span><span class='op'>)</span>
@@ -1585,7 +1693,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </div>
 <pre><code>[1] &quot;special_number&quot;</code></pre>
 </div>
-<p>This is completely legal R code, but if you want to have a better behaved S3 class you should create a constructor which returns an S3 object. The <code>shape_S3()</code> function below is a constructor that returns a shape_S3 object:</p>
+<p>As crazy as this is, it is completely legal R code, but if you want to have a better behaved S3 class you should create a constructor which returns an S3 object. The <code>shape_S3()</code> function below is a constructor that returns a shape_S3 object:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>shape_s3</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>side_lengths</span><span class='op'>)</span><span class='op'>{</span>
@@ -1604,7 +1712,10 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </div>
 <pre><code>[1] &quot;shape_S3&quot;</code></pre>
 </div>
-<p>We have now made two shape_S3 objects: <code>square_4</code> and <code>triangle_3</code>, which are both instantiations of the shape_S3 class. Imagine that you wanted to create a method that would return <code>TRUE</code> if a shape_S3 object was a square, <code>FALSE</code> if a shape_S3 object was not a square, and <code>NA</code> if the object providied as an argument to the method was not a shape_s3 object. This can be achieved using R’s <strong>generic methods</strong> system. A generic method can return different values based depending on the class of its input. For example <code>mean()</code> is a generic method that can find the average of a vector of number or it can find the “average day” from a vector of dates. The following snippet demonstrates this behavior:</p>
+<p>We have now made two shape_S3 objects: <code>square_4</code> and <code>triangle_3</code>, which are both instantiations of the shape_S3 class.</p>
+<p>Imagine that you wanted to create a <strong>method</strong> (or function) that would return <code>TRUE</code> if a shape_S3 object was a square, <code>FALSE</code> if a shape_S3 object was not a square, and <code>NA</code> if the object provided as an argument to the method was not a shape_s3 object.</p>
+<p>This can be achieved using R’s <strong>generic methods</strong> system. A generic method can return different values based depending on the class of its input.</p>
+<p>For example <code>mean()</code> is a generic method that can find the average of a vector of number or it can find the “average day” from a vector of dates. The following snippet demonstrates this behavior:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>2</span>, <span class='fl'>3</span>, <span class='fl'>7</span><span class='op'>)</span><span class='op'>)</span>
@@ -1724,7 +1835,7 @@ attr(,&quot;class&quot;)
  [5] &quot;print.aovlist&quot; &quot;print.ar&quot;      &quot;print.Arima&quot;   &quot;print.arima0&quot; 
  [9] &quot;print.AsIs&quot;    &quot;print.aspell&quot; </code></pre>
 </div>
-<p>One last note on S3 with regard to inheritance. In the previous section we discussed how a sub-class can inhert attributes and methods from a super-class. Since you can assign any class to an object in S3, you can specify a super class for an object the same way you would specify a class for an object:</p>
+<p>One last note on S3 with regard to inheritance. In the previous section we discussed how a sub-class can inherit attributes and methods from a super-class. Since you can assign any class to an object in S3, you can specify a super class for an object the same way you would specify a class for an object:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/class.html'>class</a></span><span class='op'>(</span><span class='va'>square_4</span><span class='op'>)</span>
@@ -1771,6 +1882,19 @@ attr(,&quot;class&quot;)
 <p>Now that we have a class definition, we can develop some methods for operating on objects from that class.</p>
 <p>The first method that we will define is the <code>print()</code> method. The <code>print()</code> method should just show some simple information about the object and should not be too verbose—just enough information that the user knows what the object is.</p>
 <p>Here the <code>print()</code> method just shows the user how many vertices the polygon has. It is a convention for <code>print()</code> methods to return the object <code>x</code> invisibly using the <code>invisible()</code> function.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'>## Print method for polygon objects</span>
+<span class='co'>## x an object of class "polygon"</span>
+
+<span class='va'>print.polygon</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>...</span><span class='op'>)</span> <span class='op'>{</span>
+        <span class='fu'><a href='https://rdrr.io/r/base/cat.html'>cat</a></span><span class='op'>(</span><span class='st'>"a polygon with"</span>, <span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>$</span><span class='va'>xcoord</span><span class='op'>)</span>, 
+            <span class='st'>"vertices\n"</span><span class='op'>)</span>
+        <span class='fu'><a href='https://rdrr.io/r/base/invisible.html'>invisible</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
+<span class='op'>}</span>
+</code></pre>
+</div>
+</div>
 <div class="keyideas">
 <p>The <code>invisible()</code> function is useful when it is desired to have functions return values which can be assigned, but which do not print when they are not assigned.</p>
 <div class="layout-chunk" data-layout="l-body">
@@ -1797,20 +1921,6 @@ attr(,&quot;class&quot;)
 </code></pre>
 </div>
 <pre><code>[1] 1</code></pre>
-</div>
-</div>
-<p>OK back to the print method for the polygon class:</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='co'>## Print method for polygon objects</span>
-<span class='co'>## x an object of class "polygon"</span>
-
-<span class='va'>print.polygon</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>...</span><span class='op'>)</span> <span class='op'>{</span>
-        <span class='fu'><a href='https://rdrr.io/r/base/cat.html'>cat</a></span><span class='op'>(</span><span class='st'>"a polygon with"</span>, <span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>$</span><span class='va'>xcoord</span><span class='op'>)</span>, 
-            <span class='st'>"vertices\n"</span><span class='op'>)</span>
-        <span class='fu'><a href='https://rdrr.io/r/base/invisible.html'>invisible</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
-<span class='op'>}</span>
-</code></pre>
 </div>
 </div>
 <p>Next is the <code>summary()</code> method. The <code>summary()</code> method typically shows a bit more information and may even do some calculations. This <code>summary()</code> method computes the ranges of the x- and y-coordinates.</p>
@@ -2150,7 +2260,7 @@ Click here to learn about reference classes (RC).
 <li><a href="https://rdpeng.github.io/Biostat776/lecture-object-oriented-programming.html" class="uri">https://rdpeng.github.io/Biostat776/lecture-object-oriented-programming.html</a></li>
 </ul>
 </div>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

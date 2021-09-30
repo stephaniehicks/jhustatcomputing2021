@@ -48,6 +48,7 @@ Material for this lecture was borrowed and adopted from
 
 - https://rdpeng.github.io/Biostat776/lecture-object-oriented-programming.html 
 - https://adv-r.hadley.nz/oo.html
+- https://www.educative.io/blog/object-oriented-programming
 
 # Learning objectives
 
@@ -66,11 +67,25 @@ Material for this lecture was borrowed and adopted from
 
 Object oriented programming is one of the most successful and widespread
 philosophies of programming and is a cornerstone of many programming languages
-including Java, Ruby, Python, and C++. Base R has three object oriented systems
+including Java, Ruby, Python, and C++. 
+
+At it's core, **object oriented programming** (OOP) is a paradigm that is made upf of **classes** and **objects**. 
+
+At a high-level, we use OOP to structure software programs into small, reusable pieces of code blueprints (i.e. **classes**), which are used to create instances of concrete **objects**.
+
+The blueprint (or **class**) typically represents broad categories, e.g. `bus` or `car` that share **attributes** (e.g. color). The classes specify what attributes you want, but not the actual values for a particular object. However, when you create instances with objects, you are specifying the attributes (e.g. a blue car, a red car, etc). 
+
+In addition, classes can also contain functions, called **methods** available only to objects of that type. These functions are defined within the class and perform some action helpful to that specific type of object. For example, our `car` class may have a method `repaint` that changes the color attribute of our car. This function is only helpful to objects of type `car`, so we declare it within the `car` class thus making it a method.
+
+
+### OOP in R
+
+Base R has three object oriented systems
 because the roots of R date back to 1976, when the idea of object orientated
 programming was barely [four years old](https://en.wikipedia.org/wiki/Smalltalk).
+
 New object oriented paradigms were added to R as they were invented, so some of
-the ideas in R about object oriented programming have gone stale in the years
+the ideas in R about OOP have gone stale in the years
 since. It is still important to understand these older systems since a huge
 amount of R code is written with them, and they are still useful and interesting!
 Long time object oriented programmers reading this book may find these old ideas
@@ -80,26 +95,33 @@ The two older object oriented systems in R are called S3 and S4, and the modern
 system is called RC which stands for "reference classes." Programmers who are
 already familiar with object oriented programming will feel at home using RC.
 
+In general, you should know and use S3 and this is also the OOP system that is 
+most widely used in R. However, there are different R communities that prioritize 
+other OOP systems (e.g. Bioconductor uses mostly S4).
+
 ### Object Oriented Principles
 
-There a several key principles in object oriented programming, which span across
-R's object systems and other programming languages. The first are the ideas of a
-**class** and an **object**. The world is made up of physical objects - the chair you're
+Ok let's talk about some OOP principles. The first is is the idea of a **class** and an **object**. 
+
+The world is made up of physical objects - the chair you are
 sitting in, the clock next to your bed, the bus you ride every day, etc. Just
 like the world is full of physical objects, your programs can be made of objects
-as well. A class is a blueprint for an object: it describes the parts of an
+as well. 
+
+A **class is a blueprint for an object**: it describes the parts of an
 object, how to make an object, and what the object is able to do. If you were to
 think about a class for a bus (as in the public buses that roam the roads), this
 class would describe attributes for the bus like the number of seats on the bus,
-the number of windows, the top speed of the bus, and the maximum distance the
-bus can drive on one tank of gas. 
+the number of windows, the color of the bus, the top speed of the bus, 
+and the maximum distance the bus can drive on one tank of gas. 
 
 Buses, in general, can perform the same actions,
 and these actions are also described in the class: a bus can open and close its
 doors, the bus can steer, and the accelerator or the brake can be used to slow
 down or speed up the bus. Each of these actions can be described as a **method**,
-which is a **function** that is associated with a particular class. We will be
-using this class in order to create individual bus objects, so we should
+which is a **function** that is associated with a particular class. 
+
+We will be using this class in order to create individual bus objects, so we should
 provide a **constructor**, which is a method where we can specify attributes of
 the bus as arguments. This constructor method will then return an individual bus
 object with the attributes that we specified.
@@ -109,7 +131,9 @@ a special kind of class for a [party bus](https://en.wikipedia.org/wiki/Party_bu
 Party buses have all of the same attributes and methods as our bus class, but
 they also have additional attributes and methods like the number of
 refrigerators, window blinds that can be opened and closed, and smoke machines
-that can be turned on and off. Instead of rewriting the entire bus class and
+that can be turned on and off. 
+
+Instead of rewriting the entire bus class and
 then adding new attributes and methods, it is possible for the party bus class
 to **inherit** all of the attributes and methods from the bus class. In this
 framework of inheritance, we talk about the bus class as the super-class of the
@@ -119,20 +143,90 @@ bus class plus additional attributes and methods.
 
 # S3
 
-Conveniently everything in R is an object. By "everything" I mean every single
-"thing" in R including numbers, functions, strings, data frames, lists, etc. If
-you want to know the class of an object in R you can simply use the `class()`
-function:
+Conveniently everything in R is an **object**. By "everything" I mean every single
+"thing" in R including numbers, functions, strings, data frames, lists, etc. 
+
+And while everything in R is an object, not everything is **object-oriented**.
+
+This confusion arises because the base objects come from S, and were developed before anyone thought that S might need an OOP system. The tools and nomenclature evolved organically over many years without a single guiding principle.
+
+Most of the time, the distinction between objects and object-oriented objects is not important. But here we need to get into the nitty gritty details so we will use the terms base objects and OO objects to distinguish them.
+
+```{r atomic-vectors, echo=FALSE, fig.cap='Everything in R is an object!', out.width = '60%', fig.align='center'}
+knitr::include_graphics("https://d33wubrfki0l68.cloudfront.net/5d6b4926530f3da70f16b54dcdf1a55eb8fa3d71/703e0/diagrams/oo-venn.png")
+```
+
+[[Source](https://adv-r.hadley.nz/base-types.html#introduction-11)]
+
+To tell the difference between a base and OO object, use `is.object()`
 
 ```{r}
-class(2)
+# A base object:
+is.object(1:10)
+
+# An OO object
+is.object(airquality)
+```
+
+
+Technically, the difference between base and OO objects is that OO objects have a "class" attribute:
+
+```{r}
+attr(1:10, "class")
+
+attr(airquality, "class")
+```
+
+This can be slightly confusing, but important to note: 
+you can find out the class of an object in R using
+the `class()` function, but this may or may not have a class attribute. 
+
+```{r}
+class(1:10)
 class("is in session.")
 class(class)
 ```
 
-Now it is time to wade into some of the quirks of R's object oriented systems. In
-the S3 system you can arbitrarily assign a class to any object, which goes
-against most of what we discussed in the *Object Oriented Principles* section.
+
+### Base types
+
+While only OO objects have a class attribute, every object has a base type:
+
+```{r}
+typeof(1:10)
+
+typeof(mtcars)
+```
+
+Base types do not form an OOP system because functions that behave differently for different base types are primarily written in C code that uses switch statements. 
+
+This means that only the R-core team can create new types, and creating a new type is a lot of work because every switch statement needs to be modified to handle a new case. As a consequence, new base types are rarely added. In total, there are [25 different base types](https://adv-r.hadley.nz/base-types.html#base-types-2). 
+
+Here are two more base types we have already learned about: 
+
+```{r}
+typeof(1L)
+
+typeof(1i)
+```
+
+### OO objects
+
+At a high-level, an S3 object is a **base type** with at least a **class** attribute. 
+
+For example, take the `factor`. Its base type is the `integer` vector, it has a `class` attribute of "factor", and a `levels` attribute that stores the possible levels:
+
+```{r}
+f <- factor(c("a", "b", "c"))
+
+typeof(f)
+
+attributes(f)
+```
+
+Cool. Let's try creating a new class in the S3 system. 
+
+In the S3 system you can arbitrarily assign a class to any object.
 Class assignments can be made using the `structure()` function, or you can
 assign the class using `class()` and `<-`:
 
@@ -142,13 +236,15 @@ class(special_num_1)
 
 special_num_2 <- 2
 class(special_num_2)
+
 class(special_num_2) <- "special_number"
 class(special_num_2)
 ```
 
-This is completely legal R code, but if you want to have a better behaved S3
-class you should create a constructor which returns an S3 object. The
-`shape_S3()` function below is a constructor that returns a shape_S3 object:
+As crazy as this is, it is completely legal R code, but if you want 
+to have a better behaved S3 class you should create a constructor which
+returns an S3 object. The `shape_S3()` function below is a constructor 
+that returns a shape_S3 object:
 
 ```{r}
 shape_s3 <- function(side_lengths){
@@ -163,15 +259,20 @@ class(triangle_3)
 ```
 
 We have now made two shape_S3 objects: `square_4` and `triangle_3`, which are both
-instantiations of the shape_S3 class. Imagine that you wanted to create a method
+instantiations of the shape_S3 class. 
+
+Imagine that you wanted to create a **method** (or function)
 that would return `TRUE` if a shape_S3 object was a square, `FALSE` if a
-shape_S3 object was not a square, and `NA` if the object providied as an
-argument to the method was not a shape_s3 object. This can be achieved using
-R's **generic methods** system. A generic method can return different values
-based depending on the class of its input. For example `mean()` is a generic
-method that can find the average of a vector of number or it can find the
-"average day" from a vector of dates. The following snippet demonstrates this
-behavior:
+shape_S3 object was not a square, and `NA` if the object provided as an
+argument to the method was not a shape_s3 object. 
+
+This can be achieved using R's **generic methods** system. 
+A generic method can return different values based depending on the class of 
+its input. 
+
+For example `mean()` is a generic method that can find the average 
+of a vector of number or it can find the "average day" from a vector of dates. 
+The following snippet demonstrates this behavior:
 
 ```{r}
 mean(c(2, 3, 7))
@@ -263,7 +364,7 @@ head(methods(print), 10)
 ```
 
 One last note on S3 with regard to inheritance. In the previous section we
-discussed how a sub-class can inhert attributes and methods from a super-class.
+discussed how a sub-class can inherit attributes and methods from a super-class.
 Since you can assign any class to an object in S3, you can specify a super
 class for an object the same way you would specify a class for an object:
 
@@ -314,6 +415,17 @@ The first method that we will define is the `print()` method. The `print()` meth
 
 Here the `print()` method just shows the user how many vertices the polygon has. It is a convention for `print()` methods to return the object `x` invisibly using the `invisible()` function.
 
+```{r}
+## Print method for polygon objects
+## x an object of class "polygon"
+
+print.polygon <- function(x, ...) {
+        cat("a polygon with", length(x$xcoord), 
+            "vertices\n")
+        invisible(x)
+}
+```
+
 :::keyideas
 
 The `invisible()` function is useful when it is desired to have functions return values which can be assigned, but which do not print when they are not assigned.
@@ -336,19 +448,6 @@ z
 ```
 
 :::
-
-OK back to the print method for the polygon class: 
-
-```{r}
-## Print method for polygon objects
-## x an object of class "polygon"
-
-print.polygon <- function(x, ...) {
-        cat("a polygon with", length(x$xcoord), 
-            "vertices\n")
-        invisible(x)
-}
-```
 
 
 Next is the `summary()` method. The `summary()` method typically shows a bit more information and may even do some calculations. This `summary()` method computes the ranges of the x- and y-coordinates.
