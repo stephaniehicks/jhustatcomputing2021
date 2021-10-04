@@ -16,6 +16,9 @@ output:
 categories:
   - module 2
   - week 6
+  - tidyverse
+  - R 
+  - programming
 draft: TRUE
 ---
 
@@ -35,7 +38,8 @@ knitr::opts_chunk$set(echo = TRUE)
 
 **Before class, you can prepare by reading the following materials:**
 
-1. 
+1. https://r4ds.had.co.nz/dates-and-times.html
+2. 
 
 :::
 
@@ -44,8 +48,8 @@ knitr::opts_chunk$set(echo = TRUE)
 
 Material for this lecture was borrowed and adopted from
 
--
-- 
+- https://jhu-advdatasci.github.io/2018/lectures/09-dates-times.html
+- https://r4ds.had.co.nz/dates-and-times.html
 - 
 
 # Learning objectives
@@ -63,6 +67,17 @@ Material for this lecture was borrowed and adopted from
 
 # Introduction
 
+In this lesson, we will learn how to work with dates and times in R. 
+These may seem simple as you use them all of the time in your day-to-day life, 
+but the more you work with them, the more complicated they seem to get. 
+
+Dates and times are hard because they have to reconcile two physical phenomena (the rotation of the Earth and its orbit around the sun) with a whole raft of geopolitical phenomena including months, time zones, and daylight savings time (DST). 
+
+This lesson will not teach you every last detail about dates and times, but it will give you a solid grounding of practical skills that will help you with common data analysis challenges.
+
+
+
+
 R has developed a special representation of dates and times
 
 - Dates are represented by the `Date` class
@@ -74,20 +89,59 @@ R has developed a special representation of dates and times
 - Times are stored internally as the number of seconds since
   1970-01-01
 
-# The `lubridate` package
+### The `lubridate` package
 
-* The `lubridate` package is a very useful package for dealing with all the little annoying aspects of dates/times
+Here, we will focus on the `lubridate` R package, which makes it easier to work with dates and times in R. A few things to note about it: 
 
-* Largely replaces the default date/time functions in base R
+- It largely replaces the default date/time functions in base R
 
-* Methods for date/time arithmetic
+- It contains methods for date/time arithmetic
 
-* Handles time zones, leap year, leap seconds, etc.
+- It handles time zones, leap year, leap seconds, etc.
 
-```{r,eval=FALSE}
-library("lubridate")
-## Part of `tidyverse` package
+`lubridate` is not part of core `tidyverse` because you only need it when you are working with dates/times. 
+
+```{r, eval=FALSE}
+install.packages("lubridate") ## Not part of `tidyverse` package
 ```
+
+```{r}
+library(tidyverse)
+library(lubridate) 
+```
+
+
+### Creating date/times
+
+There are three types of date/time data that refer to an instant in time:
+
+- A **date**. Tibbles print this as `<date>`.
+
+- A **time** within a day. Tibbles print this as `<time>`.
+
+- A **date-time** is a date plus a time: it uniquely identifies an instant in time (typically to the nearest second). Tibbles print this as `<dttm>`. Elsewhere in R these are called `POSIXct`. 
+
+In this chapter we are only going to focus on dates and date-times as R does nort have a native class for storing times. If you need one, you can use the `hms` package.
+
+You should always use the simplest possible data type that works for your needs. That means if you can use a date instead of a date-time, you should. Date-times are substantially more complicated because of the need to handle time zones, which we’ll come back to at the end of the chapter.
+
+To get the current date or date-time you can use `today()` or `now()`:
+
+```{r}
+today()
+
+now()
+```
+
+Otherwise, there are three ways you’re likely to create a date/time:
+
+From a string.
+From individual date-time components.
+From an existing date/time object.
+They work as follows.
+
+
+
 
 # Dates in R
 

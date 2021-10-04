@@ -40,7 +40,6 @@ Before attempting this assignment, you should first install the following packag
 ```{r,eval=FALSE, }
 install.packages("tidyverse")
 install.packages("tidytuesdayR")
-
 ```
 
 # Part 1: Fun with functions

@@ -7,7 +7,17 @@
     <description>Course website for Statistical Computing (JHSPH Biostatistics 140.776 Fall 2021)
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Tue, 14 Sep 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 05 Oct 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Project 3</title>
+      <dc:creator>Stephanie Hicks</dc:creator>
+      <link>https://stephaniehicks.com/jhustatcomputing2021/projects/2021-10-05-project-3</link>
+      <description>Building a R package, and practicing S3 and regex skills</description>
+      <category>project 3</category>
+      <category>projects</category>
+      <guid>https://stephaniehicks.com/jhustatcomputing2021/projects/2021-10-05-project-3</guid>
+      <pubDate>Tue, 05 Oct 2021 00:00:00 +0000</pubDate>
+    </item>
     <item>
       <title>Project 2</title>
       <dc:creator>Stephanie Hicks</dc:creator>

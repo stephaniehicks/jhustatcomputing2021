@@ -54,7 +54,7 @@ For Rmd files, go to the [course GitHub repository](https://github.com/stephanie
 | | Sept 30      | `r emojifont::emoji('black_circle')` Object Oriented Programming [[html](posts/2021-09-30-object-oriented-programming/index.html)] [[Rmd](https://github.com/stephaniehicks/jhustatcomputing2021/blob/main/_posts/2021-09-3--object-oriented-programming/object-oriented-programming.Rmd)]  | | | 
 | | Oct 1 | | | `r emojifont::emoji('fallen_leaf')`  Project 2 due |
 | | | | | |
-| Week 6      | Oct 5   | `r emojifont::emoji('calendar')` Working with dates and times | | `r emojifont::emoji('palm_tree')` Project 3  |
+| Week 6      | Oct 5   | `r emojifont::emoji('calendar')` Working with dates and times | | `r emojifont::emoji('palm_tree')` Project 3 [[html](projects/2021-10-05-project-3/index.html)] [[Rmd](https://github.com/stephaniehicks/jhustatcomputing2021/blob/main/_projects/2021-10-05-project-3/project-3.Rmd)]  |
 | | | | | |
 | | Oct 7 | `r emojifont::emoji('sparkles')` Regular expressions | | |
 | | | | | |

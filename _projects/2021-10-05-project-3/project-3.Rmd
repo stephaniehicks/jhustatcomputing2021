@@ -1,0 +1,193 @@
+---
+title: "Project 3"
+description: |
+  Building a R package, and practicing S3 and regex skills
+author:
+  - name: Stephanie Hicks
+    url: https://stephaniehicks.com/
+    affiliation: Department of Biostatistics, Johns Hopkins
+    affiliation_url: https://www.jhsph.edu
+date: 10-05-2021
+output:
+  distill::distill_article:
+    self_contained: false
+    toc: true
+    toc_depth: 3
+categories:
+  - project 3
+  - projects
+---
+  
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Background
+
+**Due date: Oct 22 at 11:59pm**
+
+The goal of this homework is to take some of the functions that you wrote in Project 2 and to put them into an R package. This would allow someone else to easily use your functions by simply installing the R package. In addition, they would receive documentation on how to use the functions.
+
+In addition to building the R package, you will also build a S3 class for your package, and create a vignette where you demonstrate the functions in your R package with a small example dataset from TidyTuesday.
+
+### To submit your project
+
+Please build your R package either into a `.tar.gz` file or to a `.zip` file and upload the file to the dropbox on Courseplus. Please name the package `Project3<your last name>` and then upload it to the Courseplus dropbox. So for example, the name of my package would be `Project3Hicks`.
+
+The R package must include a vignette in a folder titled `vignettes`. This document should be a R Markdown. In the vignette, please **show all your code** (i.e. make sure to set `echo = TRUE`).
+
+### Install packages
+
+Before attempting this assignment, you should first install the following packages, if they are not already installed:
+
+```{r load-libs, eval=FALSE}
+install.packages("tidyverse")
+install.packages("tidytuesdayR")
+install.packages("devtools")
+install.packages("roxygen2")
+```
+
+
+# Part 1: Create a R package
+
+Take the functions that you wrote for Parts 1A-1C and put them into an R package. Your package will have two exported functions for users to call (see below). You will need to write documentation for each function that you export. Your package should include the functions: 
+
+* `Exp()`, which computes the approximation to the exponential function (**exported**)
+* `sample_mean()`, which calculates the sample mean (**not exported**)
+* `sample_sd()`, which calculates the sample standard deviation (**not exported**)
+* `calculate_CI()`, which calculates the confidence intervals from simulated data (**exported**)
+
+Notes:
+
+* Remember that you should only export the functions that you want the user to use. 
+
+* Functions that are *not* exported do not require any documentation.
+
+* Each exported function should have at least **one example** of its usage (using the `@example` directive in the documentation).
+
+* In the functions in your package, consider using control structures and include checks (e.g. `is.na()`, `is.numeric()`, `if()`) to make sure the input is as you expect it to be. For example, try to break the the function with unexpected values that a user might provide (e.g. providing a negative value to a log transformation). This can help guide you on ways to address the possible ways to break the function. 
+
+* Your package should be installable without any warnings or errors.
+
+
+# Part 2: Create a S3 class as part of your package
+
+In this part, you will create a new S3 class called `p3_class` (Project 3 class) to be used in your Project 3 R package. You will 
+
+1. Create a constructor function for the `p3_class` called `make_p3_class()`. 
+2. Create a `print()` method to work with the `p3_class` to return a message with name of the class and the the number of observations in the S3 object. 
+3. Modify the `calculate_CI()` function to work with the `p3_class` and still return a `lower_bound` and `upper_bound`, similar to Project 2.
+
+For example, this is what the output of your code might look like: 
+
+```
+> set.seed(1234)
+> x <- rnorm(100)
+> p3 <- make_p3_class(x)
+> print(p3)         # explicitly using the print() method
+#> a p3_class with 100 observations
+> p3                  # using autoprinting
+#> a p3_class with 100 observations
+```
+
+Calculate a 90% confidence interval:
+
+```
+> calculate_CI(p3, conf = 0.90)
+#> lower_bound upper_bound 
+#> -0.32353231  0.01000883
+```
+
+
+# Part 3: Create a vignette as part of your package
+
+In this part, you will create a vignette where you demonstrate the functions in your R package. 
+Specifically, you will create a R Markdown and put it in a folder called "vignettes" within your R package. The purpose of a vignette is to demonstrate the functions of your package in a longer tutorial instead of just short examples within the documentation of your functions (i.e. using the `@example` directive in the documentation). 
+
+**Hint**: You might find the `use_vignette()` [function](https://usethis.r-lib.org/reference/use_vignette.html) from the `usethis` R package helpful. 
+
+### Part 3A: Demonstrate `Exp()`
+
+In the vignette, show how your function `Exp(x,k)` approximates 
+the `exp(x)` function from base R as $k$ increases. 
+
+For example, you could make a plot or you could show something like this in your vignette: 
+
+```
+> # Taylor series approximation
+> Exp(5,k=1)
+[1] 6
+> Exp(5,k=5)
+[1] 91.41667
+> Exp(5,k=10)
+[1] 146.3806
+> Exp(5,k=100)
+[1] 148.4132
+> 
+> # compared to 
+> exp(5)
+[1] 148.4132
+```
+
+### Part 3B: Demonstrate `calculate_CI()`
+
+To demonstrate the `calculate_CI()` function in the vignette, we will 
+have a bit of Halloween fun. We will use [this dataset](https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-08-25/readme.md) from [TidyTuesday](https://www.tidytuesday.com). 
+
+It is contains data from the TV show called _Chopped_: 
+
+> "Chopped is an American reality-based cooking television game show series. It is hosted by Ted Allen. The series pits four chefs against each other as they compete for a chance to win $10,000."
+
+You can read more here about the show: 
+
+https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-08-25/readme.md
+
+I have provided the code below for you to avoid re-downloading data: 
+
+```{r, message=FALSE}
+library(here)
+library(tidyverse)
+
+# tests if a directory named "data" exists locally
+if(!dir.exists(here("data"))) { dir.create(here("data")) }
+
+# saves data only once (not each time you knit a R Markdown)
+if(!file.exists(here("data","chopped.RDS"))) {
+  url_tsv <- 'https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-08-25/chopped.tsv'
+  chopped <- readr::read_tsv(url_tsv)
+  
+  # save the file to RDS objects
+  saveRDS(chopped, file= here("data","chopped.RDS"))
+}
+```
+
+Here we read in the `.RDS` dataset: 
+
+```{r, eval=TRUE, message=FALSE}
+chopped <- readRDS(here("data","chopped.RDS"))
+as_tibble(chopped)
+```
+
+This dataset inclues a set of notes (the `episode_notes` column) that briefly describe what happened in the episode. 
+
+```{r}
+as_tibble(chopped) %>% 
+  select(episode_notes)
+```
+
+
+As Halloween is coming up at the end of this month, let's show users of R package, how to create a confidence interval of the episode ratings for the episodes that were Halloween themed vs not. One might guess that Halloween themed episodes are very popular (more so than the not themed episodes -- I mean who doesn't love "blood sausage", "coffin toast", "gummy rats", "deviled eggs", or "chocolate covered bugs"??).  
+
+Our new package can help with this! 
+
+In this part, we will perform the following tasks in the vignette to demonstrate to the users the `calculate_CI()` function: 
+
+1. Remove rows that contain an `NA` in either of the two columns `episode_notes` or `episode_rating`.
+2. Add a column called `has_halloween_theme` that searches the character strings in `episode_notes` for the strings "halloween" or "Halloween". This column should contain either `TRUE` or `FALSE` depending on whether the strings were found (`TRUE`) or not (`FALSE`).
+3. Make two side-by-side boxplots along the x-axis (could be faceted or not) of the distribution of ratings in the `episode_rating` column: one for the episodes with and without the halloween theme. On top of the boxplot, plot the ratings for the two categories (hint: check out the `geom_jitter()` function in `ggplot2`).
+4. Using the skills we have learned in the `tidyverse` and using our new S3 class (`p3_class`), calculate a 90% confidence interval of the ratings for the episodes with and without the Halloween theme. 
+5. In your vignette, write 1 - 2 sentences describing what you see related to whether Halloween episodes are more highly rated than non Halloween episodes.
+
+**Note**: Steps 3 and 4 should be performed in two separate code chunks in the vignette. 
+
+
