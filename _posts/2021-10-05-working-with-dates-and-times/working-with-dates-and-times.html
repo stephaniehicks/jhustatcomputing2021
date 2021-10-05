@@ -1574,7 +1574,9 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <li><p>Times are stored internally as the number of seconds since 1970-01-01</p></li>
 </ul>
 <h3 id="the-lubridate-package">The <code>lubridate</code> package</h3>
-<p>Here, we will focus on the <code>lubridate</code> R package, which makes it easier to work with dates and times in R. A few things to note about it:</p>
+<p>Here, we will focus on the <code>lubridate</code> R package, which makes it easier to work with dates and times in R.</p>
+<p><strong>check out the cheat sheet</strong> at <a href="https://lubridate.tidyverse.org" class="uri">https://lubridate.tidyverse.org</a></p>
+<p>A few things to note about it:</p>
 <ul>
 <li><p>It largely replaces the default date/time functions in base R</p></li>
 <li><p>It contains methods for date/time arithmetic</p></li>
@@ -1614,7 +1616,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='http://lubridate.tidyverse.org/reference/now.html'>now</a></span><span class='op'>(</span><span class='op'>)</span>
 </code></pre>
 </div>
-<pre><code>[1] &quot;2021-10-05 10:05:36 EDT&quot;</code></pre>
+<pre><code>[1] &quot;2021-10-05 15:01:20 EDT&quot;</code></pre>
 </div>
 <p>Otherwise, there are three ways you are likely to create a date/time:</p>
 <ul>
@@ -1783,7 +1785,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='http://lubridate.tidyverse.org/reference/now.html'>now</a></span><span class='op'>(</span><span class='op'>)</span>
 </code></pre>
 </div>
-<pre><code>[1] &quot;2021-10-05 10:05:38 EDT&quot;</code></pre>
+<pre><code>[1] &quot;2021-10-05 15:01:23 EDT&quot;</code></pre>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='http://lubridate.tidyverse.org/reference/as_date.html'>as_date</a></span><span class='op'>(</span><span class='fu'><a href='http://lubridate.tidyverse.org/reference/now.html'>now</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
 </code></pre>
@@ -2163,22 +2165,23 @@ $tzone
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://dplyr.tidyverse.org'>dplyr</a></span><span class='op'>)</span>
 <span class='va'>storm</span> <span class='op'>%&gt;%</span> 
-  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>BEGIN_DATE_TIME</span>, <span class='va'>EVENT_TYPE</span>, <span class='va'>DEATHS_DIRECT</span><span class='op'>)</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>BEGIN_DATE_TIME</span>, <span class='va'>EVENT_TYPE</span>, <span class='va'>DEATHS_DIRECT</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>date <span class='op'>=</span> <span class='fu'><a href='http://lubridate.tidyverse.org/reference/ymd_hms.html'>dmy_hms</a></span><span class='op'>(</span><span class='va'>BEGIN_DATE_TIME</span><span class='op'>)</span><span class='op'>)</span>
 </code></pre>
 </div>
-<pre><code># A tibble: 52,409 × 3
-   BEGIN_DATE_TIME    EVENT_TYPE       DEATHS_DIRECT
-   &lt;chr&gt;              &lt;chr&gt;                    &lt;dbl&gt;
- 1 29-DEC-04 18:00:00 Heavy Snow                   0
- 2 29-DEC-04 18:00:00 Heavy Snow                   0
- 3 08-DEC-04 18:00:00 Winter Storm                 0
- 4 19-DEC-04 15:00:00 High Wind                    0
- 5 14-DEC-04 06:00:00 Winter Weather               0
- 6 21-DEC-04 04:00:00 Winter Storm                 0
- 7 21-DEC-04 04:00:00 Winter Storm                 0
- 8 26-DEC-04 15:00:00 Winter Storm                 0
- 9 26-DEC-04 15:00:00 Winter Storm                 0
-10 11-DEC-04 08:00:00 Storm Surge/Tide             0
+<pre><code># A tibble: 52,409 × 4
+   BEGIN_DATE_TIME    EVENT_TYPE       DEATHS_DIRECT date               
+   &lt;chr&gt;              &lt;chr&gt;                    &lt;dbl&gt; &lt;dttm&gt;             
+ 1 29-DEC-04 18:00:00 Heavy Snow                   0 2004-12-29 18:00:00
+ 2 29-DEC-04 18:00:00 Heavy Snow                   0 2004-12-29 18:00:00
+ 3 08-DEC-04 18:00:00 Winter Storm                 0 2004-12-08 18:00:00
+ 4 19-DEC-04 15:00:00 High Wind                    0 2004-12-19 15:00:00
+ 5 14-DEC-04 06:00:00 Winter Weather               0 2004-12-14 06:00:00
+ 6 21-DEC-04 04:00:00 Winter Storm                 0 2004-12-21 04:00:00
+ 7 21-DEC-04 04:00:00 Winter Storm                 0 2004-12-21 04:00:00
+ 8 26-DEC-04 15:00:00 Winter Storm                 0 2004-12-26 15:00:00
+ 9 26-DEC-04 15:00:00 Winter Storm                 0 2004-12-26 15:00:00
+10 11-DEC-04 08:00:00 Storm Surge/Tide             0 2004-12-11 08:00:00
 # … with 52,399 more rows</code></pre>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='co'># try it yourself</span>
@@ -2241,7 +2244,7 @@ $tzone
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>storm_sub</span> <span class='op'>%&gt;%</span>
-  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span><span class='va'>begin</span>, <span class='va'>deaths</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>begin</span>, y <span class='op'>=</span> <span class='va'>deaths</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> 
   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span><span class='op'>)</span>
 </code></pre>
 </div>
@@ -2323,6 +2326,8 @@ $tzone
 <h3 id="additional-resources">Additional Resources</h3>
 <div class="resources">
 <ul>
+<li><a href="https://lubridate.tidyverse.org" class="uri">https://lubridate.tidyverse.org</a></li>
+<li><code>lubridate</code> cheat sheet: <a href="https://rawgit.com/rstudio/cheatsheets/master/lubridate.pdf" class="uri">https://rawgit.com/rstudio/cheatsheets/master/lubridate.pdf</a></li>
 <li><a href="https://jhu-advdatasci.github.io/2018/lectures/09-dates-times.html" class="uri">https://jhu-advdatasci.github.io/2018/lectures/09-dates-times.html</a></li>
 <li><a href="https://r4ds.had.co.nz/dates-and-times.html" class="uri">https://r4ds.had.co.nz/dates-and-times.html</a></li>
 </ul>

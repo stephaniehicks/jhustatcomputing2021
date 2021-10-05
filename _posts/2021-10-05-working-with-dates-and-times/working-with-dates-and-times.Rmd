@@ -85,7 +85,11 @@ R has developed a special representation of dates and times
 
 ### The `lubridate` package
 
-Here, we will focus on the `lubridate` R package, which makes it easier to work with dates and times in R. A few things to note about it: 
+Here, we will focus on the `lubridate` R package, which makes it easier to work with dates and times in R. 
+
+**check out the cheat sheet** at https://lubridate.tidyverse.org
+
+A few things to note about it: 
 
 - It largely replaces the default date/time functions in base R
 
@@ -474,9 +478,6 @@ names(storm)
 ```
 
 
-
-
-
 :::questions 
 
 Let's take a look at the `BEGIN_DATE_TIME`, `EVENT_TYPE`, and `DEATHS_DIRECT` variables. 
@@ -485,7 +486,8 @@ Try to convert the `BEGIN_DATE_TIME` date/time column to a date/time R object.
 ```{r,message=FALSE}
 library(dplyr)
 storm %>% 
-  select(BEGIN_DATE_TIME, EVENT_TYPE, DEATHS_DIRECT)
+  select(BEGIN_DATE_TIME, EVENT_TYPE, DEATHS_DIRECT) %>% 
+  mutate(date = dmy_hms(BEGIN_DATE_TIME))
 
 # try it yourself
 
@@ -538,7 +540,7 @@ storm_sub %>%
 
 ```{r}
 storm_sub %>%
-  ggplot(aes(begin, deaths)) + 
+  ggplot(aes(x = begin, y = deaths)) + 
   geom_point()
 ```
 
@@ -621,6 +623,8 @@ d5 <- "12/30/14" # Dec 30, 20
 
 :::resources 
 
+- https://lubridate.tidyverse.org
+- `lubridate` cheat sheet: https://rawgit.com/rstudio/cheatsheets/master/lubridate.pdf
 - https://jhu-advdatasci.github.io/2018/lectures/09-dates-times.html
 - https://r4ds.had.co.nz/dates-and-times.html
 
