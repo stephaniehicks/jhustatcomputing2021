@@ -7,7 +7,22 @@
     <description>Course website for Statistical Computing (JHSPH Biostatistics 140.776 Fall 2021)
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Tue, 05 Oct 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 07 Oct 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Regular expression</title>
+      <dc:creator>Stephanie Hicks</dc:creator>
+      <link>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-10-07-regular-expressions</link>
+      <description>Introduction to working with character strings and regular expressions inR</description>
+      <category>module 2</category>
+      <category>week 6</category>
+      <category>tidyverse</category>
+      <category>R</category>
+      <category>programming</category>
+      <category>strings and regex</category>
+      <guid>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-10-07-regular-expressions</guid>
+      <pubDate>Thu, 07 Oct 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://raw.githubusercontent.com/rstudio/cheatsheets/master/pngs/thumbnails/strings-cheatsheet-thumbs.png" medium="image" type="image/png"/>
+    </item>
     <item>
       <title>Working with dates and times</title>
       <dc:creator>Stephanie Hicks</dc:creator>

@@ -56,7 +56,7 @@ For Rmd files, go to the [course GitHub repository](https://github.com/stephanie
 | | | | | |
 | Week 6      | Oct 5   | `r emojifont::emoji('calendar')` Working with dates and times [[html](posts/2021-10-05-working-with-dates-and-times/index.html)] [[Rmd](https://github.com/stephaniehicks/jhustatcomputing2021/blob/main/_posts/2021-10-05-working-with-dates-and-times/working-with-dates-and-times.Rmd)] | | `r emojifont::emoji('palm_tree')` Project 3 [[html](projects/2021-10-05-project-3/index.html)] [[Rmd](https://github.com/stephaniehicks/jhustatcomputing2021/blob/main/_projects/2021-10-05-project-3/project-3.Rmd)]  |
 | | | | | |
-| | Oct 7 | `r emojifont::emoji('sparkles')` Regular expressions | | |
+| | Oct 7 | `r emojifont::emoji('sparkles')` Regular expressions [[html](posts/2021-10-07-regular-expressions/index.html)] [[Rmd](https://github.com/stephaniehicks/jhustatcomputing2021/blob/main/_posts/2021-10-07-regular-expressions/regular-expressions.Rmd)] | | |
 | | | | | |
 | Week 7      | Oct 12        | `r emojifont::emoji('volcano')` Dealing with large data; parallel computing  | | |
 | | | | | |

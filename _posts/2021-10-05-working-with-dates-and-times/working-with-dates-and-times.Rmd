@@ -122,7 +122,7 @@ There are three types of date/time data that refer to an instant in time:
 
 In this lesson, we will focus on dates and date-times as R does not have a native class for storing times. If you need one, you can use the [`hms` package](https://cran.r-project.org/web/packages/hms/index.html).
 
-You should always use the simplest possible data type that works for your needs. That means if you can use a date instead of a date-time, you should. Date-times are substantially more complicated because of the need to handle time zones, which we’ll come back to at the end of the chapter.
+You should always use the simplest possible data type that works for your needs. That means if you can use a date instead of a date-time, you should. Date-times are substantially more complicated because of the need to handle time zones, which we’ll come back to at the end of the lesson.
 
 To get the current date or date-time you can use `today()` or `now()` from `lubridate`:
 
