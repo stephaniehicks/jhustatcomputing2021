@@ -7,7 +7,39 @@
     <description>Course website for Statistical Computing (JHSPH Biostatistics 140.776 Fall 2021)
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Thu, 07 Oct 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 12 Oct 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Strategies to deal with large data in R</title>
+      <dc:creator>Stephanie Hicks</dc:creator>
+      <link>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-10-12-dealing-with-large-data</link>
+      <description>Introduction to dealing with large data in R.</description>
+      <category>module 2</category>
+      <category>week 7</category>
+      <category>large data</category>
+      <category>programming</category>
+      <category>R</category>
+      <category>tidyverse</category>
+      <category>SQL</category>
+      <guid>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-10-12-dealing-with-large-data</guid>
+      <pubDate>Tue, 12 Oct 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://blog.codinghorror.com/content/images/2014/May/internet-latency-usa.png" medium="image" type="image/png"/>
+    </item>
+    <item>
+      <title>SQL Basics</title>
+      <dc:creator>Stephanie Hicks</dc:creator>
+      <link>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-10-12-sql-basics</link>
+      <description>Introduction to SQL basics in R</description>
+      <category>module 2</category>
+      <category>week 7</category>
+      <category>large data</category>
+      <category>programming</category>
+      <category>R</category>
+      <category>tidyverse</category>
+      <category>SQL</category>
+      <guid>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-10-12-sql-basics</guid>
+      <pubDate>Tue, 12 Oct 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://upload.wikimedia.org/wikipedia/commons/8/8d/Relational_model_concepts.png" medium="image" type="image/png"/>
+    </item>
     <item>
       <title>Regular expression</title>
       <dc:creator>Stephanie Hicks</dc:creator>

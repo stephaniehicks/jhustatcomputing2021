@@ -58,7 +58,9 @@ For Rmd files, go to the [course GitHub repository](https://github.com/stephanie
 | | | | | |
 | | Oct 7 | `r emojifont::emoji('sparkles')` Regular expressions [[html](posts/2021-10-07-regular-expressions/index.html)] [[Rmd](https://github.com/stephaniehicks/jhustatcomputing2021/blob/main/_posts/2021-10-07-regular-expressions/regular-expressions.Rmd)] | | |
 | | | | | |
-| Week 7      | Oct 12        | `r emojifont::emoji('volcano')` Dealing with large data; parallel computing  | | |
+| Week 7      | Oct 12        | `r emojifont::emoji('volcano')` SQL basics [[html](posts/2021-10-12-sql-basics/index.html)] [[Rmd](https://github.com/stephaniehicks/jhustatcomputing2021/blob/main/_posts/2021-10-12-sql-basics/sql-basics.Rmd)] | | |
+| | | `r emojifont::emoji('volcano')` Strategies for dealing with large data [[html](posts/2021-10-12-dealing-with-large-data/index.html)] [[Rmd](https://github.com/stephaniehicks/jhustatcomputing2021/blob/main/_posts/2021-10-12-dealing-with-large-data/dealing-with-large-data.Rmd)]  | | |
+| | | `r emojifont::emoji('volcano')` Parallel computation [link to 2020 [html](https://rdpeng.github.io/Biostat776/lecture-parallel-computation.html)] (material not formally covered in 2021 though) | | |
 | | | | | |
 | | Oct 14 | `r emojifont::emoji('snake')` Leveraging Python within R | `r emojifont::emoji('headphones')` R package dev | |
 | | | | | |
