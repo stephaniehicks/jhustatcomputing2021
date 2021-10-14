@@ -7,7 +7,18 @@
     <description>Course website for Statistical Computing (JHSPH Biostatistics 140.776 Fall 2021)
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Tue, 12 Oct 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 14 Oct 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Python for R users</title>
+      <dc:creator>Stephanie Hicks</dc:creator>
+      <link>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-10-14-python-for-r-users</link>
+      <description>Introduction to using Python in R and the reticulate package</description>
+      <category>module 2</category>
+      <category>week 7</category>
+      <guid>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-10-14-python-for-r-users</guid>
+      <pubDate>Thu, 14 Oct 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://rstudio.github.io/reticulate/images/reticulated_python.png" medium="image" type="image/png"/>
+    </item>
     <item>
       <title>Strategies to deal with large data in R</title>
       <dc:creator>Stephanie Hicks</dc:creator>
