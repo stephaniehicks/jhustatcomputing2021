@@ -16,6 +16,11 @@ output:
 categories:
   - module 2
   - week 7
+  - python
+  - reticulate
+  - R Markdown
+  - R 
+  - programming
 ---
 
 

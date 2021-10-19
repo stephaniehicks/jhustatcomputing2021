@@ -7,7 +7,21 @@
     <description>Course website for Statistical Computing (JHSPH Biostatistics 140.776 Fall 2021)
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Thu, 14 Oct 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 19 Oct 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Introduction to machine learning</title>
+      <dc:creator>Stephanie Hicks</dc:creator>
+      <link>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-10-19-introduction-to-machine-learning</link>
+      <description>A brief intro to the why and what for machine learning</description>
+      <category>module 3</category>
+      <category>week 8</category>
+      <category>machine learning</category>
+      <category>R</category>
+      <category>programming</category>
+      <guid>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-10-19-introduction-to-machine-learning</guid>
+      <pubDate>Tue, 19 Oct 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://stephaniehicks.com/jhustatcomputing2021/posts/2021-10-19-introduction-to-machine-learning/../../images/cdi1.png" medium="image" type="image/png" width="960" height="600"/>
+    </item>
     <item>
       <title>Python for R users</title>
       <dc:creator>Stephanie Hicks</dc:creator>
@@ -15,6 +29,11 @@
       <description>Introduction to using Python in R and the reticulate package</description>
       <category>module 2</category>
       <category>week 7</category>
+      <category>python</category>
+      <category>reticulate</category>
+      <category>R Markdown</category>
+      <category>R</category>
+      <category>programming</category>
       <guid>https://stephaniehicks.com/jhustatcomputing2021/posts/2021-10-14-python-for-r-users</guid>
       <pubDate>Thu, 14 Oct 2021 00:00:00 +0000</pubDate>
       <media:content url="https://rstudio.github.io/reticulate/images/reticulated_python.png" medium="image" type="image/png"/>
