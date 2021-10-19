@@ -40,7 +40,7 @@ knitr::opts_chunk$set(echo = TRUE,
 
 **Before class, you can prepare by reading the following materials:**
 
-1. 
+1. https://rafalab.github.io/dsbook/introduction-to-machine-learning.html
 
 :::
 
@@ -51,7 +51,6 @@ Material for this lecture was borrowed and adopted from
 
 - https://jhu-advdatasci.github.io/2019/lectures/16-intro-ml.html
 - https://rafalab.github.io/dsbook/introduction-to-machine-learning.html
-- 
 
 # Learning objectives
 
@@ -59,9 +58,10 @@ Material for this lecture was borrowed and adopted from
 
 **At the end of this lesson you will:**
 
-- 
-- 
-- 
+- Be able to define machine learning (ML) and why we use it?
+- Be able to recognize some misuses of ML
+- Understand the parts of a ML problem 
+- Implement a machine learning model to classify images into two types: clouds and axes
 
 :::
 
@@ -70,11 +70,12 @@ Material for this lecture was borrowed and adopted from
 
 Today we are going to be talking about machine learning. This is one of the _hottest_ areas in all of statistics/data science. Machine learning is in the news a ton lately. Some examples include: 
 
-* [Self driving cars](https://techcrunch.com/2018/10/30/waymo-takes-the-wheel-self-driving-cars-go-fully-driverless-on-california-roads/)
+* [Self driving cars](https://towardsdatascience.com/your-guide-to-ai-for-self-driving-cars-in-2020-218289719619)
 * [Predicting poverty with satellites](http://science.sciencemag.org/content/353/6301/790)
-* [Assisting pathologists in detecting cancer](https://ai.googleblog.com/2017/03/assisting-pathologists-in-detecting.html)
+* [Predicting breast cancer using Google's DeepMind AI](https://ai.googleblog.com/2017/03/assisting-pathologists-in-detecting.html)
+* [Predictive policing](https://www.youtube.com/watch?v=MfThopD7L1Y)
 
-This is such a big idea that MIT basically renamed a whole collect to focus on ["Artificial Intelligence"](https://www.nytimes.com/2018/10/15/technology/mit-college-artificial-intelligence.html).
+This is such a big idea that universities are investing major dollars to hire faculty in [AI and machine learning](https://www.seas.harvard.edu/news/2021/10/seven-join-harvard-computer-science-faculty). 
 
 On a more personal note you might be interested in AI and machine learning because it is one of the most in demand parts of being a data scientist right now. If you get really good at it [you can make a lot of money](https://www.nytimes.com/2018/04/19/technology/artificial-intelligence-salaries-openai.html). 
 
@@ -133,17 +134,30 @@ _This section borrowed from  Rafa Irizarry's excellent [Data Science Book](https
 
 In machine learning, data comes in the form of:
 
-1. the _outcome_ we want to predict and 
-2. the _features_ that we will use to predict the outcome.
-
-We want to build an algorithm that takes feature values as input and returns a prediction for the outcome when we do not know the outcome. The **machine learning approach** is to _train_ an algorithm using a dataset for which we do know the outcome to **identify patternsin the training data**, and then apply this algorithm in the future to make a prediction when we do not know the outcome.
+1. the **outcome** we want to predict and 
+2. the **features** that we will use to predict the outcome.
 
 Here, we will use $Y$ to denote the outcome and $X_1, \dots, X_p$ to denote features. Note that features are sometimes referred to as predictors or covariates. We consider all these to be synonyms.
+
+:::keyideas
+
+**Goal**: we want to build an algorithm that takes feature values as input and returns a prediction for the outcome when we do not know the outcome. 
+
+The **machine learning approach** is to _train_ an algorithm using a dataset for which we do know the outcome to **identify patterns in the training data**, and then apply this algorithm in the future to make a prediction when we do not know the outcome.
+
+:::
+
+
+#### Types of prediction problems 
 
 Prediction problems can be divided into categorical and continuous outcomes. 
 
 For categorical outcomes, $Y$ can be any one of $K$ classes. The number of classes can vary greatly across applications.
-For example, in the digit reader data, $K=10$ with the classes being the digits 0, 1, 2, 3, 4, 5, 6, 7, 8, and 9. In speech recognition, the outcome are all possible words or phrases we are trying to detect. Spam detection has two outcomes: spam or not spam. In this lesson, we denote the $K$ categories with indexes $k=1,\dots,K$. However, for binary data we will use $k=0,1$ for mathematical conveniences that we demonstrate later.
+For example, in the digit reader data, $K=10$ with the classes being the digits 0, 1, 2, 3, 4, 5, 6, 7, 8, and 9. In speech recognition, the outcome are all possible words or phrases we are trying to detect. Spam detection has two outcomes: spam or not spam. 
+
+In this lesson, we denote the $K$ categories with indexes $k=1,\dots,K$. However, for binary data we will use $k=0,1$ for mathematical conveniences.
+
+#### The general set-up
 
 The general set-up is as follows. We have a series of features and an unknown outcome we want to predict:
 
@@ -188,14 +202,23 @@ $d(\cdot)$ could be something as simple as the mean squared distance or somethin
 A machine learning problem consists of a few different parts and its important to consider each one. To solve a (standard) machine learning problem you need: 
 
 1. A data set to train from. 
-2. An algorithm or set of algorithms you can use to try values of $f$
-3. A distance metric $d$ for measuring how close $Y$ is to $\hat{Y}$
-4. A definition of what a "good" distance is
+2. An algorithm or set of algorithms you can use to try values of $f$ (e.g. logistic regression, random forest, support vector machine)
+3. A distance metric $d$ for measuring how close $Y$ is to $\hat{Y}$ (e.g. mean squared error)
+4. A definition of what a "good" distance is (e.g. different types of performance metrics)
 
-While each of these components is a _technical_ problem, there has been a ton of work addressing those technical details. The most pressing open issue in machine learning is realizing that though these are _technical_ steps they are not _objective_ steps. In other words, how you choose the data, algorithm, metric, and definition of "good" says what you value and can dramatically change the results. A couple of cases where this was a big deal are: 
+While each of these components is a _technical_ problem, there has been a ton of work addressing those technical details. The most pressing open issue in machine learning is realizing that though these are _technical_ steps they are not _objective_ steps. 
+
+:::keyideas 
+
+In other words, how you choose the data, algorithm, metric, and definition of "good" says what you value and can dramatically change the results. A couple of cases where this was a big deal are: 
 
 1. [Machine learning for recidivism](https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing) - people built ML models to predict who would re-commit a crime. But these predictions were based on historically biased data which led to biased predictions about who would commit new crimes. 
-2. [Deciding how self driving cars should act](https://www.nature.com/articles/d41586-018-07135-0) - self driving cars will have to make decisions about how to drive, who they might injure, and how to avoid accidents. Depending on our choices for $f$ and $d$ these might lead to wildly different kinds of self driving cars. Try out the [moralmachine](http://moralmachine.mit.edu/) to see how this looks in practice. 
+2. [Deciding how self driving cars should act](https://www.nature.com/articles/d41586-018-07135-0) - self driving cars will have to make decisions about how to drive, who they might injure, and how to avoid accidents. Depending on our choices for $f$ and $d$ these might lead to wildly different kinds of self driving cars. 
+
+**Try out** the [moralmachine](http://moralmachine.mit.edu/) to see how this looks in practice. 
+
+:::
+
 
 
 # Example: QuickDraw!
@@ -204,12 +227,14 @@ Quick,Draw! is an online game where you are given an object to draw (like a cell
 
 * https://quickdraw.withgoogle.com/
 
-One interesting thing about this project and something to keep in mind if you are thinking about ways to get cool data is the exchange that Google is making here. They are giving you a fun game to play for free and in return you are giving them a ton of free data. This is the same exchange made by other successful startups: 
+
+One **interesting thing** about this project and something to keep in mind if you are thinking about ways to get cool data is the exchange that Google is making here. They are giving you a fun game to play for free and in return you are giving them a ton of free data. This is the same exchange made by other successful startups: 
 
 - [reCAPTCHA](https://www.google.com/recaptcha/intro/v3.html) you click on images to prove you are a human, they give you access to a website. 
 - [DuoLingo](https://www.duolingo.com/) you practice learning words, they collect information on the way you say those words or your translations
 
-Before going any further, we load a few R packages we'll need 
+
+Before going any further, we load a few R packages we will need 
 
 ```{r, message=FALSE, warning=FALSE}
 library(here)
@@ -225,7 +250,9 @@ library(rpart.plot)
 library(pheatmap)
 ```
 
-The main steps in a machine learning problem are: 
+:::keyideas 
+
+The **main steps in a machine learning problem** are: 
 
 1. Question definition
 2. Goal setting
@@ -236,6 +263,8 @@ The main steps in a machine learning problem are:
 7. Model selection and fitting
 8. Model evaluation
 
+:::
+
 We will use the Quick, Draw! dataset to discuss a few different parts of the ML process. 
 
 
@@ -243,7 +272,7 @@ We will use the Quick, Draw! dataset to discuss a few different parts of the ML 
 
 This is the most commonly missed step when developing a machine learning algorithm. ML can very easily be turned into an engineering problem. Just dump the outcome and the features into a black box algorithm and viola! 
 
-```{r choc-nobel, echo=FALSE, out.width = '60%', fig.align='center'}
+```{r choc-nobel, echo=FALSE, out.width = '90%', fig.align='center'}
 knitr::include_graphics("../../images/choc-nobel.jpg")
 ```
 
@@ -262,8 +291,12 @@ knitr::include_graphics("../../images/gft.png")
 
 This is just one example of a [spurious correlation](http://tylervigen.com/spurious-correlations), which is one of the big worries. In general all of the [reasons for skepticism](https://jhu-advdatasci.github.io/2019/lectures/07-being-skeptical.html) apply here. 
 
+:::questions
+
 In our QuickDraw! example, there are a ton of interesting analyses you could do with these data, but we are going to start with something simple. 
 **Can we predict from the drawing data what kind of object was drawn?** To make matters even simpler we are going to just look at a couple of types of images: axes and clouds. 
+
+:::
 
 ## Goal setting
 
@@ -271,7 +304,7 @@ One important part of any machine learning problem is defining what success look
 
 For example, when we talk about the goal in ML we are usually talking about the error rate we want to minimize and how small we want to make it. Consider for each observation we have an outcome $y$ and a set of features $\vec{x}$. Our goal is to create a function $\hat{y} = \hat{f}(\vec{x})$ such that the distance, $d(y,\hat{f}(\vec{x}))$, between the observed and the predicted $y$ is minimized. 
 
-The two most common distances that show up in machine learning (and the ones you'll always be using if you don't change the defaults!) are: 
+The two most common distances that show up in machine learning (and the ones you will always be using if you don't change the defaults!) are: 
 
 - **Root mean squared error (RMSE)** - this is the most common error measure for regression (read: continuous outcome) problems.
     - $d(y,\hat{f}(\vec{x})) = \sqrt{\sum_i \left(y_i-\hat{f}(\vec{x}_i)\right)^2}$
@@ -282,7 +315,7 @@ Here we are going to use simple accuracy and say that anything better than guess
 
 But in general there are a number of other potential error measures: 
 
-```{r errors, echo=FALSE, out.width = '60%', fig.align='center'}
+```{r errors, echo=FALSE, out.width = '100%', fig.align='center'}
 knitr::include_graphics("../../images/errors.png")
 ```
 
@@ -298,16 +331,29 @@ In general you need to spend a good amount of time thinking about what the _goal
 
 ## Data collection
 
-Here we'll focus on one somewhat unique issue that arises often in ML problems - the data are often huge and not sampled randomly. Tom Louis (former prof in our department) asked this question: 
+Here we'll focus on one somewhat unique issue that arises often in ML problems - the data are often huge and not sampled randomly. 
 
->  "Which one should I trust more: a 1% survey with
-60% response rate or a non-probabilistic dataset covering 80% of the population?"
+:::questions 
 
-There is a pretty heavy, but really [good paper](https://statistics.fas.harvard.edu/files/statistics-2/files/statistical_paradises_and_paradoxes.pdf) addressing this question by Xiao-Li Meng. The surprising answer is that it depends! If there is correlation between the outcome value and the sampling probability even huge data sets can actually be very small in "effective sample size". So it is worth thinking _very hard_ about potential correlation between the outcome and the (designed or de facto) sampling scheme. 
+**Questions**:
+
+- We know that a 5% random sample is better than a 5% non-random sample in measurable ways (e.g. bias, uncertainty assessment).
+
+- But is an 80% non-random sample "better" than a 5% random sample in measurable terms? 90%? 95%? 99%? (Jeremy Wu 2012)
+
+- "Which one should we trust more: a 1% survey with 60% response rate or a non-probabilistic dataset covering 80% of the population?" (Keiding and Louis, 2016, Journal of Royal Statistical Society, Series B)
+
+:::
+
+There is a pretty detailed, but really [good paper](https://statistics.fas.harvard.edu/files/statistics-2/files/statistical_paradises_and_paradoxes.pdf) addressing this question by Xiao-Li Meng. 
+
+The **surprising answer** is that it depends! If there is correlation between the outcome value and the sampling probability even huge data sets can actually be very small in "effective sample size". So it is worth thinking _very hard_ about potential correlation between the outcome and the (designed or de facto) sampling scheme. 
 
 ```{r ss-bigdata, echo=FALSE, out.width = '60%', fig.align='center'}
 knitr::include_graphics("../../images/ss-bigdata.png")
 ```
+
+#### Back to quick draw
 
 OK back to our example. Google has released [some of the data](https://github.com/googlecreativelab/quickdraw-dataset) from the Quick, Draw! challenge. You can either get the data in raw form or you can get some pre-processed data. 
 
@@ -318,7 +364,9 @@ I downloaded the pre-processed data sets for clouds and axes. These data are ava
 - Resample all strokes with a 1 pixel spacing.
 - Simplify all strokes using the Ramer–Douglas–Peucker algorithm (strokes are simplified) with an epsilon value of 2.0.
 
-All these things make data easier to manage and to represent into a plot. This already represents a lot of work, but even so we still have some more pre-processing to do. First we are going to load some of the data into R, it comes in [ndjson](http://ndjson.org/) format and there are lots of drawings. 
+All these things make data easier to manage and to represent into a plot. This already represents a lot of work, but even so we still have some more pre-processing to do. 
+
+First, we are going to load some of the data into R, it comes in [ndjson](http://ndjson.org/) format and there are lots of drawings. 
 
 ```{r}
 if(!file.exists(here("data", "axe.ndjson"))){
@@ -334,7 +382,7 @@ if(!file.exists(here("data", "axe.ndjson"))){
 list.files(here("data"))
 ```
 
-Here we are going to read in 100 drawings of each class using the 
+Next, we are going to read in 100 drawings of each class using the 
 `sample_lines()` function from the `LaF` package. 
 
 ```{r}
@@ -346,7 +394,16 @@ clouds_json = LaF::sample_lines(here("data","cloud.ndjson"), n = 100)
 
 ## Data loading and EDA
 
-Before we talk about data exploration and processing, it is important to _look_ at your data and _think_ about what you find in it. Also, I want to point out you should do this exploration only in the training set. However, in this example, we are going split the data at a later point. 
+
+Before we talk about data exploration and processing, it is important to _look_ at your data and _think_ about what you find in it. 
+
+:::keyideas 
+
+Also, I want to point out you should do this exploration only in the training set. However, in this example, we are going split the data at a later point. 
+
+If you want to know more about this concept, read about [data leakage](https://en.wikipedia.org/wiki/Leakage_(machine_learning)). 
+
+:::
 
 OK the data are not in a format we can do anything with yet. Each line is a json object: 
 
@@ -430,7 +487,7 @@ Yup, looks like a cloud!
 
 One of the key issues in building a model is feature engineering. Feature engineering is a step in a machine learning model where we construct the covariates (or features, $\vec{x}$) that you will feed into the prediction algorithms. 
 
-In general feature engineering is particularly important for "unstructured" data. For example taking a pile of text like this Emily Dickenson quote from the [tidy text tutorial](https://www.tidytextmining.com/tidytext.html): 
+In general, feature engineering is particularly important for "unstructured" data. For example taking a pile of text like this Emily Dickenson quote from the [tidy text tutorial](https://www.tidytextmining.com/tidytext.html): 
 
 ```{r}
 library(tidytext)
@@ -450,7 +507,7 @@ text_df %>%
     count(word)
 ```
 
-This used to be something that was almost exclusively done by expert humans, but is now often done by deep learning algorithms which do "automatic feature selection". We'll talk more about with neural networks. 
+This used to be something that was almost exclusively done by expert humans, but is now often done by deep learning algorithms which do "automatic feature selection".
 
 Back to our data above, e.g. 
 
@@ -458,7 +515,9 @@ Back to our data above, e.g.
 rjson::fromJSON(axes_json[[1]]) %>% parse_drawing()
 ```
 
-A bunch of data processing has been done for us, but the data aren't quite ready to be fed into an algorithm yet. To do that, we'd need a data frame with each row equal to one drawing and each column equal to one feature for that drawing, with an extra column for the drawing output. 
+A bunch of data processing has been done for us, but the data are not quite ready to be fed into an algorithm yet. 
+
+To do that, we would need a data frame with each row equal to one drawing and each column equal to one feature for that drawing, with an extra column for the drawing output. 
 
 To do this, we need to think about creating a standardized grid for storing our data on. However, the choice of grid is decision left up to us (you can think of this as feature engineering). 
 
@@ -503,8 +562,8 @@ grid_axe[which(grid_axe$pixel == 1),]
 Let's try subsampling this down to a smaller image. We'll use `Hmisc::cut2()`
 to cut a numeric variable into intervials. It's similar to `cut()`, but left 
 endpoints are inclusive and labels are of the form `[lower, upper)`, except 
-that last interval is `[lower,upper]`. However, we will use `levels.mean=TRUE`	
-to make the new categorical vector have levels attribute that is the
+that last interval is `[lower,upper]`. However, we will use `levels.mean=TRUE` to 
+make the new categorical vector have levels attribute that is the
 group means of `grid_axe$x` instead of interval endpoint labels. 
 
 ```{r}
@@ -624,10 +683,13 @@ img_dat = img_dat[-1,]
 img_dat
 ```
 
-We can spread this out and viola we finally have a processed data set!
+We can use `pivot_wider()` and viola we finally have a processed data set!
 
 ```{r}
-img_final = spread(img_dat,pixel_number,pixel)
+library(tidyr)
+img_final <- 
+  img_dat %>%
+    pivot_wider(names_from = pixel_number, values_from = pixel)
 names(img_final) = c("type","drawing", paste0("pixel",1:256))
 img_final 
 ```
@@ -635,15 +697,15 @@ img_final
 
 ## Splitting into training, testing, validation
 
-Now that we have our data processed an important step is to break the data up into a training, testing, and validation set. In general people use these words in different ways: 
+Now that we have our data processed an important step is to break the data up into a training, testing, and validation set. In general, people use these words in different ways: 
 
-```{r ttv, echo=FALSE, out.width = '60%', fig.align='center'}
+```{r ttv, echo=FALSE, out.width = '80%', fig.align='center'}
 knitr::include_graphics("../../images/ttv.png")
 ```
 
 I actually like this proposal to call them "training, tuning, and testing" sets, so let's use that. 
 
-```{r ttt, echo=FALSE, out.width = '60%', fig.align='center'}
+```{r ttt, echo=FALSE, out.width = '100%', fig.align='center'}
 knitr::include_graphics("../../images/ttt.png")
 ```
 
@@ -654,7 +716,7 @@ But the reason for this splitting is that we want to avoid being overly optimist
 
 Here is a funny example from [XKCD](https://xkcd.com/1122/) to illustrate overfitting
 
-```{r xkcd, echo=FALSE, out.width = '60%', fig.align='center'}
+```{r xkcd, echo=FALSE, out.width = '90%', fig.align='center'}
 knitr::include_graphics("../../images/xkcd112.png")
 ```
 
@@ -672,7 +734,7 @@ Imagine we want to "learn" a model of the form:
 
 $$y_i = \sum_{k=1}^K b_k g_k(x_i) + e_i$$
 
-Then the model 
+Then, the model 
 
 - **Fits** if $\sum_{k=1}^K b_k g_k(x) \approx x^2$. 
 - **Overfits** if $\sum_{k=1}^K b_k g_k(x) \approx x^2 + e_i$ 
@@ -715,7 +777,7 @@ dat_pred = dat %>%
     add_predictions(lm_over,"over")
 
 dat_pred  = dat_pred %>% 
-  gather(fit_type,fit,under,over,fits)
+  pivot_longer(-c(x,y), names_to = "fit_type", values_to = "fit")
 
 ggplot(dat_pred,aes(x=x,y=y)) + 
   geom_point() + 
@@ -741,7 +803,9 @@ dat2_pred = dat2 %>%
     add_predictions(lm_under,"under") %>%
     add_predictions(lm_over,"over")
 
-dat2_pred  = dat2_pred %>% gather(fit_type,fit,under,over,fits)
+dat2_pred <-  
+  dat2_pred %>% 
+  pivot_longer(-c(x,y), names_to = "fit_type", values_to = "fit")
 
 ggplot(dat2_pred,aes(x=x,y=y)) + geom_point() + theme_minimal() + 
     geom_line(aes(x=x,y=fit,group=fit_type,color=fit_type))
@@ -758,7 +822,16 @@ dat2_pred %>% mutate(res2 = (y - fit)^2) %>%
 
 ### Bias variance tradeoff
 
-Overfitting is related to another general concept - the bias variance tradeoff. In general the more predictors you have in a model the lower the bias but the higher the variance. This is called the "bias-variance tradeoff". To see this, let's fit these models in 100 simulated data sets and see what the models predict for an x value of 0 (the prediction should equal 0). 
+
+:::keyideas 
+
+**Overfitting** is related to another general concept - the **bias variance trade-off**. 
+
+In general, the more predictors you have in a model the lower the bias but the higher the variance. This is called the "bias-variance trade-off". 
+
+:::
+
+To see this, let's fit these models in 100 simulated data sets and see what the models predict for a x value of 0 (the prediction should equal 0). 
 
 ```{r}
 over = under = fits = rep(0,100)
@@ -774,11 +847,15 @@ for(i in 1:100){
 }
 
 results = tibble(over,under,fits) %>%
-    gather(type,prediction,over,under,fits)
+    pivot_longer(names_to = "type", values_to = "prediction",c(over,under,fits))
 ```
 
 
-The `results` show that when we fit the exact right model we do best (no surprise there!). When the model is too complex we get low bias (values predicted close to zero on average) but high variance. When the model isn't complex enough we get high bias (values predicted away from zero) but low variance. 
+The `results` show that when we fit the **exact right model** we do best (no surprise there!). 
+
+When the model is **too complex** we get low bias (values predicted close to zero on average) but high variance. 
+
+When the model is **not complex enough** we get high bias (values predicted away from zero) but low variance. 
 
 ```{r}
 results %>% 
@@ -787,7 +864,7 @@ results %>%
     theme_minimal()
 ```
 
-In general you won't know the true model, so the goal is to try to pick a model that gives a happy medium on the bias-variance tradeoff (of course depending on your goals). 
+In general you will not know the true model, so the goal is to try to pick a model that gives a happy medium on the bias-variance trade-off (of course depending on your goals). 
 
 ### What do you do in training/tuning/testing
 
@@ -803,16 +880,16 @@ $$y_i = \sum_{k=1}^K b_k g_k(x_i) + e_i$$
 And the parameters would be the choices of $b_k$, $g_k$ and $K$. These parameters are "fit" by estimating them from the data or fixing them in advance.
 
 
-- **Training** - In the training set you try different algorithms, estimate their parameters, and see which one works best. 
-- **Tuning** - Once you have settled on a single algorithm or a small set of algorithms, you use the tuning set to estimate which paramters work best outside of the training sample you originally built on. 
-- **Testing** - Once your algorithm and all your parameters for your model are fixed then you apply that fitted model just one time to the test set to evaluate the error rate for your model realistically. 
+- **Training** - In the training set, you try different algorithms, estimate their parameters, and see which one works best. 
+- **Tuning** - Once you have settled on a single algorithm (or a small set of algorithms), you use the tuning set to estimate which parameters work best outside of the training sample you originally built on. 
+- **Testing** - Once your algorithm and all your parameters for your model are fixed, then you apply that fitted model just one time to the test set to evaluate the error rate for your model realistically. 
 
 
 ### Cross validation
 
 Within the training set you are choosing between algorithms and parameters, but like we saw above, if you use the whole training set you may end up overfitting to the noise in the data. So when selecting algorithms and parameters, you need some way to make sure you don't just pick the algorithm that is most overfit. 
 
-The typical way people do this is by cross-validation (figure borrowed from Rafa's [Data Science Book](https://rafalab.github.io/dsbook/cross-validation-1.html)). K-fold cross validaiton just splits up the training set into K pieces. You build the model on part of the training data and apply it to the rest. This gives you a better evaluation of the out of sample error - so will allow you to rank models in a better way. 
+The typical way people do this is by cross-validation (figure borrowed from Rafa's [Data Science Book](https://rafalab.github.io/dsbook/cross-validation-1.html)). K-fold cross validation just splits up the training set into K pieces. You build the model on part of the training data and apply it to the rest. This gives you a better evaluation of the out of sample error - so will allow you to rank models in a better way. 
 
 ```{r cv, echo=FALSE, out.width = '60%', fig.align='center'}
 knitr::include_graphics("../../images/cross-validation.png")
@@ -823,7 +900,7 @@ knitr::include_graphics("../../images/cross-validation.png")
 You can also use the bootstrap. But you need to [adjust for the fact that the training and testing sets are random samples](https://www.jstor.org/stable/2965703). 
 
 
-### Back to our example 
+#### Back to quick draw
 
 Here we are going to simply use training and testing using the `createDataPartition()` function in the [caret package](http://topepo.github.io/caret/index.html) with the argument `p` being the percentages of data that goes into training: 
 
@@ -871,7 +948,7 @@ There are a few key ideas you should know about that define most regression mode
 - Ensembling
 - Neural Networks
 
-Today we will *briefly* demonstrate trees, but we will discuss all of these later in the term. 
+Today we will *briefly* demonstrate trees. 
 
 
 ### Trees
@@ -886,7 +963,7 @@ Today we will *briefly* demonstrate trees, but we will discuss all of these late
 
 This is an example tree: 
 
-```{r oc, echo=FALSE, out.width = '60%', fig.align='center'}
+```{r oc, echo=FALSE, out.width = '90%', fig.align='center'}
 knitr::include_graphics("../../images/obama-clinton.jpg")
 ```
 
@@ -942,9 +1019,19 @@ The last step is model evaluation. A good model evaluation includes the componen
 2. Exploratory analysis of predictions to ensure that there aren't obvious problems
 3. Consideration of the practical and ethical consequences of deploying your model. 
 
-As we discussed above, Amazon developed an AI algorithm for predicting who they should hire. They did a good job of evaluating criteria 1 - they knew they could accurately predict in their training set. 
+:::keyideas 
 
-However, they didn't do exploratory analysis to identify what their model was using to make predictions. They also didn't do a careful job of evaluating the implications of their model in terms of bias. This [led to some major problems](https://www.reuters.com/article/us-amazon-com-jobs-automation-insight/amazon-scraps-secret-ai-recruiting-tool-that-showed-bias-against-women-idUSKCN1MK08G). 
+**why is this important?**
+
+A while back Amazon developed an AI algorithm for predicting who they should hire. They did a good job of evaluating criteria 1 - they knew they could accurately predict in their training set. 
+
+However, they didn't do exploratory analysis to identify what their model was using to make predictions. They also didn't do a careful job of evaluating the implications of their model in terms of bias. 
+
+This [led to some major problems](https://www.reuters.com/article/us-amazon-com-jobs-automation-insight/amazon-scraps-secret-ai-recruiting-tool-that-showed-bias-against-women-idUSKCN1MK08G). 
+
+:::
+
+#### back to model evaluation
 
 Before evaluating our model in the test set, we want to understand what is going on with our prediction. This is an active and open area of research: the interpretation of results from black box machine learning algorithms. We can do this in a couple of ways. One approach that has seen some traction is [locally interpretable model agnostic explanations](https://homes.cs.washington.edu/~marcotcr/blog/lime/) (lime). This approach fits very simple local models to approximate the complicated model in a local neighborhood. 
 
@@ -1025,29 +1112,12 @@ This accuracy is usually slightly lower than the accuracy in the training data.
 
 # Post-lecture materials
 
-### Final Questions 
-
-Here are some post-lecture questions to help you think about the material discussed.
-
-:::questions
-
-**Questions:**
-
-1. 
-
-2. 
-
-3.
-
-:::
 
 
 ### Additional Resources 
 
 :::resources 
 
-- 
-- 
-- 
+- https://rafalab.github.io/dsbook/introduction-to-machine-learning.html
 
 ::: 

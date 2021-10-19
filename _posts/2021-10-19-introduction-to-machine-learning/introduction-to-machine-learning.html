@@ -1518,7 +1518,6 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <li><a href="#bias-variance-tradeoff">Bias variance tradeoff</a></li>
 <li><a href="#what-do-you-do-in-trainingtuningtesting">What do you do in training/tuning/testing</a></li>
 <li><a href="#cross-validation">Cross validation</a></li>
-<li><a href="#back-to-our-example">Back to our example</a></li>
 </ul></li>
 <li><a href="#model-selection-and-fitting">Model selection and fitting</a>
 <ul>
@@ -1529,7 +1528,6 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </ul></li>
 <li><a href="#post-lecture-materials">Post-lecture materials</a>
 <ul>
-<li><a href="#final-questions">Final Questions</a></li>
 <li><a href="#additional-resources">Additional Resources</a></li>
 </ul></li>
 </ul>
@@ -1541,7 +1539,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <div class="resources">
 <p><strong>Before class, you can prepare by reading the following materials:</strong></p>
 <ol type="1">
-<li></li>
+<li><a href="https://rafalab.github.io/dsbook/introduction-to-machine-learning.html" class="uri">https://rafalab.github.io/dsbook/introduction-to-machine-learning.html</a></li>
 </ol>
 </div>
 <h3 id="acknowledgements">Acknowledgements</h3>
@@ -1549,25 +1547,26 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <ul>
 <li><a href="https://jhu-advdatasci.github.io/2019/lectures/16-intro-ml.html" class="uri">https://jhu-advdatasci.github.io/2019/lectures/16-intro-ml.html</a></li>
 <li><a href="https://rafalab.github.io/dsbook/introduction-to-machine-learning.html" class="uri">https://rafalab.github.io/dsbook/introduction-to-machine-learning.html</a></li>
-<li></li>
 </ul>
 <h1 id="learning-objectives">Learning objectives</h1>
 <div class="keyideas">
 <p><strong>At the end of this lesson you will:</strong></p>
 <ul>
-<li></li>
-<li></li>
-<li></li>
+<li>Be able to define machine learning (ML) and why we use it?</li>
+<li>Be able to recognize some misuses of ML</li>
+<li>Understand the parts of a ML problem</li>
+<li>Implement a machine learning model to classify images into two types: clouds and axes</li>
 </ul>
 </div>
 <h1 id="why-machine-learning">Why machine learning?</h1>
 <p>Today we are going to be talking about machine learning. This is one of the <em>hottest</em> areas in all of statistics/data science. Machine learning is in the news a ton lately. Some examples include:</p>
 <ul>
-<li><a href="https://techcrunch.com/2018/10/30/waymo-takes-the-wheel-self-driving-cars-go-fully-driverless-on-california-roads/">Self driving cars</a></li>
+<li><a href="https://towardsdatascience.com/your-guide-to-ai-for-self-driving-cars-in-2020-218289719619">Self driving cars</a></li>
 <li><a href="http://science.sciencemag.org/content/353/6301/790">Predicting poverty with satellites</a></li>
-<li><a href="https://ai.googleblog.com/2017/03/assisting-pathologists-in-detecting.html">Assisting pathologists in detecting cancer</a></li>
+<li><a href="https://ai.googleblog.com/2017/03/assisting-pathologists-in-detecting.html">Predicting breast cancer using Google’s DeepMind AI</a></li>
+<li><a href="https://www.youtube.com/watch?v=MfThopD7L1Y">Predictive policing</a></li>
 </ul>
-<p>This is such a big idea that MIT basically renamed a whole collect to focus on <a href="https://www.nytimes.com/2018/10/15/technology/mit-college-artificial-intelligence.html">“Artificial Intelligence”</a>.</p>
+<p>This is such a big idea that universities are investing major dollars to hire faculty in <a href="https://www.seas.harvard.edu/news/2021/10/seven-join-harvard-computer-science-faculty">AI and machine learning</a>.</p>
 <p>On a more personal note you might be interested in AI and machine learning because it is one of the most in demand parts of being a data scientist right now. If you get really good at it <a href="https://www.nytimes.com/2018/04/19/technology/artificial-intelligence-salaries-openai.html">you can make a lot of money</a>.</p>
 <p>The other really exciting reason to focus on AI and ML right now is that there is a lot of room for statistical science. Some of the biggest open problems include:</p>
 <ul>
@@ -1621,13 +1620,19 @@ Figure 4: Central dogma of statistics: prediction (part 2)
 <p><em>This section borrowed from Rafa Irizarry’s excellent <a href="https://rafalab.github.io/dsbook/introduction-to-machine-learning.html">Data Science Book</a></em></p>
 <p>In machine learning, data comes in the form of:</p>
 <ol type="1">
-<li>the <em>outcome</em> we want to predict and</li>
-<li>the <em>features</em> that we will use to predict the outcome.</li>
+<li>the <strong>outcome</strong> we want to predict and</li>
+<li>the <strong>features</strong> that we will use to predict the outcome.</li>
 </ol>
-<p>We want to build an algorithm that takes feature values as input and returns a prediction for the outcome when we do not know the outcome. The <strong>machine learning approach</strong> is to <em>train</em> an algorithm using a dataset for which we do know the outcome to <strong>identify patternsin the training data</strong>, and then apply this algorithm in the future to make a prediction when we do not know the outcome.</p>
 <p>Here, we will use <span class="math inline">\(Y\)</span> to denote the outcome and <span class="math inline">\(X_1, \dots, X_p\)</span> to denote features. Note that features are sometimes referred to as predictors or covariates. We consider all these to be synonyms.</p>
+<div class="keyideas">
+<p><strong>Goal</strong>: we want to build an algorithm that takes feature values as input and returns a prediction for the outcome when we do not know the outcome.</p>
+<p>The <strong>machine learning approach</strong> is to <em>train</em> an algorithm using a dataset for which we do know the outcome to <strong>identify patterns in the training data</strong>, and then apply this algorithm in the future to make a prediction when we do not know the outcome.</p>
+</div>
+<h4 id="types-of-prediction-problems">Types of prediction problems</h4>
 <p>Prediction problems can be divided into categorical and continuous outcomes.</p>
-<p>For categorical outcomes, <span class="math inline">\(Y\)</span> can be any one of <span class="math inline">\(K\)</span> classes. The number of classes can vary greatly across applications. For example, in the digit reader data, <span class="math inline">\(K=10\)</span> with the classes being the digits 0, 1, 2, 3, 4, 5, 6, 7, 8, and 9. In speech recognition, the outcome are all possible words or phrases we are trying to detect. Spam detection has two outcomes: spam or not spam. In this lesson, we denote the <span class="math inline">\(K\)</span> categories with indexes <span class="math inline">\(k=1,\dots,K\)</span>. However, for binary data we will use <span class="math inline">\(k=0,1\)</span> for mathematical conveniences that we demonstrate later.</p>
+<p>For categorical outcomes, <span class="math inline">\(Y\)</span> can be any one of <span class="math inline">\(K\)</span> classes. The number of classes can vary greatly across applications. For example, in the digit reader data, <span class="math inline">\(K=10\)</span> with the classes being the digits 0, 1, 2, 3, 4, 5, 6, 7, 8, and 9. In speech recognition, the outcome are all possible words or phrases we are trying to detect. Spam detection has two outcomes: spam or not spam.</p>
+<p>In this lesson, we denote the <span class="math inline">\(K\)</span> categories with indexes <span class="math inline">\(k=1,\dots,K\)</span>. However, for binary data we will use <span class="math inline">\(k=0,1\)</span> for mathematical conveniences.</p>
+<h4 id="the-general-set-up">The general set-up</h4>
 <p>The general set-up is as follows. We have a series of features and an unknown outcome we want to predict:</p>
 <div class="layout-chunk" data-layout="l-body">
 <table>
@@ -1759,26 +1764,30 @@ Figure 4: Central dogma of statistics: prediction (part 2)
 <p>A machine learning problem consists of a few different parts and its important to consider each one. To solve a (standard) machine learning problem you need:</p>
 <ol type="1">
 <li>A data set to train from.</li>
-<li>An algorithm or set of algorithms you can use to try values of <span class="math inline">\(f\)</span></li>
-<li>A distance metric <span class="math inline">\(d\)</span> for measuring how close <span class="math inline">\(Y\)</span> is to <span class="math inline">\(\hat{Y}\)</span></li>
-<li>A definition of what a “good” distance is</li>
+<li>An algorithm or set of algorithms you can use to try values of <span class="math inline">\(f\)</span> (e.g. logistic regression, random forest, support vector machine)</li>
+<li>A distance metric <span class="math inline">\(d\)</span> for measuring how close <span class="math inline">\(Y\)</span> is to <span class="math inline">\(\hat{Y}\)</span> (e.g. mean squared error)</li>
+<li>A definition of what a “good” distance is (e.g. different types of performance metrics)</li>
 </ol>
-<p>While each of these components is a <em>technical</em> problem, there has been a ton of work addressing those technical details. The most pressing open issue in machine learning is realizing that though these are <em>technical</em> steps they are not <em>objective</em> steps. In other words, how you choose the data, algorithm, metric, and definition of “good” says what you value and can dramatically change the results. A couple of cases where this was a big deal are:</p>
+<p>While each of these components is a <em>technical</em> problem, there has been a ton of work addressing those technical details. The most pressing open issue in machine learning is realizing that though these are <em>technical</em> steps they are not <em>objective</em> steps.</p>
+<div class="keyideas">
+<p>In other words, how you choose the data, algorithm, metric, and definition of “good” says what you value and can dramatically change the results. A couple of cases where this was a big deal are:</p>
 <ol type="1">
 <li><a href="https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing">Machine learning for recidivism</a> - people built ML models to predict who would re-commit a crime. But these predictions were based on historically biased data which led to biased predictions about who would commit new crimes.</li>
-<li><a href="https://www.nature.com/articles/d41586-018-07135-0">Deciding how self driving cars should act</a> - self driving cars will have to make decisions about how to drive, who they might injure, and how to avoid accidents. Depending on our choices for <span class="math inline">\(f\)</span> and <span class="math inline">\(d\)</span> these might lead to wildly different kinds of self driving cars. Try out the <a href="http://moralmachine.mit.edu/">moralmachine</a> to see how this looks in practice.</li>
+<li><a href="https://www.nature.com/articles/d41586-018-07135-0">Deciding how self driving cars should act</a> - self driving cars will have to make decisions about how to drive, who they might injure, and how to avoid accidents. Depending on our choices for <span class="math inline">\(f\)</span> and <span class="math inline">\(d\)</span> these might lead to wildly different kinds of self driving cars.</li>
 </ol>
+<p><strong>Try out</strong> the <a href="http://moralmachine.mit.edu/">moralmachine</a> to see how this looks in practice.</p>
+</div>
 <h1 id="example-quickdraw">Example: QuickDraw!</h1>
 <p>Quick,Draw! is an online game where you are given an object to draw (like a cello, axe, airplane, etc.) and then you have to draw it with your finger. Then a pre-trained deep learning algorithm is applied to guess what kind of a drawing you have made. You can try it out here.</p>
 <ul>
 <li><a href="https://quickdraw.withgoogle.com/" class="uri">https://quickdraw.withgoogle.com/</a></li>
 </ul>
-<p>One interesting thing about this project and something to keep in mind if you are thinking about ways to get cool data is the exchange that Google is making here. They are giving you a fun game to play for free and in return you are giving them a ton of free data. This is the same exchange made by other successful startups:</p>
+<p>One <strong>interesting thing</strong> about this project and something to keep in mind if you are thinking about ways to get cool data is the exchange that Google is making here. They are giving you a fun game to play for free and in return you are giving them a ton of free data. This is the same exchange made by other successful startups:</p>
 <ul>
 <li><a href="https://www.google.com/recaptcha/intro/v3.html">reCAPTCHA</a> you click on images to prove you are a human, they give you access to a website.</li>
 <li><a href="https://www.duolingo.com/">DuoLingo</a> you practice learning words, they collect information on the way you say those words or your translations</li>
 </ul>
-<p>Before going any further, we load a few R packages we’ll need</p>
+<p>Before going any further, we load a few R packages we will need</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://here.r-lib.org/'>here</a></span><span class='op'>)</span>
@@ -1795,7 +1804,8 @@ Figure 4: Central dogma of statistics: prediction (part 2)
 </code></pre>
 </div>
 </div>
-<p>The main steps in a machine learning problem are:</p>
+<div class="keyideas">
+<p>The <strong>main steps in a machine learning problem</strong> are:</p>
 <ol type="1">
 <li>Question definition</li>
 <li>Goal setting</li>
@@ -1806,11 +1816,12 @@ Figure 4: Central dogma of statistics: prediction (part 2)
 <li>Model selection and fitting</li>
 <li>Model evaluation</li>
 </ol>
+</div>
 <p>We will use the Quick, Draw! dataset to discuss a few different parts of the ML process.</p>
 <h2 id="start-with-a-question">Start with a question</h2>
 <p>This is the most commonly missed step when developing a machine learning algorithm. ML can very easily be turned into an engineering problem. Just dump the outcome and the features into a black box algorithm and viola!</p>
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="../../images/choc-nobel.jpg" width="60%" style="display: block; margin: auto;" /></p>
+<p><img src="../../images/choc-nobel.jpg" width="90%" style="display: block; margin: auto;" /></p>
 </div>
 <p>But this kind of thinking can lead to major problems. In general good ML questions:</p>
 <ol type="1">
@@ -1823,11 +1834,13 @@ Figure 4: Central dogma of statistics: prediction (part 2)
 <p><img src="../../images/gft.png" width="90%" style="display: block; margin: auto;" /></p>
 </div>
 <p>This is just one example of a <a href="http://tylervigen.com/spurious-correlations">spurious correlation</a>, which is one of the big worries. In general all of the <a href="https://jhu-advdatasci.github.io/2019/lectures/07-being-skeptical.html">reasons for skepticism</a> apply here.</p>
+<div class="questions">
 <p>In our QuickDraw! example, there are a ton of interesting analyses you could do with these data, but we are going to start with something simple. <strong>Can we predict from the drawing data what kind of object was drawn?</strong> To make matters even simpler we are going to just look at a couple of types of images: axes and clouds.</p>
+</div>
 <h2 id="goal-setting">Goal setting</h2>
 <p>One important part of any machine learning problem is defining what success looks like. This choice very much depends on the application and what you are trying to do.</p>
 <p>For example, when we talk about the goal in ML we are usually talking about the error rate we want to minimize and how small we want to make it. Consider for each observation we have an outcome <span class="math inline">\(y\)</span> and a set of features <span class="math inline">\(\vec{x}\)</span>. Our goal is to create a function <span class="math inline">\(\hat{y} = \hat{f}(\vec{x})\)</span> such that the distance, <span class="math inline">\(d(y,\hat{f}(\vec{x}))\)</span>, between the observed and the predicted <span class="math inline">\(y\)</span> is minimized.</p>
-<p>The two most common distances that show up in machine learning (and the ones you’ll always be using if you don’t change the defaults!) are:</p>
+<p>The two most common distances that show up in machine learning (and the ones you will always be using if you don’t change the defaults!) are:</p>
 <ul>
 <li><strong>Root mean squared error (RMSE)</strong> - this is the most common error measure for regression (read: continuous outcome) problems.
 <ul>
@@ -1841,7 +1854,7 @@ Figure 4: Central dogma of statistics: prediction (part 2)
 <p>Here we are going to use simple accuracy and say that anything better than guessing is “good enough”.</p>
 <p>But in general there are a number of other potential error measures:</p>
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="../../images/errors.png" width="60%" style="display: block; margin: auto;" /></p>
+<p><img src="../../images/errors.png" width="100%" style="display: block; margin: auto;" /></p>
 </div>
 <p>Here are a few examples of how they might be relevant.</p>
 <ul>
@@ -1851,14 +1864,21 @@ Figure 4: Central dogma of statistics: prediction (part 2)
 </ul>
 <p>In general you need to spend a good amount of time thinking about what the <em>goal</em> is, what the tradeoff of various different errors are and then build that into your model.</p>
 <h2 id="data-collection">Data collection</h2>
-<p>Here we’ll focus on one somewhat unique issue that arises often in ML problems - the data are often huge and not sampled randomly. Tom Louis (former prof in our department) asked this question:</p>
-<blockquote>
-<p>“Which one should I trust more: a 1% survey with 60% response rate or a non-probabilistic dataset covering 80% of the population?”</p>
-</blockquote>
-<p>There is a pretty heavy, but really <a href="https://statistics.fas.harvard.edu/files/statistics-2/files/statistical_paradises_and_paradoxes.pdf">good paper</a> addressing this question by Xiao-Li Meng. The surprising answer is that it depends! If there is correlation between the outcome value and the sampling probability even huge data sets can actually be very small in “effective sample size”. So it is worth thinking <em>very hard</em> about potential correlation between the outcome and the (designed or de facto) sampling scheme.</p>
+<p>Here we’ll focus on one somewhat unique issue that arises often in ML problems - the data are often huge and not sampled randomly.</p>
+<div class="questions">
+<p><strong>Questions</strong>:</p>
+<ul>
+<li><p>We know that a 5% random sample is better than a 5% non-random sample in measurable ways (e.g. bias, uncertainty assessment).</p></li>
+<li><p>But is an 80% non-random sample “better” than a 5% random sample in measurable terms? 90%? 95%? 99%? (Jeremy Wu 2012)</p></li>
+<li><p>“Which one should we trust more: a 1% survey with 60% response rate or a non-probabilistic dataset covering 80% of the population?” (Keiding and Louis, 2016, Journal of Royal Statistical Society, Series B)</p></li>
+</ul>
+</div>
+<p>There is a pretty detailed, but really <a href="https://statistics.fas.harvard.edu/files/statistics-2/files/statistical_paradises_and_paradoxes.pdf">good paper</a> addressing this question by Xiao-Li Meng.</p>
+<p>The <strong>surprising answer</strong> is that it depends! If there is correlation between the outcome value and the sampling probability even huge data sets can actually be very small in “effective sample size”. So it is worth thinking <em>very hard</em> about potential correlation between the outcome and the (designed or de facto) sampling scheme.</p>
 <div class="layout-chunk" data-layout="l-body">
 <p><img src="../../images/ss-bigdata.png" width="60%" style="display: block; margin: auto;" /></p>
 </div>
+<h4 id="back-to-quick-draw">Back to quick draw</h4>
 <p>OK back to our example. Google has released <a href="https://github.com/googlecreativelab/quickdraw-dataset">some of the data</a> from the Quick, Draw! challenge. You can either get the data in raw form or you can get some pre-processed data.</p>
 <p>I downloaded the pre-processed data sets for clouds and axes. These data are available from <a href="https://console.cloud.google.com/storage/browser/quickdraw_dataset/full/simplified">Google Cloud Platform</a>.</p>
 <ul>
@@ -1867,7 +1887,8 @@ Figure 4: Central dogma of statistics: prediction (part 2)
 <li>Resample all strokes with a 1 pixel spacing.</li>
 <li>Simplify all strokes using the Ramer–Douglas–Peucker algorithm (strokes are simplified) with an epsilon value of 2.0.</li>
 </ul>
-<p>All these things make data easier to manage and to represent into a plot. This already represents a lot of work, but even so we still have some more pre-processing to do. First we are going to load some of the data into R, it comes in <a href="http://ndjson.org/">ndjson</a> format and there are lots of drawings.</p>
+<p>All these things make data easier to manage and to represent into a plot. This already represents a lot of work, but even so we still have some more pre-processing to do.</p>
+<p>First, we are going to load some of the data into R, it comes in <a href="http://ndjson.org/">ndjson</a> format and there are lots of drawings.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='kw'>if</span><span class='op'>(</span><span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/files.html'>file.exists</a></span><span class='op'>(</span><span class='fu'><a href='https://here.r-lib.org//reference/here.html'>here</a></span><span class='op'>(</span><span class='st'>"data"</span>, <span class='st'>"axe.ndjson"</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span><span class='op'>{</span>
@@ -1891,7 +1912,7 @@ Figure 4: Central dogma of statistics: prediction (part 2)
 [11] &quot;storms_2004.csv.gz&quot;       &quot;team_standings.csv&quot;      
 [13] &quot;tuesdata_rainfall.RDS&quot;    &quot;tuesdata_temperature.RDS&quot;</code></pre>
 </div>
-<p>Here we are going to read in 100 drawings of each class using the <code>sample_lines()</code> function from the <code>LaF</code> package.</p>
+<p>Next, we are going to read in 100 drawings of each class using the <code>sample_lines()</code> function from the <code>LaF</code> package.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>123</span><span class='op'>)</span>
@@ -1902,7 +1923,11 @@ Figure 4: Central dogma of statistics: prediction (part 2)
 </div>
 </div>
 <h2 id="data-loading-and-eda">Data loading and EDA</h2>
-<p>Before we talk about data exploration and processing, it is important to <em>look</em> at your data and <em>think</em> about what you find in it. Also, I want to point out you should do this exploration only in the training set. However, in this example, we are going split the data at a later point.</p>
+<p>Before we talk about data exploration and processing, it is important to <em>look</em> at your data and <em>think</em> about what you find in it.</p>
+<div class="keyideas">
+<p>Also, I want to point out you should do this exploration only in the training set. However, in this example, we are going split the data at a later point.</p>
+<p>If you want to know more about this concept, read about <a href="https://en.wikipedia.org/wiki/Leakage_(machine_learning)">data leakage</a>.</p>
+</div>
 <p>OK the data are not in a format we can do anything with yet. Each line is a json object:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -1923,7 +1948,7 @@ Figure 4: Central dogma of statistics: prediction (part 2)
 </code></pre>
 </div>
 </div>
-Using this code I can get our first axe out
+<p>Using this code I can get our first axe out</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>first_axe</span> <span class='op'>=</span> <span class='fu'>rjson</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/rjson/man/fromJSON.html'>fromJSON</a></span><span class='op'>(</span><span class='va'>axes_json</span><span class='op'>[[</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>]</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
@@ -2003,7 +2028,7 @@ Using this code I can get our first axe out
 <h2 id="data-pre-processing">Data pre-processing</h2>
 <h3 id="feature-engineering">Feature engineering</h3>
 <p>One of the key issues in building a model is feature engineering. Feature engineering is a step in a machine learning model where we construct the covariates (or features, <span class="math inline">\(\vec{x}\)</span>) that you will feed into the prediction algorithms.</p>
-<p>In general feature engineering is particularly important for “unstructured” data. For example taking a pile of text like this Emily Dickenson quote from the <a href="https://www.tidytextmining.com/tidytext.html">tidy text tutorial</a>:</p>
+<p>In general, feature engineering is particularly important for “unstructured” data. For example taking a pile of text like this Emily Dickenson quote from the <a href="https://www.tidytextmining.com/tidytext.html">tidy text tutorial</a>:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/juliasilge/tidytext'>tidytext</a></span><span class='op'>)</span>
@@ -2047,7 +2072,7 @@ Using this code I can get our first axe out
 18 stopped         1
 19 the             1</code></pre>
 </div>
-<p>This used to be something that was almost exclusively done by expert humans, but is now often done by deep learning algorithms which do “automatic feature selection”. We’ll talk more about with neural networks.</p>
+<p>This used to be something that was almost exclusively done by expert humans, but is now often done by deep learning algorithms which do “automatic feature selection”.</p>
 <p>Back to our data above, e.g. </p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -2069,7 +2094,8 @@ Using this code I can get our first axe out
 10 1       110    73 4842320119726080     10
 # … with 18 more rows</code></pre>
 </div>
-<p>A bunch of data processing has been done for us, but the data aren’t quite ready to be fed into an algorithm yet. To do that, we’d need a data frame with each row equal to one drawing and each column equal to one feature for that drawing, with an extra column for the drawing output.</p>
+<p>A bunch of data processing has been done for us, but the data are not quite ready to be fed into an algorithm yet.</p>
+<p>To do that, we would need a data frame with each row equal to one drawing and each column equal to one feature for that drawing, with an extra column for the drawing output.</p>
 <p>To do this, we need to think about creating a standardized grid for storing our data on. However, the choice of grid is decision left up to us (you can think of this as feature engineering).</p>
 <p>Another think we might want is for our data to be of a manageable size (again the choice of how we do this is another decision left up to us – more feature engineering).</p>
 <h4 id="points-on-a-regular-grid">Points on a regular grid</h4>
@@ -2159,8 +2185,7 @@ Using this code I can get our first axe out
 # … with 17 more rows</code></pre>
 </div>
 <h4 id="data-set-of-a-manageable-size">Data set of a manageable size</h4>
-<p>Let’s try subsampling this down to a smaller image. We’ll use <code>Hmisc::cut2()</code> to cut a numeric variable into intervials. It’s similar to <code>cut()</code>, but left endpoints are inclusive and labels are of the form <code>[lower, upper)</code>, except that last interval is <code>[lower,upper]</code>. However, we will use <code>levels.mean=TRUE</code><br />
-to make the new categorical vector have levels attribute that is the group means of <code>grid_axe$x</code> instead of interval endpoint labels.</p>
+<p>Let’s try subsampling this down to a smaller image. We’ll use <code>Hmisc::cut2()</code> to cut a numeric variable into intervials. It’s similar to <code>cut()</code>, but left endpoints are inclusive and labels are of the form <code>[lower, upper)</code>, except that last interval is <code>[lower,upper]</code>. However, we will use <code>levels.mean=TRUE</code> to make the new categorical vector have levels attribute that is the group means of <code>grid_axe$x</code> instead of interval endpoint labels.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>grid_axe</span><span class='op'>$</span><span class='va'>xgroup</span> <span class='op'>=</span> <span class='fu'>Hmisc</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/Hmisc/man/cut2.html'>cut2</a></span><span class='op'>(</span><span class='va'>grid_axe</span><span class='op'>$</span><span class='va'>x</span>,g<span class='op'>=</span><span class='fl'>16</span>,levels.mean<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span> <span class='co'># g is number of quantile groups</span>
@@ -2358,10 +2383,13 @@ to make the new categorical vector have levels attribute that is the group means
 10     0 axe         1           10
 # … with 51,190 more rows</code></pre>
 </div>
-<p>We can spread this out and viola we finally have a processed data set!</p>
+<p>We can use <code>pivot_wider()</code> and viola we finally have a processed data set!</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>img_final</span> <span class='op'>=</span> <span class='fu'><a href='https://tidyr.tidyverse.org/reference/spread.html'>spread</a></span><span class='op'>(</span><span class='va'>img_dat</span>,<span class='va'>pixel_number</span>,<span class='va'>pixel</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://tidyr.tidyverse.org'>tidyr</a></span><span class='op'>)</span>
+<span class='va'>img_final</span> <span class='op'>&lt;-</span> 
+  <span class='va'>img_dat</span> <span class='op'>%&gt;%</span>
+    <span class='fu'><a href='https://tidyr.tidyverse.org/reference/pivot_wider.html'>pivot_wider</a></span><span class='op'>(</span>names_from <span class='op'>=</span> <span class='va'>pixel_number</span>, values_from <span class='op'>=</span> <span class='va'>pixel</span><span class='op'>)</span>
 <span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>img_final</span><span class='op'>)</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"type"</span>,<span class='st'>"drawing"</span>, <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span><span class='op'>(</span><span class='st'>"pixel"</span>,<span class='fl'>1</span><span class='op'>:</span><span class='fl'>256</span><span class='op'>)</span><span class='op'>)</span>
 <span class='va'>img_final</span> 
 </code></pre>
@@ -2388,19 +2416,19 @@ to make the new categorical vector have levels attribute that is the group means
 #   pixel28 &lt;dbl&gt;, pixel29 &lt;dbl&gt;, pixel30 &lt;dbl&gt;, pixel31 &lt;dbl&gt;, …</code></pre>
 </div>
 <h2 id="splitting-into-training-testing-validation">Splitting into training, testing, validation</h2>
-<p>Now that we have our data processed an important step is to break the data up into a training, testing, and validation set. In general people use these words in different ways:</p>
+<p>Now that we have our data processed an important step is to break the data up into a training, testing, and validation set. In general, people use these words in different ways:</p>
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="../../images/ttv.png" width="60%" style="display: block; margin: auto;" /></p>
+<p><img src="../../images/ttv.png" width="80%" style="display: block; margin: auto;" /></p>
 </div>
 <p>I actually like this proposal to call them “training, tuning, and testing” sets, so let’s use that.</p>
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="../../images/ttt.png" width="60%" style="display: block; margin: auto;" /></p>
+<p><img src="../../images/ttt.png" width="100%" style="display: block; margin: auto;" /></p>
 </div>
 <p>But the reason for this splitting is that we want to avoid being overly optimistic or “overfitting” on the training data. That would prevent us from predicting well on new samples.</p>
 <h3 id="overfitting">Overfitting</h3>
 <p>Here is a funny example from <a href="https://xkcd.com/1122/">XKCD</a> to illustrate overfitting</p>
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="../../images/xkcd112.png" width="60%" style="display: block; margin: auto;" /></p>
+<p><img src="../../images/xkcd112.png" width="90%" style="display: block; margin: auto;" /></p>
 </div>
 <p>The basic idea is that if you keep adding predictors, the model will “predict well” on the data you have, no matter how well we expect it to do in the future.</p>
 <p>The key thing to keep in mind is that there are <strong>two types of variation</strong> in any data set, the “signal” and the “noise”. Using math notation, imagine that the “real” model for a data set is:</p>
@@ -2409,7 +2437,7 @@ to make the new categorical vector have levels attribute that is the group means
 <p><span class="math display">\[y_i = \underbrace{x^2}_{signal} + \underbrace{e_i}_{noise}\]</span></p>
 <p>Imagine we want to “learn” a model of the form:</p>
 <p><span class="math display">\[y_i = \sum_{k=1}^K b_k g_k(x_i) + e_i\]</span></p>
-<p>Then the model</p>
+<p>Then, the model</p>
 <ul>
 <li><strong>Fits</strong> if <span class="math inline">\(\sum_{k=1}^K b_k g_k(x) \approx x^2\)</span>.</li>
 <li><strong>Overfits</strong> if <span class="math inline">\(\sum_{k=1}^K b_k g_k(x) \approx x^2 + e_i\)</span></li>
@@ -2455,7 +2483,7 @@ to make the new categorical vector have levels attribute that is the group means
     <span class='fu'><a href='https://modelr.tidyverse.org/reference/add_predictions.html'>add_predictions</a></span><span class='op'>(</span><span class='va'>lm_over</span>,<span class='st'>"over"</span><span class='op'>)</span>
 
 <span class='va'>dat_pred</span>  <span class='op'>=</span> <span class='va'>dat_pred</span> <span class='op'>%&gt;%</span> 
-  <span class='fu'><a href='https://tidyr.tidyverse.org/reference/gather.html'>gather</a></span><span class='op'>(</span><span class='va'>fit_type</span>,<span class='va'>fit</span>,<span class='va'>under</span>,<span class='va'>over</span>,<span class='va'>fits</span><span class='op'>)</span>
+  <span class='fu'><a href='https://tidyr.tidyverse.org/reference/pivot_longer.html'>pivot_longer</a></span><span class='op'>(</span><span class='op'>-</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>x</span>,<span class='va'>y</span><span class='op'>)</span>, names_to <span class='op'>=</span> <span class='st'>"fit_type"</span>, values_to <span class='op'>=</span> <span class='st'>"fit"</span><span class='op'>)</span>
 
 <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>dat_pred</span>,<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x<span class='op'>=</span><span class='va'>x</span>,y<span class='op'>=</span><span class='va'>y</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> 
   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span> 
@@ -2490,7 +2518,9 @@ to make the new categorical vector have levels attribute that is the group means
     <span class='fu'><a href='https://modelr.tidyverse.org/reference/add_predictions.html'>add_predictions</a></span><span class='op'>(</span><span class='va'>lm_under</span>,<span class='st'>"under"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
     <span class='fu'><a href='https://modelr.tidyverse.org/reference/add_predictions.html'>add_predictions</a></span><span class='op'>(</span><span class='va'>lm_over</span>,<span class='st'>"over"</span><span class='op'>)</span>
 
-<span class='va'>dat2_pred</span>  <span class='op'>=</span> <span class='va'>dat2_pred</span> <span class='op'>%&gt;%</span> <span class='fu'><a href='https://tidyr.tidyverse.org/reference/gather.html'>gather</a></span><span class='op'>(</span><span class='va'>fit_type</span>,<span class='va'>fit</span>,<span class='va'>under</span>,<span class='va'>over</span>,<span class='va'>fits</span><span class='op'>)</span>
+<span class='va'>dat2_pred</span> <span class='op'>&lt;-</span>  
+  <span class='va'>dat2_pred</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'><a href='https://tidyr.tidyverse.org/reference/pivot_longer.html'>pivot_longer</a></span><span class='op'>(</span><span class='op'>-</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>x</span>,<span class='va'>y</span><span class='op'>)</span>, names_to <span class='op'>=</span> <span class='st'>"fit_type"</span>, values_to <span class='op'>=</span> <span class='st'>"fit"</span><span class='op'>)</span>
 
 <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>dat2_pred</span>,<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x<span class='op'>=</span><span class='va'>x</span>,y<span class='op'>=</span><span class='va'>y</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_minimal</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span> 
     <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x<span class='op'>=</span><span class='va'>x</span>,y<span class='op'>=</span><span class='va'>fit</span>,group<span class='op'>=</span><span class='va'>fit_type</span>,color<span class='op'>=</span><span class='va'>fit_type</span><span class='op'>)</span><span class='op'>)</span>
@@ -2514,7 +2544,11 @@ to make the new categorical vector have levels attribute that is the group means
 3 under     7.86</code></pre>
 </div>
 <h3 id="bias-variance-tradeoff">Bias variance tradeoff</h3>
-<p>Overfitting is related to another general concept - the bias variance tradeoff. In general the more predictors you have in a model the lower the bias but the higher the variance. This is called the “bias-variance tradeoff”. To see this, let’s fit these models in 100 simulated data sets and see what the models predict for an x value of 0 (the prediction should equal 0).</p>
+<div class="keyideas">
+<p><strong>Overfitting</strong> is related to another general concept - the <strong>bias variance trade-off</strong>.</p>
+<p>In general, the more predictors you have in a model the lower the bias but the higher the variance. This is called the “bias-variance trade-off”.</p>
+</div>
+<p>To see this, let’s fit these models in 100 simulated data sets and see what the models predict for a x value of 0 (the prediction should equal 0).</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>over</span> <span class='op'>=</span> <span class='va'>under</span> <span class='op'>=</span> <span class='va'>fits</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='fl'>0</span>,<span class='fl'>100</span><span class='op'>)</span>
@@ -2530,11 +2564,13 @@ to make the new categorical vector have levels attribute that is the group means
 <span class='op'>}</span>
 
 <span class='va'>results</span> <span class='op'>=</span> <span class='fu'><a href='https://tibble.tidyverse.org/reference/tibble.html'>tibble</a></span><span class='op'>(</span><span class='va'>over</span>,<span class='va'>under</span>,<span class='va'>fits</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
-    <span class='fu'><a href='https://tidyr.tidyverse.org/reference/gather.html'>gather</a></span><span class='op'>(</span><span class='va'>type</span>,<span class='va'>prediction</span>,<span class='va'>over</span>,<span class='va'>under</span>,<span class='va'>fits</span><span class='op'>)</span>
+    <span class='fu'><a href='https://tidyr.tidyverse.org/reference/pivot_longer.html'>pivot_longer</a></span><span class='op'>(</span>names_to <span class='op'>=</span> <span class='st'>"type"</span>, values_to <span class='op'>=</span> <span class='st'>"prediction"</span>,<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>over</span>,<span class='va'>under</span>,<span class='va'>fits</span><span class='op'>)</span><span class='op'>)</span>
 </code></pre>
 </div>
 </div>
-<p>The <code>results</code> show that when we fit the exact right model we do best (no surprise there!). When the model is too complex we get low bias (values predicted close to zero on average) but high variance. When the model isn’t complex enough we get high bias (values predicted away from zero) but low variance.</p>
+<p>The <code>results</code> show that when we fit the <strong>exact right model</strong> we do best (no surprise there!).</p>
+<p>When the model is <strong>too complex</strong> we get low bias (values predicted close to zero on average) but high variance.</p>
+<p>When the model is <strong>not complex enough</strong> we get high bias (values predicted away from zero) but low variance.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>results</span> <span class='op'>%&gt;%</span> 
@@ -2545,7 +2581,7 @@ to make the new categorical vector have levels attribute that is the group means
 </div>
 <p><img src="introduction-to-machine-learning_files/figure-html5/unnamed-chunk-37-1.png" width="624" style="display: block; margin: auto;" /></p>
 </div>
-<p>In general you won’t know the true model, so the goal is to try to pick a model that gives a happy medium on the bias-variance tradeoff (of course depending on your goals).</p>
+<p>In general you will not know the true model, so the goal is to try to pick a model that gives a happy medium on the bias-variance trade-off (of course depending on your goals).</p>
 <h3 id="what-do-you-do-in-trainingtuningtesting">What do you do in training/tuning/testing</h3>
 <p>Imagine we have broken the data into three components: <span class="math inline">\(X_{tr}, X_{tu}, X_{te}\)</span>. Now we need to “fit” the model. Let’s briefly talk about what this means. A machine learning model has two parts:</p>
 <ol type="1">
@@ -2556,18 +2592,18 @@ to make the new categorical vector have levels attribute that is the group means
 <p><span class="math display">\[y_i = \sum_{k=1}^K b_k g_k(x_i) + e_i\]</span></p>
 <p>And the parameters would be the choices of <span class="math inline">\(b_k\)</span>, <span class="math inline">\(g_k\)</span> and <span class="math inline">\(K\)</span>. These parameters are “fit” by estimating them from the data or fixing them in advance.</p>
 <ul>
-<li><strong>Training</strong> - In the training set you try different algorithms, estimate their parameters, and see which one works best.</li>
-<li><strong>Tuning</strong> - Once you have settled on a single algorithm or a small set of algorithms, you use the tuning set to estimate which paramters work best outside of the training sample you originally built on.</li>
-<li><strong>Testing</strong> - Once your algorithm and all your parameters for your model are fixed then you apply that fitted model just one time to the test set to evaluate the error rate for your model realistically.</li>
+<li><strong>Training</strong> - In the training set, you try different algorithms, estimate their parameters, and see which one works best.</li>
+<li><strong>Tuning</strong> - Once you have settled on a single algorithm (or a small set of algorithms), you use the tuning set to estimate which parameters work best outside of the training sample you originally built on.</li>
+<li><strong>Testing</strong> - Once your algorithm and all your parameters for your model are fixed, then you apply that fitted model just one time to the test set to evaluate the error rate for your model realistically.</li>
 </ul>
 <h3 id="cross-validation">Cross validation</h3>
 <p>Within the training set you are choosing between algorithms and parameters, but like we saw above, if you use the whole training set you may end up overfitting to the noise in the data. So when selecting algorithms and parameters, you need some way to make sure you don’t just pick the algorithm that is most overfit.</p>
-<p>The typical way people do this is by cross-validation (figure borrowed from Rafa’s <a href="https://rafalab.github.io/dsbook/cross-validation-1.html">Data Science Book</a>). K-fold cross validaiton just splits up the training set into K pieces. You build the model on part of the training data and apply it to the rest. This gives you a better evaluation of the out of sample error - so will allow you to rank models in a better way.</p>
+<p>The typical way people do this is by cross-validation (figure borrowed from Rafa’s <a href="https://rafalab.github.io/dsbook/cross-validation-1.html">Data Science Book</a>). K-fold cross validation just splits up the training set into K pieces. You build the model on part of the training data and apply it to the rest. This gives you a better evaluation of the out of sample error - so will allow you to rank models in a better way.</p>
 <div class="layout-chunk" data-layout="l-body">
 <p><img src="../../images/cross-validation.png" width="60%" style="display: block; margin: auto;" /></p>
 </div>
 <p>You can also use the bootstrap. But you need to <a href="https://www.jstor.org/stable/2965703">adjust for the fact that the training and testing sets are random samples</a>.</p>
-<h3 id="back-to-our-example">Back to our example</h3>
+<h4 id="back-to-quick-draw-1">Back to quick draw</h4>
 <p>Here we are going to simply use training and testing using the <code>createDataPartition()</code> function in the <a href="http://topepo.github.io/caret/index.html">caret package</a> with the argument <code>p</code> being the percentages of data that goes into training:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -2604,7 +2640,7 @@ to make the new categorical vector have levels attribute that is the group means
 <li>Ensembling</li>
 <li>Neural Networks</li>
 </ul>
-<p>Today we will <em>briefly</em> demonstrate trees, but we will discuss all of these later in the term.</p>
+<p>Today we will <em>briefly</em> demonstrate trees.</p>
 <h3 id="trees">Trees</h3>
 <p><a href="https://www.stat.cmu.edu/~cshalizi/350/lectures/22/lecture-22.pdf">Classification and regression trees</a> are an extremely popular approach to prediction. The basic algorithm for a classification tree is the following:</p>
 <ol type="1">
@@ -2616,7 +2652,7 @@ to make the new categorical vector have levels attribute that is the group means
 </ol>
 <p>This is an example tree:</p>
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="../../images/obama-clinton.jpg" width="60%" style="display: block; margin: auto;" /></p>
+<p><img src="../../images/obama-clinton.jpg" width="90%" style="display: block; margin: auto;" /></p>
 </div>
 <p>The big question is how to define “best separates the outcomes” in Step 4 of the general algorithm. For continuous data you might minimize the <a href="https://rafalab.github.io/dsbook/trees-and-random-forests.html">residual sum of squares in each group</a>. For binary data you might measure <a href="https://en.wikipedia.org/wiki/Decision_tree_learning">misclassification or information gain</a>.</p>
 <ul>
@@ -2704,8 +2740,13 @@ node), split, n, loss, yval, (yprob)
 <li>Exploratory analysis of predictions to ensure that there aren’t obvious problems</li>
 <li>Consideration of the practical and ethical consequences of deploying your model.</li>
 </ol>
-<p>As we discussed above, Amazon developed an AI algorithm for predicting who they should hire. They did a good job of evaluating criteria 1 - they knew they could accurately predict in their training set.</p>
-<p>However, they didn’t do exploratory analysis to identify what their model was using to make predictions. They also didn’t do a careful job of evaluating the implications of their model in terms of bias. This <a href="https://www.reuters.com/article/us-amazon-com-jobs-automation-insight/amazon-scraps-secret-ai-recruiting-tool-that-showed-bias-against-women-idUSKCN1MK08G">led to some major problems</a>.</p>
+<div class="keyideas">
+<p><strong>why is this important?</strong></p>
+<p>A while back Amazon developed an AI algorithm for predicting who they should hire. They did a good job of evaluating criteria 1 - they knew they could accurately predict in their training set.</p>
+<p>However, they didn’t do exploratory analysis to identify what their model was using to make predictions. They also didn’t do a careful job of evaluating the implications of their model in terms of bias.</p>
+<p>This <a href="https://www.reuters.com/article/us-amazon-com-jobs-automation-insight/amazon-scraps-secret-ai-recruiting-tool-that-showed-bias-against-women-idUSKCN1MK08G">led to some major problems</a>.</p>
+</div>
+<h4 id="back-to-model-evaluation">back to model evaluation</h4>
 <p>Before evaluating our model in the test set, we want to understand what is going on with our prediction. This is an active and open area of research: the interpretation of results from black box machine learning algorithms. We can do this in a couple of ways. One approach that has seen some traction is <a href="https://homes.cs.washington.edu/~marcotcr/blog/lime/">locally interpretable model agnostic explanations</a> (lime). This approach fits very simple local models to approximate the complicated model in a local neighborhood.</p>
 <div class="layout-chunk" data-layout="l-body">
 <p><img src="../../images/local-model.png" width="60%" style="display: block; margin: auto;" /></p>
@@ -2804,22 +2845,10 @@ Prediction axe cloud
 </div>
 <p>This accuracy is usually slightly lower than the accuracy in the training data.</p>
 <h1 id="post-lecture-materials">Post-lecture materials</h1>
-<h3 id="final-questions">Final Questions</h3>
-<p>Here are some post-lecture questions to help you think about the material discussed.</p>
-<div class="questions">
-<p><strong>Questions:</strong></p>
-<ol type="1">
-<li></li>
-<li></li>
-<li></li>
-</ol>
-</div>
 <h3 id="additional-resources">Additional Resources</h3>
 <div class="resources">
 <ul>
-<li></li>
-<li></li>
-<li></li>
+<li><a href="https://rafalab.github.io/dsbook/introduction-to-machine-learning.html" class="uri">https://rafalab.github.io/dsbook/introduction-to-machine-learning.html</a></li>
 </ul>
 </div>
 <div class="sourceCode" id="cb25"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
