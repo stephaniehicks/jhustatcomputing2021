@@ -68,7 +68,7 @@ For Rmd files, go to the [course GitHub repository](https://github.com/stephanie
 | | | | | |
 | Week 8      | Oct 19 | `r emojifont::emoji('cloud')` Introduction to machine learning [[html](posts/2021-10-19-introduction-to-machine-learning/index.html)] [[Rmd](https://github.com/stephaniehicks/jhustatcomputing2021/blob/main/_posts/2021-10-19-introduction-to-machine-learning/introduction-to-machine-learning.Rmd)] | |
 | | | | | |
-| | Oct 21 |  `r emojifont::emoji('hammer_and_wrench')` Deeper dive into machine learning | | |
+| | Oct 21 |  `r emojifont::emoji('hammer_and_wrench')` Deeper dive into machine learning [[html](posts/2021-10-19-introduction-to-machine-learning/index.html)] [[Rmd](https://github.com/stephaniehicks/jhustatcomputing2021/blob/main/_posts/2021-10-19-introduction-to-machine-learning/introduction-to-machine-learning.Rmd)] | | |
 | | | | | |
 | |  Oct 22 | | | `r emojifont::emoji('fallen_leaf')`  Project 3 due |
 :::

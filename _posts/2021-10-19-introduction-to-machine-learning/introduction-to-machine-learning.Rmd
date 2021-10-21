@@ -306,12 +306,12 @@ For example, when we talk about the goal in ML we are usually talking about the 
 
 The two most common distances that show up in machine learning (and the ones you will always be using if you don't change the defaults!) are: 
 
-- **Root mean squared error (RMSE)** - this is the most common error measure for regression (read: continuous outcome) problems.
+- **Root mean squared error (RMSE)** - this is the most common error measure for regression (**read: continuous outcome**) problems.
     - $d(y,\hat{f}(\vec{x})) = \sqrt{\sum_i \left(y_i-\hat{f}(\vec{x}_i)\right)^2}$
-- **Accuracy** - this is the most common error measure for classification (read: factor outcomes) problems. 
+- **Accuracy** - this is the most common error measure for classification (**read: factor outcomes**) problems. 
     - $d(y,\hat{f}(\vec{x})) = \sum_i 1\left(y=\hat{f}(\vec{x})\right)$
     
-Here we are going to use simple accuracy and say that anything better than guessing is "good enough".
+Here, we are going to use simple accuracy and say that anything better than guessing is "good enough".
 
 But in general there are a number of other potential error measures: 
 
@@ -321,17 +321,17 @@ knitr::include_graphics("../../images/errors.png")
 
 Here are a few examples of how they might be relevant. 
 
-- **Predictive value of a positive** - in classification if one group is much less frequent than another, then even high sensitivity/high specificity tests can produce lots of false positives (the classic example is cancer screening, but very relevant for any screening problem). 
+- **Predictive value of a positive** - in classification if one group is much less frequent than another, then even high sensitivity/high specificity tests can produce lots of false positives (the classic example is cancer screening, but very relevant for any screening problem). So the PPV = probability that subjects with a positive screening test truly have the disease.
 - **Mean absolute error** - in regression sometimes you want your error to be less sensitive to a few outliers (this might be true in predicting highly skewed outcomes like income or property values) and MAE can reduce the influence of those outliers. 
 - **Specificity** - when the cost of a false negative is really high compared to a false positive and you never want to miss any negatives (say for example missing a person standing in front of a self driving car)
 
-In general you need to spend a good amount of time thinking about what the _goal_ is, what the tradeoff of various different errors are and then build that into your model. 
+In general, you need to spend a good amount of time thinking about what the _goal_ is, what the tradeoff of various different errors are and then build that into your model. 
 
 
 
 ## Data collection
 
-Here we'll focus on one somewhat unique issue that arises often in ML problems - the data are often huge and not sampled randomly. 
+Here, we will focus on one somewhat unique issue that arises often in ML problems - the data are often huge and not sampled randomly. 
 
 :::questions 
 
@@ -366,7 +366,7 @@ I downloaded the pre-processed data sets for clouds and axes. These data are ava
 
 All these things make data easier to manage and to represent into a plot. This already represents a lot of work, but even so we still have some more pre-processing to do. 
 
-First, we are going to load some of the data into R, it comes in [ndjson](http://ndjson.org/) format and there are lots of drawings. 
+First, we are going to load some of the data into R, it comes in [ndjson](http://ndjson.org/) (new line delimited JSON) format and there are lots of drawings. 
 
 ```{r}
 if(!file.exists(here("data", "axe.ndjson"))){
@@ -385,11 +385,24 @@ list.files(here("data"))
 Next, we are going to read in 100 drawings of each class using the 
 `sample_lines()` function from the `LaF` package. 
 
+```{r, eval=FALSE}
+?LaF::sample_lines
+```
+
+We will start with the axes: 
+
 ```{r}
 set.seed(123)
 axes_json = LaF::sample_lines(here("data","axe.ndjson"), n = 100) 
+length(axes_json)
+```
+
+And repeat for clouds: 
+
+```{r}
 set.seed(123)
 clouds_json = LaF::sample_lines(here("data","cloud.ndjson"), n = 100)
+length(clouds_json)
 ```
 
 ## Data loading and EDA
@@ -399,7 +412,7 @@ Before we talk about data exploration and processing, it is important to _look_ 
 
 :::keyideas 
 
-Also, I want to point out you should do this exploration only in the training set. However, in this example, we are going split the data at a later point. 
+**Important**: I want to point out you should do this **exploration only in the training set**. However, **in this example**, we are going split the data at a later point. 
 
 If you want to know more about this concept, read about [data leakage](https://en.wikipedia.org/wiki/Leakage_(machine_learning)). 
 
@@ -411,21 +424,34 @@ OK the data are not in a format we can do anything with yet. Each line is a json
 axes_json[[1]]
 ```
 
-So the next thing I did was google ["quick draw data ndjson rstats"](https://www.google.com/search?q=quick+draw+data+ndjson+rstats). I found [a tutorial](https://fronkonstin.com/2018/07/01/exploring-the-quick-draw-dataset-with-r-the-mona-lisa/) and lifted some code for processing ndjson data into data frames. 
+```{r gf, echo=FALSE, out.width = '80%', fig.align='center'}
+knitr::include_graphics("../../images/gf.gif")
+```
+
+[[Source](https://giphy.com/gifs/the-godfather-cMNJ5t5HrnWMpwe5Zt)]
+
+The next thing I did was google ["quick draw data ndjson rstats"](https://www.google.com/search?q=quick+draw+data+ndjson+rstats). I found [a tutorial](https://fronkonstin.com/2018/07/01/exploring-the-quick-draw-dataset-with-r-the-mona-lisa/) and lifted some code for processing ndjson data into data frames. 
 
 ```{r}
-parse_drawing = function(list)
-{
+parse_drawing <- function(list){
   lapply(list$drawing, function(z) {tibble(x=z[[1]], y=z[[2]])}) %>% 
     bind_rows(.id = "line") %>% 
     mutate(drawing=list$key_id, row_id=row_number())
 }
 ```
 
-Using this code I can get our first axe out
+What is this code doing? 
+
+- `drawing` is a named element that we are going to work with in each of the json objects
+- `x` and `y` contain the coordinates for the locations
+- `bind_rows()` from `dplyr` is similar to `do.call(rbind)` in base R to bind many data frames in to one. Here the use of the `.id` argument is like a data frame identifier. You can think of `line` as drawing a single stroke (or line) when you draw something on a page.
+- Finally, we add two new columns: `drawing` which contains an ID for each drawing (`key_id`) and `row_number()` creates a tracker for each drawing. 
+
+Ok let's try geting our first axe out:
 
 ```{r}
-first_axe = rjson::fromJSON(axes_json[[1]]) %>% 
+first_axe <-
+  rjson::fromJSON(axes_json[[1]]) %>% 
   parse_drawing()
 first_axe
 ```
@@ -433,7 +459,8 @@ first_axe
 Ok this doesn't look like much, but we could plot it to see if it looks like an axe. 
 
 ```{r}
-ggplot(first_axe,aes(x, y)) +
+first_axe %>% 
+  ggplot(aes(x=x, y=y)) +
     geom_point() + 
     scale_x_continuous(limits=c(0, 255))+
     scale_y_reverse(limits=c(255, 0))+
@@ -441,36 +468,65 @@ ggplot(first_axe,aes(x, y)) +
 ```
 
 
-This sort of looks ok, but maybe a better way to look at it is to actually draw the lines. 
+This sort of looks OK, but maybe a better way to look at it is to actually draw the lines?
+
+**Hint**: check out `line` in the `first_axe` data frame and the `geom_path()` geom in `ggplot2`
+
+```{r, eval=FALSE}
+?geom_path
+```
+
+Putting it all together
 
 ```{r}
-ggplot(first_axe,aes(x, y)) +
+first_axe %>% 
+  ggplot(aes(x=x, y=y)) +
     geom_path(aes(group = line), lwd=1)+
     scale_x_continuous(limits=c(0, 255))+
     scale_y_reverse(limits=c(255, 0))+
     theme_minimal()
 ```
 
-Hey that sort of looks like an axe! Let's see another one.
+Hey that sort of looks like an axe! 
+
+:::questions
+
+**Questions**: 
+
+- How many `line`s are there in this drawing? 
+- How would we filter to just draw the second line? 
+
+```{r}
+### try it out 
+
+```
+
+:::
+
+OK let's see another one.
 
 ```{r}
 rjson::fromJSON(axes_json[[2]]) %>% 
     parse_drawing() %>% 
-    ggplot(aes(x, y)) +
+    ggplot(aes(x=x, y=y)) +
     geom_path(aes(group = line), lwd=1)+
     scale_x_continuous(limits=c(0, 255))+
     scale_y_reverse(limits=c(255, 0))+
     theme_minimal()
 ```
 
-If we were doing this for real, I'd make plots for a large sample of these, understand the variation (and look for mislabeled drawings, messed up observations, etc.). 
+:::keyideas 
+
+**Pro tip**: If we were doing this for real, I would make plots for a large sample of these, understand the variation (and look for mislabeled drawings, messed up observations, etc.). 
+
+:::
 
 Next let's look at a cloud
 
 ```{r}
 rjson::fromJSON(clouds_json[[1]]) %>% 
     parse_drawing() %>% 
-    ggplot(aes(x, y)) +
+    ggplot(aes(x=x, y=y)) +
     geom_path(aes(group = line), lwd=1)+
     scale_x_continuous(limits=c(0, 255))+
     scale_y_reverse(limits=c(255, 0))+
@@ -478,7 +534,7 @@ rjson::fromJSON(clouds_json[[1]]) %>%
 ```
 
 
-Yup, looks like a cloud!
+Yup, looks like a cloud! You can see how the x and y axis align in the top left corner. 
 
 ## Data pre-processing 
 
@@ -487,7 +543,13 @@ Yup, looks like a cloud!
 
 One of the key issues in building a model is feature engineering. Feature engineering is a step in a machine learning model where we construct the covariates (or features, $\vec{x}$) that you will feed into the prediction algorithms. 
 
-In general, feature engineering is particularly important for "unstructured" data. For example taking a pile of text like this Emily Dickenson quote from the [tidy text tutorial](https://www.tidytextmining.com/tidytext.html): 
+#### Unstructured data 
+
+Feature engineering is particularly important for ["unstructured" data](https://en.wikipedia.org/wiki/Unstructured_data). This is:
+
+> "information that either does not have a pre-defined data model or is not organized in a pre-defined manner. Unstructured information is typically text-heavy, but may contain data such as dates, numbers, and facts as well."
+
+For example, we can take a pile of text (unstructured data) like this Emily Dickinson quote from the [tidy text tutorial](https://www.tidytextmining.com/tidytext.html): 
 
 ```{r}
 library(tidytext)
@@ -497,31 +559,81 @@ text <- c("Because I could not stop for Death -",
           "and Immortality")
 ```
 
-And turn it into something like counts of each word
+Convert this vector of character strings into a tibble where each row is a 
+single character string: 
 
 ```{r}
-text_df <- tibble(line = 1:4, text = text)
+text_df <- 
+  tibble(text = text) %>% 
+  mutate(line = row_number())
+text_df
+```
 
+And turn it into something like counts of each word:
+
+```{r}
 text_df %>%
   unnest_tokens(word, text) %>%
     count(word)
 ```
 
-This used to be something that was almost exclusively done by expert humans, but is now often done by deep learning algorithms which do "automatic feature selection".
+Now we have a table of the frequency of words in this text. But what if we repeated this process for all the text in one of Emily's book to determine the most commonly used words from this author. And then we picked a second book from a different author, created a table of the most commonly used words from the second author.
+
+To see an example, let's check out this blog by Julia Silge: 
+
+https://juliasilge.com/blog/tidy-text-classification/
+
+The first thing was to engineer the features from two books: 
+
+1. Pride and Prejudice by Jane Austen
+2. The War of the Worlds by H. G. Wells
+
+Let’s build a supervised machine learning model that learns the difference between text 
+from the two authors: 
+
+```{r tidytext, echo=FALSE, out.width = '90%', fig.align='center'}
+knitr::include_graphics("https://juliasilge.com/blog/2018/2018-12-24-tidy-text-classification_files/figure-html/frequent_words-1.png")
+```
+
+[Source](https://juliasilge.com/blog/tidy-text-classification/)
+
+We could then use these features (where an observation is a single line of text) to build a machine learning model that learns the difference between text from Pride and Prejudice and text from The War of the Worlds. 
+
+Here are the features that are most important in the model built by Julia: 
+
+```{r jane-martians, echo=FALSE, out.width = '90%', fig.align='center'}
+knitr::include_graphics("https://juliasilge.com/blog/2018/2018-12-24-tidy-text-classification_files/figure-html/jane_martians-1.png")
+```
+
+[[Source](https://juliasilge.com/blog/tidy-text-classification/)]
+
+Then, if we give the machine learning algorithm a new line of text it has not seen before, it could predict whether it came from Jane Austen or H.G. Wells.
+
+#### Other types of feature engineering
+
+If the data are continuous, you may consider other types of feature engineering: 
+
+- **feature scaling**: Get the features on the same scale (for e.g. Euclidean distance)
+- **feature transformation**: Normalize the data (feature) (e.g. log transformation)
+- **feature construction**: Create new features based on original descriptors to improve the accuracy of the predictive model (e.g. binning continuous variables to categorical variables or encoding numerical variables from categorical variables )
+- **feature reduction**: Improve the statistical distribution and accuracy of the predictive model
+
+#### Back to quick draw
 
 Back to our data above, e.g. 
 
 ```{r}
-rjson::fromJSON(axes_json[[1]]) %>% parse_drawing()
+rjson::fromJSON(axes_json[[1]]) %>% 
+  parse_drawing()
 ```
 
 A bunch of data processing has been done for us, but the data are not quite ready to be fed into an algorithm yet. 
 
-To do that, we would need a data frame with each row equal to one drawing and each column equal to one feature for that drawing, with an extra column for the drawing output. 
+To do that, we would need a **data frame with each row equal to one drawing** and each **column equal to one feature for that drawing**, with an extra column for the drawing output (e.g. `cloud` or `axe`). 
 
 To do this, we need to think about creating a standardized grid for storing our data on. However, the choice of grid is decision left up to us (you can think of this as feature engineering). 
 
-Another think we might want is for our data to be of a manageable size (again the choice of how we do this is another decision left up to us -- more feature engineering).  
+Another thing we might want is for our data to be of a manageable size (again the choice of how we do this is another decision left up to us -- more feature engineering).  
 
 
 #### Points on a regular grid
@@ -538,7 +650,7 @@ head(grid_dat)
 Now we could make each `x`, `y`  value be a grid point with a join (this is overkill)
 
 ```{r}
-grid_axe = left_join(grid_dat,first_axe)
+grid_axe = left_join(grid_dat,first_axe, by = c("x", "y"))
 grid_axe
 grid_axe %>% count(is.na(line))
 ```
@@ -546,8 +658,10 @@ grid_axe %>% count(is.na(line))
 We see most of the lines are NA. Let's add an indicator of whether a particular value is NA or not. 
 
 ```{r}
-grid_axe = grid_axe %>%
-   mutate(pixel = ifelse(is.na(line),0,1))
+grid_axe <- 
+  grid_axe %>%
+  mutate(pixel = ifelse(is.na(line),0,1))
+
 which(grid_axe$pixel == 1)
 ```
 
@@ -559,17 +673,32 @@ grid_axe[which(grid_axe$pixel == 1),]
 
 #### Data set of a manageable size
 
-Let's try subsampling this down to a smaller image. We'll use `Hmisc::cut2()`
-to cut a numeric variable into intervials. It's similar to `cut()`, but left 
+Let's try subsampling this down to a smaller image. 
+
+We will use `Hmisc::cut2()` to cut a numeric variable into intervals. 
+It's similar to `cut()` in base R, but left 
 endpoints are inclusive and labels are of the form `[lower, upper)`, except 
-that last interval is `[lower,upper]`. However, we will use `levels.mean=TRUE` to 
+that last interval is `[lower,upper]`. 
+
+However, we will use `levels.mean=TRUE` to 
 make the new categorical vector have levels attribute that is the
 group means of `grid_axe$x` instead of interval endpoint labels. 
 
 ```{r}
-grid_axe$xgroup = Hmisc::cut2(grid_axe$x,g=16,levels.mean=TRUE) # g is number of quantile groups
+grid_axe$xgroup = Hmisc::cut2(grid_axe$x, g=16, levels.mean=TRUE) # g is number of quantile groups
+grid_axe
+```
+
+```{r}
+mean(1:17)
+mean(18:33)
+```
+
+```{r}
 table(grid_axe$xgroup)
 ```
+
+Let's do the same for y
 
 ```{r}
 grid_axe$ygroup = Hmisc::cut2(grid_axe$y,g=16,levels.mean=TRUE)
@@ -579,7 +708,8 @@ grid_axe
 Now I can convert these to numbers so we'll have them later
 
 ```{r}
-grid_axe = grid_axe %>% 
+grid_axe <-
+  grid_axe %>% 
     mutate(xgroup = as.numeric(as.character(xgroup)) - 7.5) %>%
     mutate(ygroup = as.numeric(as.character(ygroup)) - 7.5)
 
@@ -590,9 +720,10 @@ grid_axe
 Now we can average within groups of pixels to get a smaller image
 
 ```{r}
-small_axe = grid_axe %>% 
+small_axe <- 
+  grid_axe %>% 
     group_by(xgroup,ygroup) %>%
-    summarise(pixel=mean(pixel))
+    summarise(pixel = mean(pixel))
 
 small_axe
 ```
@@ -600,7 +731,8 @@ small_axe
 Remember this was our original axe
 
 ```{r} 
-ggplot(first_axe,aes(x, y)) +
+first_axe %>% 
+  ggplot(aes(x=x, y=y)) +
     geom_point() +
     scale_x_continuous(limits=c(0, 255))+
     scale_y_reverse(limits=c(255, 0))+
@@ -612,7 +744,7 @@ Now we can look at the small version - it looks similar - whew! :)
 ```{r} 
 small_axe %>% 
   filter(pixel > 0) %>%
-  ggplot(aes(xgroup, ygroup)) +
+  ggplot(aes(x = xgroup, y = ygroup)) +
     geom_point() +
     scale_x_continuous(limits=c(0, 255))+
     scale_y_reverse(limits=c(255, 0))+
@@ -690,14 +822,17 @@ library(tidyr)
 img_final <- 
   img_dat %>%
     pivot_wider(names_from = pixel_number, values_from = pixel)
-names(img_final) = c("type","drawing", paste0("pixel",1:256))
+
+names(img_final) = c("type", "drawing", paste0("pixel", 1:256))
 img_final 
 ```
 
 
 ## Splitting into training, testing, validation
 
-Now that we have our data processed an important step is to break the data up into a training, testing, and validation set. In general, people use these words in different ways: 
+Now that we have our data processed an important step is to break the data up into a training, testing, and validation set. 
+
+In general, people use these words in different ways: 
 
 ```{r ttv, echo=FALSE, out.width = '80%', fig.align='center'}
 knitr::include_graphics("../../images/ttv.png")
@@ -753,6 +888,7 @@ library(dplyr)
 
 ```{r}
 dat = tibble(x = rnorm(30),y=rnorm(30,mean=x^2))
+
 ggplot(dat,aes(x=x,y=y)) + 
   geom_point() + 
   theme_minimal()
@@ -766,26 +902,36 @@ dat  = dat %>%
   arrange(x)
 
 lm_under = lm(y ~ x,data=dat)
-# using natural splines to model a non-linear relationship with piecewise cubic polynomials
-# can specificy df (degrees of freedom) and then ns() chooses (df - 1) interior knots at certain quantiles of x
+# using natural splines to model a non-linear relationship with 
+#    piecewise cubic polynomials
+# can specify df (degrees of freedom) and then ns() chooses (df - 1) 
+#    interior knots at certain quantiles of x
 lm_fits = lm(y ~ ns(x,df=2),data=dat) 
 lm_over = lm(y ~ ns(x,df=10),data=dat)
 
+# add_predictions() is from the modelr R package
 dat_pred = dat %>%
     add_predictions(lm_fits,"fits") %>%
     add_predictions(lm_under,"under") %>%
     add_predictions(lm_over,"over")
 
 dat_pred  = dat_pred %>% 
-  pivot_longer(-c(x,y), names_to = "fit_type", values_to = "fit")
+  pivot_longer(-c(x,y), 
+               names_to = "fit_type", 
+               values_to = "fit")
 
-ggplot(dat_pred,aes(x=x,y=y)) + 
+dat_pred %>% 
+  ggplot(aes(x=x,y=y)) + 
   geom_point() + 
-  geom_line(aes(x=x,y=fit,group=fit_type,color=fit_type)) + 
+  geom_line(aes(x=x, y=fit, 
+                group=fit_type, 
+                color=fit_type)) + 
   theme_minimal()
 ```
 
-You can kind of see that the blue line misses the signal, the red line fits pretty well, and the green line seems to capture a little too much of the noise. If we look at the errors of each approach we get: 
+You can kind of see that the blue line misses the signal, the red line fits pretty well, and the green line seems to capture a little too much of the noise. 
+
+If we look at the **errors** (here: mean squared error between $Y$ and $\hat{Y}$) of each approach we get: 
 
 ```{r}
 dat_pred %>% 
@@ -797,7 +943,7 @@ dat_pred %>%
 It looks like the overfitting approach was best, but we can probably guess that won't work on a new data set:
 
 ```{r}
-dat2 = tibble(x = rnorm(30),y=rnorm(30,mean=x^2)) 
+dat2 = tibble(x = rnorm(30), y = rnorm(30,mean=x^2))
 dat2_pred = dat2 %>%
     add_predictions(lm_fits,"fits") %>%
     add_predictions(lm_under,"under") %>%
@@ -807,15 +953,21 @@ dat2_pred <-
   dat2_pred %>% 
   pivot_longer(-c(x,y), names_to = "fit_type", values_to = "fit")
 
-ggplot(dat2_pred,aes(x=x,y=y)) + geom_point() + theme_minimal() + 
-    geom_line(aes(x=x,y=fit,group=fit_type,color=fit_type))
+dat2_pred %>% 
+  ggplot(aes(x=x,y=y)) + 
+    geom_point() + 
+    theme_minimal() + 
+    geom_line(aes(x=x, y=fit, 
+                  group=fit_type, 
+                  color=fit_type))
 
 ```
 
 Where the best model will be the one that captures the signal (which remains fixed) and not the noise (which changes). 
 
 ```{r}
-dat2_pred %>% mutate(res2 = (y - fit)^2) %>%
+dat2_pred %>% 
+  mutate(res2 = (y - fit)^2) %>%
     group_by(fit_type) %>%
     summarise(rmse = sqrt(sum(res2)))
 ```
@@ -831,7 +983,7 @@ In general, the more predictors you have in a model the lower the bias but the h
 
 :::
 
-To see this, let's fit these models in 100 simulated data sets and see what the models predict for a x value of 0 (the prediction should equal 0). 
+To see an example of this, let's fit these models in 100 simulated data sets and see what the models predict for a x value of 0 (the prediction should equal 0). 
 
 ```{r}
 over = under = fits = rep(0,100)
@@ -847,7 +999,9 @@ for(i in 1:100){
 }
 
 results = tibble(over,under,fits) %>%
-    pivot_longer(names_to = "type", values_to = "prediction",c(over,under,fits))
+    pivot_longer(names_to = "type", 
+                 values_to = "prediction", 
+                 c(over,under,fits))
 ```
 
 
@@ -864,11 +1018,19 @@ results %>%
     theme_minimal()
 ```
 
-In general you will not know the true model, so the goal is to try to pick a model that gives a happy medium on the bias-variance trade-off (of course depending on your goals). 
+In general, you will not know the "true" model, so the goal is to try to pick a model that gives a happy medium on the bias-variance trade-off (of course depending on your goals). 
 
 ### What do you do in training/tuning/testing
 
-Imagine we have broken the data into three components: $X_{tr}, X_{tu}, X_{te}$. Now we need to "fit" the model. Let's briefly talk about what this means. A machine learning model has two parts: 
+Imagine we have broken the data into three components: 
+
+1. $X_{tr}$ = training data
+2. $X_{tu}$ = tuning data 
+3. $X_{te}$ = testing data
+
+Now we need to "fit" the model. Let's briefly talk about what this means. 
+
+A machine learning model has two parts: 
 
 1. An algorithm
 2. A set of parameters
@@ -877,7 +1039,7 @@ The algorithm would be something like regression models with splines:
 
 $$y_i = \sum_{k=1}^K b_k g_k(x_i) + e_i$$
 
-And the parameters would be the choices of $b_k$, $g_k$ and $K$. These parameters are "fit" by estimating them from the data or fixing them in advance.
+And the parameters would be the choices of $b_k$, $g_k$ and $K$. These parameters are "fit" by estimating them from the training data (or fixing them in advance).
 
 
 - **Training** - In the training set, you try different algorithms, estimate their parameters, and see which one works best. 
@@ -889,15 +1051,18 @@ And the parameters would be the choices of $b_k$, $g_k$ and $K$. These parameter
 
 Within the training set you are choosing between algorithms and parameters, but like we saw above, if you use the whole training set you may end up overfitting to the noise in the data. So when selecting algorithms and parameters, you need some way to make sure you don't just pick the algorithm that is most overfit. 
 
-The typical way people do this is by cross-validation (figure borrowed from Rafa's [Data Science Book](https://rafalab.github.io/dsbook/cross-validation-1.html)). K-fold cross validation just splits up the training set into K pieces. You build the model on part of the training data and apply it to the rest. This gives you a better evaluation of the out of sample error - so will allow you to rank models in a better way. 
+The typical way people do this is by **cross-validation** (figure borrowed from Rafa's [Data Science Book](https://rafalab.github.io/dsbook/cross-validation-1.html)). 
+
 
 ```{r cv, echo=FALSE, out.width = '60%', fig.align='center'}
 knitr::include_graphics("../../images/cross-validation.png")
 ```
 
+**$K$-fold cross validation** just splits up the training set into $K$ pieces. You build the model on part of the training data and apply it to the rest. This gives you a better evaluation of the out of sample error - so will allow you to rank models in a better way. 
 
 
-You can also use the bootstrap. But you need to [adjust for the fact that the training and testing sets are random samples](https://www.jstor.org/stable/2965703). 
+
+You can also use something called the **bootstrap**. But you need to [adjust for the fact that the training and testing sets are random samples](https://www.jstor.org/stable/2965703). 
 
 
 #### Back to quick draw
@@ -912,7 +1077,15 @@ train_dat = img_final[train_set,]
 test_dat = img_final[-train_set,]
 ```
 
-We leave the test set alone _until the very end_! 
+:::keyideas 
+
+**Important!!!!**: We leave the test set alone _until the very end_! 
+
+and for those in the back
+
+**it's worth repeating**: We leave the test set alone _until the very end_! 
+
+:) 
 
 
 ## Model selection and fitting
@@ -921,13 +1094,15 @@ A lot of machine learning is considering variations on the equation:
 
 $$d(y,f(\vec{x}))$$
 
-where the things we are varying is the choice of distance metric $d()$ which we have already discussed. We have talked a lot less about varying $f()$ which is the most common topic for many machine learning books. Here we will briefly review a couple of the key algorithms. 
+where the things we are varying is the choice of distance metric $d()$ which we have already discussed (e.g. mean squared error, accuracy, PPV). 
 
-The first thing to keep in mind is that with well engineered features, often simple algorithms due almost as well as more advanced algorithms.
+We have talked a lot less about varying $f()$ which is the most common topic for many machine learning books. Here, we will briefly review a couple of the key algorithms. 
+
+The first thing to keep in mind is that with well engineered features, **often simple algorithms due almost as well as more advanced algorithms**.
 
 The other thing to keep in mind with these types of algorithms is that there are often important tradeoffs.
 
-```{r tradeoffs, echo=FALSE, out.width = '60%', fig.align='center'}
+```{r tradeoffs, echo=FALSE, out.width = '80%', fig.align='center'}
 knitr::include_graphics("../../images/tradeoffs.png")
 ```
 
@@ -967,7 +1142,11 @@ This is an example tree:
 knitr::include_graphics("../../images/obama-clinton.jpg")
 ```
 
-The big question is how to define "best separates the outcomes" in Step 4 of the general algorithm. For continuous data you might minimize the [residual sum of squares in each group](https://rafalab.github.io/dsbook/trees-and-random-forests.html). For binary data you might measure [misclassification or information gain](https://en.wikipedia.org/wiki/Decision_tree_learning). 
+The big question is how to define "best separates the outcomes" in Step 4 of the general algorithm. 
+
+For continuous data, you might minimize the [residual sum of squares in each group](https://rafalab.github.io/dsbook/trees-and-random-forests.html). 
+
+For binary data, you might measure [misclassification or information gain](https://en.wikipedia.org/wiki/Decision_tree_learning). 
 
 - **Strengths** - Trees are usually easy to understand and can be fit quickly. 
 - **Weaknesses** - Trees have a tendency not to be terribly accurate compared to some other methods and may overfit. 
@@ -993,11 +1172,15 @@ ggplot(train_dat, aes(x=type,y=pixel2)) +
 We should be able to do ok for this model fitting. We can fit models using the [caret package](http://topepo.github.io/caret/index.html). The caret package simplifies a lot of model fitting for machine learning. We can use the `train` command to do this in R. 
 
 ```{r}
-mod = train(as.factor(type) ~ ., data=train_dat,method="rpart")
+mod = train(as.factor(type) ~ ., 
+            data=train_dat, 
+            method="rpart")
 mod
 ```
 
-Here you can see we have reasonable accuracy, this accuracy is estimated using bootstrapping only the training set. We can look at the final model fit after model selection using the `finalModel` argument. 
+Here, you can see we have reasonable accuracy, this accuracy is estimated using bootstrapping only the training set. 
+
+We can look at the final model fit after model selection using the `finalModel` argument. 
 
 ```{r}
 mod$finalModel
@@ -1009,6 +1192,7 @@ You can use the `rpart.plot` package to visualize what is actually going on here
 rpart.plot(mod$finalModel)
 ```
 
+Interesting! I wonder what pixel 246 is?? Can you guess? If not, no worries. Hang tight.
 
 
 ## Model evaluation
@@ -1016,24 +1200,28 @@ rpart.plot(mod$finalModel)
 The last step is model evaluation. A good model evaluation includes the components: 
 
 1. Evaluation of the model predictions based on the goal you stated at the beginning of the problem. 
-2. Exploratory analysis of predictions to ensure that there aren't obvious problems
-3. Consideration of the practical and ethical consequences of deploying your model. 
+2. Exploratory analysis of predictions to ensure that there are no obvious problems.
+3. **Important**: considerations of the practical and ethical consequences of deploying your model. 
 
 :::keyideas 
 
 **why is this important?**
 
-A while back Amazon developed an AI algorithm for predicting who they should hire. They did a good job of evaluating criteria 1 - they knew they could accurately predict in their training set. 
+A while back Amazon developed an AI algorithm for predicting who they should hire. They did a good job of evaluating criteria 1 (above): i.e. they knew they could accurately predict in their training set. 
 
-However, they didn't do exploratory analysis to identify what their model was using to make predictions. They also didn't do a careful job of evaluating the implications of their model in terms of bias. 
+However, they missed criteria 2 (abvoe) i.e. they did not do an exploratory analysis to identify what their model was using to make predictions. 
 
-This [led to some major problems](https://www.reuters.com/article/us-amazon-com-jobs-automation-insight/amazon-scraps-secret-ai-recruiting-tool-that-showed-bias-against-women-idUSKCN1MK08G). 
+They also did not do a careful job of evaluating the implications of their model in terms of bias. 
+
+This [led to some major problems](https://www.reuters.com/article/us-amazon-com-jobs-automation-insight/amazon-scraps-secret-ai-recruiting-tool-that-showed-bias-against-women-idUSKCN1MK08G). (worth a peek)
 
 :::
 
 #### back to model evaluation
 
-Before evaluating our model in the test set, we want to understand what is going on with our prediction. This is an active and open area of research: the interpretation of results from black box machine learning algorithms. We can do this in a couple of ways. One approach that has seen some traction is [locally interpretable model agnostic explanations](https://homes.cs.washington.edu/~marcotcr/blog/lime/) (lime). This approach fits very simple local models to approximate the complicated model in a local neighborhood. 
+Before evaluating our model in the test set, we want to understand what is going on with our prediction. This is **an active and open area of research**: the interpretation of results from black box machine learning algorithms. 
+
+We can do this in a couple of ways. One approach that has seen some traction is [locally interpretable model agnostic explanations](https://homes.cs.washington.edu/~marcotcr/blog/lime/) (lime). This approach fits very simple local models to approximate the complicated model in a local neighborhood. 
 
 ```{r local-model, echo=FALSE, out.width = '60%', fig.align='center'}
 knitr::include_graphics("../../images/local-model.png")
@@ -1045,7 +1233,8 @@ Then for each prediction [you can see](https://iamkbpark.com/2018/01/22/deep-lea
 Or you can start looking at the data for individual features. 
 
 ```{r}
-ggplot(img_final,aes(x=type,y=pixel246)) + 
+img_final %>% 
+  ggplot(aes(x=type,y=pixel246)) + 
   geom_violin() + 
   theme_minimal() + 
   scale_y_log10()
@@ -1068,8 +1257,10 @@ pheatmap(X,cluster_cols=FALSE,cluster_rows=FALSE)
 We can also figure out which of the images are misclassified and look at them
 
 ```{r}
-missed = which(predict(mod,train_dat) != train_dat$type)
-missed_imgs = train_dat[missed,] %>% 
+missed <- which(predict(mod,train_dat) != train_dat$type)
+
+missed_imgs <- 
+  train_dat[missed,] %>% 
   select(type,drawing) 
 ```
 
@@ -1082,32 +1273,22 @@ missed_imgs  = missed_imgs %>%
 
 rjson::fromJSON(axes_json[[missed_imgs$drawing[1]]]) %>% 
     parse_drawing() %>% 
-    ggplot(aes(x, y)) +
-    geom_path(aes(group = line), lwd=1)+
-    scale_x_continuous(limits=c(0, 255))+
-    scale_y_reverse(limits=c(255, 0))+
+    ggplot(aes(x=x, y=y)) +
+    geom_path(aes(group = line), lwd=1) +
+    scale_x_continuous(limits=c(0, 255)) +
+    scale_y_reverse(limits=c(255, 0)) +
     theme_minimal()
 ```
 
+ha! makes sense now
 
-The first is not clear why we missed this? Maybe just because the model is too sparse? This would be something we'd explore more carefully. 
-
-The last step is to apply the predictions in the test set. You only do this once, but it gives you the best estimate of the out of sample error rate you'd see in practice. 
+The last step (!!) is to apply the predictions in the test set. You only do this once, but it gives you the best estimate of the out of sample error rate you'd see in practice. 
 
 ```{r}
 confusionMatrix(factor(test_dat$type), predict(mod,test_dat))
 ```
 
 This accuracy is usually slightly lower than the accuracy in the training data. 
-
-
-
-
-
-
-
-
-
 
 
 # Post-lecture materials
